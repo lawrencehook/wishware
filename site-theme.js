@@ -1,6 +1,6 @@
 // Run in the document head so native controls and page colors agree on first paint.
 (() => {
-    const key = 'apps-by-ai-theme';
+    const key = 'wishware-theme';
     const system = window.matchMedia?.('(prefers-color-scheme: dark)');
     const root = document.documentElement;
     let preference = 'system';
@@ -8,7 +8,7 @@
 
     function readPreference() {
         try {
-            const saved = localStorage.getItem(key) ?? localStorage.getItem('countdown-theme');
+            const saved = localStorage.getItem(key) ?? localStorage.getItem('apps-by-ai-theme') ?? localStorage.getItem('countdown-theme');
             preference = ['dark', 'light'].includes(saved) ? saved : 'system';
         } catch { /* The control still works when storage is unavailable. */ }
     }
