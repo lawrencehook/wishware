@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mechanical tide prediction · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Mechanical tide prediction</h1>
+        <p>Engage lunar and solar pulleys separately and together in a two-constituent model. Inspect how successive crests change over thirty days.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://collection.sciencemuseumgroup.org.uk/objects/co53901">Science Museum Group</a></p><nav aria-label="Experiment sequence"><a href="../chopin-fantaisie-impromptu-op-66/index.html">← Previous · Chopin — Fantaisie-Impromptu, Op. 66</a> <a href="../kyoto-cherry-blossoms/index.html">Next · Kyoto cherry blossoms →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('Two harmonic constituents and their sum over thirty days.');
+let lunar=true,solar=true;
+function draw(){clear(g);const wave=(hour)=> (lunar?Math.cos(2*Math.PI*hour/12.4206):0)+(solar?.46*Math.cos(2*Math.PI*hour/12):0);
+    line(g,curve(900,t=>[25+910*t,158-74*wave(t*720)]));labelAt(g,'Day 1',25,295);labelAt(g,'Day 30',840,295);
+    statusLine.textContent='Lunar semidiurnal pulley '+(lunar?'engaged':'off')+' · solar semidiurnal pulley '+(solar?'engaged':'off')+'.';}
+button('Toggle lunar pulley',()=>{lunar=!lunar;draw();});button('Toggle solar pulley',()=>{solar=!solar;draw();});draw();
+</script>
+</body>
+</html>

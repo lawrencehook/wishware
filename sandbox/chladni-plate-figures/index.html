@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chladni plate figures · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Chladni plate figures</h1>
+        <p>Switch vibration modes on an ideal square plate and see where sand would collect along nodal lines.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://amhistory.si.edu/science/chladni.htm">Smithsonian National Museum of American History</a></p><nav aria-label="Experiment sequence"><a href="../gem-faceting-designs/index.html">← Previous · Gem faceting designs</a> <a href="../chopin-three-nocturnes-op-9/index.html">Next · Chopin — Three Nocturnes, Op. 9 →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('Nodal lines of an idealized square vibrating plate.');
+let m=2,n=3;
+function draw(){clear(g);
+ for(let x=0;x<=240;x+=2)for(let y=0;y<=240;y+=2){
+  const u=Math.PI*x/240,v=Math.PI*y/240;
+  if(Math.abs(Math.cos(m*u)*Math.cos(n*v)-Math.cos(n*u)*Math.cos(m*v))<.075){g.fillStyle=gold;g.fillRect(350+x,35+y,2,2);}
+ }
+ statusLine.textContent='Mode indices ('+m+', '+n+'). Sand marks where displacement approaches zero.';}
+menu('Mode pair',['2 and 3','1 and 4','3 and 5','2 and 6'],v=>{[m,n]=[[2,3],[1,4],[3,5],[2,6]][v];draw();});draw();
+</script>
+</body>
+</html>

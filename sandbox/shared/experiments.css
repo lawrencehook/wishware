@@ -1,0 +1,20 @@
+* { box-sizing: border-box }
+body { margin: 0 auto; max-width: 68rem; padding: clamp(16px, 4vw, 50px); font: 1rem/1.5 system-ui,sans-serif; background: light-dark(#f8f7f0,#182420); color: light-dark(#263830,#e6ede4) }
+a { color: light-dark(#17614d,#99debc); text-underline-offset: .18em }
+nav, .controls { display: flex; align-items: center; flex-wrap: wrap; gap: .7rem 1.2rem }
+h1 { margin: 2rem 0 .4rem; font: normal clamp(2rem,5vw,3.7rem)/1.1 Georgia,serif }
+p { max-width: 72ch }
+canvas, .stage { display:block; width:100%; max-width:58rem; background:#172d2b; color:#e9f3e8; border-radius:.5rem; margin:1.2rem 0 }
+canvas { aspect-ratio: 3/1; height:auto }
+label { display:inline-flex; flex-wrap:wrap; align-items:center; gap:.4rem }
+button,select,input { font:inherit; max-width:100% }
+button,select { padding:.45em .8em; border:1px solid #738c80; border-radius:.35em; cursor:pointer }
+input[type=range] { width:min(13rem,48vw); accent-color:#488975 }
+output { display:block; min-height:1.5em; margin:.7rem 0 }
+footer { margin-top:2rem; padding-top:.8rem; border-top:1px solid #809387; font-size:.86rem; overflow-wrap:anywhere }
+audio { width:min(100%,42rem); display:block; margin:1rem 0 }
+figure { margin:1rem 0 } figure img { max-width:100%; max-height:22rem }
+.gallery { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr)); gap:.8rem }
+.gallery li { border:1px solid light-dark(#bed0c4,#445e50); padding:1rem; border-radius:.4rem }
+.gallery a { font-weight:650 } .gallery p { margin:.55em 0 0; font-size:.9rem }
+:focus-visible { outline:3px solid #d39235; outline-offset:3px }

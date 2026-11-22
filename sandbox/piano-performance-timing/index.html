@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Piano performance timing · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Piano performance timing</h1>
+        <p>Tap a short passage at 120 BPM. Compare your actual onset times with the metronomic grid.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://magenta.tensorflow.org/datasets/maestro">MAESTRO</a></p><nav aria-label="Experiment sequence"><a href="../satellite-portraits-of-typhoons/index.html">← Previous · Satellite portraits of typhoons</a> <a href="../beethoven-string-quartets/index.html">Next · Beethoven string quartets →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('Played attacks against a regular metronome grid.');
+let taps=[];const target=.5;
+function draw(){clear(g);for(let i=0;i<8;i++){const x=55+110*i;line(g,[[x,50],[x,235]],'#708b7d',2);labelAt(g,String(i+1),x-4,268);}
+ taps.forEach((v,i)=>dot(g,55+(v-taps[0])/1000/target*110,140,8,gold));
+ if(taps.length>1){const error=taps.slice(1).map((v,i)=>(v-taps[i])-500);statusLine.textContent='Mean interval '+Math.round((taps.at(-1)-taps[0])/(taps.length-1))+' ms · latest interval '+Math.round(error.at(-1))+' ms relative to 120 BPM.';}else statusLine.textContent='Tap eight steady quarter notes at 120 BPM.';}
+button('Tap beat',()=>{if(taps.length>=8)taps=[];taps.push(performance.now());draw();});button('Reset',()=>{taps=[];draw();});draw();
+</script>
+</body>
+</html>

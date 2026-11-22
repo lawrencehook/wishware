@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Steam pumping engines · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Steam pumping engines</h1>
+        <p>Rotate a crank by hand and follow the eccentric that moves a schematic steam valve.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://tile.loc.gov/storage-services/master/pnp/habshaer/ma/ma1400/ma1439/data/ma1439data.pdf">Deer Island engineering record</a></p><nav aria-label="Experiment sequence"><a href="../timber-bridges/index.html">← Previous · Timber bridges</a> <a href="../early-modern-recipes/index.html">Next · Early modern recipes →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('Crank, eccentric, and idealized valve movement.');
+function draw(a){clear(g);const t=a*Math.PI/180,c=[290,160],p=[290+76*Math.cos(t),160+76*Math.sin(t)],v=490+42*Math.cos(t+.85);
+ g.strokeStyle=mint;g.beginPath();g.arc(...c,76,0,2*Math.PI);g.stroke();line(g,[c,p],gold,5);dot(g,...p,7);
+ line(g,[[290+42*Math.cos(t+.85),160+42*Math.sin(t+.85)],[v,160]],coral,5);g.fillStyle=mint;g.fillRect(v,141,80,38);
+ line(g,[[442,185],[624,185]],white);statusLine.textContent='Crank '+a+'° · valve displacement '+Math.round(v-490)+' model units.';}
+slider('Turn shaft',0,360,0,draw);draw(0);
+</script>
+</body>
+</html>

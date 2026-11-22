@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Baseball scorekeeping · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Baseball scorekeeping</h1>
+        <p>Rebuild the bases one plate appearance at a time in Toronto’s first inning at Anaheim on April 7, 2023.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://retrosheet.org/downloads/csvdownloads.html">Retrosheet downloads</a></p><p><a href="https://www.retrosheet.org/">Play-by-play information obtained free of charge from and copyrighted by Retrosheet · ANA202304070</a></p><nav aria-label="Experiment sequence"><a href="../japanese-go/index.html">← Previous · Japanese Go</a> <a href="../timber-bridges/index.html">Next · Timber bridges →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('Base occupancy reconstructed from Toronto’s first four plate appearances, April 7, 2023.');
+const plays=[['Start of first inning',0,false],['George Springer flies out to left',1,false],['Bo Bichette doubles to center',1,true],['Vladimir Guerrero Jr. grounds out to the pitcher',2,true],['Matt Chapman strikes out',3,true]];
+function draw(i){clear(g);const base=[[475,260],[575,160],[475,60],[375,160]];
+ line(g,[...base,base[0]],mint,4);base.forEach(([x,y],j)=>dot(g,x,y,11,j===2&&plays[i][2]?gold:white));
+ statusLine.textContent=plays[i][0]+' · '+plays[i][1]+' out'+(plays[i][1]===1?'':'s')+(i===4?' · runner stranded at second.':plays[i][2]?' · runner at second.':' · bases empty.');}
+slider('Plate appearances',0,4,0,draw);draw(0);
+</script>
+</body>
+</html>

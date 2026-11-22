@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Multiple-view motion studies · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Multiple-view motion studies</h1>
+        <p>Scrub one gallop and switch between the side and rear camera at the same exposure.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://archives.upenn.edu/digitized-resources/docs-pubs/muybridge/">University of Pennsylvania archive</a></p><p><a href="https://www.loc.gov/item/2012646125/">Eadweard Muybridge, Animal Locomotion, plate 633 (1887) · Library of Congress. Cropped exposures.</a></p><nav aria-label="Experiment sequence"><a href="../joplin-maple-leaf-rag/index.html">← Previous · Joplin — Maple Leaf Rag</a> <a href="../kepler-stellar-light-curves/index.html">Next · Kepler stellar light curves →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+let frame=1, angle=0;
+const image=document.createElement('img'),figure=document.createElement('figure');
+figure.append(image);mount.prepend(figure);
+image.style.cssText='background:#302e28;width:100%;height:clamp(180px,38vw,350px);object-fit:contain;image-rendering:auto';
+function show(){const view=['side','rear'][angle];image.src=view+'-'+frame+'.jpg';image.alt=view+' view, exposure '+frame;statusLine.textContent='Exposure '+frame+' of 12 · '+view+' view';}
+slider('Exposure',1,12,1,v=>{frame=v;show();});
+menu('Camera',['Side','Rear'],v=>{angle=v;show();});show();
+</script>
+</body>
+</html>

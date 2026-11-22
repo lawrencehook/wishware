@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Yucatán forest-floor lidar · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Yucatán forest-floor lidar</h1>
+        <p>Move a light around a synthetic elevation patch and find the low ridge. Compare the effect with the archived lidar map.</p>
+        <div id="experiment"></div>
+        <details><summary>Inspect source image</summary><figure><img src="plate-0.webp" alt="El Tintal Plateau Lidar Map PAET"></figure></details>
+    </main>
+    <footer><p><a href="https://catalog.data.gov/dataset/g-liht-yucatan-west-2013-reprocessed-ground-points-dems-and-visualizations">NASA G-LiHT via Data.gov</a></p><p><a href="https://commons.wikimedia.org/wiki/File:El_Tintal_Plateau_Lidar_Map_PAET.jpg">El Tintal Plateau Lidar Map PAET · Carlos R. Chiriboga/PAET · CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0</a></p><nav aria-label="Experiment sequence"><a href="../renaissance-vocal-polyphony/index.html">← Previous · Renaissance vocal polyphony</a> <a href="../mozart-variations-on-ah-vous-dirai-je-maman-k-265/index.html">Next · Mozart — Variations on Ah, vous dirai-je maman, K. 265 →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('Shaded relief of a schematic low ridge crossing undulating ground.');
+function draw(az){clear(g);const a=az*Math.PI/180;
+ function z(x,y){return 6*Math.sin(x/50)*Math.cos(y/45)+4*Math.exp(-((y-x*.14-60)**2)/35);}
+ for(let y=0;y<140;y+=2)for(let x=0;x<440;x+=2){const gx=z(x+1,y)-z(x-1,y),gy=z(x,y+1)-z(x,y-1);
+ const l=Math.max(30,Math.min(210,122+65*(gx*Math.cos(a)+gy*Math.sin(a))));g.fillStyle='rgb('+l+','+(l+6)+','+l+')';g.fillRect(35+x*2,15+y*2,4,4);}
+ statusLine.textContent='Illumination azimuth '+az+'°. Look for the straight ridge running across the ground.';}
+slider('Light azimuth',0,360,40,draw);draw(40);
+</script>
+</body>
+</html>

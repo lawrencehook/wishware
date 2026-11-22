@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Patterns from surviving garments · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Patterns from surviving garments</h1>
+        <p>Fold a model strip into a box pleat and compare its depth with the back of an actual garment.</p>
+        <div id="experiment"></div>
+        <details><summary>Inspect source image</summary><figure><img src="plate-0.webp" alt="Sack-back gown"></figure></details>
+    </main>
+    <footer><p><a href="https://www.lacma.org/patternproject">LACMA Pattern Project</a></p><p><a href="https://commons.wikimedia.org/wiki/File:Sack-back_gown.JPG">Sack-back gown · Ludi Ling · CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0</a></p><nav aria-label="Experiment sequence"><a href="../astrolabes/index.html">← Previous · Astrolabes</a> <a href="../unfinished-stone-carving-at-mamallapuram/index.html">Next · Unfinished stone carving at Mamallapuram →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('A strip of fabric showing a box pleat in cross-section.');
+function draw(fold){clear(g);const t=fold*Math.PI/180,arm=60,half=130;
+ const pts=[[100,205],[480-half-arm*Math.cos(t),205],[480-half,205-arm*Math.sin(t)],[480+half,205-arm*Math.sin(t)],[480+half+arm*Math.cos(t),205],[860,205]];
+ line(g,pts,mint,7);pts.slice(1,-1).forEach(p=>dot(g,...p,6,gold));statusLine.textContent='Fold angle '+fold+'° · depth '+Math.round(arm*Math.sin(t))+' model units.';}
+slider('Fold the back pleat',0,165,0,draw);draw(0);
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Japanese sangaku geometry tablets · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Japanese sangaku geometry tablets</h1>
+        <p>Resize one circle in a three-circle tangency construction and watch the radius of the small inscribed circle.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://www.waseda.jp/inst/wias/news-en/2024/04/18/15702/">Waseda Institute for Advanced Study</a></p><nav aria-label="Experiment sequence"><a href="../chopin-berceuse-op-57/index.html">← Previous · Chopin — Berceuse, Op. 57</a> <a href="../interlocking-burr-puzzle-designs/index.html">Next · Interlocking burr puzzle designs →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('Three mutually tangent circles resting on a line.');
+function draw(r){clear(g);const a=105,b=r,c=1/(1/Math.sqrt(a)+1/Math.sqrt(b))**2;
+    const centers=[[230,260-a,a],[230+2*Math.sqrt(a*b),260-b,b],[230+2*Math.sqrt(a*c),260-c,c]];
+    line(g,[[35,260],[920,260]],white);centers.forEach(([x,y,r],i)=>{g.beginPath();g.arc(x,y,r,0,2*Math.PI);g.strokeStyle=[mint,gold,coral][i];g.stroke();});
+    statusLine.textContent='Small radius '+c.toFixed(2)+' · 1/√small = 1/√left + 1/√right.';}
+slider('Right-hand radius',18,115,72,draw);draw(72);
+</script>
+</body>
+</html>

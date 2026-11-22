@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Restaurant menus · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Restaurant menus</h1>
+        <p>Order from the January 11, 1900 dinner menu with a fifty-cent budget. Check the printed prices against your receipt.</p>
+        <div id="experiment"></div>
+        <details><summary>Inspect source image</summary><figure><img src="plate-0.webp" alt="DINNER MENU (held by) A.M. SWEET &amp; SON HOTEL &amp; RESTAURANT (at) NEW YORK, NY (HOTEL-REST;) (NYPL Hades-272167-4000007092)"></figure></details>
+    </main>
+    <footer><p><a href="https://nypl.github.io/menus-api/">NYPL menu data documentation</a></p><p><a href="https://commons.wikimedia.org/wiki/File:DINNER_MENU_(held_by)_A.M._SWEET_%26_SON_HOTEL_%26_RESTAURANT_(at)_NEW_YORK,_NY_(HOTEL-REST;)_(NYPL_Hades-272167-4000007092).jpg">DINNER MENU (held by) A.M. SWEET &amp; SON HOTEL &amp; RESTAURANT (at) NEW YORK, NY (HOTEL-REST;) (NYPL Hades-272167-4000007092) · Scan by NYPL · Public domain </a></p><nav aria-label="Experiment sequence"><a href="../engineering-and-architectural-surveys/index.html">← Previous · Engineering and architectural surveys</a> <a href="../railways-and-postal-routes/index.html">Next · Railways and postal routes →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const dishes=[['Beef soup',10],['Chicken gumbo',15],['Boiled onions',5],['Halibut steak',25],['Ham sandwich',10],['Apple pie',10],['Coffee (cup)',5]];
+let order=[];const receipt=document.createElement('p');mount.prepend(receipt);
+function draw(){const total=order.reduce((n,i)=>n+dishes[i][1],0);receipt.textContent=order.length?order.map(i=>dishes[i][0]).join(' + '):'Your order is empty.';
+ statusLine.textContent='Total '+total+'¢ · '+(total>50?(total-50)+'¢ over budget':(50-total)+'¢ left')+'.';}
+dishes.forEach(([name,price],i)=>button(name+' · '+price+'¢',()=>{order.push(i);draw();}));
+button('Undo item',()=>{order.pop();draw();});draw();
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Glass — Complete Piano Etudes · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Glass — Complete Piano Etudes</h1>
+        <p>Compare two repeated six-note patterns. Identify the attack that moved and check your answer.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://www.nkoda.com/work/The-Complete-Piano-Etudes">nkoda / Chester Music</a></p><nav aria-label="Experiment sequence"><a href="../ligeti-musica-ricercata/index.html">← Previous · Ligeti — Musica ricercata</a> <a href="../ades-traced-overhead/index.html">Next · Adès — Traced Overhead →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('Two successive six-note patterns with one changed position.');
+const a=[60,64,67,71,67,64];let changed=3,guess=0;
+function draw(reveal=false){clear(g);[0,1].forEach(row=>a.forEach((p,i)=>{const pitch=p+(row&&i===changed?2:0);const y=115+row*140-(pitch-60)*5;
+ dot(g,125+i*140,y,9,reveal&&i===changed?coral:row?gold:mint);labelAt(g,String(i+1),118+i*140,146+row*140);}));}
+menu('Changed position',a.map((_,i)=>String(i+1)),v=>{guess=v;});
+button('Check pattern',()=>{draw(true);statusLine.textContent=guess===changed?'Correct. Only this attack moved.':'Compare position '+(changed+1)+' in the two rows.';});
+button('Another pair',()=>{changed=(changed+5)%6;draw();statusLine.textContent='Which note moved?';});draw();
+</script>
+</body>
+</html>

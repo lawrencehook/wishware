@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Letterlocking · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Letterlocking</h1>
+        <p>Open a three-panel letter model and track the address face as the packet becomes a flat sheet.</p>
+        <div id="experiment"></div>
+        <details><summary>Inspect source image</summary><figure><img src="plate-0.webp" alt="A folded paper letter with remnants of ties (Venice, 1540). (8065271382)"></figure></details>
+    </main>
+    <footer><p><a href="https://letterlocking.org/imaging-locked-letter-collections">Unlocking History / Brienne Collection</a></p><p><a href="https://commons.wikimedia.org/wiki/File:A_folded_paper_letter_with_remnants_of_ties_(Venice,_1540)._(8065271382).jpg">A folded paper letter with remnants of ties (Venice, 1540). (8065271382) · takomabibelot · CC BY 2.0 https://creativecommons.org/licenses/by/2.0</a></p><nav aria-label="Experiment sequence"><a href="../vertebrate-ct-volumes/index.html">← Previous · Vertebrate CT volumes</a> <a href="../inuinnait-string-figures/index.html">Next · Inuinnait string figures →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('A letter packet unfolding into three panels.');
+function draw(deg){clear(g);const f=deg/180,w=185,y=75;g.fillStyle='#ead7aa';g.fillRect(385,y,w,160);
+ const extent=Math.cos(Math.PI*(1-f))*w;
+ for(const [hinge,dir] of [[385,-1],[570,1]]){const x=hinge+dir*extent;g.fillStyle=dir<0?'#b8a989':'#d0bf9b';g.fillRect(Math.min(hinge,x),y,Math.abs(extent),160);line(g,[[hinge,y],[hinge,y+160]],'#6c725f',2);}
+ if(f>.7){labelAt(g,'Address',245,150,'#283830');labelAt(g,'Text',615,150,'#283830');}
+ statusLine.textContent=f===1?'Both faces of the opened panels lie in one plane.':'Fold angle '+deg+'°.';}
+slider('Unfold panels',0,180,0,draw);draw(0);
+</script>
+</body>
+</html>

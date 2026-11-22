@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Manuscript collation · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Manuscript collation</h1>
+        <p>Pull a folded sheet from a sixteen-page gathering and see which four pages come with it.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://ischool.uw.edu/capstone/projects/2023/modeling-manuscripts-visualizing-collation-using-vceditor">Penn Libraries / University of Washington VisColl project</a></p><nav aria-label="Experiment sequence"><a href="../ship-hulls/index.html">← Previous · Ship hulls</a> <a href="../court-dancing/index.html">Next · Court dancing →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('Nested folios showing page imposition in a sixteen-page gathering.');
+function draw(sheet){clear(g);const p=[16-2*sheet,1+2*sheet,2+2*sheet,15-2*sheet];
+ p.forEach((n,i)=>{const x=42+i*223;g.fillStyle=i<2?'#a6dacf':'#efd1a4';g.fillRect(x,70,202,150);labelAt(g,String(n),x+87,150,'#28352e');});
+ labelAt(g,'Outer face',45,264);labelAt(g,'Reverse face',493,264);statusLine.textContent='Sheet '+(sheet+1)+' carries pages '+p.join(', ')+'.';}
+slider('Pull sheet (outermost first)',1,4,1,v=>draw(v-1));draw(0);
+</script>
+</body>
+</html>

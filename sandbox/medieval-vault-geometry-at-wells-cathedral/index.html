@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Medieval vault geometry at Wells Cathedral · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Medieval vault geometry at Wells Cathedral</h1>
+        <p>Lift an example arch from a tracing plane into elevation while its endpoints stay fixed. Compare the principle with the Wells cloister photograph.</p>
+        <div id="experiment"></div>
+        <details><summary>Inspect source image</summary><figure><img src="plate-0.webp" alt="Cloister, Wells Cathedral"></figure></details>
+    </main>
+    <footer><p><a href="https://www.tracingthepast.org.uk/2021/04/08/wells_site_by_site/">Tracing the Past</a></p><p><a href="https://commons.wikimedia.org/wiki/File:Cloister,_Wells_Cathedral.JPG">Cloister, Wells Cathedral · Nessy-Pic · CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0</a></p><nav aria-label="Experiment sequence"><a href="../interlocking-burr-puzzle-designs/index.html">← Previous · Interlocking burr puzzle designs</a> <a href="../gem-faceting-designs/index.html">Next · Gem faceting designs →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('A planar arch rotating into a vertical rib over its footprint.');
+function draw(deg){clear(g);const a=deg*Math.PI/180;line(g,[[160,245],[780,245]],'#789488');
+ line(g,curve(120,t=>[270+400*t,245-110*Math.sin(Math.PI*t)*.42]),'#637b73',2);
+ line(g,curve(120,t=>[270+400*t,245-150*Math.sin(Math.PI*t)*(Math.sin(a)+.31*Math.cos(a))]),gold,5);
+ for(const x of [270,670])dot(g,x,245,6,mint);statusLine.textContent='Tracing plane lifted '+deg+'° · both springing points stay fixed.';}
+slider('Lift tracing',0,90,0,draw);draw(0);
+</script>
+</body>
+</html>

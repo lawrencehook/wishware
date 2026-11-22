@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Japanese Go · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Japanese Go</h1>
+        <p>Replay the first eighteen stones of Doetsu versus Dosaku. Predict each move before revealing it.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://homepages.cwi.nl/~aeb/go/games/games/index.html">A. E. Brouwer’s game archive at CWI</a></p><p><a href="https://homepages.cwi.nl/~aeb/go/games/dosaku.tgz">Japanese professional Go game archive · Dosaku/001.sgf</a></p><nav aria-label="Experiment sequence"><a href="../historical-score-editions/index.html">← Previous · Historical score editions</a> <a href="../baseball-scorekeeping/index.html">Next · Baseball scorekeeping →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>const sample = [["B","cp"],["W","ce"],["B","oq"],["W","qe"],["B","ed"],["W","ic"],["B","cc"],["W","ch"],["B","oc"],["W","qc"],["B","lc"],["W","eq"],["B","iq"],["W","io"],["B","jo"],["W","po"],["B","qp"],["W","qo"]];</script><script>
+const g=board('First eighteen stones in Honinbo Doetsu versus Honinbo Dosaku, archive game 001.');
+function draw(n){clear(g);const ox=358,oy=25,step=14;
+ for(let i=0;i<19;i++){line(g,[[ox,oy+i*step],[ox+18*step,oy+i*step]],gold,1);line(g,[[ox+i*step,oy],[ox+i*step,oy+18*step]],gold,1);}
+ sample.slice(0,n).forEach(([c,s])=>dot(g,ox+(s.charCodeAt(0)-97)*step,oy+(s.charCodeAt(1)-97)*step,6.3,c==='B'?'#070d0d':white));
+ statusLine.textContent=n+' moves shown · '+(n<sample.length?(n%2?'White':'Black')+' to play. Predict the next point.':'end of opening excerpt.');}
+let n=0;button('Reveal next move',()=>{n=Math.min(sample.length,n+1);draw(n);});button('Back one stone',()=>{n=Math.max(0,n-1);draw(n);});draw(0);
+</script>
+</body>
+</html>

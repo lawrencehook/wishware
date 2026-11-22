@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cowell — The Banshee, HC 405 · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Cowell — The Banshee, HC 405</h1>
+        <p>Touch a schematic piano string and switch between pluck, rub, and sweep gestures in a synthesized sound study.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://imslp.org/wiki/The_Banshee,_HC_405_(Cowell,_Henry)">IMSLP</a></p><nav aria-label="Experiment sequence"><a href="../ives-piano-sonata-no-2-s-88/index.html">← Previous · Ives — Piano Sonata No.2, S.88</a> <a href="../bach-keyboard-repertoire/index.html">Next · Bach keyboard repertoire →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('Nine schematic piano strings. Choose a gesture and touch a string.');
+let gesture=0,ctx;
+function draw(active=-1){clear(g);for(let i=0;i<9;i++){
+ const x=190+i*72;line(g,[[x,40+i*3],[x,277-i*7]],i===active?gold:mint,i===active?5:2);labelAt(g,String(i+1),x-5,303);}}
+async function excite(i){try{ctx??=new AudioContext();await ctx.resume();const t=ctx.currentTime,d=gesture===1?1.2:.7;
+ const o=ctx.createOscillator(),gain=ctx.createGain();o.type=gesture===1?'sawtooth':'triangle';o.frequency.value=65.4*2**(i/12);
+ if(gesture===2)o.frequency.exponentialRampToValueAtTime(o.frequency.value*2,t+d);
+ gain.gain.setValueAtTime(.0001,t);gain.gain.exponentialRampToValueAtTime(.07,t+(gesture===1?.26:.01));gain.gain.exponentialRampToValueAtTime(.0001,t+d);
+ o.connect(gain).connect(ctx.destination);o.start(t);o.stop(t+d);draw(i);statusLine.textContent=['Pluck','Rub','Sweep'][gesture]+' · string '+(i+1)+' · synthesized gesture.';}catch{statusLine.textContent='Audio unavailable.';}}
+menu('Gesture',['Pluck','Rub','Sweep'],v=>{gesture=v;});const string=slider('String',1,9,1,v=>draw(v-1));button('Sound string',()=>excite(+string.value-1));
+g.canvas.onpointerdown=e=>{const r=g.canvas.getBoundingClientRect(),x=(e.clientX-r.left)*960/r.width;const i=Math.max(0,Math.min(8,Math.round((x-190)/72)));string.value=i+1;excite(i);};draw();
+</script>
+</body>
+</html>

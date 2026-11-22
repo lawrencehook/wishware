@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Andean khipus · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Andean khipus</h1>
+        <p>Choose a pendant or subsidiary cord from KH0125. Inspect its recorded length and attachment in a schematic of the actual cord tree.</p>
+        <div id="experiment"></div>
+        <details><summary>Inspect source image</summary><figure><img src="plate-0.webp" alt="The Ancient Quipu Plate XXII"></figure></details>
+    </main>
+    <footer><p><a href="https://github.com/khipulab/open-khipu-repository">Open Khipu Repository</a></p><p><a href="https://github.com/khipulab/open-khipu-repository">Open Khipu Repository · cord records for KH0125</a></p><p><a href="https://commons.wikimedia.org/wiki/File:The_Ancient_Quipu_Plate_XXII.jpg">The Ancient Quipu Plate XXII · Leslie Leland Locke · Public domain </a></p><nav aria-label="Experiment sequence"><a href="../reproducing-piano-rolls/index.html">← Previous · Reproducing piano rolls</a> <a href="../chinese-star-charts/index.html">Next · Chinese star charts →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>const sample = [[3007054,22,1000055,1],[3007055,41,1000055,1],[3007056,34.5,1000055,1],[3007057,42,1000055,1],[3007058,25.5,1000055,1],[3007059,39.5,1000055,1],[3007060,33,1000055,1],[3007061,39,3007055,2],[3007062,46,3007056,2],[3007063,42.5,3007057,2],[3007064,40,3007059,2]];</script><script>
+const g=board('Attachment tree reconstructed from Open Khipu Repository record KH0125.');
+function draw(index){clear(g);const parent=new Map();let root=0;
+ line(g,[[80,35],[890,35]],mint,5);
+ sample.forEach(([id,len,from,level],i)=>{
+  const x=level===1?110+root++*110:parent.get(from)[0]+32,y=level===1?35:parent.get(from)[1]*.55+16;
+  const end=y+len*3.6;parent.set(id,[x,end]);
+  if(level===2)line(g,[[x-32,y],[x,y+8]],mint);
+  line(g,[[x,y+(level===2?8:0)],[x,end]],index===i?coral:gold,index===i?6:3);});
+ const [id,len,from,level]=sample[index];statusLine.textContent='Cord '+id+' · recorded length '+len+' cm · '+(level===1?'primary pendant':'branch of cord '+from)+'. Attachment heights are schematic.';}
+menu('Inspect cord',sample.map(a=>String(a[0])),draw);draw(0);
+</script>
+</body>
+</html>

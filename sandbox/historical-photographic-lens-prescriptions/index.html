@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Historical photographic lens prescriptions · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Historical photographic lens prescriptions</h1>
+        <p>Remove a rear element from a two-thin-lens teaching model and see how the emerging rays shift.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://patents.google.com/patent/US716035A/en">US patent 716035 via Google Patents</a></p><nav aria-label="Experiment sequence"><a href="../measured-munsell-color-samples/index.html">← Previous · Measured Munsell color samples</a> <a href="../astrolabes/index.html">Next · Astrolabes →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('Paraxial rays through two adjustable thin lenses.');
+let power=true;
+function draw(f){clear(g);line(g,[[30,158],[930,158]],white,1);
+ for(const start of [-65,-32,0,32,65]){let y=start,s=.035;const pts=[[30,158+y]];
+ for(const [x,dist,focus] of [[290,260,f],[490,200,power?-280:Infinity],[900,410,Infinity]]){y+=s*dist;pts.push([x,158+y]);s-=y/focus;}line(g,pts,gold,2);}
+ for(const x of (power?[290,490]:[290]))line(g,[[x,30],[x,284]],mint,5);
+ statusLine.textContent='Front focal length '+f+' units · rear diverging element '+(power?'present.':'removed.');}
+const f=slider('Front focal length',140,340,225,draw);button('Remove / insert rear element',()=>{power=!power;draw(+f.value);});draw(225);
+</script>
+</body>
+</html>

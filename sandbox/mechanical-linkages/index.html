@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mechanical linkages · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Mechanical linkages</h1>
+        <p>Turn the crank on a Peaucellier linkage and choose which joint leaves a trace.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://digital.library.cornell.edu/catalog/ss%3A372718">Cornell’s Peaucellier linkage</a></p><nav aria-label="Experiment sequence"><a href="../kepler-stellar-light-curves/index.html">← Previous · Kepler stellar light curves</a> <a href="../weaving/index.html">Next · Weaving →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+// Peaucellier inversion: OP × OQ = L² − R². P runs on a circle through O.
+const g=board('Peaucellier linkage with a driven point and an inverted tracing point.');
+let angle=0,joint=1;
+function positions(t){
+    const L=145,R=105,d=52,p=[d*(1+Math.cos(t)),d*Math.sin(t)],r=Math.hypot(...p);
+    const u=p.map(x=>x/r),q=u.map(x=>x*(L*L-R*R)/r),mid=p.map((v,i)=>(v+q[i])/2);
+    const h=Math.sqrt(Math.max(0,L*L-mid[0]**2-mid[1]**2));
+    return [p,q,[mid[0]-u[1]*h,mid[1]+u[0]*h],[mid[0]+u[1]*h,mid[1]-u[0]*h]];
+}
+function draw(){clear(g);const map=([x,y])=>[310+1.35*x,160-y],pts=positions(angle*Math.PI/180);
+    line(g,curve(141,t=>map(positions((t*140-70)*Math.PI/180)[joint])),coral,4);
+    for(const [a,b] of [[pts[0],pts[2]],[pts[2],pts[1]],[pts[1],pts[3]],[pts[3],pts[0]],[[0,0],pts[2]],[[0,0],pts[3]],[[52,0],pts[0]]])line(g,[map(a),map(b)],mint,3);
+    pts.forEach(p=>dot(g,...map(p),6));dot(g,...map(pts[joint]),9,coral);
+    statusLine.textContent='Crank '+angle+'° · '+['input circle','output straight line','upper joint curve'][joint];}
+slider('Crank angle',-70,70,0,v=>{angle=v;draw();});menu('Trace',['Output','Input','Upper joint'],v=>{joint=[1,0,2][v];draw();});draw();
+</script>
+</body>
+</html>

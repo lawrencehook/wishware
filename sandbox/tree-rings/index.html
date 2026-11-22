@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tree rings · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Tree rings</h1>
+        <p>Slide the short core along the dated core and check its first year. Bar heights show measured ring widths, scaled separately for each core.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://www.ncei.noaa.gov/products/paleoclimatology/tree-ring">International Tree-Ring Data Bank</a></p><p><a href="https://www.ncei.noaa.gov/pub/data/paleo/treering/measurements/northamerica/usa/ca535.rwl">NOAA International Tree-Ring Data Bank · CA535, MWK141 and MWK181</a></p><nav aria-label="Experiment sequence"><a href="../joplin-maple-leaf-rag/index.html">Next · Joplin — Maple Leaf Rag →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>const sample = ["MWK141","MWK181",1417,[37,46,35,48,41,44,41,50,39,34,41,47,47,44,31,30,40,29,44,46,28,27,31,39,37,25,36,39,42,30,36,12,25,18,27,28,24,23],[34,31,35,22,26,29,25,33,34,27,22,27,30,30,22,26]];</script><script>
+const [reference,unknown,year,a,b]=sample;
+const g=board('Two ring-width series, one fixed and one horizontally movable.');
+function show(offset) {
+    clear(g);
+    for(const [values,start,base,color] of [[a,0,136,mint],[b,offset,275,gold]]) {
+        const scale=87/Math.max(...values);
+        values.forEach((v,i)=>{g.fillStyle=color;g.fillRect(35+(i+start)*23,base-v*scale,17,v*scale);});
+    }
+    labelAt(g,reference+' · dated sequence',35,30);labelAt(g,unknown+' · unknown start',35,175);
+    statusLine.textContent='Proposed first year: '+(year+offset);
+}
+const shift=slider('Shift second core (years)',0,a.length-b.length,0,show);
+button('Check date',()=>{const delta=Number(shift.value)-11;statusLine.textContent=delta===0?'Matched. The second sample starts in '+(year+11)+'.':'Your date is '+Math.abs(delta)+' years too '+(delta>0?'late.':'early.');});
+show(0);
+</script>
+</body>
+</html>

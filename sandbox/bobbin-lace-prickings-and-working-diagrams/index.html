@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bobbin lace prickings and working diagrams · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Bobbin lace prickings and working diagrams</h1>
+        <p>Cross the middle bobbins or twist both pairs. Follow each colored thread through the resulting working diagram.</p>
+        <div id="experiment"></div>
+        <details><summary>Inspect source image</summary><figure><img src="plate-0.webp" alt="Bobbin lace prickings and hook"></figure></details>
+    </main>
+    <footer><p><a href="https://www2.cs.arizona.edu/patterns/weaving/lace.html">University of Arizona Digital Archive of Documents Related to Lace</a></p><p><a href="https://commons.wikimedia.org/wiki/File:Bobbin_lace_prickings_and_hook.JPG">Bobbin lace prickings and hook · Poljo · CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0</a></p><nav aria-label="Experiment sequence"><a href="../phonautograms-on-paper/index.html">← Previous · Phonautograms on paper</a> <a href="../liszt-la-campanella/index.html">Next · Liszt — La campanella →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('Four colored bobbins charted through successive crosses and twists.');
+let history=[[0,1,2,3]];
+function draw(){clear(g);const colors=[mint,gold,coral,'#90aef5'];
+ for(let t=0;t<4;t++){line(g,history.map((row,i)=>[340+90*row.indexOf(t),40+i*22]),colors[t],5);dot(g,340+90*history.at(-1).indexOf(t),40+(history.length-1)*22,8,colors[t]);}
+ statusLine.textContent='Bobbins from left: '+history.at(-1).map(x=>x+1).join(' · ');}
+function step(twist){if(history.length>=12)history=[history.at(-1)];const [a,b,c,d]=history.at(-1);history.push(twist?[b,a,d,c]:[a,c,b,d]);draw();}
+button('Cross middle pair',()=>step(false));button('Twist both pairs',()=>step(true));button('Start over',()=>{history=[[0,1,2,3]];draw();});draw();
+</script>
+</body>
+</html>

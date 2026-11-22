@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Early film and recorded sound · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Early film and recorded sound</h1>
+        <p>Switch between two surviving film frames and compare the positions of the blacksmiths and their tools.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://www.loc.gov/collections/edison-company-motion-pictures-and-sound-recordings/about-this-collection/">Inventing Entertainment</a></p><p><a href="https://commons.wikimedia.org/wiki/File:Movie_frames,_Henry_Pflug,_Chris_Musler_and_Edward_Daley_at_Chris_Musler%27s_blacksmith_shop._%22Blacksmith_Scene%22_(2901a7a2-97c1-49df-bd47-48ce535adbd3).jpg">Movie frames, Henry Pflug, Chris Musler and Edward Daley at Chris Musler&#x27;s blacksmith shop. &quot;Blacksmith Scene&quot; (2901a7a2-97c1-49df-bd47-48ce535adbd3) · Unknown author Unknown author · Public domain </a></p><nav aria-label="Experiment sequence"><a href="../local-irish-folklore/index.html">← Previous · Local Irish folklore</a> <a href="../fossils-and-prehistoric-artifacts/index.html">Next · Fossils and prehistoric artifacts →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const im=new Image(),g=board('Two archival frames from Blacksmith Scene.');
+let frame=0;function draw(){clear(g);if(!im.naturalWidth)return;const h=im.height/2;
+ g.drawImage(im,0,frame*h,im.width,h,180,12,600,295);
+ statusLine.textContent='Frame '+(frame+1)+' of 2 · watch the workers’ hands and the head of the hammer.';}
+im.onload=draw;im.src='plate-0.webp';slider('Frame',1,2,1,v=>{frame=v-1;draw();});draw();
+</script>
+</body>
+</html>

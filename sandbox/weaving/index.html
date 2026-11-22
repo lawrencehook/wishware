@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weaving · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Weaving</h1>
+        <p>Step through Bronson’s Bird Eyes draft from 1817. Highlight one warp thread, change a treadle, and compare the result with the printed instructions.</p>
+        <div id="experiment"></div>
+        <details><summary>Inspect source image</summary><figure><img src="draft.webp" alt="Draft No. 1, Bird Eyes · page 54"></figure></details>
+    </main>
+    <footer><p><a href="https://www.handweaving.net/textile-documents/8421/the-domestic-manufacturer-s-assistant-and-family-directory-in-the-arts-of.html">Bronson weaving handbook</a></p><p><a href="https://archive.org/details/domesticmanufact009135mbp/page/n59">Draft No. 1, Bird Eyes · page 54 · J. &amp; R. Bronson, 1817 · public domain</a></p><nav aria-label="Experiment sequence"><a href="../mechanical-linkages/index.html">← Previous · Mechanical linkages</a> <a href="../kailasa-rock-cut-temple-at-ellora/index.html">Next · Kailasa rock-cut temple at Ellora →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('Thread-by-thread drawdown of a four-shaft point twill');
+let picks=4,thread=3,broken=false;
+// Bronson (1817), page 54: seven numbered warp ends, eight numbered picks.
+const shafts=[0,1,2,3,2,1,0],treadles=['E','H','E','G','F','H','F','G'];
+const lift={E:[1,2],H:[0,1],G:[2,3],F:[1,3]};
+function draw(){clear(g);
+    for(let x=0;x<30;x++)for(let y=0;y<picks;y++){
+        const treadle=broken&&y===4?'E':treadles[y%8],shaft=shafts[x%7];
+        const raised=lift[treadle].includes(shaft);
+        g.fillStyle=raised?(x===thread?coral:mint):gold;g.fillRect(42+x*29,26+y*15,raised?24:28,raised?14:11);
+    }
+    statusLine.textContent='Pick '+picks+' · highlighted warp '+(thread+1)+' is threaded through shaft '+('ABCD'[shafts[thread%7]])+'.';
+}
+slider('Shuttle passes',1,18,4,v=>{picks=v;draw();});
+slider('Trace warp thread',1,30,4,v=>{thread=v-1;draw();});
+button('Change fifth treadle',()=>{broken=!broken;picks=Math.max(picks,5);controls.querySelector('input').value=picks;draw();});draw();
+</script>
+</body>
+</html>

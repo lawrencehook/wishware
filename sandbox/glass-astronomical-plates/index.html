@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Glass astronomical plates · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Glass astronomical plates</h1>
+        <p>Blink two simulated plate exposures, locate the star that changed brightness, and reveal its position.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://platestacks.cfa.harvard.edu/search-dasch">Harvard Plate Stacks</a></p><nav aria-label="Experiment sequence"><a href="../watermarks-in-dutch-drawings/index.html">← Previous · Watermarks in Dutch drawings</a> <a href="../measured-munsell-color-samples/index.html">Next · Measured Munsell color samples →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('Blink two example star fields and identify which star changes brightness.');
+const stars=curve(50,(_,i)=>[40+(i*337+31)%875,30+(i*i*41+i*37)%245,2+(i%5)*.5]);
+let epoch=0;function draw(){clear(g);stars.forEach(([x,y,r],i)=>dot(g,x,y,i===18&&epoch?r*2.8:r,white));labelAt(g,'Exposure '+(epoch+1),30,305);}
+button('Blink exposures',()=>{epoch=1-epoch;draw();});
+button('Reveal variable',()=>{draw();const [x,y]=stars[18];g.strokeStyle=gold;g.beginPath();g.arc(x,y,18,0,Math.PI*2);g.stroke();statusLine.textContent='The marked star changes brightness at a fixed position.';});draw();
+</script>
+</body>
+</html>

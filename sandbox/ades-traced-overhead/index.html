@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Adès — Traced Overhead · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Adès — Traced Overhead</h1>
+        <p>Lift the pedal at different attacks in an ascending study. Read which pitches still overlap at the release.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://www.fabermusic.com/music/traced-overhead-2708">Faber Music</a></p><nav aria-label="Experiment sequence"><a href="../glass-complete-piano-etudes/index.html">← Previous · Glass — Complete Piano Etudes</a> <a href="../one-token-two-architectures/index.html">Next · One token, two architectures →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('An ascending pitch gesture above a sustain pedal lane.');
+const pitches=[60,64,67,71,74,78,81,84];function draw(release){clear(g);
+ pitches.forEach((p,i)=>{const end=i<release?release:i+.8;g.fillStyle=i<release?gold:mint;g.fillRect(65+i*105,225-(p-60)*7,Math.max(8,(end-i)*105-3),8);});
+ line(g,[[65,250],[65,274],[65+release*105,274],[65+release*105,250],[905,250]],coral,4);statusLine.textContent='Pedal lifts at attack '+(release+1)+' · '+release+' preceding tones overlap at release.';}
+slider('Lift sustain pedal before attack',1,8,5,v=>draw(v-1));draw(4);
+</script>
+</body>
+</html>

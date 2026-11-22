@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kailasa rock-cut temple at Ellora · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Kailasa rock-cut temple at Ellora</h1>
+        <p>Slide a cut through a schematic Kailasa courtyard, then switch between the historical plan and transverse section.</p>
+        <div id="experiment"></div>
+        <details><summary>Inspect source image</summary><figure><img src="plate-0.webp" alt="Courtyard and Mahabharata Reliefs at the Kailasa Temple, Ellora 01"></figure></details>
+    </main>
+    <footer><p><a href="https://www.ignca.gov.in/Asi_data/73821.pdf">Indira Gandhi National Centre for the Arts</a></p><p><a href="https://commons.wikimedia.org/wiki/File:Courtyard_and_Mahabharata_Reliefs_at_the_Kailasa_Temple,_Ellora_01.jpg">Courtyard and Mahabharata Reliefs at the Kailasa Temple, Ellora 01 · Rohit Sharma · CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0</a></p><p><a href="https://commons.wikimedia.org/wiki/File:Plan_of_the_Kylas_Fergusson_Handbook_01_0168.png">Plan of the Kylas Fergusson Handbook 01 0168 · James Fergusson · Public domain </a></p><p><a href="https://commons.wikimedia.org/wiki/File:A_transverse_section_of_the_Kailasha_temple_Cave_16_Ellora_showing_three_levels.jpg">A transverse section of the Kailasha temple Cave 16 Ellora showing three levels · J Burgess (1883) · Public domain </a></p><nav aria-label="Experiment sequence"><a href="../weaving/index.html">← Previous · Weaving</a> <a href="../lighthouse-flash-characteristics/index.html">Next · Lighthouse flash characteristics →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('Linked schematic plan and cross-section of a rock-cut courtyard and central shrine.');
+function draw(position){clear(g);g.fillStyle='#718477';g.fillRect(45,38,380,221);
+ g.fillStyle='#203a35';g.fillRect(76,64,318,170);g.fillStyle=gold;g.fillRect(183,104,110,91);
+ const x=45+position*3.8;line(g,[[x,25],[x,272]],coral,3);
+ const court=position>8&&position<92, shrine=position>36&&position<65;
+ const floor=court?233:76;g.fillStyle='#809487';g.fillRect(515,floor,385,270-floor);
+ if(court){g.fillRect(515,72,32,164);g.fillRect(868,72,32,164);}
+ if(shrine){g.fillStyle=gold;g.fillRect(660,142,96,91);line(g,[[651,142],[707,94],[765,142]],gold,8);}
+ labelAt(g,'Plan · cut line',50,302);labelAt(g,'Section',520,302);statusLine.textContent=shrine?'Cut intersects the freestanding shrine.':court?'Cut passes through the excavated courtyard.':'Cut passes through rock outside the court.';}
+slider('Cut position',0,100,19,draw);draw(19);
+const archive=document.createElement('figure'),print=document.createElement('img'),cap=document.createElement('figcaption');
+archive.append(print,cap);mount.append(archive);
+function plate(i){print.src='plate-'+(i+1)+'.webp';print.alt=i?'Historical transverse section at Kailasa':'Fergusson’s ground plan of Kailasa';cap.textContent=print.alt;}
+menu('Archival drawing',['Plan','Section'],plate);plate(0);
+</script>
+</body>
+</html>

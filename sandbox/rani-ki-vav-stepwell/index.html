@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rani ki Vav stepwell · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Rani ki Vav stepwell</h1>
+        <p>Descend seven terraces in a schematic section of the stepwell. Track your level and compare the site photograph.</p>
+        <div id="experiment"></div>
+        <details><summary>Inspect source image</summary><figure><img src="plate-0.webp" alt="Rani ki vav - Patan - Gujarat - DSC002"></figure></details>
+    </main>
+    <footer><p><a href="https://www.cyark.org/projects/rani-ki-vav">CyArk</a></p><p><a href="https://commons.wikimedia.org/wiki/File:Rani_ki_vav_-_Patan_-_Gujarat_-_DSC002.jpg">Rani ki vav - Patan - Gujarat - DSC002 · Snehrashmi · CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0</a></p><nav aria-label="Experiment sequence"><a href="../indian-architectural-survey-drawings/index.html">← Previous · Indian architectural survey drawings</a> <a href="../mozart-piano-sonatas/index.html">Next · Mozart piano sonatas →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('Seven schematic terraces descending to a well.');
+function draw(level){clear(g);const path=[[45,40]];
+ for(let i=0;i<7;i++){path.push([110+i*105,40+i*29],[110+i*105,69+i*29]);}
+ path.push([890,243]);line(g,path,mint,5);dot(g,120+(level-1)*105,69+(level-1)*29-8,7,gold);
+ line(g,[[830,35],[830,40+level*29]],coral,3);statusLine.textContent='Terrace '+level+' of 7 · '+(7-level)+' further levels below. Section uses equal schematic steps.';}
+slider('Descend to level',1,7,1,draw);draw(1);
+</script>
+</body>
+</html>

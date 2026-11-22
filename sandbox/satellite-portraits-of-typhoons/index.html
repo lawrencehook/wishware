@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Satellite portraits of typhoons · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Satellite portraits of typhoons</h1>
+        <p>Switch between satellite images of two named typhoons and compare the eyes at the selected exposures.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://agora.ex.nii.ac.jp/digital-typhoon/dataset/index.html.en">National Institute of Informatics Digital Typhoon</a></p><p><a href="https://commons.wikimedia.org/wiki/File:Sunrise_on_Typhoon_Hinnamnor%E2%80%99s_Eye_(CIRA_2022-08-29).png">Sunrise on Typhoon Hinnamnor’s Eye (CIRA 2022-08-29) · Himawari imagery: CSU/CIRA &amp; JMA/JAXA · Public domain </a></p><p><a href="https://commons.wikimedia.org/wiki/File:Typhoon_Krathon_Shows_Impressive_Eye_(CIRA_2024-10-01).png">Typhoon Krathon Shows Impressive Eye (CIRA 2024-10-01) · Himawari imagery: CSU/CIRA &amp; JMA/JAXA · Public domain </a></p><nav aria-label="Experiment sequence"><a href="../hand-drawn-sunspot-observations/index.html">← Previous · Hand-drawn sunspot observations</a> <a href="../piano-performance-timing/index.html">Next · Piano performance timing →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+let selected=0;const figure=document.createElement('figure'),img=document.createElement('img');figure.append(img);mount.prepend(figure);
+const storms=['Hinnamnor · 29 Aug 2022','Krathon · 1 Oct 2024'];
+function draw(){img.src='plate-'+selected+'.webp';img.alt=storms[selected]+' satellite image';statusLine.textContent=storms[selected]+'. Compare eye shape and the surrounding cloud wall.';}
+menu('Storm',storms,v=>{selected=v;draw();});draw();
+</script>
+</body>
+</html>

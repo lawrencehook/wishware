@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Local Irish folklore · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Local Irish folklore</h1>
+        <p>Choose a bird sign to find matching weather-lore records from Irish schools, then read the original transcriptions.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://www.duchas.ie/en/cbes/stories">Dúchas Schools’ Collection</a></p><nav aria-label="Experiment sequence"><a href="../roman-coin-hoards/index.html">← Previous · Roman coin hoards</a> <a href="../early-film-and-recorded-sound/index.html">Next · Early film and recorded sound →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const records=[
+ ['Askamore','A low swallow signals rain. Gulls inland signal an approaching storm.','https://www.duchas.ie/en/cbes/5009312/5006432/5133678'],
+ ['Dangan','Low-flying swallows appear among the signs of rain.','https://www.duchas.ie/en/cbes/4798709/4792187/4924977'],
+ ['Iomaire Buidhe','Gulls moving inland and sparrows gathering in trees signal a storm.','https://www.duchas.ie/en/cbes/4921752/4903552/5170307']];
+const list=document.createElement('ul');mount.append(list);
+function draw(v){list.replaceChildren();for(const [school,note,url] of records){if(v===1&&!note.toLowerCase().includes('swallow')||v===2&&!note.toLowerCase().includes('gull'))continue;
+ const li=document.createElement('li'),a=document.createElement('a');a.href=url;a.textContent=school;li.append(a,' — '+note);list.append(li);}
+ statusLine.textContent=list.children.length+' school records match.';}
+menu('Weather sign',['All bird signs','Low swallows','Gulls inland'],draw);draw(0);
+</script>
+</body>
+</html>

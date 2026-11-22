@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>One token, two architectures · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>One token, two architectures</h1>
+        <p>Step one token through a toy expert router and a looped block. Change the expert count or loop depth to compare stored blocks and block evaluations. Each tile represents an equally sized block.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://arxiv.org/abs/2502.17416">Saunshi et al. · Reasoning with Latent Thoughts</a></p><p><a href="https://www.jmlr.org/papers/v23/21-0998.html">Fedus, Zoph and Shazeer · Switch Transformers</a></p><nav aria-label="Experiment sequence"><a href="../ades-traced-overhead/index.html">← Previous · Adès — Traced Overhead</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+// Each tile represents an equally sized block. The router and shared layers are omitted.
+const g = board('Two paths for one token. Selected experts light up above the repeatedly evaluated block.');
+const experts = slider('Stored experts', 1, 12, 8, reset);
+const active = slider('Experts per token', 1, 8, 2, reset);
+const loops = slider('Loop passes', 1, 12, 4, reset);
+let step = 0, token = 0;
+button('Step through token', () => {
+    if (step >= Math.max(+active.value, +loops.value)) { step = 0; token++; }
+    step++; draw();
+});
+button('Reset', reset);
+function reset() {
+    active.max = experts.value;
+    active.value = Math.min(+active.value,+experts.value);
+    step = 0; token = 0; draw();
+}
+function draw() {
+    clear(g);
+    const stored = +experts.value, chosen = +active.value, passes = +loops.value;
+    // A deterministic toy router makes successive example tokens take different paths.
+    const route = Array.from({length:stored}, (_,i)=>i);
+    let state = (token + 7) * 104729;
+    for (let i=stored-1;i>0;i--) {
+        state=(Math.imul(state,1664525)+1013904223)>>>0;
+        const j=state%(i+1); [route[i],route[j]]=[route[j],route[i]];
+    }
+    labelAt(g,'Mixture of experts',22,35);
+    for (let i=0;i<stored;i++) {
+        const order=route.indexOf(i), x=22+i*75;
+        g.fillStyle=order<Math.min(step,chosen)?coral:'#516a60';
+        g.fillRect(x,50,63,48);labelAt(g,String(i+1),x+19,81,'#ffffff');
+    }
+    labelAt(g,stored+' stored · '+Math.min(chosen,step)+' of '+chosen+' selected blocks evaluated',22,128);
+    labelAt(g,'Looped transformer',22,181);
+    g.fillStyle=step?coral:'#516a60'; g.fillRect(22,196,63,48);
+    labelAt(g,'1',44,228,'#ffffff');
+    for(let i=0;i<passes;i++) dot(g,115+i*29,221,8,i<step?gold:'#516a60');
+    labelAt(g,'1 stored · '+Math.min(passes,step)+' of '+passes+' passes evaluated',22,277);
+    const counts = 'Experts: '+stored+' stored, '+Math.min(step,chosen)+' evaluated. Loop: 1 stored, '+Math.min(step,passes)+' passes evaluated. ';
+    statusLine.textContent=counts+'Token '+(token+1)+' · '+(step===0?'ready to route.':step>=Math.max(chosen,passes)?'complete. Step again for another token.':'step '+step+'.');
+}
+draw();
+</script>
+</body>
+</html>

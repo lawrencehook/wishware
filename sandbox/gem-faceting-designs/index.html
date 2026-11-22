@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gem faceting designs · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Gem faceting designs</h1>
+        <p>Change the pavilion angle in a simplified diamond section. Trace a single vertical ray through its first encounter with a facet.</p>
+        <div id="experiment"></div>
+        <details><summary>Inspect source image</summary><figure><img src="plate-0.webp" alt="PSM V08 D221 Brilliant cuts"></figure></details>
+    </main>
+    <footer><p><a href="https://facetdiagrams.org/">United States Faceters Guild</a></p><p><a href="https://commons.wikimedia.org/wiki/File:PSM_V08_D221_Brilliant_cuts.jpg">PSM V08 D221 Brilliant cuts · Unknown author Unknown author · Public domain </a></p><nav aria-label="Experiment sequence"><a href="../medieval-vault-geometry-at-wells-cathedral/index.html">← Previous · Medieval vault geometry at Wells Cathedral</a> <a href="../chladni-plate-figures/index.html">Next · Chladni plate figures →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('Vertical ray reflecting or escaping at the pavilion of an idealized gem.');
+function draw(a){clear(g);const slope=Math.tan(a*Math.PI/180),h=170*slope,cx=450,top=65;
+ line(g,[[280,top],[cx,top+h],[620,top],[280,top]],mint,4);
+ const hit=[cx+85,top+85*slope];line(g,[[hit[0],16],hit],gold,4);
+ const critical=Math.asin(1/2.42)*180/Math.PI;
+ if(a>critical){const t=2*a*Math.PI/180;line(g,[hit,[hit[0]-100*Math.sin(t),hit[1]-100*Math.cos(t)]],coral,4);}
+ else{const r=Math.asin(2.42*Math.sin(a*Math.PI/180))-a*Math.PI/180;line(g,[hit,[hit[0]-90*Math.sin(r),hit[1]+90*Math.cos(r)]],coral,4);}
+ statusLine.textContent='Pavilion '+a+'° · diamond-to-air critical angle '+critical.toFixed(1)+'° · '+(a>critical?'total internal reflection':'ray exits the stone')+'.';}
+slider('Facet angle',12,49,39,draw);draw(39);
+</script>
+</body>
+</html>

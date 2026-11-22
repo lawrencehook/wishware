@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lighthouse flash characteristics · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Lighthouse flash characteristics</h1>
+        <p>Watch three example navigation-light signatures and identify the number of flashes in a group.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://navcen.uscg.gov/sites/default/files/pdf/lightLists/LightList_V3_2021.pdf">U.S. Coast Guard Light List</a></p><nav aria-label="Experiment sequence"><a href="../kailasa-rock-cut-temple-at-ellora/index.html">← Previous · Kailasa rock-cut temple at Ellora</a> <a href="../airfoil-section-coordinates/index.html">Next · Airfoil section coordinates →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('A light flashes on a dark horizon. Count the group before the long pause.');
+const patterns=[[0],[0,1],[0,1,2]];let group=1,run=0,clock=0;
+function draw(){clear(g);line(g,[[10,205],[950,205]],'#607c78',1);
+    const t=(performance.now()-clock)/1000%5;
+    dot(g,480,177,patterns[group].some(on=>t>=on&&t<on+.32)?17:3,gold);}
+function start(){clearInterval(run);clock=performance.now();draw();run=setInterval(draw,55);}
+button('Observe five-second cycle',start);
+for(let n=1;n<=3;n++)button(n+' flash'+(n===1?'':'es'),()=>{statusLine.textContent=group+1===n?'Correct · '+n+' per cycle.':'Listen with your eyes for the long pause, then count again.';});
+button('Next light',()=>{group=(group+1)%3;statusLine.textContent='Identify this pattern.';start();});
+clear(g);line(g,[[10,205],[950,205]],'#607c78');dot(g,480,177,3,gold);
+window.addEventListener('pagehide',()=>clearInterval(run));
+</script>
+</body>
+</html>

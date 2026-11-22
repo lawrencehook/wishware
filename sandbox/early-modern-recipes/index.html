@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Early modern recipes · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Early modern recipes</h1>
+        <p>Compare two simplified pudding methods one operation at a time. Find where their preparations differ and where they converge.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://folgerpedia.folger.edu/About_our_recipe_books">Folger recipe books</a></p><nav aria-label="Experiment sequence"><a href="../steam-pumping-engines/index.html">← Previous · Steam pumping engines</a> <a href="../roman-coin-hoards/index.html">Next · Roman coin hoards →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const steps=[['Bread pudding','Soak bread','Mix eggs and milk','Add fruit','Bake'],['Rice pudding','Cook rice','Mix eggs and milk','Add fruit','Bake']];
+let chosen=0,stage=0;const g=board('Two simplified pudding methods aligned by cooking stage.');
+function draw(){clear(g);steps.forEach((row,i)=>{labelAt(g,row[0],25,45+i*120);row.slice(1).forEach((s,j)=>{g.fillStyle=j===stage?(i===chosen?gold:mint):'#36544d';g.fillRect(30+225*j,60+i*120,210,58);labelAt(g,s,39+j*225,96+i*120,j===stage?'#172d2b':white);});});
+ statusLine.textContent=steps[0][stage+1]===steps[1][stage+1]?'Shared operation: '+steps[0][stage+1]+'.':'Different preparations: soaking bread versus cooking rice.';}
+menu('Follow',['Bread pudding','Rice pudding'],v=>{chosen=v;draw();});slider('Operation',1,4,1,v=>{stage=v-1;draw();});draw();
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Apollo 8 Earthrise photography · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Apollo 8 Earthrise photography</h1>
+        <p>Roll a camera frame around the Apollo 8 photograph and compare your framing with the archived orientation.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://svs.gsfc.nasa.gov/4129/">NASA Scientific Visualization Studio</a></p><p><a href="https://commons.wikimedia.org/wiki/File:NASA-Apollo8-Dec24-Earthrise.jpg">NASA-Apollo8-Dec24-Earthrise · NASA/Bill Anders · Public domain </a></p><nav aria-label="Experiment sequence"><a href="../chopin-three-nocturnes-op-9/index.html">← Previous · Chopin — Three Nocturnes, Op. 9</a> <a href="../phonautograms-on-paper/index.html">Next · Phonautograms on paper →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const img=new Image(),g=board('Apollo 8 Earthrise photograph viewed through a rotating camera frame.');
+let roll=24;function draw(){clear(g);if(!img.naturalWidth)return;
+ g.save();g.translate(480,160);g.rotate(roll*Math.PI/180);const s=Math.max(620/img.width,320/img.height);g.drawImage(img,-img.width*s/2,-img.height*s/2,img.width*s,img.height*s);g.restore();
+ g.strokeStyle=gold;g.strokeRect(250,32,460,256);statusLine.textContent='Camera roll '+roll+'°. Compare your framing with the archived exposure.';}
+img.onload=draw;img.src='plate-0.webp';const r=slider('Roll camera',-180,180,24,v=>{roll=v;draw();});button('Original orientation',()=>{roll=0;r.value=0;draw();});draw();
+</script>
+</body>
+</html>

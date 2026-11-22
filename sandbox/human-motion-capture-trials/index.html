@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Human motion capture trials · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Human motion capture trials</h1>
+        <p>Scrub the first six seconds of a CMU motion-capture trial. Guess the activity before revealing the archive description.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://mocap.cs.cmu.edu/">Carnegie Mellon Graphics Lab</a></p><p><a href="https://mocap.cs.cmu.edu/subjects/81/81_06.avi">CMU Graphics Lab Motion Capture Database · trial 81_06, sampled at four frames per second</a></p><nav aria-label="Experiment sequence"><a href="../kyoto-cherry-blossoms/index.html">← Previous · Kyoto cherry blossoms</a> <a href="../chopin-berceuse-op-57/index.html">Next · Chopin — Berceuse, Op. 57 →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('Scrub a recorded motion-capture animation and identify the movement.');
+const img=new Image();let frame=0;
+function draw(){clear(g);if(img.naturalWidth)g.drawImage(img,(frame%6)*240,Math.floor(frame/6)*180,240,180,290,0,380,285);statusLine.textContent='Trial 81_06 · frame '+(frame+1)+' / 24';}
+img.onload=draw;img.src='trial.jpg';slider('Time sample',1,24,1,v=>{frame=v-1;draw();});button('Reveal trial description',()=>{statusLine.textContent='CMU description: push heavy box.';});draw();
+</script>
+</body>
+</html>

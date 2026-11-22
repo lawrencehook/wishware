@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vertebrate CT volumes · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Vertebrate CT volumes</h1>
+        <p>Track a channel through a synthetic volume, or open a stack of local slice images and mark the channel to build a side projection.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://www.floridamuseum.ufl.edu/digital-lab/resources/access-ct-scans-online/">Florida Museum oVert project</a></p><nav aria-label="Experiment sequence"><a href="../schubert-four-impromptus-d-899/index.html">← Previous · Schubert — Four Impromptus, D. 899</a> <a href="../letterlocking/index.html">Next · Letterlocking →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g = board('Cross-section at left and a side projection of the marked channel at right.');
+let frames = [], marks = new Map(), overlay = false;
+const section = slider('Slice', 1, 60, 1, draw);
+const toggle = button('Reveal / hide channel path', () => { overlay = !overlay; draw(); });
+const picker = document.createElement('input');
+picker.type = 'file';
+picker.accept = 'image/png,image/jpeg,image/webp';
+picker.multiple = true;
+field('Open local slice images in filename order', picker);
+let loadId = 0;
+picker.onchange = async () => {
+    const id = ++loadId;
+    const files = [...picker.files].sort((a,b) => a.name.localeCompare(b.name, undefined, {numeric:true}));
+    const loaded = [];
+    try {
+        for (const file of files) {
+            const image = await createImageBitmap(file);
+            loaded.push({image,name:file.name});
+            if (id !== loadId) break;
+        }
+        if (id !== loadId) { loaded.forEach(f => f.image.close()); return; }
+        frames.forEach(f => f.image.close());
+        frames = loaded; marks.clear(); section.max = frames.length || 60; section.value = 1;
+        overlay = false; toggle.textContent = frames.length ? 'Connect / hide marked slices' : 'Reveal / hide channel path';
+        draw();
+    } catch {
+        loaded.forEach(f => f.image.close());
+        if (id === loadId) statusLine.textContent = 'Could not read this stack. Choose PNG, JPEG or WebP images.';
+    }
+};
+function box(image) {
+    const scale = Math.min(430 / image.width, 238 / image.height);
+    const w = image.width * scale, h = image.height * scale;
+    return [(480-w)/2, (260-h)/2, w, h];
+}
+g.canvas.onpointerdown = e => {
+    const index = +section.value-1;
+    if (!frames.length) return;
+    const rect = g.canvas.getBoundingClientRect(), b = box(frames[index].image);
+    const x = ((e.clientX-rect.left)*960/rect.width-b[0])/b[2];
+    const y = ((e.clientY-rect.top)*320/rect.height-b[1])/b[3];
+    if (x>=0 && x<=1 && y>=0 && y<=1) { marks.set(index,[x,y]); draw(); }
+};
+function draw() {
+    const z = +section.value - 1;
+    clear(g);
+    if (frames.length) {
+        const frame = frames[z], b = box(frame.image);
+        g.drawImage(frame.image,...b);
+        const mark = marks.get(z);
+        if (mark) dot(g,b[0]+mark[0]*b[2],b[1]+mark[1]*b[3],5,coral);
+        const trace = [...marks].sort(([a],[b])=>a-b).map(([index,p])=>[540+360*index/Math.max(1,frames.length-1),24+220*p[1]]);
+        if (overlay) line(g,trace,mint);
+        trace.forEach(p=>dot(g,...p,4,gold));
+        statusLine.textContent = frame.name+' · '+marks.size+' marked slices. Click the channel in each section.';
+    } else {
+        const path = curve(60,t=>[580+300*t,160+60*Math.sin(2*Math.PI*t)]);
+        g.beginPath(); g.ellipse(270,150,118,87,0,0,2*Math.PI); g.fillStyle='#c4c9c0'; g.fill();
+        dot(g,250+30*Math.cos(z/59*2*Math.PI),150+50*Math.sin(z/59*2*Math.PI),16,'#172d2b');
+        if (overlay) line(g,path,mint);
+        dot(g,...path[z],8,gold);
+        statusLine.textContent = 'Teaching volume · section '+(z+1)+' of 60.';
+    }
+    labelAt(g,'Slice '+(z+1),190,285); labelAt(g,'Side projection',575,285);
+}
+draw();
+</script>
+</body>
+</html>

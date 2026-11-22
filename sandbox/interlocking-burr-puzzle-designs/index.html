@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Interlocking burr puzzle designs · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Interlocking burr puzzle designs</h1>
+        <p>Find the first legal move in a two-piece model of a burr lock. Try the horizontal bar before and after lifting its key.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://sites.google.com/view/tomjolly/puzzle-designs">Tom Jolly’s puzzle designs</a></p><nav aria-label="Experiment sequence"><a href="../japanese-sangaku-geometry-tablets/index.html">← Previous · Japanese sangaku geometry tablets</a> <a href="../medieval-vault-geometry-at-wells-cathedral/index.html">Next · Medieval vault geometry at Wells Cathedral →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+// A planar key-and-notch model of one constrained burr move.
+const g=board('Sliding puzzle with a key blocking the horizontal bar');
+let key=0,bar=0;
+function draw(){clear(g);g.fillStyle=mint;g.fillRect(270+bar,130,370,37);g.fillRect(350+bar,104,45,27);g.fillRect(470+bar,104,45,27);
+ g.fillStyle=gold;g.fillRect(415,50-key,32,81);labelAt(g,'key',467,66);labelAt(g,'notched bar',320,205);}
+button('Slide bar right',()=>{if(key<30){statusLine.textContent='Blocked. The shoulder meets the key.';}else{bar=75;statusLine.textContent='The shoulder clears the key.';}draw();});
+button('Lift key',()=>{key=40;draw();statusLine.textContent='Key lifted. Try the horizontal bar.';});button('Reset',()=>{key=bar=0;draw();statusLine.textContent='Find a legal first move.';});draw();
+</script>
+</body>
+</html>

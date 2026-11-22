@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Railways and postal routes · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Railways and postal routes</h1>
+        <p>Arrive at Preston in 1839 and find the next North Union Railway departure. Change the arrival time or try the Sunday timetable with a four-minute transfer.</p>
+        <div id="experiment"></div>
+        <details><summary>Inspect source image</summary><figure><img src="plate-0.webp" alt="Bradshaw&#x27;s Railway Timetables 1839 - Liverpool"></figure></details>
+    </main>
+    <footer><p><a href="https://guides.loc.gov/railroads/maps-timetables">Library of Congress railroad guide</a></p><p><a href="https://en.wikisource.org/wiki/Page:Bradshaw%27s_Railway_Timetables_(No3.)_1839.djvu/22">George Bradshaw, Railway Timetables No. 3 (1839) · North Union Railway departures from Preston</a></p><p><a href="https://commons.wikimedia.org/wiki/File:Bradshaw%27s_Railway_Timetables_1839_-_Liverpool.jpg">Bradshaw&#x27;s Railway Timetables 1839 - Liverpool · George Bradshaw · Public domain </a></p><nav aria-label="Experiment sequence"><a href="../restaurant-menus/index.html">← Previous · Restaurant menus</a> <a href="../louvre-aulos-reconstruction/index.html">Next · Louvre aulos reconstruction →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+// Departures from Preston on the North Union Railway, Bradshaw's November 1839 timetable.
+const schedules = [[420,500,585,860,980,1107], [405,1050,1107]];
+const table = document.createElement('p');
+mount.prepend(table);
+const day = menu('Service day', ['Ordinary service','Sunday mixed trains'], draw);
+const arrival = slider('Arrival at Preston (minutes after 06:00)',0,750,133,draw);
+function clock(minutes) {
+    return [Math.floor(minutes/60),minutes%60].map(n=>String(n).padStart(2,'0')).join(':');
+}
+function draw() {
+    const departures = schedules[+day.value];
+    const time = 360 + Number(arrival.value);
+    const next = departures.find(t=>t>=time+4);
+    table.textContent = 'Preston departures · '+departures.map(clock).join(' · ');
+    statusLine.textContent = 'Arrive at '+clock(time)+'. Allow four minutes to transfer. '+
+        (next===undefined?'The last train has left.':'Catch the '+clock(next)+' train, '+(next-time)+' minutes after arrival.');
+}
+draw();
+</script>
+</body>
+</html>

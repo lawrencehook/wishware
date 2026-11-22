@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Paper astronomical instruments · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link rel="icon" href="../../favicons/wishware.svg">
+    <link rel="stylesheet" href="../shared/experiments.css">
+</head>
+<body>
+    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <main>
+        <h1>Paper astronomical instruments</h1>
+        <p>Rotate a cropped facsimile disc against a fixed index and use the outer dots to measure the change in angle.</p>
+        <div id="experiment"></div>
+        
+    </main>
+    <footer><p><a href="https://www.lib.uchicago.edu/collex/exhibits/book-use-book-theory-1500-1700/dimensional-thinking/coordinating-time/">University of Chicago Library</a></p><p><a href="https://commons.wikimedia.org/wiki/File:Eclipse_Volvelle,_Petrus_Apianus.jpg">Eclipse Volvelle, Petrus Apianus · Peter Benewitz (aka Petrus Apianus) , c. 1520 · Public domain </a></p><nav aria-label="Experiment sequence"><a href="../inuinnait-string-figures/index.html">← Previous · Inuinnait string figures</a> <a href="../indian-architectural-survey-drawings/index.html">Next · Indian architectural survey drawings →</a></nav></footer>
+    <script src="../shared/lab.js"></script>
+    <script>
+const g=board('A movable calendar disc inside a fixed outer dial.');
+const im=new Image();let deg=0;
+function draw(){clear(g);if(im.naturalWidth){g.save();g.beginPath();g.arc(480,155,125,0,2*Math.PI);g.clip();g.translate(480,155);g.rotate(deg*Math.PI/180);const size=Math.min(im.width,im.height);g.drawImage(im,(im.width-size)/2,(im.height-size)/2,size,size,-126,-126,252,252);g.restore();}
+ for(let i=0;i<12;i++){const t=i*Math.PI/6-Math.PI/2;dot(g,480+137*Math.cos(t),155+137*Math.sin(t),3,white);}
+ line(g,[[480,8],[480,32]],gold,4);statusLine.textContent='Inner disc rotated '+deg+'° against the fixed index.';}
+im.onload=draw;im.src='plate-0.webp';slider('Inner disc angle',0,360,0,v=>{deg=v;draw();});draw();
+</script>
+</body>
+</html>
