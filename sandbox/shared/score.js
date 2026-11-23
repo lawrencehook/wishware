@@ -11,6 +11,8 @@
         chapters = get('movements');
     const canvas = get('roll'),
         g = canvas.getContext('2d');
+    const showMeasure = createMeasureView(canvas);
+    let edition = [];
     const colors = ['#b7e6ca', '#f2ca8a', '#a7c3f2', '#ebaaa1'];
     const library = typeof score === 'undefined' ? [] : score.movements;
     const take = typeof score === 'undefined' ? null : score.take;
@@ -47,6 +49,7 @@
 
     function useEdition(parts) {
         pause();
+        edition = parts;
         timeline = [];
         duration = 0;
         movements = [];
@@ -107,6 +110,7 @@
         seek.value = t;
         const chapter = movements.findLastIndex((v) => v <= t);
         if (chapter >= 0) chapters.selectedIndex = chapter;
+        showMeasure(edition[chapter], t - (movements[chapter] ?? 0));
         if (canvas.hidden) return;
         const width = canvas.width,
             height = canvas.height;
@@ -334,6 +338,10 @@
     let resumeSeek = false;
     seek.addEventListener('input', () => {
         const value = +seek.value;
+        if (usingTake && take?.downbeats && lastSound === 'recording' &&
+            Number.isFinite(recording.duration)) {
+            recording.currentTime = Math.min(recording.duration, value);
+        }
         resumeSeek ||= active;
         move(value, false);
     });
@@ -363,11 +371,11 @@
         try {
             if (selected.size > 8 * 1024 * 1024)
                 throw Error('Choose a MIDI file under 8 MB.');
-            const notes = readMidi(await selected.arrayBuffer());
+            const imported = readMidi(await selected.arrayBuffer());
             if (id !== loadId) return;
             usingTake = false;
             if (editions) editions.selectedIndex = -1;
-            useEdition([{ name: selected.name, notes }]);
+            useEdition([{ name: selected.name, ...imported }]);
             status.textContent = selected.name;
             get('edition-name').textContent = selected.name;
         } catch (e) {
@@ -387,9 +395,24 @@
         };
     if (compare && take) {
         recording.addEventListener('play', () => {
+            if (take.downbeats && !usingTake) {
+                usingTake = true;
+                if (editions) editions.selectedIndex = 0;
+                useEdition([take]);
+                get('edition-name').textContent = take.name;
+            }
             lastSound = 'recording';
             compare.textContent = 'Hear this point on sampled piano';
         });
+        if (take.downbeats) {
+            const followRecording = () => {
+                if (!usingTake || active || lastSound !== 'recording') return;
+                cursor = Math.min(duration, recording.currentTime);
+                render();
+            };
+            for (const event of ['play', 'timeupdate', 'seeked', 'pause'])
+                recording.addEventListener(event, followRecording);
+        }
         compare.onclick = async () => {
             if (lastSound === 'score' && usingTake) {
                 const t = position();

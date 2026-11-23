@@ -88,3 +88,36 @@
 .music-index li small {
     display: block;
 }
+
+.measure-view {
+    margin: 1rem 0 0;
+}
+.measure-view figcaption {
+    display: flex;
+    align-items: baseline;
+    gap: .8rem;
+    margin-bottom: .4rem;
+}
+.measure-system {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    background: #fffcf3;
+    color: #242922;
+    border: 1px solid #c8cbbb;
+    border-radius: .4rem;
+    overflow: hidden;
+}
+.measure-system > div {
+    padding: .5rem;
+}
+.measure-system .playing-measure {
+    background: #e4efd9;
+    box-shadow: inset 0 3px #387252;
+}
+.measure-system small {
+    font: .75rem system-ui, sans-serif;
+}
+@media (max-width: 620px) {
+    .measure-system { grid-template-columns: 1fr; }
+    .measure-system > div:not(.playing-measure) { display: none; }
+}

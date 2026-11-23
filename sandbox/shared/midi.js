@@ -28,7 +28,9 @@ function readMidi(buffer) {
         throw Error('Choose a format 0 or 1 file with musical beat timing');
     at += size + 4;
     const events = [],
-        tempos = [[0, 500000]];
+        tempos = [[0, 500000]],
+        meters = new Map([[0, [4, 4]]]),
+        keys = new Map([[0, 0]]);
     for (let track = 0; track < tracks; track++) {
         limit = bytes.length;
         if (tag() !== 'MTrk') throw Error('Missing MIDI track');
@@ -55,6 +57,14 @@ function readMidi(buffer) {
                     const tempo =
                         bytes[at] * 65536 + bytes[at + 1] * 256 + bytes[at + 2];
                     if (tempo) tempos.push([ticks, tempo]);
+                }
+                if (meta === 88 && length === 4 && at + 4 <= limit &&
+                    bytes[at] > 0 && bytes[at + 1] <= 6) {
+                    meters.set(ticks, [bytes[at], 2 ** bytes[at + 1]]);
+                }
+                if (meta === 89 && length === 2 && at + 2 <= limit) {
+                    const fifths = data.getInt8(at);
+                    if (Math.abs(fifths) <= 7) keys.set(ticks, fifths);
                 }
                 at += length;
                 if (at > limit) throw Error('Truncated event');
@@ -105,7 +115,26 @@ function readMidi(buffer) {
         const segment = segments[low];
         return segment.seconds + (tick - segment.tick) * segment.scale;
     }
-    return events
+    const end = events.reduce((last, event) => Math.max(last, event[2]), 0);
+    const changes = [...meters].sort((a, b) => a[0] - b[0]);
+    const signatures = [...keys].sort((a, b) => a[0] - b[0]);
+    let keyIndex = 0;
+    const bars = [];
+    for (let i = 0; i < changes.length; i++) {
+        const [start, [numerator, denominator]] = changes[i];
+        const stop = changes[i + 1]?.[0] ?? end;
+        const step = division * numerator * 4 / denominator;
+        for (let tick = start; tick < Math.min(stop, end); tick += step) {
+            if (bars.length >= 20000) throw Error('MIDI exceeds the 20,000-measure limit');
+            while (keyIndex + 1 < signatures.length && signatures[keyIndex + 1][0] <= tick)
+                keyIndex++;
+            bars.push([tick / division, bars.length + 1, numerator + '/' + denominator, signatures[keyIndex][1]]);
+        }
+    }
+    const tempo = segments.map(({ tick, seconds, scale }) => [
+        seconds, tick / division, 60 / (scale * division),
+    ]);
+    const notes = events
         .map(([t, p, end, group, v]) => [
             toSeconds(t),
             p,
@@ -114,4 +143,5 @@ function readMidi(buffer) {
             v,
         ])
         .sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+    return { notes, notation: { bars, tempo } };
 }
