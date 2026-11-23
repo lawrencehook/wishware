@@ -1,23 +1,131 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Historical score editions · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Historical score editions</h1>
-        <p>Hear one phrase straight, then compare a decorated editorial reading.</p>
-        <p>Original practice pattern. Load a local MIDI edition to hear the named work.</p><div id="experiment"></div>
-        
+      <h1>Historical score editions</h1>
+      <section>
+        <h2>Performance</h2>
+        <div
+          class="performance"
+          data-video="frxT2qB1POQ"
+          data-title="J.S. Bach - Prelude in C Major"
+        >
+          <p>
+            J.S. Bach - Prelude in C Major
+            <small>· Rousseau · 2:45</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=frxT2qB1POQ">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <h2>Sampled grand piano</h2>
+        <div data-score-player data-instrument="piano">
+          <p data-edition-name>Prelude in C major, BWV 846</p>
+
+          <label class="movement">
+            Movement
+            <select data-movements></select>
+          </label>
+          <div class="transport" data-transport hidden>
+            <button type="button" data-play class="primary">Play</button>
+            <input
+              data-position
+              type="range"
+              min="0"
+              max="1"
+              value="0"
+              step=".01"
+              aria-label="Score position"
+            />
+            <time data-clock></time>
+            <select data-speed aria-label="Playback speed">
+              <option value=".5">½ speed</option>
+              <option value=".75">¾ speed</option>
+              <option selected value="1">1× speed</option>
+              <option value="1.25">1¼ speed</option>
+            </select>
+          </div>
+          <canvas
+            data-roll
+            hidden
+            width="990"
+            height="220"
+            role="img"
+            aria-label="Scrolling piano roll, with time running from left to right"
+          ></canvas>
+
+          <details>
+            <summary>Open a local MIDI file</summary>
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+          </details>
+          <p role="status" data-status></p>
+        </div>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a
+              href="https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Bach/Prelude/bwv_846/xml_score.musicxml"
+            >
+              Prelude in C major, BWV 846 · MusicXML
+            </a>
+          </li>
+        </ul>
+      </details>
     </main>
-    <footer><p><a href="https://imslp.org/wiki/Main_Page">IMSLP</a></p><nav aria-label="Experiment sequence"><a href="../shostakovich-24-preludes-and-fugues-op-87/index.html">← Previous · Shostakovich — 24 Preludes and Fugues, Op.87</a> <a href="../japanese-go/index.html">Next · Japanese Go →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script>const score = {"notes":[[0.0,48,1.6,1],[0,60,0.76,0],[1,64,0.76,0],[2.0,55,1.6,1],[2,67,0.76,0],[3,65,0.76,0],[4.0,48,1.6,1],[4,60,0.532,0],[4.72,62,0.22,0],[5,64,0.532,0],[5.72,66,0.22,0],[6.0,55,1.6,1],[6,67,0.532,0],[6.72,69,0.22,0],[7,65,0.532,0],[7.72,67,0.22,0],[8.0,48,1.6,1],[8,60,0.76,0],[9,64,0.76,0],[10.0,55,1.6,1],[10,67,0.76,0],[11,65,0.76,0],[12.0,48,1.6,1],[12,60,0.532,0],[12.72,62,0.22,0],[13,64,0.532,0],[13.72,66,0.22,0],[14.0,55,1.6,1],[14,67,0.532,0],[14.72,69,0.22,0],[15,65,0.532,0],[15.72,67,0.22,0]]};</script><script src="../shared/midi.js"></script><script src="../shared/score.js"></script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          IMSLP ·
+          <a href="https://imslp.org/wiki/Main_Page">Edition</a>
+        </p>
+        <p>
+          Francesca Foscarin et al., ASAP dataset · CC BY-NC-SA 4.0. Adapted
+          score data retain the same license. ·
+          <a
+            href="https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Bach/Prelude/bwv_846/midi_score.mid"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../shostakovich-24-preludes-and-fugues-op-87/index.html">
+          ← Previous · Shostakovich — 24 Preludes and Fugues, Op.87
+        </a>
+        <a href="../japanese-go/index.html">Next · Japanese Go →</a>
+      </nav>
+    </footer>
+    <script src="notes.js"></script>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

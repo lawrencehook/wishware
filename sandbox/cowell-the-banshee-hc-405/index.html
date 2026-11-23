@@ -1,35 +1,124 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Cowell — The Banshee, HC 405 · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Cowell — The Banshee, HC 405</h1>
-        <p>Touch a schematic piano string and switch between pluck, rub, and sweep gestures in a synthesized sound study.</p>
-        <div id="experiment"></div>
-        
+      <h1>Cowell — The Banshee, HC 405</h1>
+      <section>
+        <h2>Performance</h2>
+        <div
+          class="performance"
+          data-video="00fE2iTKMZ0"
+          data-title="The Banshee"
+        >
+          <p>
+            The Banshee
+            <small>· Robert Miller · 2:22</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=00fE2iTKMZ0">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <details>
+          <summary>Play your own MIDI edition</summary>
+          <div data-score-player data-instrument="piano">
+            <p data-edition-name></p>
+
+            <label class="movement">
+              Movement
+              <select data-movements></select>
+            </label>
+            <div class="transport" data-transport hidden>
+              <button type="button" data-play class="primary">Play</button>
+              <input
+                data-position
+                type="range"
+                min="0"
+                max="1"
+                value="0"
+                step=".01"
+                aria-label="Score position"
+              />
+              <time data-clock></time>
+              <select data-speed aria-label="Playback speed">
+                <option value=".5">½ speed</option>
+                <option value=".75">¾ speed</option>
+                <option selected value="1">1× speed</option>
+                <option value="1.25">1¼ speed</option>
+              </select>
+            </div>
+            <canvas
+              data-roll
+              hidden
+              width="990"
+              height="220"
+              role="img"
+              aria-label="Scrolling piano roll, with time running from left to right"
+            ></canvas>
+
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+            <p role="status" data-status></p>
+          </div>
+        </details>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a
+              href="https://imslp.org/wiki/The_Banshee,_HC_405_(Cowell,_Henry)"
+            >
+              Score editions on IMSLP
+            </a>
+          </li>
+        </ul>
+      </details>
     </main>
-    <footer><p><a href="https://imslp.org/wiki/The_Banshee,_HC_405_(Cowell,_Henry)">IMSLP</a></p><nav aria-label="Experiment sequence"><a href="../ives-piano-sonata-no-2-s-88/index.html">← Previous · Ives — Piano Sonata No.2, S.88</a> <a href="../bach-keyboard-repertoire/index.html">Next · Bach keyboard repertoire →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script>
-const g=board('Nine schematic piano strings. Choose a gesture and touch a string.');
-let gesture=0,ctx;
-function draw(active=-1){clear(g);for(let i=0;i<9;i++){
- const x=190+i*72;line(g,[[x,40+i*3],[x,277-i*7]],i===active?gold:mint,i===active?5:2);labelAt(g,String(i+1),x-5,303);}}
-async function excite(i){try{ctx??=new AudioContext();await ctx.resume();const t=ctx.currentTime,d=gesture===1?1.2:.7;
- const o=ctx.createOscillator(),gain=ctx.createGain();o.type=gesture===1?'sawtooth':'triangle';o.frequency.value=65.4*2**(i/12);
- if(gesture===2)o.frequency.exponentialRampToValueAtTime(o.frequency.value*2,t+d);
- gain.gain.setValueAtTime(.0001,t);gain.gain.exponentialRampToValueAtTime(.07,t+(gesture===1?.26:.01));gain.gain.exponentialRampToValueAtTime(.0001,t+d);
- o.connect(gain).connect(ctx.destination);o.start(t);o.stop(t+d);draw(i);statusLine.textContent=['Pluck','Rub','Sweep'][gesture]+' · string '+(i+1)+' · synthesized gesture.';}catch{statusLine.textContent='Audio unavailable.';}}
-menu('Gesture',['Pluck','Rub','Sweep'],v=>{gesture=v;});const string=slider('String',1,9,1,v=>draw(v-1));button('Sound string',()=>excite(+string.value-1));
-g.canvas.onpointerdown=e=>{const r=g.canvas.getBoundingClientRect(),x=(e.clientX-r.left)*960/r.width;const i=Math.max(0,Math.min(8,Math.round((x-190)/72)));string.value=i+1;excite(i);};draw();
-</script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          IMSLP ·
+          <a href="https://imslp.org/wiki/The_Banshee,_HC_405_(Cowell,_Henry)">
+            Edition
+          </a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../ives-piano-sonata-no-2-s-88/index.html">
+          ← Previous · Ives — Piano Sonata No.2, S.88
+        </a>
+        <a href="../bach-keyboard-repertoire/index.html">
+          Next · Bach keyboard repertoire →
+        </a>
+      </nav>
+    </footer>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

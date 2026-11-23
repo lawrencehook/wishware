@@ -1,23 +1,137 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Debussy Première Arabesque · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Debussy Première Arabesque</h1>
-        <p>Follow the colored note attacks in the first Arabesque and slow the passage to compare the two rhythms.</p>
-        <div id="experiment"></div>
-        <p>Edition · Première Arabesque</p>
+      <h1>Debussy Première Arabesque</h1>
+      <section>
+        <h2>Performance</h2>
+        <div
+          class="performance"
+          data-video="JCTQTp1PdnA"
+          data-title="Arabesque No. 1"
+        >
+          <p>
+            Arabesque No. 1
+            <small>· Maria João Pires · 4:41</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=JCTQTp1PdnA">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <h2>Sampled grand piano</h2>
+        <div data-score-player data-instrument="piano">
+          <p data-edition-name>Arabesque No. 1</p>
+
+          <label class="movement">
+            Movement
+            <select data-movements></select>
+          </label>
+          <div class="transport" data-transport hidden>
+            <button type="button" data-play class="primary">Play</button>
+            <input
+              data-position
+              type="range"
+              min="0"
+              max="1"
+              value="0"
+              step=".01"
+              aria-label="Score position"
+            />
+            <time data-clock></time>
+            <select data-speed aria-label="Playback speed">
+              <option value=".5">½ speed</option>
+              <option value=".75">¾ speed</option>
+              <option selected value="1">1× speed</option>
+              <option value="1.25">1¼ speed</option>
+            </select>
+          </div>
+          <canvas
+            data-roll
+            hidden
+            width="990"
+            height="220"
+            role="img"
+            aria-label="Scrolling piano roll, with time running from left to right"
+          ></canvas>
+
+          <details>
+            <summary>Open a local MIDI file</summary>
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+          </details>
+          <p role="status" data-status></p>
+        </div>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/DebussyC/L66/debussy_Arabesque_1/debussy_Arabesque_1-a4.pdf"
+            >
+              Arabesque No. 1 · PDF
+            </a>
+          </li>
+        </ul>
+      </details>
     </main>
-    <footer><p><a href="https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1777">Mutopia Project</a></p><p><a href="https://www.mutopiaproject.org/ftp/DebussyC/L66/debussy_Arabesque_1/debussy_Arabesque_1.mid">Adapted from the Mutopia Project edition by Keith OHara · Public Domain.</a></p><nav aria-label="Experiment sequence"><a href="../schumann-kinderszenen/index.html">← Previous · Schumann Kinderszenen</a> <a href="../grieg-lyric-pieces/index.html">Next · Grieg Lyric Pieces →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script src="notes.js"></script><script src="../shared/midi.js"></script><script src="../shared/score.js"></script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          Mutopia Project ·
+          <a
+            href="https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1777"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Adapted from the Mutopia Project edition by Keith OHara · Public
+          Domain. ·
+          <a
+            href="https://www.mutopiaproject.org/ftp/DebussyC/L66/debussy_Arabesque_1/debussy_Arabesque_1.mid"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../schumann-kinderszenen/index.html">
+          ← Previous · Schumann Kinderszenen
+        </a>
+        <a href="../grieg-lyric-pieces/index.html">
+          Next · Grieg Lyric Pieces →
+        </a>
+      </nav>
+    </footer>
+    <script src="notes.js"></script>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

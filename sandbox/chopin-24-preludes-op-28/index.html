@@ -1,23 +1,444 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Chopin — 24 Preludes, Op. 28 · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Chopin — 24 Preludes, Op. 28</h1>
-        <p>Isolate the lower attacks of the first prelude and restore the upper part to hear the moving texture.</p>
-        <div id="experiment"></div>
-        <p>Edition · Prelude: Op. 28, No. 1</p>
+      <h1>Chopin — 24 Preludes, Op. 28</h1>
+      <section>
+        <h2>Performance</h2>
+        <div
+          class="performance"
+          data-video="QWFR9joxbpc"
+          data-title="24 Preludes, Op. 28"
+        >
+          <p>
+            24 Preludes, Op. 28
+            <small>· Seong-Jin Cho · 40:53</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=QWFR9joxbpc">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <h2>Sampled grand piano</h2>
+        <div data-score-player data-instrument="piano">
+          <p data-edition-name>24 selections · plays continuously</p>
+
+          <label class="movement">
+            Movement
+            <select data-movements></select>
+          </label>
+          <div class="transport" data-transport hidden>
+            <button type="button" data-play class="primary">Play</button>
+            <input
+              data-position
+              type="range"
+              min="0"
+              max="1"
+              value="0"
+              step=".01"
+              aria-label="Score position"
+            />
+            <time data-clock></time>
+            <select data-speed aria-label="Playback speed">
+              <option value=".5">½ speed</option>
+              <option value=".75">¾ speed</option>
+              <option selected value="1">1× speed</option>
+              <option value="1.25">1¼ speed</option>
+            </select>
+          </div>
+          <canvas
+            data-roll
+            hidden
+            width="990"
+            height="220"
+            role="img"
+            aria-label="Scrolling piano roll, with time running from left to right"
+          ></canvas>
+
+          <details>
+            <summary>Open a local MIDI file</summary>
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+          </details>
+          <p role="status" data-status></p>
+        </div>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-1/Chop-28-1-a4.pdf"
+            >
+              Prelude No. 1 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-2/Chop-28-2-a4.pdf"
+            >
+              Prelude No. 2 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-3/Chop-28-3-a4.pdf"
+            >
+              Prelude No. 3 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-4/Chop-28-4-a4.pdf"
+            >
+              Prelude No. 4 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-5/Chop-28-5-a4.pdf"
+            >
+              Prelude No. 5 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-6/Chop-28-6-a4.pdf"
+            >
+              Prelude No. 6 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-7/Chop-28-7-a4.pdf"
+            >
+              Prelude No. 7 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-8/Chop-28-8-a4.pdf"
+            >
+              Prelude No. 8 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-9/Chop-28-9-a4.pdf"
+            >
+              Prelude No. 9 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-10/Chop-28-10-a4.pdf"
+            >
+              Prelude No. 10 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-11/Chop-28-11-a4.pdf"
+            >
+              Prelude No. 11 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-12/Chop-28-12-a4.pdf"
+            >
+              Prelude No. 12 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-13/Chop-28-13-a4.pdf"
+            >
+              Prelude No. 13 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-14/Chop-28-14-a4.pdf"
+            >
+              Prelude No. 14 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-15/Chop-28-15-a4.pdf"
+            >
+              Prelude No. 15 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-16/Chop-28-16-a4.pdf"
+            >
+              Prelude No. 16 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-17/Chop-28-17-a4.pdf"
+            >
+              Prelude No. 17 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-18/Chop-28-18-a4.pdf"
+            >
+              Prelude No. 18 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-19/Chop-28-19-a4.pdf"
+            >
+              Prelude No. 19 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-20/Chop-28-20-a4.pdf"
+            >
+              Prelude No. 20 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-21/Chop-28-21-a4.pdf"
+            >
+              Prelude No. 21 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-22/Chop-28-22-a4.pdf"
+            >
+              Prelude No. 22 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-23/Chop-28-23-a4.pdf"
+            >
+              Prelude No. 23 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-24/Chop-28-24-a4.pdf"
+            >
+              Prelude No. 24 · PDF
+            </a>
+          </li>
+        </ul>
+      </details>
     </main>
-    <footer><p><a href="https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/ChopinFF/O28">Mutopia Project</a></p><p><a href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-1/Chop-28-1.mid">Adapted from the Mutopia Project edition by Donald Axel · Creative Commons Attribution-ShareAlike 4.0.</a></p><nav aria-label="Experiment sequence"><a href="../satie-gymnopedie-no-1/index.html">← Previous · Satie — Gymnopédie No. 1</a> <a href="../schubert-four-impromptus-d-899/index.html">Next · Schubert — Four Impromptus, D. 899 →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script src="notes.js"></script><script src="../shared/midi.js"></script><script src="../shared/score.js"></script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          Mutopia Project ·
+          <a
+            href="https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/ChopinFF/O28"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Mutopia Project · Donald Axel · Creative Commons
+          Attribution-ShareAlike 4.0 ·
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-1/Chop-28-1.mid"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Mutopia Project · Donald Axel · Creative Commons
+          Attribution-ShareAlike 3.0 ·
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-2/Chop-28-2.mid"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Mutopia Project · Knute Snortum · Creative Commons
+          Attribution-ShareAlike 4.0 ·
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-3/Chop-28-3.mid"
+          >
+            1
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-5/Chop-28-5.mid"
+          >
+            2
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-8/Chop-28-8.mid"
+          >
+            3
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-9/Chop-28-9.mid"
+          >
+            4
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-10/Chop-28-10.mid"
+          >
+            5
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-11/Chop-28-11.mid"
+          >
+            6
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-12/Chop-28-12.mid"
+          >
+            7
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-13/Chop-28-13.mid"
+          >
+            8
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-14/Chop-28-14.mid"
+          >
+            9
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-16/Chop-28-16.mid"
+          >
+            10
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-17/Chop-28-17.rdf"
+          >
+            11
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-18/Chop-28-18.mid"
+          >
+            12
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-19/Chop-28-19.mid"
+          >
+            13
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-21/Chop-28-21.mid"
+          >
+            14
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-22/Chop-28-22.mid"
+          >
+            15
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-23/Chop-28-23.mid"
+          >
+            16
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-24/Chop-28-24.mid"
+          >
+            17
+          </a>
+        </p>
+        <p>
+          Mutopia Project · Magnus Lewis-Smith · Public Domain ·
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-4/Chop-28-4.mid"
+          >
+            1
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-6/Chop-28-6.rdf"
+          >
+            2
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-7/Chop-28-7.rdf"
+          >
+            3
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-15/Chop-28-15.rdf"
+          >
+            4
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-20/Chop-28-20.mid"
+          >
+            5
+          </a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../satie-gymnopedie-no-1/index.html">
+          ← Previous · Satie — Gymnopédie No. 1
+        </a>
+        <a href="../schubert-four-impromptus-d-899/index.html">
+          Next · Schubert — Four Impromptus, D. 899 →
+        </a>
+      </nav>
+    </footer>
+    <script src="notes.js"></script>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

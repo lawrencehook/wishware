@@ -1,23 +1,133 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Dvořák — 8 Humoresques, Op.101 · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Dvořák — 8 Humoresques, Op.101</h1>
-        <p>Loop the dotted tune in Humoresque No. 7 and tap its underlying pulse.</p>
-        <div id="experiment"></div>
-        <p>Recording · Dvořák - Humoresque Op. 101 No. 7</p>
+      <h1>Dvořák — 8 Humoresques, Op.101</h1>
+      <section>
+        <h2>Performance</h2>
+        <div
+          class="performance"
+          data-video="dr5hpNs_Ukw"
+          data-title="Humoresque in G-flat major, Op. 101 No. 7"
+        >
+          <p>
+            Humoresque in G-flat major, Op. 101 No. 7
+            <small>· Ivo Kahánek · 2:55</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=dr5hpNs_Ukw">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <h2>Sampled grand piano</h2>
+        <div data-score-player data-instrument="piano">
+          <p data-edition-name>Humoresque No. 7</p>
+
+          <label class="movement">
+            Movement
+            <select data-movements></select>
+          </label>
+          <div class="transport" data-transport hidden>
+            <button type="button" data-play class="primary">Play</button>
+            <input
+              data-position
+              type="range"
+              min="0"
+              max="1"
+              value="0"
+              step=".01"
+              aria-label="Score position"
+            />
+            <time data-clock></time>
+            <select data-speed aria-label="Playback speed">
+              <option value=".5">½ speed</option>
+              <option value=".75">¾ speed</option>
+              <option selected value="1">1× speed</option>
+              <option value="1.25">1¼ speed</option>
+            </select>
+          </div>
+          <canvas
+            data-roll
+            hidden
+            width="990"
+            height="220"
+            role="img"
+            aria-label="Scrolling piano roll, with time running from left to right"
+          ></canvas>
+
+          <details>
+            <summary>Open a local MIDI file</summary>
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+          </details>
+          <p role="status" data-status></p>
+        </div>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a
+              href="https://imslp.org/wiki/8_Humoresques,_Op.101_(Dvo%C5%99%C3%A1k,_Anton%C3%ADn)"
+            >
+              Score editions on IMSLP
+            </a>
+          </li>
+        </ul>
+      </details>
     </main>
-    <footer><p><a href="https://imslp.org/wiki/8_Humoresques,_Op.101_(Dvo%C5%99%C3%A1k,_Anton%C3%ADn)">IMSLP</a></p><p><a href="https://commons.wikimedia.org/wiki/File:Dvo%C5%99%C3%A1k_-_Humoresque_Op._101_No._7.ogg">Opening excerpt, converted to mono MP3. Antonín Dvořák · CC BY-SA 2.0 https://creativecommons.org/licenses/by-sa/2.0</a></p><nav aria-label="Experiment sequence"><a href="../bartok-allegro-barbaro-sz-49/index.html">← Previous · Bartók — Allegro barbaro, Sz.49</a> <a href="../faure-barcarolle-no-1-op-26/index.html">Next · Fauré — Barcarolle No.1, Op.26 →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script src="../shared/listening.js"></script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          IMSLP ·
+          <a
+            href="https://imslp.org/wiki/8_Humoresques,_Op.101_(Dvo%C5%99%C3%A1k,_Anton%C3%ADn)"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Adapted from PDMX (Long et al.), record 5936751 · cc-zero ·
+          https://creativecommons.org/publicdomain/zero/1.0/ ·
+          <a href="https://doi.org/10.5281/zenodo.15571083">Edition</a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../bartok-allegro-barbaro-sz-49/index.html">
+          ← Previous · Bartók — Allegro barbaro, Sz.49
+        </a>
+        <a href="../faure-barcarolle-no-1-op-26/index.html">
+          Next · Fauré — Barcarolle No.1, Op.26 →
+        </a>
+      </nav>
+    </footer>
+    <script src="notes.js"></script>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

@@ -1,23 +1,141 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Berg — Piano Sonata, Op.1 · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Berg — Piano Sonata, Op.1</h1>
-        <p>Track the intervals of an opening cell as its starting note changes.</p>
-        <p>Original practice pattern. Load a local MIDI edition to hear the named work.</p><div id="experiment"></div>
-        
+      <h1>Berg — Piano Sonata, Op.1</h1>
+      <section>
+        <h2>Performance</h2>
+        <p>Sonata Op. 1 · International Piano-e-Competition, 2017</p>
+        <audio
+          data-take
+          controls
+          preload="metadata"
+          src="competition.mp3"
+        ></audio>
+        <button type="button" data-compare>
+          Hear this point on sampled piano
+        </button>
+        <div
+          class="performance"
+          data-video="VxQuvwHS83Y"
+          data-title="Piano Sonata, Op. 1"
+        >
+          <p>
+            Piano Sonata, Op. 1
+            <small>· Seong-Jin Cho · 12:25</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=VxQuvwHS83Y">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <h2>Sampled grand piano</h2>
+        <div data-score-player data-instrument="piano">
+          <p data-edition-name>Sonata Op. 1 · competition MIDI</p>
+
+          <label class="movement">
+            Movement
+            <select data-movements></select>
+          </label>
+          <div class="transport" data-transport hidden>
+            <button type="button" data-play class="primary">Play</button>
+            <input
+              data-position
+              type="range"
+              min="0"
+              max="1"
+              value="0"
+              step=".01"
+              aria-label="Score position"
+            />
+            <time data-clock></time>
+            <select data-speed aria-label="Playback speed">
+              <option value=".5">½ speed</option>
+              <option value=".75">¾ speed</option>
+              <option selected value="1">1× speed</option>
+              <option value="1.25">1¼ speed</option>
+            </select>
+          </div>
+          <canvas
+            data-roll
+            hidden
+            width="990"
+            height="220"
+            role="img"
+            aria-label="Scrolling piano roll, with time running from left to right"
+          ></canvas>
+
+          <details>
+            <summary>Open a local MIDI file</summary>
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+          </details>
+          <p role="status" data-status></p>
+        </div>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a href="https://imslp.org/wiki/Piano_Sonata,_Op.1_(Berg,_Alban)">
+              Score editions on IMSLP
+            </a>
+          </li>
+        </ul>
+      </details>
     </main>
-    <footer><p><a href="https://imslp.org/wiki/Piano_Sonata,_Op.1_(Berg,_Alban)">IMSLP</a></p><nav aria-label="Experiment sequence"><a href="../webern-variations-for-piano-op-27/index.html">← Previous · Webern — Variations for Piano, Op.27</a> <a href="../boulanger-3-morceaux/index.html">Next · Boulanger — 3 Morceaux →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script>const score = {"notes":[[0.0,47,1.067,1],[0,59,0.38,0],[0.5,65,1.14,0],[1.333,54,1.067,1],[2.0,68,0.38,0],[2.5,66,1.14,0],[2.667,50,1.067,1],[4.0,47,1.067,1],[4.0,64,0.38,0],[4.5,70,1.14,0],[5.333,54,1.067,1],[6.0,73,0.38,0],[6.5,71,1.14,0],[6.667,50,1.067,1],[8.0,47,1.067,1],[8.0,59,0.38,0],[8.5,65,1.14,0],[9.333,54,1.067,1],[10.0,68,0.38,0],[10.5,66,1.14,0],[10.667,50,1.067,1],[12.0,47,1.067,1],[12.0,64,0.38,0],[12.5,70,1.14,0],[13.333,54,1.067,1],[14.0,73,0.38,0],[14.5,71,1.14,0],[14.667,50,1.067,1]]};</script><script src="../shared/midi.js"></script><script src="../shared/score.js"></script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          IMSLP ·
+          <a href="https://imslp.org/wiki/Piano_Sonata,_Op.1_(Berg,_Alban)">
+            Edition
+          </a>
+        </p>
+        <p>
+          International Piano-e-Competition, 2017 · MAESTRO v3.0.0 (Hawthorne et
+          al.) · CC BY-NC-SA 4.0. MP3 and note data adapted from
+          2017/MIDI-Unprocessed_066_PIANO066_MID--AUDIO-split_07-07-17_Piano-e_3-02_wav--3.wav.
+          ·
+          <a href="https://magenta.tensorflow.org/datasets/maestro">Edition</a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../webern-variations-for-piano-op-27/index.html">
+          ← Previous · Webern — Variations for Piano, Op.27
+        </a>
+        <a href="../boulanger-3-morceaux/index.html">
+          Next · Boulanger — 3 Morceaux →
+        </a>
+      </nav>
+    </footer>
+    <script src="notes.js"></script>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

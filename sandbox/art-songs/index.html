@@ -1,23 +1,131 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Art songs · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Art songs</h1>
-        <p>Loop one sung phrase of Erlkönig and mark the accompanying piano attacks.</p>
-        <div id="experiment"></div>
-        <p>Recording · Schubert - Schumann-Heink - Erlkönig</p>
+      <h1>Art songs</h1>
+      <section>
+        <h2>Performance</h2>
+        <p>Erlkönig · Ernestine Schumann-Heink</p>
+        <audio
+          controls
+          preload="metadata"
+          aria-label="Erlkönig · Ernestine Schumann-Heink"
+          src="performance.mp3"
+        ></audio>
+        <div
+          class="performance"
+          data-video="Jd7ODIGY6Bk"
+          data-title="Erlkönig, D. 328"
+        >
+          <p>
+            Erlkönig, D. 328
+            <small>· Dietrich Fischer-Dieskau and Gerald Moore · 4:16</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=Jd7ODIGY6Bk">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <h2>Sampled grand piano</h2>
+        <div data-score-player data-instrument="piano">
+          <p data-edition-name>Erlkönig, D. 328 · piano realization</p>
+
+          <label class="movement">
+            Movement
+            <select data-movements></select>
+          </label>
+          <div class="transport" data-transport hidden>
+            <button type="button" data-play class="primary">Play</button>
+            <input
+              data-position
+              type="range"
+              min="0"
+              max="1"
+              value="0"
+              step=".01"
+              aria-label="Score position"
+            />
+            <time data-clock></time>
+            <select data-speed aria-label="Playback speed">
+              <option value=".5">½ speed</option>
+              <option value=".75">¾ speed</option>
+              <option selected value="1">1× speed</option>
+              <option value="1.25">1¼ speed</option>
+            </select>
+          </div>
+          <canvas
+            data-roll
+            hidden
+            width="990"
+            height="220"
+            role="img"
+            aria-label="Scrolling piano roll, with time running from left to right"
+          ></canvas>
+
+          <details>
+            <summary>Open a local MIDI file</summary>
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+          </details>
+          <p role="status" data-status></p>
+        </div>
+      </section>
     </main>
-    <footer><p><a href="https://fourscoreandmore.org/openscore/">OpenScore</a></p><p><a href="https://commons.wikimedia.org/wiki/File:Schubert_-_Schumann-Heink_-_Erlk%C3%B6nig.ogg">Opening excerpt, converted to mono MP3. Franz Schubert - Ernestine Schumann-Heink · Public domain</a></p><nav aria-label="Experiment sequence"><a href="../editable-classical-scores/index.html">← Previous · Editable classical scores</a> <a href="../ship-hulls/index.html">Next · Ship hulls →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script src="../shared/listening.js"></script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          OpenScore ·
+          <a href="https://fourscoreandmore.org/openscore/">Edition</a>
+        </p>
+        <p>
+          Adapted from PDMX (Long et al.), record 5291038 · cc-zero ·
+          https://creativecommons.org/publicdomain/zero/1.0/ ·
+          <a href="https://doi.org/10.5281/zenodo.15571083">Edition</a>
+        </p>
+        <p>
+          Complete source recording, transcoded to MP3. Franz Schubert -
+          Ernestine Schumann-Heink · Public domain ·
+          <a
+            href="https://commons.wikimedia.org/wiki/File:Schubert_-_Schumann-Heink_-_Erlk%C3%B6nig.ogg"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../editable-classical-scores/index.html">
+          ← Previous · Editable classical scores
+        </a>
+        <a href="../ship-hulls/index.html">Next · Ship hulls →</a>
+      </nav>
+    </footer>
+    <script src="notes.js"></script>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

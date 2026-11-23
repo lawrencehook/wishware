@@ -1,23 +1,137 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Chopin — Fantaisie-Impromptu, Op. 66 · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Chopin — Fantaisie-Impromptu, Op. 66</h1>
-        <p>Slow the passage and solo each part to compare its subdivisions. Move the start beat past the introduction.</p>
-        <div id="experiment"></div>
-        <p>Edition · chopin_fantaisie-impromptu</p>
+      <h1>Chopin — Fantaisie-Impromptu, Op. 66</h1>
+      <section>
+        <h2>Performance</h2>
+        <div
+          class="performance"
+          data-video="75x6DncZDgI"
+          data-title="Fantaisie-Impromptu, Op. 66"
+        >
+          <p>
+            Fantaisie-Impromptu, Op. 66
+            <small>· Arthur Rubinstein · 5:08</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=75x6DncZDgI">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <h2>Sampled grand piano</h2>
+        <div data-score-player data-instrument="piano">
+          <p data-edition-name>Fantaisie-Impromptu, Op. 66</p>
+
+          <label class="movement">
+            Movement
+            <select data-movements></select>
+          </label>
+          <div class="transport" data-transport hidden>
+            <button type="button" data-play class="primary">Play</button>
+            <input
+              data-position
+              type="range"
+              min="0"
+              max="1"
+              value="0"
+              step=".01"
+              aria-label="Score position"
+            />
+            <time data-clock></time>
+            <select data-speed aria-label="Playback speed">
+              <option value=".5">½ speed</option>
+              <option value=".75">¾ speed</option>
+              <option selected value="1">1× speed</option>
+              <option value="1.25">1¼ speed</option>
+            </select>
+          </div>
+          <canvas
+            data-roll
+            hidden
+            width="990"
+            height="220"
+            role="img"
+            aria-label="Scrolling piano roll, with time running from left to right"
+          ></canvas>
+
+          <details>
+            <summary>Open a local MIDI file</summary>
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+          </details>
+          <p role="status" data-status></p>
+        </div>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O66/chopin_fantaisie-impromptu/chopin_fantaisie-impromptu-a4.pdf"
+            >
+              Fantaisie-Impromptu, Op. 66 · PDF
+            </a>
+          </li>
+        </ul>
+      </details>
     </main>
-    <footer><p><a href="https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/ChopinFF/O66/chopin_fantaisie-impromptu">Mutopia Project</a></p><p><a href="https://www.mutopiaproject.org/ftp/ChopinFF/O66/chopin_fantaisie-impromptu/chopin_fantaisie-impromptu.mid">Adapted from the Mutopia Project edition by Guy D. Lederfein · Public Domain.</a></p><nav aria-label="Experiment sequence"><a href="../airfoil-section-coordinates/index.html">← Previous · Airfoil section coordinates</a> <a href="../mechanical-tide-prediction/index.html">Next · Mechanical tide prediction →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script src="notes.js"></script><script src="../shared/midi.js"></script><script src="../shared/score.js"></script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          Mutopia Project ·
+          <a
+            href="https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/ChopinFF/O66/chopin_fantaisie-impromptu"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Adapted from the Mutopia Project edition by Guy D. Lederfein · Public
+          Domain. ·
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O66/chopin_fantaisie-impromptu/chopin_fantaisie-impromptu.mid"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../airfoil-section-coordinates/index.html">
+          ← Previous · Airfoil section coordinates
+        </a>
+        <a href="../mechanical-tide-prediction/index.html">
+          Next · Mechanical tide prediction →
+        </a>
+      </nav>
+    </footer>
+    <script src="notes.js"></script>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

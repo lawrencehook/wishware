@@ -1,23 +1,360 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Burgmüller — Easy and Progressive Studies, Op. 100, selections · Wishware Sandbox</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>
+      Burgmüller — Easy and Progressive Studies, Op. 100, selections · Wishware
+      Sandbox
+    </title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Burgmüller — Easy and Progressive Studies, Op. 100, selections</h1>
-        <p>Solo each part of La Candeur and compare how often each hand attacks in the opening.</p>
-        <div id="experiment"></div>
-        <p>Edition · La Candeur</p>
+      <h1>Burgmüller — Easy and Progressive Studies, Op. 100, selections</h1>
+      <section>
+        <h2>Performance</h2>
+        <div
+          class="performance"
+          data-video="YmrAIf5WlaI"
+          data-title="Burgmuller Op.100 25 Easy and Progressive Studies (Complete)"
+        >
+          <p>
+            Burgmuller Op.100 25 Easy and Progressive Studies (Complete)
+            <small>· Alan Chan · 24:19</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=YmrAIf5WlaI">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <h2>Sampled grand piano</h2>
+        <div data-score-player data-instrument="piano">
+          <p data-edition-name>18 selections · plays continuously</p>
+
+          <label class="movement">
+            Movement
+            <select data-movements></select>
+          </label>
+          <div class="transport" data-transport hidden>
+            <button type="button" data-play class="primary">Play</button>
+            <input
+              data-position
+              type="range"
+              min="0"
+              max="1"
+              value="0"
+              step=".01"
+              aria-label="Score position"
+            />
+            <time data-clock></time>
+            <select data-speed aria-label="Playback speed">
+              <option value=".5">½ speed</option>
+              <option value=".75">¾ speed</option>
+              <option selected value="1">1× speed</option>
+              <option value="1.25">1¼ speed</option>
+            </select>
+          </div>
+          <canvas
+            data-roll
+            hidden
+            width="990"
+            height="220"
+            role="img"
+            aria-label="Scrolling piano roll, with time running from left to right"
+          ></canvas>
+
+          <details>
+            <summary>Open a local MIDI file</summary>
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+          </details>
+          <p role="status" data-status></p>
+        </div>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-01/25EF-01-a4.pdf"
+            >
+              Study No. 1 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-02/25EF-02-a4.pdf"
+            >
+              Study No. 2 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-03/25EF-03-a4.pdf"
+            >
+              Study No. 3 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-04/25EF-04-a4.pdf"
+            >
+              Study No. 4 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-05/25EF-05-a4.pdf"
+            >
+              Study No. 5 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-06/25EF-06-a4.pdf"
+            >
+              Study No. 6 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-07/25EF-07-a4.pdf"
+            >
+              Study No. 7 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-08/25EF-08-a4.pdf"
+            >
+              Study No. 8 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-09/25EF-09-a4.pdf"
+            >
+              Study No. 9 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-10/25EF-10-a4.pdf"
+            >
+              Study No. 10 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-11/25EF-11-a4.pdf"
+            >
+              Study No. 11 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-12/25EF-12-a4.pdf"
+            >
+              Study No. 12 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-13/25EF-13-a4.pdf"
+            >
+              Study No. 13 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-14/25EF-14-a4.pdf"
+            >
+              Study No. 14 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-15/25EF-15-a4.pdf"
+            >
+              Study No. 15 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-16/25EF-16-a4.pdf"
+            >
+              Study No. 16 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-17/25EF-17-a4.pdf"
+            >
+              Study No. 17 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-18/25EF-18-a4.pdf"
+            >
+              Study No. 18 · PDF
+            </a>
+          </li>
+        </ul>
+      </details>
     </main>
-    <footer><p><a href="https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BurgmullerJFF/O100">Mutopia Project</a></p><p><a href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-01/25EF-01.mid">Adapted from the Mutopia Project edition by Bas Wassink · Public Domain.</a></p><nav aria-label="Experiment sequence"><a href="../clementi-sonatina-in-c-op-36-no-1/index.html">← Previous · Clementi — Sonatina in C, Op. 36 No. 1</a> <a href="../satie-gnossiennes-nos-13/index.html">Next · Satie — Gnossiennes Nos. 1–3 →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script src="notes.js"></script><script src="../shared/midi.js"></script><script src="../shared/score.js"></script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          Mutopia Project ·
+          <a
+            href="https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BurgmullerJFF/O100"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Mutopia Project · Bas Wassink · Public Domain ·
+          <a
+            href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-01/25EF-01.mid"
+          >
+            1
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-02/25EF-02.mid"
+          >
+            2
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-03/25EF-03.mid"
+          >
+            3
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-04/25EF-04.mid"
+          >
+            4
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-05/25EF-05.mid"
+          >
+            5
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-06/25EF-06.mid"
+          >
+            6
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-07/25EF-07.mid"
+          >
+            7
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-08/25EF-08.mid"
+          >
+            8
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-09/25EF-09.mid"
+          >
+            9
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-10/25EF-10.mid"
+          >
+            10
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-11/25EF-11.mid"
+          >
+            11
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-12/25EF-12.mid"
+          >
+            12
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-13/25EF-13.mid"
+          >
+            13
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-14/25EF-14.mid"
+          >
+            14
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-15/25EF-15.mid"
+          >
+            15
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-16/25EF-16.mid"
+          >
+            16
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-17/25EF-17.mid"
+          >
+            17
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-18/25EF-18.mid"
+          >
+            18
+          </a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../clementi-sonatina-in-c-op-36-no-1/index.html">
+          ← Previous · Clementi — Sonatina in C, Op. 36 No. 1
+        </a>
+        <a href="../satie-gnossiennes-nos-13/index.html">
+          Next · Satie — Gnossiennes Nos. 1–3 →
+        </a>
+      </nav>
+    </footer>
+    <script src="notes.js"></script>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

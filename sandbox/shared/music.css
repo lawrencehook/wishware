@@ -1,0 +1,90 @@
+.music-page {
+    max-width: 62rem;
+}
+.music-page h1 {
+    max-width: 28ch;
+    margin-bottom: 1.2rem;
+}
+.music-page h2 {
+    margin: 0 0 0.5rem;
+    font:
+        500 1.65rem/1.2 Georgia,
+        serif;
+}
+.music-page section {
+    padding: 1.3rem 0;
+    border-top: 1px solid light-dark(#c2cec4, #415249);
+}
+.music-page section p {
+    margin: 0.35rem 0 0.7rem;
+}
+.music-page .transport {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.65rem;
+}
+.music-page .transport input[type='range'] {
+    flex: 1;
+    min-width: 7rem;
+}
+.music-page .transport time {
+    font-variant-numeric: tabular-nums;
+}
+.music-page .primary {
+    background: #23624f;
+    border: 1px solid #23624f;
+    color: white;
+    border-radius: 0.4em;
+}
+.music-page canvas[data-roll] {
+    aspect-ratio: 4.5;
+    margin: 0.6rem 0;
+}
+.music-page [hidden] {
+    display: none !important;
+}
+.music-page [role='status']:empty {
+    display: none;
+}
+.music-page details {
+    margin: 0.75rem 0;
+}
+.music-page details summary {
+    cursor: pointer;
+}
+.music-page .performance {
+    margin: 0.65rem 0 0.85rem;
+}
+.music-page .performance iframe {
+    display: block;
+    width: min(100%, 48rem);
+    aspect-ratio: 16/9;
+    border: 0;
+    margin: 0.65rem 0;
+}
+.music-page .performance button {
+    margin: 0.25rem 0.65rem 0.25rem 0;
+}
+.music-page .facsimile {
+    display: block;
+    max-width: 100%;
+    max-height: 52rem;
+    width: auto;
+}
+.music-page .movement {
+    margin: 0.3rem 0;
+}
+.music-page .movement select {
+    max-width: min(100%, 34rem);
+}
+.music-index ol {
+    padding-left: 1.9rem;
+}
+.music-index li {
+    padding: 0.55rem 0 0.6rem 0.2rem;
+    border-bottom: 1px solid light-dark(#ced8d1, #35493f);
+}
+.music-index li small {
+    display: block;
+}

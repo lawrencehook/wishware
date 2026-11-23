@@ -1,23 +1,147 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Bartók — Mikrokosmos, Sz.107 · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Bartók — Mikrokosmos, Sz.107</h1>
-        <p>Play the two hands of a unison melody together, then isolate them to compare their ranges.</p>
-        <div id="experiment"></div>
-        <p>Edition · Six Unison Melodies</p>
+      <h1>Bartók — Mikrokosmos, Sz.107</h1>
+      <section>
+        <h2>Performance</h2>
+        <div
+          class="performance"
+          data-video="NlDQ9qDdfaQ"
+          data-title="Bartok: 6 Unison Melodies (Mikrokosmos Nos.1-6)"
+        >
+          <p>
+            Bartok: 6 Unison Melodies (Mikrokosmos Nos.1-6)
+            <small>· Albumleaf Piano · 3:35</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=NlDQ9qDdfaQ">
+            Watch on YouTube
+          </a>
+        </div>
+        <div
+          class="performance"
+          data-video="5ANYbimmy1s"
+          data-title="Mikrokosmos, BB 105, Vol. 1: No. 1. 6 Unison Melodies I"
+        >
+          <p>
+            Mikrokosmos, BB 105, Vol. 1: No. 1. 6 Unison Melodies I
+            <small>· Jenő Jandó · 0:25</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=5ANYbimmy1s">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <h2>Sampled grand piano</h2>
+        <div data-score-player data-instrument="piano">
+          <p data-edition-name>Six unison melodies</p>
+
+          <label class="movement">
+            Movement
+            <select data-movements></select>
+          </label>
+          <div class="transport" data-transport hidden>
+            <button type="button" data-play class="primary">Play</button>
+            <input
+              data-position
+              type="range"
+              min="0"
+              max="1"
+              value="0"
+              step=".01"
+              aria-label="Score position"
+            />
+            <time data-clock></time>
+            <select data-speed aria-label="Playback speed">
+              <option value=".5">½ speed</option>
+              <option value=".75">¾ speed</option>
+              <option selected value="1">1× speed</option>
+              <option value="1.25">1¼ speed</option>
+            </select>
+          </div>
+          <canvas
+            data-roll
+            hidden
+            width="990"
+            height="220"
+            role="img"
+            aria-label="Scrolling piano roll, with time running from left to right"
+          ></canvas>
+
+          <details>
+            <summary>Open a local MIDI file</summary>
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+          </details>
+          <p role="status" data-status></p>
+        </div>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a
+              href="https://imslp.org/wiki/Mikrokosmos,_Sz.107_(Bart%C3%B3k,_B%C3%A9la)"
+            >
+              Score editions on IMSLP
+            </a>
+          </li>
+        </ul>
+      </details>
     </main>
-    <footer><p><a href="https://imslp.org/wiki/Mikrokosmos,_Sz.107_(Bart%C3%B3k,_B%C3%A9la)">IMSLP</a></p><p><a href="https://doi.org/10.5281/zenodo.15571083">Note events adapted from PDMX, Long et al. · score record 5723169 · cc-zero (https://creativecommons.org/publicdomain/zero/1.0/).</a></p><nav aria-label="Experiment sequence"><a href="../hensel-das-jahr-h-385/index.html">← Previous · Hensel — Das Jahr, H.385</a> <a href="../bartok-romanian-folk-dances-sz-56/index.html">Next · Bartók — Romanian Folk Dances, Sz.56 →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script src="notes.js"></script><script src="../shared/midi.js"></script><script src="../shared/score.js"></script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          IMSLP ·
+          <a
+            href="https://imslp.org/wiki/Mikrokosmos,_Sz.107_(Bart%C3%B3k,_B%C3%A9la)"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Note events adapted from PDMX, Long et al. · score record 5723169 ·
+          cc-zero (https://creativecommons.org/publicdomain/zero/1.0/). ·
+          <a href="https://doi.org/10.5281/zenodo.15571083">Edition</a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../hensel-das-jahr-h-385/index.html">
+          ← Previous · Hensel — Das Jahr, H.385
+        </a>
+        <a href="../bartok-romanian-folk-dances-sz-56/index.html">
+          Next · Bartók — Romanian Folk Dances, Sz.56 →
+        </a>
+      </nav>
+    </footer>
+    <script src="notes.js"></script>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

@@ -1,30 +1,48 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pipe organ stoplists · Wishware Sandbox</title>
-    <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Pipe organ stoplists · Wishware Sandbox</title>
+<script src="../../site-theme.js"></script>
+<link href="../../favicons/wishware.svg" rel="icon"/>
+<link href="../shared/experiments.css" rel="stylesheet"/>
+<link rel="stylesheet" href="../shared/music.css">
 </head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
-    <main>
-        <h1>Pipe organ stoplists</h1>
-        <p>Combine three idealized organ stops on middle C and hear which octaves each rank adds.</p>
-        <div id="experiment"></div>
-        
-    </main>
-    <footer><p><a href="https://organhistoricalsociety.org/about-the-ohs/pipe-organ-database/">Organ Historical Society Pipe Organ Database</a></p><nav aria-label="Experiment sequence"><a href="../japanese-manuscript-and-woodblock-maps/index.html">← Previous · Japanese manuscript and woodblock maps</a> <a href="../historical-paper-earthquake-records/index.html">Next · Historical paper earthquake records →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script>
-let context;const harmonics=[1,2,4],active=[true,false,false];
-function report(){statusLine.textContent='Sounding frequencies: '+harmonics.filter((_,i)=>active[i]).map(h=>(h*261.63).toFixed(1)+' Hz').join(', ');}
-harmonics.forEach((h,i)=>button(['8-foot principal','4-foot octave','2-foot superoctave'][i],()=>{active[i]=!active[i];report();}));
-button('Sound middle C',async()=>{try{context??=new AudioContext();await context.resume();for(let i=0;i<3;i++)if(active[i]){
- const osc=context.createOscillator(),gain=context.createGain();osc.frequency.value=261.63*harmonics[i];gain.gain.setValueAtTime(.065,context.currentTime);gain.gain.exponentialRampToValueAtTime(.001,context.currentTime+.9);
- osc.connect(gain).connect(context.destination);osc.start();osc.stop(context.currentTime+.91);}}catch{statusLine.textContent='Audio unavailable.';}});report();
-</script>
-</body>
+<body class="music-page"><nav data-site-theme-slot><a href="../index.html">← Sandbox</a> <a href="../music-pieces.html">All music</a></nav><main>
+<h1>Pipe organ stoplists</h1><section><h2>Performance</h2><p>Leo van Doeselaar plays a complete work on pipe organ.</p><div class="performance" data-title="Toccata and Fugue in D minor, BWV 565" data-video="Pi0IuyTS_ic">
+<p>Toccata and Fugue in D minor, BWV 565 <small>· Leo van Doeselaar · 9:17</small></p>
+<button class="primary" type="button">Play recording</button><a href="https://www.youtube.com/watch?v=Pi0IuyTS_ic">Watch on YouTube</a>
+</div></section>
+<p>Combine three octave registers on middle C. Each uses the same recorded pipe-organ registration at a different octave.</p>
+<div id="experiment"></div>
+</main><footer><details><summary>Sources and editions</summary><p>VSCO 2 CE · Versilian Studios and Simon Dalzell · CC0. Sampled octave registrations. · <a href="../../music/bach-data/ensemble-credits.txt">Edition</a></p><p>Organ Historical Society Pipe Organ Database · <a href="https://organhistoricalsociety.org/about-the-ohs/pipe-organ-database/">Edition</a></p></details><nav aria-label="Experiment sequence"><a href="../japanese-manuscript-and-woodblock-maps/index.html">← Previous · Japanese manuscript and woodblock maps</a> <a href="../historical-paper-earthquake-records/index.html">Next · Historical paper earthquake records →</a></nav></footer><script src="../shared/lab.js"></script><script>
+const pitches = [60, 72, 84];
+const ranks = pitches.map(pitch => new Audio('organ-' + pitch + '.mp3'));
+const switches = pitches.map((pitch, i) => {
+    const input = document.createElement('input');
+    input.type = 'checkbox';
+    input.checked = i === 0;
+    input.onchange = report;
+    field(['8-foot', '4-foot', '2-foot'][i], input);
+    return input;
+});
+function stopRanks() { ranks.forEach(a => a.pause()); }
+function report() {
+    const frequencies = pitches.filter((_, i) => switches[i].checked).map(p => Math.round(440 * 2 ** ((p - 69) / 12)));
+    statusLine.textContent = frequencies.length ? frequencies.join(' + ') + ' Hz' : 'Select a stop.';
+}
+button('Sound middle C', () => {
+    document.dispatchEvent(new Event('scoreplay'));
+    stopRanks();
+    const selected = ranks.filter((_, i) => switches[i].checked);
+    for (const a of selected) {
+        a.currentTime = 0; a.volume = 1 / selected.length;
+        a.play().catch(() => { statusLine.textContent = 'Unable to play the organ sample.'; });
+    }
+});
+document.addEventListener('performanceplay', stopRanks);
+window.addEventListener('pagehide', stopRanks);
+report();
+</script><script src="../shared/performance.js"></script></body>
 </html>

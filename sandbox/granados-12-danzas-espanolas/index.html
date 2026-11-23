@@ -1,23 +1,142 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Granados — 12 Danzas españolas · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Granados — 12 Danzas españolas</h1>
-        <p>Mark the rhythmic shape of Andaluza as heard in a guitar arrangement.</p>
-        <div id="experiment"></div>
-        <p>Recording · 20091104 Sharon Isbin - Enrique Granados, Spanish Dance number 5 of 12, 1890</p>
+      <h1>Granados — 12 Danzas españolas</h1>
+      <section>
+        <h2>Performance</h2>
+        <p>Andaluza · Sharon Isbin, guitar</p>
+        <audio
+          controls
+          preload="metadata"
+          aria-label="Andaluza · Sharon Isbin, guitar"
+          src="performance.mp3"
+        ></audio>
+        <div
+          class="performance"
+          data-video="Kl1I-ID7bm0"
+          data-title="Twelve Spanish Dances"
+        >
+          <p>
+            Twelve Spanish Dances
+            <small>· Alicia de Larrocha · 53:09</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=Kl1I-ID7bm0">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <details>
+          <summary>Play your own MIDI edition</summary>
+          <div data-score-player data-instrument="piano">
+            <p data-edition-name></p>
+
+            <label class="movement">
+              Movement
+              <select data-movements></select>
+            </label>
+            <div class="transport" data-transport hidden>
+              <button type="button" data-play class="primary">Play</button>
+              <input
+                data-position
+                type="range"
+                min="0"
+                max="1"
+                value="0"
+                step=".01"
+                aria-label="Score position"
+              />
+              <time data-clock></time>
+              <select data-speed aria-label="Playback speed">
+                <option value=".5">½ speed</option>
+                <option value=".75">¾ speed</option>
+                <option selected value="1">1× speed</option>
+                <option value="1.25">1¼ speed</option>
+              </select>
+            </div>
+            <canvas
+              data-roll
+              hidden
+              width="990"
+              height="220"
+              role="img"
+              aria-label="Scrolling piano roll, with time running from left to right"
+            ></canvas>
+
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+            <p role="status" data-status></p>
+          </div>
+        </details>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a
+              href="https://imslp.org/wiki/12_Danzas_espa%C3%B1olas_(Granados,_Enrique)"
+            >
+              Score editions on IMSLP
+            </a>
+          </li>
+        </ul>
+      </details>
     </main>
-    <footer><p><a href="https://imslp.org/wiki/12_Danzas_espa%C3%B1olas_(Granados,_Enrique)">IMSLP</a></p><p><a href="https://commons.wikimedia.org/wiki/File:20091104_Sharon_Isbin_-_Enrique_Granados,_Spanish_Dance_number_5_of_12,_1890.ogg">Opening excerpt, converted to mono MP3. Enrique Granados · Public domain</a></p><nav aria-label="Experiment sequence"><a href="../albeniz-suite-espanola-no-1-op-47/index.html">← Previous · Albéniz — Suite española No.1, Op.47</a> <a href="../mompou-impresiones-intimas/index.html">Next · Mompou — Impresiones intimas →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script src="../shared/listening.js"></script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          IMSLP ·
+          <a
+            href="https://imslp.org/wiki/12_Danzas_espa%C3%B1olas_(Granados,_Enrique)"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Complete source recording, transcoded to MP3. Enrique Granados ·
+          Public domain ·
+          <a
+            href="https://commons.wikimedia.org/wiki/File:20091104_Sharon_Isbin_-_Enrique_Granados,_Spanish_Dance_number_5_of_12,_1890.ogg"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../albeniz-suite-espanola-no-1-op-47/index.html">
+          ← Previous · Albéniz — Suite española No.1, Op.47
+        </a>
+        <a href="../mompou-impresiones-intimas/index.html">
+          Next · Mompou — Impresiones intimas →
+        </a>
+      </nav>
+    </footer>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

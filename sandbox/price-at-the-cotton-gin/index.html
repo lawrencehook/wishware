@@ -1,23 +1,124 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Price — At the Cotton Gin · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Price — At the Cotton Gin</h1>
-        <p>Pin the bass figure, then add the upper attacks back in.</p>
-        <p>Original practice pattern. Load a local MIDI edition to hear the named work.</p><div id="experiment"></div>
-        
+      <h1>Price — At the Cotton Gin</h1>
+      <section>
+        <h2>Performance</h2>
+        <div
+          class="performance"
+          data-video="Yi97QZ1F2hE"
+          data-title="At the Cotton Gin"
+        >
+          <p>
+            At the Cotton Gin
+            <small>· Artina McCain · 2:21</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=Yi97QZ1F2hE">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <details>
+          <summary>Play your own MIDI edition</summary>
+          <div data-score-player data-instrument="piano">
+            <p data-edition-name></p>
+
+            <label class="movement">
+              Movement
+              <select data-movements></select>
+            </label>
+            <div class="transport" data-transport hidden>
+              <button type="button" data-play class="primary">Play</button>
+              <input
+                data-position
+                type="range"
+                min="0"
+                max="1"
+                value="0"
+                step=".01"
+                aria-label="Score position"
+              />
+              <time data-clock></time>
+              <select data-speed aria-label="Playback speed">
+                <option value=".5">½ speed</option>
+                <option value=".75">¾ speed</option>
+                <option selected value="1">1× speed</option>
+                <option value="1.25">1¼ speed</option>
+              </select>
+            </div>
+            <canvas
+              data-roll
+              hidden
+              width="990"
+              height="220"
+              role="img"
+              aria-label="Scrolling piano roll, with time running from left to right"
+            ></canvas>
+
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+            <p role="status" data-status></p>
+          </div>
+        </details>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a
+              href="https://imslp.org/wiki/At_the_Cotton_Gin_(Price,_Florence)"
+            >
+              Score editions on IMSLP
+            </a>
+          </li>
+        </ul>
+      </details>
     </main>
-    <footer><p><a href="https://imslp.org/wiki/At_the_Cotton_Gin_(Price,_Florence)">IMSLP</a></p><nav aria-label="Experiment sequence"><a href="../gottschalk-le-banjo-op-15/index.html">← Previous · Gottschalk — Le banjo, Op.15</a> <a href="../coleridge-taylor-24-negro-melodies-op-59/index.html">Next · Coleridge-Taylor — 24 Negro Melodies, Op.59 →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script>const score = {"notes":[[0.0,48,0.8,1],[0,72,0.57,0],[0.75,70,0.19,0],[1.0,55,0.8,1],[1.0,67,0.76,0],[2.0,50,0.8,1],[2.0,65,1.52,0],[3.0,55,0.8,1],[4.0,48,0.8,1],[4.0,72,0.399,0],[4.54,74,0.165,0],[4.75,70,0.133,0],[4.93,72,0.055,0],[5.0,55,0.8,1],[5.0,67,0.532,0],[5.72,69,0.22,0],[6.0,50,0.8,1],[6.0,65,1.064,0],[7.0,55,0.8,1],[7.44,67,0.44,0],[8.0,48,0.8,1],[8.0,72,0.57,0],[8.75,70,0.19,0],[9.0,55,0.8,1],[9.0,67,0.76,0],[10.0,50,0.8,1],[10.0,65,1.52,0],[11.0,55,0.8,1],[12.0,48,0.8,1],[12.0,72,0.399,0],[12.54,74,0.165,0],[12.75,70,0.133,0],[12.93,72,0.055,0],[13.0,55,0.8,1],[13.0,67,0.532,0],[13.72,69,0.22,0],[14.0,50,0.8,1],[14.0,65,1.064,0],[15.0,55,0.8,1],[15.44,67,0.44,0]]};</script><script src="../shared/midi.js"></script><script src="../shared/score.js"></script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          IMSLP ·
+          <a href="https://imslp.org/wiki/At_the_Cotton_Gin_(Price,_Florence)">
+            Edition
+          </a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../gottschalk-le-banjo-op-15/index.html">
+          ← Previous · Gottschalk — Le banjo, Op.15
+        </a>
+        <a href="../coleridge-taylor-24-negro-melodies-op-59/index.html">
+          Next · Coleridge-Taylor — 24 Negro Melodies, Op.59 →
+        </a>
+      </nav>
+    </footer>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

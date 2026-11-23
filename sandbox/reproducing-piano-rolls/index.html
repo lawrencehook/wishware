@@ -1,35 +1,126 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Reproducing piano rolls · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Reproducing piano rolls</h1>
-        <p>Hear six seconds of Teresa Carreño’s Chopin ballade roll with its reconstructed expression, then replay the same attacks at constant strength.</p>
-        <div id="experiment"></div>
-        
+      <h1>Reproducing piano rolls</h1>
+      <section>
+        <h2>Performance</h2>
+        <div
+          class="performance"
+          data-video="iFZM7mwx-A4"
+          data-title="Ballade No. 1 in G minor · Welte-Mignon roll"
+        >
+          <p>
+            Ballade No. 1 in G minor · Welte-Mignon roll
+            <small>· Teresa Carreño · 8:19</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=iFZM7mwx-A4">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <h2>Sampled grand piano</h2>
+        <div data-score-player data-instrument="piano">
+          <p data-edition-name>Ballade No. 1 in G minor · Carreño roll</p>
+
+          <label class="movement">
+            Movement
+            <select data-movements></select>
+          </label>
+          <div class="transport" data-transport hidden>
+            <button type="button" data-play class="primary">Play</button>
+            <input
+              data-position
+              type="range"
+              min="0"
+              max="1"
+              value="0"
+              step=".01"
+              aria-label="Score position"
+            />
+            <time data-clock></time>
+            <select data-speed aria-label="Playback speed">
+              <option value=".5">½ speed</option>
+              <option value=".75">¾ speed</option>
+              <option selected value="1">1× speed</option>
+              <option value="1.25">1¼ speed</option>
+            </select>
+          </div>
+          <canvas
+            data-roll
+            hidden
+            width="990"
+            height="220"
+            role="img"
+            aria-label="Scrolling piano roll, with time running from left to right"
+          ></canvas>
+          <label>
+            <input type="checkbox" checked data-expression />
+            Use recorded attack strengths
+          </label>
+          <details>
+            <summary>Open a local MIDI file</summary>
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+          </details>
+          <p role="status" data-status></p>
+        </div>
+      </section>
     </main>
-    <footer><p><a href="https://supra.stanford.edu/download/">Stanford Piano Roll Archive downloads</a></p><p><a href="https://github.com/pianoroll/SUPRA">Shi, Sapp, Arul, McBride &amp; Smith · Stanford University Piano Roll Archive (2019) · bb988jx6754 · expression MIDI excerpt adapted under CC BY-NC-SA 4.0</a></p><nav aria-label="Experiment sequence"><a href="../liszt-la-campanella/index.html">← Previous · Liszt — La campanella</a> <a href="../andean-khipus/index.html">Next · Andean khipus →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script>const sample = [[0.0,63,1.086,46],[0.883,65,0.519,49],[0.886,62,0.612,49],[1.29,63,0.333,45],[1.309,61,0.875,45],[1.318,67,0.554,44],[1.664,63,0.396,45],[1.693,60,0.582,45],[1.723,68,0.451,45],[2.12,70,0.488,49],[2.132,55,0.467,50],[2.153,63,0.332,50],[2.49,72,0.868,52],[2.534,56,0.861,53],[2.544,63,0.579,53],[3.207,51,1.497,55],[3.243,65,0.7,55],[3.253,68,0.461,54],[3.255,59,0.398,55],[3.272,77,0.628,53],[3.286,62,0.379,55],[3.792,75,5.081,49],[3.804,68,0.948,48],[3.816,60,0.844,50],[3.837,63,0.935,49],[4.832,67,1.059,39],[4.834,63,1.017,45],[4.876,61,0.571,45],[5.268,60,0.459,46],[5.634,58,0.217,43],[5.807,60,0.2,45],[5.912,58,0.539,46],[5.923,63,1.077,46],[5.93,73,1.129,38],[5.953,67,0.807,38]];</script><script>
-const g=board('Recorded piano-roll note positions and expression velocities.');
-let expression=true,ctx,generation=0,playing=[];
-function draw(){clear(g);for(const [time,p,d,v] of sample){const x=48+time*140;g.fillStyle=mint;g.fillRect(x,200-(p-40)*3,Math.max(2,d*140),5);g.fillStyle=gold;g.fillRect(x,292-(expression?v:60)*.7,5,(expression?v:60)*.7);}
- statusLine.textContent=expression?'Reconstructed expression velocities.':'Same timing, constant attack velocity.';}
-function stop(){generation++;for(const o of playing){try{o.stop();}catch{}}playing=[];}
-button('Toggle expression',()=>{stop();expression=!expression;draw();});
-button('Play six seconds',async()=>{stop();const run=generation;try{ctx??=new AudioContext();await ctx.resume();if(run!==generation)return;
- const origin=ctx.currentTime+.05;for(const [time,p,d,v] of sample){const t=origin+time,o=ctx.createOscillator(),gain=ctx.createGain();
- o.type='triangle';o.frequency.value=440*2**((p-69)/12);gain.gain.setValueAtTime(.09*((expression?v:60)/100)**2,t);gain.gain.exponentialRampToValueAtTime(.0001,t+Math.max(.06,d));
- o.connect(gain).connect(ctx.destination);o.start(t);o.stop(t+Math.max(.06,d)+.02);playing.push(o);}}catch{statusLine.textContent='Audio unavailable.';}});
-window.addEventListener('pagehide',stop);draw();
-</script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          Stanford Piano Roll Archive downloads ·
+          <a href="https://supra.stanford.edu/download/">Edition</a>
+        </p>
+        <p>
+          Shi, Sapp, Arul, McBride &amp; Smith · Stanford University Piano Roll
+          Archive · expression MIDI, CC BY-NC-SA 4.0. ·
+          <a
+            href="https://raw.githubusercontent.com/pianoroll/SUPRA/master/welte-red/midi-exp/bb988jx6754_exp.mid"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+        <p>
+          Stanford University Piano Roll Archive ·
+          <a href="https://supra.stanford.edu/download/">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../liszt-la-campanella/index.html">
+          ← Previous · Liszt — La campanella
+        </a>
+        <a href="../andean-khipus/index.html">Next · Andean khipus →</a>
+      </nav>
+    </footer>
+    <script src="notes.js"></script>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

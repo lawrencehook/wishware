@@ -1,23 +1,147 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Albéniz — Suite española No.1, Op.47 · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Albéniz — Suite española No.1, Op.47</h1>
-        <p>Loop the repeated attacks in Asturias and mark where the register opens up.</p>
-        <div id="experiment"></div>
-        <p>Recording · Isaac Albeniz - suite espanola op. 47 - leyenda</p>
+      <h1>Albéniz — Suite española No.1, Op.47</h1>
+      <section>
+        <h2>Performance</h2>
+        <div
+          class="performance"
+          data-video="7BxWj96lYGk"
+          data-title="Suite española No. 1, Op. 47"
+        >
+          <p>
+            Suite española No. 1, Op. 47
+            <small>· Alicia de Larrocha · 35:30</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=7BxWj96lYGk">
+            Watch on YouTube
+          </a>
+        </div>
+        <div
+          class="performance"
+          data-video="CQruHcDza9c"
+          data-title="Albéniz: Suite española No. 1, Op. 47: Asturias (Leyenda)"
+        >
+          <p>
+            Albéniz: Suite española No. 1, Op. 47: Asturias (Leyenda)
+            <small>· Alicia de Larrocha · 5:59</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=CQruHcDza9c">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <h2>Sampled grand piano</h2>
+        <div data-score-player data-instrument="piano">
+          <p data-edition-name>Asturias (Leyenda)</p>
+
+          <label class="movement">
+            Movement
+            <select data-movements></select>
+          </label>
+          <div class="transport" data-transport hidden>
+            <button type="button" data-play class="primary">Play</button>
+            <input
+              data-position
+              type="range"
+              min="0"
+              max="1"
+              value="0"
+              step=".01"
+              aria-label="Score position"
+            />
+            <time data-clock></time>
+            <select data-speed aria-label="Playback speed">
+              <option value=".5">½ speed</option>
+              <option value=".75">¾ speed</option>
+              <option selected value="1">1× speed</option>
+              <option value="1.25">1¼ speed</option>
+            </select>
+          </div>
+          <canvas
+            data-roll
+            hidden
+            width="990"
+            height="220"
+            role="img"
+            aria-label="Scrolling piano roll, with time running from left to right"
+          ></canvas>
+
+          <details>
+            <summary>Open a local MIDI file</summary>
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+          </details>
+          <p role="status" data-status></p>
+        </div>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a
+              href="https://imslp.org/wiki/Suite_espa%C3%B1ola_No.1,_Op.47_(Alb%C3%A9niz,_Isaac)"
+            >
+              Score editions on IMSLP
+            </a>
+          </li>
+        </ul>
+      </details>
     </main>
-    <footer><p><a href="https://imslp.org/wiki/Suite_espa%C3%B1ola_No.1,_Op.47_(Alb%C3%A9niz,_Isaac)">IMSLP</a></p><p><a href="https://commons.wikimedia.org/wiki/File:Isaac_Albeniz_-_suite_espanola_op._47_-_leyenda.ogg">Opening excerpt, converted to mono MP3. (See Musopen for author information) · Public domain</a></p><nav aria-label="Experiment sequence"><a href="../dye-sample-books/index.html">← Previous · Dye sample books</a> <a href="../granados-12-danzas-espanolas/index.html">Next · Granados — 12 Danzas españolas →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script src="../shared/listening.js"></script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          IMSLP ·
+          <a
+            href="https://imslp.org/wiki/Suite_espa%C3%B1ola_No.1,_Op.47_(Alb%C3%A9niz,_Isaac)"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Adapted from PDMX (Long et al.), record 5325874 · cc-zero ·
+          https://creativecommons.org/publicdomain/zero/1.0/ ·
+          <a href="https://doi.org/10.5281/zenodo.15571083">Edition</a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../dye-sample-books/index.html">
+          ← Previous · Dye sample books
+        </a>
+        <a href="../granados-12-danzas-espanolas/index.html">
+          Next · Granados — 12 Danzas españolas →
+        </a>
+      </nav>
+    </footer>
+    <script src="notes.js"></script>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

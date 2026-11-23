@@ -1,31 +1,126 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Ligeti — Musica ricercata · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Ligeti — Musica ricercata</h1>
-        <p>Advance through a pitch-limited exercise and see exactly when another pitch class enters.</p>
-        <div id="experiment"></div>
-        
+      <h1>Ligeti — Musica ricercata</h1>
+      <section>
+        <h2>Performance</h2>
+        <div
+          class="performance"
+          data-video="xlSoSRrZOPs"
+          data-title="Musica ricercata"
+        >
+          <p>
+            Musica ricercata
+            <small>· Juan Pérez Floristán · 24:10</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=xlSoSRrZOPs">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <details>
+          <summary>Play your own MIDI edition</summary>
+          <div data-score-player data-instrument="piano">
+            <p data-edition-name></p>
+
+            <label class="movement">
+              Movement
+              <select data-movements></select>
+            </label>
+            <div class="transport" data-transport hidden>
+              <button type="button" data-play class="primary">Play</button>
+              <input
+                data-position
+                type="range"
+                min="0"
+                max="1"
+                value="0"
+                step=".01"
+                aria-label="Score position"
+              />
+              <time data-clock></time>
+              <select data-speed aria-label="Playback speed">
+                <option value=".5">½ speed</option>
+                <option value=".75">¾ speed</option>
+                <option selected value="1">1× speed</option>
+                <option value="1.25">1¼ speed</option>
+              </select>
+            </div>
+            <canvas
+              data-roll
+              hidden
+              width="990"
+              height="220"
+              role="img"
+              aria-label="Scrolling piano roll, with time running from left to right"
+            ></canvas>
+
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+            <p role="status" data-status></p>
+          </div>
+        </details>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a
+              href="https://www.schott-music.com/en/musica-ricercata-noc38244.html"
+            >
+              Published score · Schott Music
+            </a>
+          </li>
+        </ul>
+      </details>
     </main>
-    <footer><p><a href="https://www.schott-music.com/en/musica-ricercata-noc38244.html">Schott Music</a></p><nav aria-label="Experiment sequence"><a href="../church-bell-ringing/index.html">← Previous · Church bell ringing</a> <a href="../glass-complete-piano-etudes/index.html">Next · Glass — Complete Piano Etudes →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script>
-const g=board('Pitch classes illuminate on their first appearance in a pitch-limited exercise.');
-const melody=[69,57,69,81,69,57,69,81,69,57,74],names=['C','C♯','D','E♭','E','F','F♯','G','A♭','A','B♭','B'];
-let at=0,ctx;function draw(){clear(g);const used=new Set(melody.slice(0,at).map(p=>p%12));
- names.forEach((name,i)=>{g.fillStyle=used.has(i)?gold:'#50685e';g.fillRect(30+i*75,85,64,110);labelAt(g,name,47+i*75,152,used.has(i)?'#172822':white);});
- statusLine.textContent=at+' attacks · '+used.size+' distinct pitch classes.';}
-button('Play next attack',async()=>{if(at===melody.length)at=0;const p=melody[at++];draw();try{ctx??=new AudioContext();await ctx.resume();const o=ctx.createOscillator(),v=ctx.createGain();o.frequency.value=440*2**((p-69)/12);v.gain.setValueAtTime(.12,ctx.currentTime);v.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.3);o.connect(v).connect(ctx.destination);o.start();o.stop(ctx.currentTime+.31);}catch{statusLine.textContent+=' Audio unavailable.';}});
-button('Reset',()=>{at=0;draw();});draw();
-</script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          Schott Music ·
+          <a
+            href="https://www.schott-music.com/en/musica-ricercata-noc38244.html"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../church-bell-ringing/index.html">
+          ← Previous · Church bell ringing
+        </a>
+        <a href="../glass-complete-piano-etudes/index.html">
+          Next · Glass — Complete Piano Etudes →
+        </a>
+      </nav>
+    </footer>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

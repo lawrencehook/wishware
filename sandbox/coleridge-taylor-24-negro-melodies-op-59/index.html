@@ -1,23 +1,167 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Coleridge-Taylor — 24 Negro Melodies, Op.59 · Wishware Sandbox</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>
+      Coleridge-Taylor — 24 Negro Melodies, Op.59 · Wishware Sandbox
+    </title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Coleridge-Taylor — 24 Negro Melodies, Op.59</h1>
-        <p>Trace the tune through the first score page and mark where its accompanying harmony changes.</p>
-        <div id="experiment"></div>
-        
+      <h1>Coleridge-Taylor — 24 Negro Melodies, Op.59</h1>
+      <section>
+        <h2>Performance</h2>
+        <div
+          class="performance"
+          data-video="E3kWP4qDpTk"
+          data-title="At the Dawn of Day, Op. 59 No. 1"
+        >
+          <p>
+            At the Dawn of Day, Op. 59 No. 1
+            <small>· Alessandra Garavello · 2:41</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=E3kWP4qDpTk">
+            Watch on YouTube
+          </a>
+        </div>
+        <div
+          class="performance"
+          data-video="Jyb0scf69rQ"
+          data-title="Samuel Coleridge Taylor - Opus 59 - 24 Negro Melodies"
+        >
+          <p>
+            Samuel Coleridge Taylor - Opus 59 - 24 Negro Melodies
+            <small>· All Classical Music · 1:30:47</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=Jyb0scf69rQ">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <details>
+          <summary>Play your own MIDI edition</summary>
+          <div data-score-player data-instrument="piano">
+            <p data-edition-name></p>
+
+            <label class="movement">
+              Movement
+              <select data-movements></select>
+            </label>
+            <div class="transport" data-transport hidden>
+              <button type="button" data-play class="primary">Play</button>
+              <input
+                data-position
+                type="range"
+                min="0"
+                max="1"
+                value="0"
+                step=".01"
+                aria-label="Score position"
+              />
+              <time data-clock></time>
+              <select data-speed aria-label="Playback speed">
+                <option value=".5">½ speed</option>
+                <option value=".75">¾ speed</option>
+                <option selected value="1">1× speed</option>
+                <option value="1.25">1¼ speed</option>
+              </select>
+            </div>
+            <canvas
+              data-roll
+              hidden
+              width="990"
+              height="220"
+              role="img"
+              aria-label="Scrolling piano roll, with time running from left to right"
+            ></canvas>
+
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+            <p role="status" data-status></p>
+          </div>
+        </details>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a
+              href="https://imslp.org/wiki/24_Negro_Melodies,_Op.59_(Coleridge-Taylor,_Samuel)"
+            >
+              Score editions on IMSLP
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://imslp.org/wiki/24_Negro_Melodies,_Op.59_(Coleridge-Taylor,_Samuel)#tabSynthesized.2FMIDI"
+            >
+              Publisher’s MIDI files
+            </a>
+          </li>
+        </ul>
+      </details>
+      <section>
+        <h2>Score facsimile</h2>
+        <a href="score-page.webp">
+          <img
+            class="facsimile"
+            src="score-page.webp"
+            alt="Opening score page"
+          />
+        </a>
+      </section>
     </main>
-    <footer><p><a href="https://imslp.org/wiki/24_Negro_Melodies,_Op.59_(Coleridge-Taylor,_Samuel)">IMSLP</a></p><p><a href="https://imslp.org/wiki/File:Coleridge-Taylor_-_24_Negro_Melodies_(piano).pdf">Score facsimile · Boston: Ditson , 1905.  Plate ML-865 to 888.</a></p><nav aria-label="Experiment sequence"><a href="../price-at-the-cotton-gin/index.html">← Previous · Price — At the Cotton Gin</a> <a href="../chaminade-6-etudes-de-concert-op-35/index.html">Next · Chaminade — 6 Études de concert, Op.35 →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script>const study = {"task":"Trace the tune through the first score page and mark where its accompanying harmony changes.","action":"Mark score","mark":"Score mark","files":["score-page.webp"]};</script><script src="../shared/plate.js"></script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          IMSLP ·
+          <a
+            href="https://imslp.org/wiki/24_Negro_Melodies,_Op.59_(Coleridge-Taylor,_Samuel)"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Pub lisher . Info. Boston: Ditson , 1905. Plate ML-865 to 888. ·
+          <a
+            href="https://imslp.org/wiki/File:Coleridge-Taylor_-_24_Negro_Melodies_(piano).pdf"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../price-at-the-cotton-gin/index.html">
+          ← Previous · Price — At the Cotton Gin
+        </a>
+        <a href="../chaminade-6-etudes-de-concert-op-35/index.html">
+          Next · Chaminade — 6 Études de concert, Op.35 →
+        </a>
+      </nav>
+    </footer>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

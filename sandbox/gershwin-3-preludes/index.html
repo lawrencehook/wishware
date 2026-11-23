@@ -1,23 +1,138 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Gershwin — 3 Preludes · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Gershwin — 3 Preludes</h1>
-        <p>Tap the rocking bass pulse in Gershwin’s second prelude and compare the accents.</p>
-        <div id="experiment"></div>
-        <p>Recording · Gershwin Prelude No 2 Brian E Young</p>
+      <h1>Gershwin — 3 Preludes</h1>
+      <section>
+        <h2>Performance</h2>
+        <p>Prelude No. 2 · Brian E. Young</p>
+        <audio
+          controls
+          preload="metadata"
+          aria-label="Prelude No. 2 · Brian E. Young"
+          src="performance.mp3"
+        ></audio>
+        <div
+          class="performance"
+          data-video="PzzIwVh9-jE"
+          data-title="Three Preludes"
+        >
+          <p>
+            Three Preludes
+            <small>· Krystian Zimerman · 6:02</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=PzzIwVh9-jE">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <details>
+          <summary>Play your own MIDI edition</summary>
+          <div data-score-player data-instrument="piano">
+            <p data-edition-name></p>
+
+            <label class="movement">
+              Movement
+              <select data-movements></select>
+            </label>
+            <div class="transport" data-transport hidden>
+              <button type="button" data-play class="primary">Play</button>
+              <input
+                data-position
+                type="range"
+                min="0"
+                max="1"
+                value="0"
+                step=".01"
+                aria-label="Score position"
+              />
+              <time data-clock></time>
+              <select data-speed aria-label="Playback speed">
+                <option value=".5">½ speed</option>
+                <option value=".75">¾ speed</option>
+                <option selected value="1">1× speed</option>
+                <option value="1.25">1¼ speed</option>
+              </select>
+            </div>
+            <canvas
+              data-roll
+              hidden
+              width="990"
+              height="220"
+              role="img"
+              aria-label="Scrolling piano roll, with time running from left to right"
+            ></canvas>
+
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+            <p role="status" data-status></p>
+          </div>
+        </details>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a href="https://imslp.org/wiki/3_Preludes_(Gershwin,_George)">
+              Score editions on IMSLP
+            </a>
+          </li>
+        </ul>
+      </details>
     </main>
-    <footer><p><a href="https://imslp.org/wiki/3_Preludes_(Gershwin,_George)">IMSLP</a></p><p><a href="https://commons.wikimedia.org/wiki/File:Gershwin_Prelude_No_2_Brian_E_Young.ogg">Opening excerpt, converted to mono MP3. · CC BY-SA 1.0 https://creativecommons.org/licenses/by-sa/1.0</a></p><nav aria-label="Experiment sequence"><a href="../prokofiev-visions-fugitives-op-22/index.html">← Previous · Prokofiev — Visions fugitives, Op.22</a> <a href="../tchaikovsky-the-seasons-op-37a/index.html">Next · Tchaikovsky — The Seasons, Op.37a →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script src="../shared/listening.js"></script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          IMSLP ·
+          <a href="https://imslp.org/wiki/3_Preludes_(Gershwin,_George)">
+            Edition
+          </a>
+        </p>
+        <p>
+          Complete source recording, transcoded to MP3. · CC BY-SA 1.0
+          https://creativecommons.org/licenses/by-sa/1.0 ·
+          <a
+            href="https://commons.wikimedia.org/wiki/File:Gershwin_Prelude_No_2_Brian_E_Young.ogg"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../prokofiev-visions-fugitives-op-22/index.html">
+          ← Previous · Prokofiev — Visions fugitives, Op.22
+        </a>
+        <a href="../tchaikovsky-the-seasons-op-37a/index.html">
+          Next · Tchaikovsky — The Seasons, Op.37a →
+        </a>
+      </nav>
+    </footer>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

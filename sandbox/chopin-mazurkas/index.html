@@ -1,23 +1,137 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Chopin mazurkas · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Chopin mazurkas</h1>
-        <p>Loop a few bars of the A-minor mazurka and mark the dance pulse under its tune.</p>
-        <div id="experiment"></div>
-        <p>Recording · Chopin - Mazurka No. 13 in A minor, Op. 17 No. 4 (Edward Neeman)</p>
+      <h1>Chopin mazurkas</h1>
+      <section>
+        <h2>Performance</h2>
+        <p>Mazurka, Op. 17 No. 4 · Edward Neeman</p>
+        <audio
+          controls
+          preload="metadata"
+          aria-label="Mazurka, Op. 17 No. 4 · Edward Neeman"
+          src="performance.mp3"
+        ></audio>
+        <div
+          class="performance"
+          data-video="xW-Vb615l7Q"
+          data-title="Mazurka in A minor, Op. 17 No. 4"
+        >
+          <p>
+            Mazurka in A minor, Op. 17 No. 4
+            <small>· Eric Lu · 4:45</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=xW-Vb615l7Q">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <h2>Sampled grand piano</h2>
+        <div data-score-player data-instrument="piano">
+          <p data-edition-name>Mazurka in A minor, Op. 17 No. 4</p>
+
+          <label class="movement">
+            Movement
+            <select data-movements></select>
+          </label>
+          <div class="transport" data-transport hidden>
+            <button type="button" data-play class="primary">Play</button>
+            <input
+              data-position
+              type="range"
+              min="0"
+              max="1"
+              value="0"
+              step=".01"
+              aria-label="Score position"
+            />
+            <time data-clock></time>
+            <select data-speed aria-label="Playback speed">
+              <option value=".5">½ speed</option>
+              <option value=".75">¾ speed</option>
+              <option selected value="1">1× speed</option>
+              <option value="1.25">1¼ speed</option>
+            </select>
+          </div>
+          <canvas
+            data-roll
+            hidden
+            width="990"
+            height="220"
+            role="img"
+            aria-label="Scrolling piano roll, with time running from left to right"
+          ></canvas>
+
+          <details>
+            <summary>Open a local MIDI file</summary>
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+          </details>
+          <p role="status" data-status></p>
+        </div>
+      </section>
     </main>
-    <footer><p><a href="https://github.com/DCMLab/chopin_mazurkas">Digital and Cognitive Musicology Lab</a></p><p><a href="https://commons.wikimedia.org/wiki/File:Chopin_-_Mazurka_No._13_in_A_minor,_Op._17_No._4_(Edward_Neeman).flac">Opening excerpt, converted to mono MP3. Frédéric Chopin · Public domain</a></p><nav aria-label="Experiment sequence"><a href="../debussy-suite-bergamasque/index.html">← Previous · Debussy Suite bergamasque</a> <a href="../beethoven-rage-over-a-lost-penny-op-129/index.html">Next · Beethoven — Rage Over a Lost Penny, Op. 129 →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script src="../shared/listening.js"></script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          Digital and Cognitive Musicology Lab ·
+          <a href="https://github.com/DCMLab/chopin_mazurkas">Edition</a>
+        </p>
+        <p>
+          Digital and Cognitive Musicology Lab · chopin_mazurkas · CC BY-NC-SA
+          4.0. Adapted score data retain the same license. ·
+          <a
+            href="https://github.com/DCMLab/chopin_mazurkas/blob/main/notes/BI77-4op17-4.notes.tsv"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Complete source recording, transcoded to MP3. Frédéric Chopin · Public
+          domain ·
+          <a
+            href="https://commons.wikimedia.org/wiki/File:Chopin_-_Mazurka_No._13_in_A_minor,_Op._17_No._4_(Edward_Neeman).flac"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../debussy-suite-bergamasque/index.html">
+          ← Previous · Debussy Suite bergamasque
+        </a>
+        <a href="../beethoven-rage-over-a-lost-penny-op-129/index.html">
+          Next · Beethoven — Rage Over a Lost Penny, Op. 129 →
+        </a>
+      </nav>
+    </footer>
+    <script src="notes.js"></script>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

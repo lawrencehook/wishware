@@ -1,31 +1,122 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Glass — Complete Piano Etudes · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Glass — Complete Piano Etudes</h1>
-        <p>Compare two repeated six-note patterns. Identify the attack that moved and check your answer.</p>
-        <div id="experiment"></div>
-        
+      <h1>Glass — Complete Piano Etudes</h1>
+      <section>
+        <h2>Performance</h2>
+        <div
+          class="performance"
+          data-video="5LqBQ5Ecus8"
+          data-title="The Complete Piano Etudes · Nos. 1–20"
+        >
+          <p>
+            The Complete Piano Etudes · Nos. 1–20
+            <small>· Vanessa Wagner · 2:11:52</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=5LqBQ5Ecus8">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <details>
+          <summary>Play your own MIDI edition</summary>
+          <div data-score-player data-instrument="piano">
+            <p data-edition-name></p>
+
+            <label class="movement">
+              Movement
+              <select data-movements></select>
+            </label>
+            <div class="transport" data-transport hidden>
+              <button type="button" data-play class="primary">Play</button>
+              <input
+                data-position
+                type="range"
+                min="0"
+                max="1"
+                value="0"
+                step=".01"
+                aria-label="Score position"
+              />
+              <time data-clock></time>
+              <select data-speed aria-label="Playback speed">
+                <option value=".5">½ speed</option>
+                <option value=".75">¾ speed</option>
+                <option selected value="1">1× speed</option>
+                <option value="1.25">1¼ speed</option>
+              </select>
+            </div>
+            <canvas
+              data-roll
+              hidden
+              width="990"
+              height="220"
+              role="img"
+              aria-label="Scrolling piano roll, with time running from left to right"
+            ></canvas>
+
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+            <p role="status" data-status></p>
+          </div>
+        </details>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a href="https://www.nkoda.com/work/The-Complete-Piano-Etudes">
+              Published score · nkoda / Chester Music
+            </a>
+          </li>
+        </ul>
+      </details>
     </main>
-    <footer><p><a href="https://www.nkoda.com/work/The-Complete-Piano-Etudes">nkoda / Chester Music</a></p><nav aria-label="Experiment sequence"><a href="../ligeti-musica-ricercata/index.html">← Previous · Ligeti — Musica ricercata</a> <a href="../ades-traced-overhead/index.html">Next · Adès — Traced Overhead →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script>
-const g=board('Two successive six-note patterns with one changed position.');
-const a=[60,64,67,71,67,64];let changed=3,guess=0;
-function draw(reveal=false){clear(g);[0,1].forEach(row=>a.forEach((p,i)=>{const pitch=p+(row&&i===changed?2:0);const y=115+row*140-(pitch-60)*5;
- dot(g,125+i*140,y,9,reveal&&i===changed?coral:row?gold:mint);labelAt(g,String(i+1),118+i*140,146+row*140);}));}
-menu('Changed position',a.map((_,i)=>String(i+1)),v=>{guess=v;});
-button('Check pattern',()=>{draw(true);statusLine.textContent=guess===changed?'Correct. Only this attack moved.':'Compare position '+(changed+1)+' in the two rows.';});
-button('Another pair',()=>{changed=(changed+5)%6;draw();statusLine.textContent='Which note moved?';});draw();
-</script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          nkoda / Chester Music ·
+          <a href="https://www.nkoda.com/work/The-Complete-Piano-Etudes">
+            Edition
+          </a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../ligeti-musica-ricercata/index.html">
+          ← Previous · Ligeti — Musica ricercata
+        </a>
+        <a href="../ades-traced-overhead/index.html">
+          Next · Adès — Traced Overhead →
+        </a>
+      </nav>
+    </footer>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

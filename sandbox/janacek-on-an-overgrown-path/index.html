@@ -1,23 +1,145 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Janáček — On an Overgrown Path · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Janáček — On an Overgrown Path</h1>
-        <p>Trace a repeated figure on the opening page and mark where its accent shifts.</p>
-        <div id="experiment"></div>
-        
+      <h1>Janáček — On an Overgrown Path</h1>
+      <section>
+        <h2>Performance</h2>
+        <div
+          class="performance"
+          data-video="QpPccMcENA4"
+          data-title="On an Overgrown Path, Book I"
+        >
+          <p>
+            On an Overgrown Path, Book I
+            <small>· Josef Páleníček · 28:51</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=QpPccMcENA4">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <details>
+          <summary>Play your own MIDI edition</summary>
+          <div data-score-player data-instrument="piano">
+            <p data-edition-name></p>
+
+            <label class="movement">
+              Movement
+              <select data-movements></select>
+            </label>
+            <div class="transport" data-transport hidden>
+              <button type="button" data-play class="primary">Play</button>
+              <input
+                data-position
+                type="range"
+                min="0"
+                max="1"
+                value="0"
+                step=".01"
+                aria-label="Score position"
+              />
+              <time data-clock></time>
+              <select data-speed aria-label="Playback speed">
+                <option value=".5">½ speed</option>
+                <option value=".75">¾ speed</option>
+                <option selected value="1">1× speed</option>
+                <option value="1.25">1¼ speed</option>
+              </select>
+            </div>
+            <canvas
+              data-roll
+              hidden
+              width="990"
+              height="220"
+              role="img"
+              aria-label="Scrolling piano roll, with time running from left to right"
+            ></canvas>
+
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+            <p role="status" data-status></p>
+          </div>
+        </details>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a
+              href="https://imslp.org/wiki/On_the_Overgrown_Path_(Jan%C3%A1%C4%8Dek,_Leo%C5%A1)"
+            >
+              Score editions on IMSLP
+            </a>
+          </li>
+        </ul>
+      </details>
+      <section>
+        <h2>Score facsimile</h2>
+        <a href="score-page.webp">
+          <img
+            class="facsimile"
+            src="score-page.webp"
+            alt="Opening score page"
+          />
+        </a>
+      </section>
     </main>
-    <footer><p><a href="https://imslp.org/wiki/On_the_Overgrown_Path_(Jan%C3%A1%C4%8Dek,_Leo%C5%A1)">IMSLP</a></p><p><a href="https://imslp.org/wiki/File:Janacek20On20an20overgrown20path.pdf">Score facsimile · Prague: Hudební Matice , 1942. Reprinted Prague: SNKLHU , 1958.  Plate H. 2668.</a></p><nav aria-label="Experiment sequence"><a href="../beethoven-diabelli-variations-op-120/index.html">← Previous · Beethoven — Diabelli Variations, Op. 120</a> <a href="../james-p-johnson-carolina-shout/index.html">Next · James P. Johnson — Carolina Shout →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script>const study = {"task":"Trace a repeated figure on the opening page and mark where its accent shifts.","action":"Mark score","mark":"Score mark","files":["score-page.webp"]};</script><script src="../shared/plate.js"></script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          IMSLP ·
+          <a
+            href="https://imslp.org/wiki/On_the_Overgrown_Path_(Jan%C3%A1%C4%8Dek,_Leo%C5%A1)"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Pub lisher . Info. Prague: Hudební Matice , 1942. Reprinted Prague:
+          SNKLHU , 1958. Plate H. 2668. ·
+          <a
+            href="https://imslp.org/wiki/File:Janacek20On20an20overgrown20path.pdf"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../beethoven-diabelli-variations-op-120/index.html">
+          ← Previous · Beethoven — Diabelli Variations, Op. 120
+        </a>
+        <a href="../james-p-johnson-carolina-shout/index.html">
+          Next · James P. Johnson — Carolina Shout →
+        </a>
+      </nav>
+    </footer>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

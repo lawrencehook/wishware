@@ -1,30 +1,28 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Louvre aulos reconstruction · Wishware Sandbox</title>
-    <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Louvre aulos reconstruction · Wishware Sandbox</title>
+<script src="../../site-theme.js"></script>
+<link href="../../favicons/wishware.svg" rel="icon"/>
+<link href="../shared/experiments.css" rel="stylesheet"/>
+<link rel="stylesheet" href="../shared/music.css">
 </head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
-    <main>
-        <h1>Louvre aulos reconstruction</h1>
-        <p>Change the effective length of each idealized closed pipe and sound the pair. Compare their interval in cents.</p>
-        <div id="experiment"></div>
-        
-    </main>
-    <footer><p><a href="https://www.emousike.com/louvreaulos">eMousike</a></p><nav aria-label="Experiment sequence"><a href="../railways-and-postal-routes/index.html">← Previous · Railways and postal routes</a> <a href="../japanese-manuscript-and-woodblock-maps/index.html">Next · Japanese manuscript and woodblock maps →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script>
+<body class="music-page"><nav data-site-theme-slot><a href="../index.html">← Sandbox</a> <a href="../music-pieces.html">All music</a></nav><main>
+<h1>Louvre aulos reconstruction</h1><section><h2>Performance</h2><p>An improvisation on the reconstructed Louvre aulos.</p><div class="performance" data-title="Improvisation on the reconstructed Louvre aulos" data-video="K5Fvch5otBQ">
+<p>Improvisation on the reconstructed Louvre aulos <small>· Barnaby Brown · 2:00</small></p>
+<button class="primary" type="button">Play recording</button><a href="https://www.youtube.com/watch?v=K5Fvch5otBQ">Watch on YouTube</a>
+</div></section>
+<p>Choose two pipe lengths to compare their theoretical pitches and listen to the reconstructed instrument in performance.</p>
+<div id="experiment"></div>
+</main><footer><details><summary>Sources and editions</summary><p>eMousike · <a href="https://www.emousike.com/louvreaulos">Edition</a></p></details><nav aria-label="Experiment sequence"><a href="../railways-and-postal-routes/index.html">← Previous · Railways and postal routes</a> <a href="../japanese-manuscript-and-woodblock-maps/index.html">Next · Japanese manuscript and woodblock maps →</a></nav></footer><script src="../shared/lab.js"></script>
+<script>
 let a=4,b=3,ctx;const lengths=[42,39,35,32,29,26];
 function hz(i){return 343/(4*lengths[i]/100);}
 function draw(){statusLine.textContent='Left '+hz(a).toFixed(1)+' Hz · right '+hz(b).toFixed(1)+' Hz · interval '+Math.round(1200*Math.log2(hz(b)/hz(a)))+' cents.';}
 menu('Left pipe length',lengths.map(x=>x+' cm'),v=>{a=v;draw();}).value=a;
 menu('Right pipe length',lengths.map(x=>x+' cm'),v=>{b=v;draw();}).value=b;
-button('Hear both pipes',async()=>{try{ctx??=new AudioContext();await ctx.resume();for(const v of [a,b]){const o=ctx.createOscillator(),g=ctx.createGain();o.type='triangle';o.frequency.value=hz(v);g.gain.setValueAtTime(.05,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.8);o.connect(g).connect(ctx.destination);o.start();o.stop(ctx.currentTime+.81);}}catch{statusLine.textContent='Audio unavailable.';}});draw();
-</script>
-</body>
+draw();
+</script><script src="../shared/performance.js"></script></body>
 </html>

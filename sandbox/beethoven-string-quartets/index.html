@@ -1,23 +1,139 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Beethoven string quartets · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Beethoven string quartets</h1>
-        <p>Loop Beethoven’s bars 156–162 and mark where you hear the harmony settle.</p>
-        <div id="experiment"></div>
-        <p>Recording · Beethoven Quartet Op. 18 No.3, first movement, bars 156-162</p>
+      <h1>Beethoven string quartets</h1>
+      <section>
+        <h2>Performance</h2>
+        <div
+          class="performance"
+          data-video="wg6ZYTr5sRY"
+          data-title="String Quartet No. 3 in D major, Op. 18 No. 3"
+        >
+          <p>
+            String Quartet No. 3 in D major, Op. 18 No. 3
+            <small>· Meccore String Quartet · 25:47</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=wg6ZYTr5sRY">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <h2>Sampled strings</h2>
+        <div data-score-player data-instrument="strings">
+          <p data-edition-name>4 selections · plays continuously</p>
+
+          <label class="movement">
+            Movement
+            <select data-movements></select>
+          </label>
+          <div class="transport" data-transport hidden>
+            <button type="button" data-play class="primary">Play</button>
+            <input
+              data-position
+              type="range"
+              min="0"
+              max="1"
+              value="0"
+              step=".01"
+              aria-label="Score position"
+            />
+            <time data-clock></time>
+            <select data-speed aria-label="Playback speed">
+              <option value=".5">½ speed</option>
+              <option value=".75">¾ speed</option>
+              <option selected value="1">1× speed</option>
+              <option value="1.25">1¼ speed</option>
+            </select>
+          </div>
+          <canvas
+            data-roll
+            hidden
+            width="990"
+            height="220"
+            role="img"
+            aria-label="Scrolling piano roll, with time running from left to right"
+          ></canvas>
+
+          <details>
+            <summary>Open a local MIDI file</summary>
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+          </details>
+          <p role="status" data-status></p>
+        </div>
+      </section>
     </main>
-    <footer><p><a href="https://github.com/DCMLab/ABC">Annotated Beethoven Corpus</a></p><p><a href="https://commons.wikimedia.org/wiki/File:Beethoven_Quartet_Op._18_No.3,_first_movement,_bars_156-162.wav">Opening excerpt, converted to mono MP3. Ludwig van Beethoven · Public domain</a></p><nav aria-label="Experiment sequence"><a href="../piano-performance-timing/index.html">← Previous · Piano performance timing</a> <a href="../renaissance-vocal-polyphony/index.html">Next · Renaissance vocal polyphony →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script src="../shared/listening.js"></script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          Annotated Beethoven Corpus ·
+          <a href="https://github.com/DCMLab/ABC">Edition</a>
+        </p>
+        <p>
+          Digital and Cognitive Musicology Lab · ABC · CC BY-NC-SA 4.0. Adapted
+          score data retain the same license. ·
+          <a
+            href="https://github.com/DCMLab/ABC/blob/main/notes/n03op18-3_01.notes.tsv"
+          >
+            1
+          </a>
+          ,
+          <a
+            href="https://github.com/DCMLab/ABC/blob/main/notes/n03op18-3_02.notes.tsv"
+          >
+            2
+          </a>
+          ,
+          <a
+            href="https://github.com/DCMLab/ABC/blob/main/notes/n03op18-3_03.notes.tsv"
+          >
+            3
+          </a>
+          ,
+          <a
+            href="https://github.com/DCMLab/ABC/blob/main/notes/n03op18-3_04.notes.tsv"
+          >
+            4
+          </a>
+        </p>
+        <p>
+          Instrument samples · VSCO 2 CE strings · Versilian Studios ·
+          <a href="../../music/bach-data/ensemble-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../piano-performance-timing/index.html">
+          ← Previous · Piano performance timing
+        </a>
+        <a href="../renaissance-vocal-polyphony/index.html">
+          Next · Renaissance vocal polyphony →
+        </a>
+      </nav>
+    </footer>
+    <script src="notes.js"></script>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

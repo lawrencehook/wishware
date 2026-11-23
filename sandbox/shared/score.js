@@ -1,114 +1,429 @@
-// A four-bar listening window. Score times are quarter-note units throughout.
+// A continuous, seekable score. Times in the edition files are seconds at normal speed.
 (() => {
-    let events = score.notes;
-    let groups = [...new Set(events.map(n=>n[3]))].sort((a,b)=>a-b);
-    let end = events.reduce((max,n)=>Math.max(max,n[0]+n[2]),0);
-    const g = board('Piano roll showing pitch vertically and quarter-note beats horizontally');
-    let start=0, bpm=88, selected=-1, context, timer, frame, origin, playing=false, tapped=null;
-    const length=16, colors=[mint,gold,coral,'#9db9e9'];
-    let current=[], filter='All notes', pinned=null, looping=false;
-    let playRequest=0;
-    const nodes=new Set();
-    function visible() {
-        const inWindow=events.filter(n=>n[0]<start+length && n[0]+n[2]>start && (selected<0 || n[3]===selected));
-        if(filter==='All notes')return inWindow;
-        const byTime=new Map();
-        for(const n of inWindow){
-            const key=Math.round(n[0]*96),previous=byTime.get(key);
-            if(!previous || (filter==='Highest attacks' ? n[1]>previous[1] : n[1]<previous[1]))byTime.set(key,n);
+    const player = document.querySelector('[data-score-player]');
+    if (!player) return;
+    const get = (name) => player.querySelector('[data-' + name + ']');
+    const play = get('play'),
+        seek = get('position'),
+        speed = get('speed');
+    const clock = get('clock'),
+        status = get('status'),
+        chapters = get('movements');
+    const canvas = get('roll'),
+        g = canvas.getContext('2d');
+    const colors = ['#b7e6ca', '#f2ca8a', '#a7c3f2', '#ebaaa1'];
+    const library = typeof score === 'undefined' ? [] : score.movements;
+    const take = typeof score === 'undefined' ? null : score.take;
+    const recording = document.querySelector('audio[data-take]');
+    const compare = document.querySelector('[data-compare]');
+    let usingTake = Boolean(take),
+        lastSound = 'recording';
+    let timeline = [],
+        movements = [],
+        duration = 0,
+        cursor = 0,
+        rate = 1;
+    let context,
+        master,
+        ready,
+        origin,
+        next,
+        frame,
+        timer,
+        active = false,
+        request = 0;
+    let pitches = [],
+        minPitch,
+        maxPitch,
+        maxLength,
+        groupIds;
+    const voices = new Set(),
+        samples = new Map(),
+        decoded = new Map();
+    const continuo = player.dataset.instrument === 'continuo';
+    const strings = continuo || player.dataset.instrument === 'strings';
+    const format = (t) =>
+        Math.floor(t / 60) + ':' + String(Math.floor(t % 60)).padStart(2, '0');
+
+    function useEdition(parts) {
+        pause();
+        timeline = [];
+        duration = 0;
+        movements = [];
+        chapters.replaceChildren();
+        for (const part of parts) {
+            const begin = duration;
+            movements.push(begin);
+            chapters.add(new Option(part.name, begin));
+            for (const [time, pitch, length, group, velocity] of part.notes) {
+                timeline.push({
+                    time: begin + time,
+                    pitch,
+                    length,
+                    group,
+                    velocity: velocity ?? 82,
+                });
+                duration = Math.max(duration, begin + time + length);
+            }
+            duration += 0.45;
         }
-        return [...byTime.values()];
+        timeline.sort((a, b) => a.time - b.time);
+        groupIds = [...new Set(timeline.map((n) => n.group))].sort(
+            (a, b) => a - b,
+        );
+        pitches = [...new Set(timeline.map((n) => n.pitch))];
+        minPitch = Math.min(...pitches) - 1;
+        maxPitch = Math.max(...pitches) + 1;
+        maxLength = timeline.reduce((m, n) => Math.max(m, n.length), 0);
+        chapters.parentElement.hidden = parts.length < 2;
+        get('transport').hidden = canvas.hidden = !parts.length;
+        seek.max = duration;
+        cursor = 0;
+        render();
     }
-    function paint(cursor=null) {
-        clear(g);
-        const low=current.reduce((p,n)=>Math.min(p,n[1]),54)-2,high=current.reduce((p,n)=>Math.max(p,n[1]),66)+2;
-        for(let b=0;b<=length;b++) {
-            const x=32+b*56;line(g,[[x,24],[x,273]],b%4?'#35514a':'#627d70',1);
-            if(b%4===0)labelAt(g,String(Math.round(start+b)),x,302);
+    function atTime(t) {
+        let lo = 0,
+            hi = timeline.length;
+        while (lo < hi) {
+            const mid = (lo + hi) >>> 1;
+            if (timeline[mid].time < t) lo = mid + 1;
+            else hi = mid;
         }
-        for(const [t,p,d,group] of current) {
-            const left=Math.max(start,t), right=Math.min(start+length,t+d);
-            g.fillStyle=p===pinned ? '#fff3a7' : colors[groups.indexOf(group)%colors.length];
-            g.fillRect(32+(left-start)*56,250-(p-low)/(high-low)*220,Math.max(3,(right-left)*56-1),6);
+        return lo;
+    }
+    function position() {
+        return active
+            ? Math.max(
+                  cursor,
+                  Math.min(duration, (context.currentTime - origin) * rate),
+              )
+            : cursor;
+    }
+    function render() {
+        const t = position(),
+            span = 12 * rate,
+            left = Math.floor(t / span) * span;
+        clock.textContent = format(t) + ' / ' + format(duration);
+        seek.value = t;
+        const chapter = movements.findLastIndex((v) => v <= t);
+        if (chapter >= 0) chapters.selectedIndex = chapter;
+        if (canvas.hidden) return;
+        const width = canvas.width,
+            height = canvas.height;
+        g.fillStyle = '#192b28';
+        g.fillRect(0, 0, width, height);
+        const row = (height - 36) / Math.max(1, maxPitch - minPitch + 1);
+        for (let p = minPitch; p <= maxPitch; p++) {
+            const y = 8 + (maxPitch - p) * row;
+            if (p % 12 === 0) {
+                g.fillStyle = '#384942';
+                g.fillRect(0, y, width, 1);
+            }
         }
-        if(cursor!==null)line(g,[[32+cursor*56,12],[32+cursor*56,274]],white,3);
-        if(tapped!==null)dot(g,32+tapped*56,281,5,coral);
+        for (let j = atTime(left - maxLength); j < timeline.length; j++) {
+            const n = timeline[j];
+            if (n.time >= left + span) break;
+            if (n.time + n.length <= left) continue;
+            const x = ((n.time - left) / span) * width;
+            g.fillStyle = colors[groupIds.indexOf(n.group) % colors.length];
+            g.fillRect(
+                x,
+                8 + (maxPitch - n.pitch) * row,
+                Math.max(2, (n.length / span) * width - 1),
+                Math.max(2, row * 0.83),
+            );
+        }
+        g.fillStyle = '#fdf5d8';
+        g.fillRect(((t - left) / span) * width, 0, 2, height - 24);
+        g.font = '16px system-ui';
+        g.fillText(format(left), 8, height - 5);
+        g.fillText(
+            format(Math.min(left + span, duration)),
+            width - 55,
+            height - 5,
+        );
     }
-    function stop() {
-        playRequest++;playing=false;cancelAnimationFrame(frame);clearTimeout(timer);
-        nodes.forEach(n=>{try{n.stop();}catch{}});nodes.clear();play.textContent='Play passage';
+
+    function pause() {
+        request++;
+        if (active) cursor = position();
+        active = false;
+        clearInterval(timer);
+        cancelAnimationFrame(frame);
+        for (const source of voices) {
+            try {
+                source.stop();
+            } catch {}
+        }
+        voices.clear();
+        play.textContent = 'Play';
+        render();
     }
-    function refresh() {
-        stop();tapped=null;current=visible();paint();
-        const pitchClasses=new Set(current.map(n=>n[1]%12));
-        const pitches=current.map(n=>n[1]);
-        const span=pitches.length ? pitches.reduce((m,p)=>Math.max(m,p),0)-pitches.reduce((m,p)=>Math.min(m,p),127) : 0;
-        const offbeats=current.filter(n=>Math.abs(n[0]-Math.round(n[0]))>.08).length;
-        statusLine.textContent='Beats '+start+'–'+Math.min(Math.ceil(end),start+length)+' · '+pitchClasses.size+' pitch classes · span '+span+' semitones · '+offbeats+' offbeat attacks.';
+    async function loadBankFile(name) {
+        const script = document.createElement('script');
+        script.src = '../../music/bach-data/' + name + '.js';
+        await new Promise((resolve, reject) => {
+            script.onload = resolve;
+            script.onerror = () => {
+                script.remove();
+                reject(Error('The instrument samples could not load.'));
+            };
+            document.head.append(script);
+        });
     }
-    async function begin() {
-        if(playing){stop();paint();return;}
-        const request=++playRequest;
+    function instrument(group) {
+        if (!strings) return 'piano';
+        const names = continuo
+            ? ['violin', 'violin', 'cello', 'harpsichord']
+            : ['violin', 'violin', 'viola', 'cello'];
+        return names[Math.min(groupIds.indexOf(group), 3)];
+    }
+    async function prepare() {
+        ready ??= Promise.all(
+            (continuo
+                ? ['ensemble-samples', 'concerto-samples']
+                : [strings ? 'ensemble-samples' : 'piano']
+            ).map(loadBankFile),
+        ).catch((error) => {
+            ready = null;
+            throw error;
+        });
+        await ready;
+        const unique = new Set(
+            timeline.map((n) => instrument(n.group) + ':' + n.pitch),
+        );
+        await Promise.all(
+            [...unique].map(async (key) => {
+                if (samples.has(key)) return;
+                const [name, p] = key.split(':');
+                const bank =
+                    name === 'harpsichord'
+                        ? CONCERTO_SAMPLES[name]
+                        : strings
+                          ? ENSEMBLE_SAMPLES[name]
+                          : PIANO_SAMPLES;
+                const roots = Object.keys(bank).map(Number);
+                const root = roots.reduce((best, r) =>
+                    Math.abs(r - p) < Math.abs(best - p) ? r : best,
+                );
+                const item = bank[root],
+                    id = name + root;
+                if (!decoded.has(id)) {
+                    const bytes = Uint8Array.from(
+                        atob(item.data ?? item),
+                        (c) => c.charCodeAt(0),
+                    );
+                    decoded.set(
+                        id,
+                        context.decodeAudioData(bytes.buffer).catch((e) => {
+                            decoded.delete(id);
+                            throw e;
+                        }),
+                    );
+                }
+                samples.set(key, {
+                    buffer: await decoded.get(id),
+                    root,
+                    start: item.loopStart,
+                    end: item.loopEnd,
+                });
+            }),
+        );
+    }
+    function sound(n, now) {
+        const sample = samples.get(instrument(n.group) + ':' + n.pitch);
+        const start = Math.max(now, origin + n.time / rate);
+        const finish = origin + (n.time + n.length) / rate;
+        if (finish <= start) return;
+        const source = context.createBufferSource(),
+            gain = context.createGain();
+        source.buffer = sample.buffer;
+        const transpose = 2 ** ((n.pitch - sample.root) / 12);
+        source.playbackRate.value = transpose;
+        let skip = Math.max(0, (start - origin - n.time / rate) * transpose);
+        if (sample.end > sample.start) {
+            source.loop = true;
+            source.loopStart = sample.start;
+            source.loopEnd = sample.end;
+            if (skip >= sample.end)
+                skip =
+                    sample.start +
+                    ((skip - sample.start) % (sample.end - sample.start));
+        } else if (skip >= source.buffer.duration) return;
+        const velocity = get('expression')?.checked === false ? 82 : n.velocity;
+        const level = 0.57 * (velocity / 100) ** 1.6;
+        gain.gain.setValueAtTime(0.0001, start);
+        gain.gain.exponentialRampToValueAtTime(
+            Math.max(0.001, level),
+            Math.min(finish, start + 0.007),
+        );
+        gain.gain.setValueAtTime(Math.max(0.001, level), finish);
+        gain.gain.exponentialRampToValueAtTime(0.0001, finish + 0.18);
+        source.connect(gain).connect(master);
+        voices.add(source);
+        source.onended = () => {
+            voices.delete(source);
+            source.disconnect();
+            gain.disconnect();
+        };
+        source.start(start, skip);
+        source.stop(finish + 0.2);
+    }
+    function schedule() {
+        const now = context.currentTime,
+            t = (now - origin) * rate;
+        while (next < timeline.length && timeline[next].time < t + 0.25 * rate)
+            sound(timeline[next++], now);
+        if (t >= duration) {
+            pause();
+            cursor = duration;
+            render();
+        }
+    }
+    async function start() {
+        if (!timeline.length) return;
+        document.dispatchEvent(new Event('scoreplay'));
+        if (compare && usingTake) {
+            lastSound = 'score';
+            compare.textContent = 'Hear this point in the recording';
+        }
+        const id = ++request;
+        if (cursor >= duration - 0.01) cursor = 0;
         try {
             context ??= new AudioContext();
+            if (!master) {
+                master = context.createDynamicsCompressor();
+                master.connect(context.destination);
+            }
+            status.textContent = 'Loading instrument…';
+            play.textContent = 'Cancel';
             await context.resume();
-        } catch {statusLine.textContent='Audio playback is unavailable in this browser.';return;}
-        if(request!==playRequest)return;
-        stop();playing=true;play.textContent='Stop';origin=context.currentTime+.06;
-        const sec=60/bpm;
-        for(const [t,p,d] of current) {
-            const clipped=Math.max(t,start),at=origin+(clipped-start)*sec;
-            const duration=Math.max(.035,(Math.min(t+d,start+length)-clipped)*sec);
-            const osc=context.createOscillator(), gain=context.createGain();
-            osc.type='triangle';osc.frequency.value=440*2**((p-69)/12);
-            gain.gain.setValueAtTime(.0001,at);gain.gain.exponentialRampToValueAtTime(.045,at+.012);
-            gain.gain.exponentialRampToValueAtTime(.0001,at+duration+.025);
-            osc.connect(gain).connect(context.destination);osc.start(at);osc.stop(at+duration+.04);
-            nodes.add(osc);osc.onended=()=>{nodes.delete(osc);osc.disconnect();gain.disconnect();};
+            await prepare();
+            if (id !== request) return;
+            status.textContent = '';
+            active = true;
+            play.textContent = 'Pause';
+            origin = context.currentTime + 0.035 - cursor / rate;
+            next = atTime(cursor - maxLength);
+            schedule();
+            timer = setInterval(schedule, 65);
+            function animate() {
+                render();
+                if (active) frame = requestAnimationFrame(animate);
+            }
+            animate();
+        } catch (e) {
+            if (id === request) {
+                pause();
+                status.textContent = 'Could not play this score. ' + e.message;
+            }
         }
-        function tick(){if(!playing)return;paint(Math.max(0,(context.currentTime-origin)/sec));frame=requestAnimationFrame(tick);}
-        tick(); timer=setTimeout(()=>{stop();paint();if(looping)begin();},Math.min(length,end-start)*sec*1000+120);
     }
-    const play=button('Play passage',begin);
-    const offset=slider('Start beat',0,Math.max(0,Math.ceil(end)-1),0,v=>{start=v;refresh();});
-    slider('Tempo (BPM)',36,168,bpm,v=>{bpm=v;refresh();});
-    const parts=menu('Listen to',['All parts',...groups.map((_,i)=>'Part '+(i+1))],i=>{selected=i===0?-1:groups[i-1];refresh();});
-    menu('Attack layer',['All notes','Highest attacks','Lowest attacks'],i=>{
-        filter=['All notes','Highest attacks','Lowest attacks'][i];refresh();
-    });
-    const file=document.createElement('input');file.type='file';file.accept='.mid,.midi,audio/midi';
-    field('Use a local MIDI edition',file);
-    file.onchange=async()=>{
-        if(!file.files[0])return;
-        try {
-            if(file.files[0].size>8*1024*1024)throw Error('Choose a MIDI file under 8 MB');
-            const imported=readMidi(await file.files[0].arrayBuffer());
-            events=imported;groups=[...new Set(events.map(n=>n[3]))].sort((a,b)=>a-b);
-            parts.replaceChildren(new Option('All parts',0),...groups.map((_,i)=>new Option('Part '+(i+1),i+1)));
-            selected=-1;start=0;saved=0;end=events.reduce((max,n)=>Math.max(max,n[0]+n[2]),0);
-            offset.max=Math.max(0,Math.ceil(end)-1);offset.value=0;refresh();
-            statusLine.textContent='Loaded '+file.files[0].name+'.';
-        } catch(error){statusLine.textContent=error.message;}
+    function move(value, resume) {
+        pause();
+        cursor = Math.max(0, Math.min(duration, value));
+        render();
+        if (resume) start();
+    }
+    play.onclick = () => {
+        if (active || play.textContent === 'Cancel') {
+            pause();
+            status.textContent = '';
+        } else start();
     };
-    const loop=button('Loop passage',()=>{looping=!looping;loop.setAttribute('aria-pressed',String(looping));loop.textContent=looping?'Loop on':'Loop passage';});
-    loop.setAttribute('aria-pressed','false');
-    const pin=slider('Highlight MIDI pitch',21,108,69,v=>{
-        pinned=v;paint();statusLine.textContent='Pitch '+v+' occurs '+current.filter(n=>n[1]===v).length+' times in this window.';
+    let resumeSeek = false;
+    seek.addEventListener('input', () => {
+        const value = +seek.value;
+        resumeSeek ||= active;
+        move(value, false);
     });
-    button('Most repeated pitch',()=>{
-        const count=new Map();for(const note of current)count.set(note[1],(count.get(note[1])||0)+1);
-        if(!count.size){statusLine.textContent='No notes in this window.';return;}
-        const [pitch,total]=[...count].sort((a,b)=>b[1]-a[1])[0];
-        pinned=pitch;pin.value=pitch;paint();statusLine.textContent='Pitch '+pitch+' repeats '+total+' times in this window.';
+    seek.addEventListener('change', () => {
+        if (resumeSeek) start();
+        resumeSeek = false;
     });
-    let saved=0;
-    button('Mark passage A',()=>{saved=start;statusLine.textContent='Passage A begins at beat '+saved+'.';});
-    button('Return to A',()=>{start=saved;offset.value=start;refresh();});
-    button('Tap beat',()=>{
-        if(!playing){statusLine.textContent='Play the passage, then tap along.';return;}
-        tapped=Math.max(0,(context.currentTime-origin)*bpm/60);
-        statusLine.textContent='Tap at beat '+(tapped+start).toFixed(2)+'.';
+    speed.onchange = () => {
+        const resume = active;
+        pause();
+        rate = +speed.value;
+        render();
+        if (resume) start();
+    };
+    chapters.onchange = () => move(+chapters.value, active);
+    document.addEventListener('performanceplay', () => {
+        pause();
+        status.textContent = '';
     });
-    window.addEventListener('pagehide',stop);
-    refresh();
+    window.addEventListener('pagehide', pause);
+    const file = get('file');
+    let loadId = 0;
+    file.onchange = async () => {
+        const selected = file.files[0];
+        if (!selected) return;
+        const id = ++loadId;
+        try {
+            if (selected.size > 8 * 1024 * 1024)
+                throw Error('Choose a MIDI file under 8 MB.');
+            const notes = readMidi(await selected.arrayBuffer());
+            if (id !== loadId) return;
+            usingTake = false;
+            if (editions) editions.selectedIndex = -1;
+            useEdition([{ name: selected.name, notes }]);
+            status.textContent = selected.name;
+            get('edition-name').textContent = selected.name;
+        } catch (e) {
+            if (id === loadId) status.textContent = e.message;
+        }
+    };
+    const editions = get('editions');
+    if (editions)
+        editions.onchange = () => {
+            usingTake = editions.selectedIndex === 0;
+            useEdition(usingTake ? [take] : library);
+            get('edition-name').textContent = usingTake
+                ? take.name
+                : library[0].name;
+            lastSound = 'recording';
+            compare.textContent = 'Hear this point on sampled piano';
+        };
+    if (compare && take) {
+        recording.addEventListener('play', () => {
+            lastSound = 'recording';
+            compare.textContent = 'Hear this point on sampled piano';
+        });
+        compare.onclick = async () => {
+            if (lastSound === 'score' && usingTake) {
+                const t = position();
+                pause();
+                recording.currentTime = t;
+                try {
+                    await recording.play();
+                } catch {
+                    status.textContent =
+                        'Press play on the recording to continue.';
+                }
+            } else {
+                const t = recording.currentTime;
+                recording.pause();
+                if (!usingTake) {
+                    usingTake = true;
+                    if (editions) editions.selectedIndex = 0;
+                    useEdition([take]);
+                    get('edition-name').textContent = take.name;
+                }
+                move(t, true);
+            }
+        };
+    }
+    document.querySelectorAll('[data-cue]').forEach((button) => {
+        button.onclick = () => {
+            const index = library.findIndex(
+                (part) => part.name === button.dataset.cue,
+            );
+            if (index < 0) return;
+            useEdition(library);
+            get('edition-name').textContent = library[index].name;
+            move(movements[index], true);
+        };
+    });
+    useEdition(take ? [take] : library);
 })();

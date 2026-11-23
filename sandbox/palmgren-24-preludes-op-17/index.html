@@ -1,23 +1,124 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Palmgren — 24 Preludes, Op.17 · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Palmgren — 24 Preludes, Op.17</h1>
-        <p>Compare the same opening rhythm across two registers.</p>
-        <p>Original practice pattern. Load a local MIDI edition to hear the named work.</p><div id="experiment"></div>
-        
+      <h1>Palmgren — 24 Preludes, Op.17</h1>
+      <section>
+        <h2>Performance</h2>
+        <div
+          class="performance"
+          data-video="jiX4yF6hMRs"
+          data-title="24 Preludes, Op. 17"
+        >
+          <p>
+            24 Preludes, Op. 17
+            <small>· Henri Sigfridsson · 39:13</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=jiX4yF6hMRs">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <details>
+          <summary>Play your own MIDI edition</summary>
+          <div data-score-player data-instrument="piano">
+            <p data-edition-name></p>
+
+            <label class="movement">
+              Movement
+              <select data-movements></select>
+            </label>
+            <div class="transport" data-transport hidden>
+              <button type="button" data-play class="primary">Play</button>
+              <input
+                data-position
+                type="range"
+                min="0"
+                max="1"
+                value="0"
+                step=".01"
+                aria-label="Score position"
+              />
+              <time data-clock></time>
+              <select data-speed aria-label="Playback speed">
+                <option value=".5">½ speed</option>
+                <option value=".75">¾ speed</option>
+                <option selected value="1">1× speed</option>
+                <option value="1.25">1¼ speed</option>
+              </select>
+            </div>
+            <canvas
+              data-roll
+              hidden
+              width="990"
+              height="220"
+              role="img"
+              aria-label="Scrolling piano roll, with time running from left to right"
+            ></canvas>
+
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+            <p role="status" data-status></p>
+          </div>
+        </details>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a
+              href="https://imslp.org/wiki/24_Preludes,_Op.17_(Palmgren,_Selim)"
+            >
+              Score editions on IMSLP
+            </a>
+          </li>
+        </ul>
+      </details>
     </main>
-    <footer><p><a href="https://imslp.org/wiki/24_Preludes,_Op.17_(Palmgren,_Selim)">IMSLP</a></p><nav aria-label="Experiment sequence"><a href="../liszt-consolations-s-172/index.html">← Previous · Liszt — Consolations, S.172</a> <a href="../macdowell-10-woodland-sketches-op-51/index.html">Next · MacDowell — 10 Woodland Sketches, Op.51 →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script>const score = {"notes":[[0.0,48,1.067,1],[0,64,0.38,0],[0.5,62,0.38,0],[1.0,67,0.76,0],[1.333,55,1.067,1],[2.0,71,1.52,0],[2.667,52,1.067,1],[4.0,48,1.067,1],[4.0,52,0.38,0],[4.5,50,0.38,0],[5.0,55,0.76,0],[5.333,55,1.067,1],[6.0,59,1.52,0],[6.667,52,1.067,1],[8.0,48,1.067,1],[8.0,64,0.38,0],[8.5,62,0.38,0],[9.0,67,0.76,0],[9.333,55,1.067,1],[10.0,71,1.52,0],[10.667,52,1.067,1],[12.0,48,1.067,1],[12.0,52,0.38,0],[12.5,50,0.38,0],[13.0,55,0.76,0],[13.333,55,1.067,1],[14.0,59,1.52,0],[14.667,52,1.067,1]]};</script><script src="../shared/midi.js"></script><script src="../shared/score.js"></script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          IMSLP ·
+          <a href="https://imslp.org/wiki/24_Preludes,_Op.17_(Palmgren,_Selim)">
+            Edition
+          </a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../liszt-consolations-s-172/index.html">
+          ← Previous · Liszt — Consolations, S.172
+        </a>
+        <a href="../macdowell-10-woodland-sketches-op-51/index.html">
+          Next · MacDowell — 10 Woodland Sketches, Op.51 →
+        </a>
+      </nav>
+    </footer>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

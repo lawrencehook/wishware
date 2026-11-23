@@ -1,0 +1,1654 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Music in the sandbox · Wishware</title>
+    <script src="../site-theme.js"></script>
+    <link rel="stylesheet" href="shared/experiments.css" />
+    <link rel="stylesheet" href="shared/music.css" />
+  </head>
+  <body class="music-page music-index">
+    <nav data-site-theme-slot><a href="index.html">← Sandbox</a></nav>
+    <main>
+      <h1>Music in the sandbox</h1>
+      <p>154 entries in sandbox order.</p>
+      <div class="controls">
+        <label>
+          Find music
+          <input id="find" type="search" />
+        </label>
+        <label>
+          Format
+          <select id="format">
+            <option>All formats</option>
+            <option>Score and performance</option>
+            <option>Performance</option>
+            <option>Music archive</option>
+          </select>
+        </label>
+      </div>
+      <output id="count" aria-live="polite"></output>
+      <ol class="music-list">
+        <li data-format="Score and performance">
+          <a href="joplin-maple-leaf-rag/index.html">Joplin — Maple Leaf Rag</a>
+          <small>
+            Score · Maple Leaf Rag. Recording · Maple Leaf Rag · Joshua Rifkin
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="chopin-fantaisie-impromptu-op-66/index.html">
+            Chopin — Fantaisie-Impromptu, Op. 66
+          </a>
+          <small>
+            Score · Fantaisie-Impromptu, Op. 66. Recording ·
+            Fantaisie-Impromptu, Op. 66 · Arthur Rubinstein
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="chopin-berceuse-op-57/index.html">
+            Chopin — Berceuse, Op. 57
+          </a>
+          <small>
+            Score · 2 score selections. Recording · Berceuse in D-flat major,
+            Op. 57 · Valentina Lisitsa
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Berceuse, Op. 57</li>
+              <li>Berceuse in D-Flat Major, Op. 57 · competition MIDI</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="chopin-three-nocturnes-op-9/index.html">
+            Chopin — Three Nocturnes, Op. 9
+          </a>
+          <small>
+            Score · 3 score selections. Recording · Nocturne No. 1 in B-flat
+            minor, Op. 9 · Claudio Arrau
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Nocturne No. 1</li>
+              <li>Nocturne No. 2</li>
+              <li>Nocturne No. 3</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Music archive">
+          <a href="phonautograms-on-paper/index.html">Phonautograms on paper</a>
+          <small>
+            Recording · Au clair de la lune · surviving 1860 phonautogram
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="liszt-la-campanella/index.html">Liszt — La campanella</a>
+          <small>
+            Score · 2 score selections. Recording · La campanella · Evgeny
+            Kissin
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>La campanella</li>
+              <li>
+                Grandes ètudes de Paganini No. 3 &quot;La Campanella&quot;, S.
+                141 · competition MIDI
+              </li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="reproducing-piano-rolls/index.html">
+            Reproducing piano rolls
+          </a>
+          <small>
+            Score · Ballade No. 1 in G minor · Carreño roll. Recording · Ballade
+            No. 1 in G minor · Welte-Mignon roll · Teresa Carreño
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="beethoven-fur-elise-woo-59/index.html">
+            Beethoven — Für Elise, WoO 59
+          </a>
+          <small>
+            Score · Für Elise. Recording · Für Elise, WoO 59 · Lang Lang
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="piano-performance-timing/index.html">
+            Piano performance timing
+          </a>
+          <small>
+            Score · Lyric Piece in A Minor, “Waltz,” Op. 12 No. 2 · competition
+            MIDI. Recording · Nocturne in E-flat major, Op. 9 No. 2 · Arthur
+            Rubinstein
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="beethoven-string-quartets/index.html">
+            Beethoven string quartets
+          </a>
+          <small>
+            Score · 4 score selections. Recording · String Quartet No. 3 in D
+            major, Op. 18 No. 3 · Meccore String Quartet
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Allegro</li>
+              <li>Andante con moto</li>
+              <li>Allegro</li>
+              <li>Presto</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="renaissance-vocal-polyphony/index.html">
+            Renaissance vocal polyphony
+          </a>
+          <small>
+            Score · O bone et dulcis Domine · Pater noster · Ave Maria.
+            Recording · Josquin des Prez: O bone et dulcis Domine Jesus - Pater
+            noster - Ave Maria à 4 · Robert Harre-Jones
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a
+            href="mozart-variations-on-ah-vous-dirai-je-maman-k-265/index.html"
+          >
+            Mozart — Variations on Ah, vous dirai-je maman, K. 265
+          </a>
+          <small>
+            Score · Theme and twelve variations, K. 265. Recording · Twelve
+            Variations on Ah, vous dirai-je, maman, K. 265 · Rudolf Buchbinder
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="bach-goldberg-variationen-bwv-988/index.html">
+            Bach — Goldberg-Variationen, BWV 988
+          </a>
+          <small>
+            Score · 32 score selections. Recording · Goldberg Variations, BWV
+            988 · 1981 performance · Glenn Gould
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Aria</li>
+              <li>Variation 1</li>
+              <li>Variation 2</li>
+              <li>Variation 3</li>
+              <li>Variation 4</li>
+              <li>Variation 5</li>
+              <li>Variation 6</li>
+              <li>Variation 7</li>
+              <li>Variation 8</li>
+              <li>Variation 9</li>
+              <li>Variation 10</li>
+              <li>Variation 11</li>
+              <li>Variation 12</li>
+              <li>Variation 13</li>
+              <li>Variation 14</li>
+              <li>Variation 15</li>
+              <li>Variation 16</li>
+              <li>Variation 17</li>
+              <li>Variation 18</li>
+              <li>Variation 19</li>
+              <li>Variation 20</li>
+              <li>Variation 21</li>
+              <li>Variation 22</li>
+              <li>Variation 23</li>
+              <li>Variation 24</li>
+              <li>Variation 25</li>
+              <li>Variation 26</li>
+              <li>Variation 27</li>
+              <li>Variation 28</li>
+              <li>Variation 29</li>
+              <li>Variation 30</li>
+              <li>Aria da capo</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="satie-gymnopedie-no-1/index.html">
+            Satie — Gymnopédie No. 1
+          </a>
+          <small>
+            Score · Gymnopédie No. 1. Recording · Gymnopédie No. 1 · Pascal Rogé
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="chopin-24-preludes-op-28/index.html">
+            Chopin — 24 Preludes, Op. 28
+          </a>
+          <small>
+            Score · 24 score selections. Recording · 24 Preludes, Op. 28 ·
+            Seong-Jin Cho
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Prelude No. 1</li>
+              <li>Prelude No. 2</li>
+              <li>Prelude No. 3</li>
+              <li>Prelude No. 4</li>
+              <li>Prelude No. 5</li>
+              <li>Prelude No. 6</li>
+              <li>Prelude No. 7</li>
+              <li>Prelude No. 8</li>
+              <li>Prelude No. 9</li>
+              <li>Prelude No. 10</li>
+              <li>Prelude No. 11</li>
+              <li>Prelude No. 12</li>
+              <li>Prelude No. 13</li>
+              <li>Prelude No. 14</li>
+              <li>Prelude No. 15</li>
+              <li>Prelude No. 16</li>
+              <li>Prelude No. 17</li>
+              <li>Prelude No. 18</li>
+              <li>Prelude No. 19</li>
+              <li>Prelude No. 20</li>
+              <li>Prelude No. 21</li>
+              <li>Prelude No. 22</li>
+              <li>Prelude No. 23</li>
+              <li>Prelude No. 24</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="schubert-four-impromptus-d-899/index.html">
+            Schubert — Four Impromptus, D. 899
+          </a>
+          <small>
+            Score · 4 score selections. Recording · Four Impromptus, D. 899 ·
+            Ronald Brautigam
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Impromptu No. 1</li>
+              <li>Impromptu No. 2</li>
+              <li>Impromptu No. 3</li>
+              <li>Impromptu No. 4</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="mozart-piano-sonatas/index.html">Mozart piano sonatas</a>
+          <small>
+            Score · 3 score selections. Recording · Sonata in A major, K. 331 ·
+            Christoph Eschenbach
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Andante grazioso · theme and variations</li>
+              <li>Menuetto</li>
+              <li>Alla turca</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="beethoven-piano-sonatas/index.html">
+            Beethoven piano sonatas
+          </a>
+          <small>
+            Score · 3 score selections. Recording · Sonata No. 8 in C minor, Op.
+            13 · Pathétique · Daniel Barenboim
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Grave – Allegro di molto e con brio</li>
+              <li>Adagio cantabile</li>
+              <li>Rondo: Allegro</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="schumann-kinderszenen/index.html">Schumann Kinderszenen</a>
+          <small>
+            Score · 13 score selections. Recording · Kinderszenen, Op. 15 ·
+            thirteen pieces · Vladimir Horowitz
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Von fremden Ländern und Menschen</li>
+              <li>Kuriose Geschichte</li>
+              <li>Hasche-Mann</li>
+              <li>Bittendes Kind</li>
+              <li>Glückes genug</li>
+              <li>Wichtige Begebenheit</li>
+              <li>Träumerei</li>
+              <li>Am Kamin</li>
+              <li>Ritter vom Steckenpferd</li>
+              <li>Fast zu ernst</li>
+              <li>Fürchtenmachen</li>
+              <li>Kind im Einschlummern</li>
+              <li>Der Dichter spricht</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="debussy-premiere-arabesque/index.html">
+            Debussy Première Arabesque
+          </a>
+          <small>
+            Score · Arabesque No. 1. Recording · Arabesque No. 1 · Maria João
+            Pires
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="grieg-lyric-pieces/index.html">Grieg Lyric Pieces</a>
+          <small>
+            Score · 8 score selections. Recording · Lyric Pieces, Book I, Op. 12
+            · Cunmo Yin
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Arietta</li>
+              <li>Waltz</li>
+              <li>Watchman’s Song</li>
+              <li>Fairy Dance</li>
+              <li>Folk Melody</li>
+              <li>Norwegian Melody</li>
+              <li>Album Leaf</li>
+              <li>National Song</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="domenico-scarlatti-keyboard-sonatas/index.html">
+            Domenico Scarlatti keyboard sonatas
+          </a>
+          <small>
+            Score · Sonata in C major, K. 514. Recording · Sonata in C major, K.
+            514 · Andrew Remillard
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="clementi-sonatina-in-c-op-36-no-1/index.html">
+            Clementi — Sonatina in C, Op. 36 No. 1
+          </a>
+          <small>
+            Score · 3 score selections. Recording · Sonatina in C major, Op. 36
+            No. 1 · Cory Hall
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Allegro</li>
+              <li>Andante</li>
+              <li>Vivace</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a
+            href="burgmuller-easy-and-progressive-studies-op-100-selections/index.html"
+          >
+            Burgmüller — Easy and Progressive Studies, Op. 100, selections
+          </a>
+          <small>
+            Score · 18 score selections. Recording · Burgmuller Op.100 25 Easy
+            and Progressive Studies (Complete) · Alan Chan
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Study No. 1</li>
+              <li>Study No. 2</li>
+              <li>Study No. 3</li>
+              <li>Study No. 4</li>
+              <li>Study No. 5</li>
+              <li>Study No. 6</li>
+              <li>Study No. 7</li>
+              <li>Study No. 8</li>
+              <li>Study No. 9</li>
+              <li>Study No. 10</li>
+              <li>Study No. 11</li>
+              <li>Study No. 12</li>
+              <li>Study No. 13</li>
+              <li>Study No. 14</li>
+              <li>Study No. 15</li>
+              <li>Study No. 16</li>
+              <li>Study No. 17</li>
+              <li>Study No. 18</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="satie-gnossiennes-nos-13/index.html">
+            Satie — Gnossiennes Nos. 1–3
+          </a>
+          <small>
+            Score · 3 score selections. Recording · Gnossiennes Nos. 1–3 · João
+            Paulo Santos
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Gnossienne No. 1</li>
+              <li>Gnossienne No. 2</li>
+              <li>Gnossienne No. 3</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="joplin-the-entertainer/index.html">
+            Joplin — The Entertainer
+          </a>
+          <small>
+            Score · The Entertainer. Recording · The Entertainer · Joshua Rifkin
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="joplin-solace/index.html">Joplin — Solace</a>
+          <small>
+            Score · Joplin — Solace. Recording · Solace · A Mexican Serenade ·
+            Joshua Rifkin
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="joplin-bethena/index.html">Joplin — Bethena</a>
+          <small>
+            Score · Joplin — Bethena. Recording · Bethena · Phillip Dyson
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="debussy-deuxieme-arabesque/index.html">
+            Debussy — Deuxième Arabesque
+          </a>
+          <small>
+            Score · Arabesque No. 2. Recording · Arabesque No. 2 · Paul Barton
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="haydn-keyboard-sonatas-selected-movements/index.html">
+            Haydn — Keyboard sonatas, selected movements
+          </a>
+          <small>
+            Score · 10 score selections. Recording · Sonata in E major, Hob.
+            XVI:31 · Marc-André Hamelin
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Sonata Hob. XVI:6-1</li>
+              <li>Sonata Hob. XVI:31-1</li>
+              <li>Sonata Hob. XVI:32-1</li>
+              <li>Sonata Hob. XVI:39-1</li>
+              <li>Sonata Hob. XVI:39-2</li>
+              <li>Sonata Hob. XVI:39-3</li>
+              <li>Sonata Hob. XVI:46-1</li>
+              <li>Sonata Hob. XVI:48-1</li>
+              <li>Sonata Hob. XVI:48-2</li>
+              <li>Sonata Hob. XVI:49-1</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="chopin-four-ballades/index.html">Chopin — Four Ballades</a>
+          <small>
+            Score · 4 score selections. Recording · Four Ballades · Krystian
+            Zimerman
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Ballade No. 1</li>
+              <li>Ballade No. 2</li>
+              <li>Ballade No. 3</li>
+              <li>Ballade No. 4</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="chopin-etudes-op-10-selections/index.html">
+            Chopin — Études, Op. 10, selections
+          </a>
+          <small>
+            Score · 9 score selections. Recording · Twelve Études, Op. 10 ·
+            Louis Lortie
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Étude No. 1</li>
+              <li>Étude No. 2</li>
+              <li>Étude No. 3</li>
+              <li>Étude No. 4</li>
+              <li>Étude No. 5</li>
+              <li>Étude No. 7</li>
+              <li>Étude No. 8</li>
+              <li>Étude No. 10</li>
+              <li>Étude No. 12</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="chopin-etudes-op-25-selections/index.html">
+            Chopin — Études, Op. 25, selections
+          </a>
+          <small>
+            Score · 8 score selections. Recording · Twelve Études, Op. 25 ·
+            Louis Lortie
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Étude No. 1</li>
+              <li>Étude No. 2</li>
+              <li>Étude No. 4</li>
+              <li>Étude No. 5</li>
+              <li>Étude No. 8</li>
+              <li>Étude No. 10</li>
+              <li>Étude No. 11</li>
+              <li>Étude No. 12</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="schubert-impromptus-d-935-nos-1-and-3/index.html">
+            Schubert — Impromptus, D. 935, Nos. 1 and 3
+          </a>
+          <small>
+            Score · 2 score selections. Recording · Four Impromptus, D. 935 ·
+            Alfred Brendel
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Impromptu No. 1</li>
+              <li>Impromptu No. 3</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="schubert-moment-musical-no-3-d-780/index.html">
+            Schubert — Moment musical No. 3, D. 780
+          </a>
+          <small>
+            Score · Moment musical No. 3 in F minor. Recording · Moment musical
+            in F minor, D. 780 No. 3 · Charles Szczepanek
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="schubert-piano-sonata-in-a-d-664/index.html">
+            Schubert — Piano Sonata in A, D. 664
+          </a>
+          <small>
+            Score · 3 score selections. Recording · Sonata in A major, D. 664 ·
+            Alfred Brendel
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Movement 1</li>
+              <li>Movement 2</li>
+              <li>Movement 3</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="schumann-arabeske-op-18/index.html">
+            Schumann — Arabeske, Op. 18
+          </a>
+          <small>
+            Score · Arabeske, Op. 18. Recording · Arabeske, Op. 18 · Tiffany
+            Poon
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="brahms-intermezzo-in-a-op-118-no-2/index.html">
+            Brahms — Intermezzo in A, Op. 118 No. 2
+          </a>
+          <small>
+            Score · Intermezzo, Op. 118 No. 2. Recording · Intermezzo in A
+            major, Op. 118 No. 2 · Stephen Kovacevich
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="ravel-pavane-pour-une-infante-defunte/index.html">
+            Ravel — Pavane pour une infante défunte
+          </a>
+          <small>
+            Score · Pavane pour une infante défunte. Recording · Pavane pour une
+            infante défunte · Seong-Jin Cho
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="corelli-trio-sonatas/index.html">Corelli trio sonatas</a>
+          <small>
+            Score · 4 score selections. Recording · Trio Sonata in F major, Op.
+            3 No. 1 · Ensemble Giardino di Delizie
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Grave</li>
+              <li>Allegro</li>
+              <li>Vivace</li>
+              <li>Allegro</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="debussy-suite-bergamasque/index.html">
+            Debussy Suite bergamasque
+          </a>
+          <small>
+            Score · 4 score selections. Recording · Suite bergamasque · Pallavi
+            Mahidhara
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Prélude</li>
+              <li>Menuet</li>
+              <li>Clair de lune</li>
+              <li>Passepied</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="chopin-mazurkas/index.html">Chopin mazurkas</a>
+          <small>
+            Score · Mazurka in A minor, Op. 17 No. 4. Recording · Mazurka in A
+            minor, Op. 17 No. 4 · Eric Lu
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="beethoven-rage-over-a-lost-penny-op-129/index.html">
+            Beethoven — Rage Over a Lost Penny, Op. 129
+          </a>
+          <small>
+            Score · Beethoven — Rage Over a Lost Penny, Op. 129. Recording ·
+            Rondo a capriccio, Op. 129 · Sergey Belyavsky
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="chopin-minute-waltz-op-64-no-1/index.html">
+            Chopin — Minute Waltz, Op. 64 No. 1
+          </a>
+          <small>
+            Score · Chopin — Minute Waltz, Op. 64 No. 1. Recording · Minute
+            Waltz, Op. 64 No. 1 · Arthur Rubinstein
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="satie-gymnopedie-no-2/index.html">
+            Satie — Gymnopédie No. 2
+          </a>
+          <small>
+            Score · Gymnopédie No. 2. Recording · Gymnopédie No. 2 · Pascal Rogé
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="satie-gymnopedie-no-3/index.html">
+            Satie — Gymnopédie No. 3
+          </a>
+          <small>
+            Score · Gymnopédie No. 3. Recording · Gymnopédie No. 3 · Pascal Rogé
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="joplin-pine-apple-rag/index.html">Joplin — Pine Apple Rag</a>
+          <small>
+            Score · Pine Apple Rag. Recording · Pine Apple Rag · Joshua Rifkin
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="albeniz-rumores-de-la-caleta-op-71-no-6/index.html">
+            Albéniz — Rumores de la caleta, Op. 71 No. 6
+          </a>
+          <small>
+            Score · Rumores de la Caleta. Recording · Rumores de la caleta ·
+            Enzo Oliva
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="mozart-fantasia-in-c-minor-k-475/index.html">
+            Mozart — Fantasia in C minor, K. 475
+          </a>
+          <small>
+            Score · Fantasia in C minor, K. 475. Recording · Fantasia in C
+            minor, K. 475 · Mitsuko Uchida
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="chopin-barcarolle-op-60/index.html">
+            Chopin — Barcarolle, Op. 60
+          </a>
+          <small>
+            Score · Barcarolle, Op. 60. Recording · Barcarolle, Op. 60 ·
+            Krystian Zimerman
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="chopin-heroic-polonaise-op-53/index.html">
+            Chopin — Heroic Polonaise, Op. 53
+          </a>
+          <small>
+            Score · Polonaise in A-flat, Op. 53. Recording · Polonaise in A-flat
+            major, Op. 53 · Arthur Rubinstein
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="chopin-scherzos-nos-13/index.html">
+            Chopin — Scherzos Nos. 1–3
+          </a>
+          <small>
+            Score · 3 score selections. Recording · Four Scherzos · Arthur
+            Rubinstein
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Scherzo, Op. 20</li>
+              <li>Scherzo, Op. 31</li>
+              <li>Scherzo, Op. 39</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="chopin-piano-sonata-no-2-op-35/index.html">
+            Chopin — Piano Sonata No. 2, Op. 35
+          </a>
+          <small>
+            Score · 4 score selections. Recording · Sonata No. 2 in B-flat
+            minor, Op. 35 · Seong-Jin Cho
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Movement 1st</li>
+              <li>Movement 2nd</li>
+              <li>Movement 3rd</li>
+              <li>Movement 4th</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="schubert-wanderer-fantasy-d-760/index.html">
+            Schubert — Wanderer Fantasy, D. 760
+          </a>
+          <small>
+            Score · Wanderer Fantasy. Recording · Wanderer Fantasy, D. 760 ·
+            Alfred Brendel
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="liszt-sonata-in-b-minor/index.html">
+            Liszt — Sonata in B minor
+          </a>
+          <small>
+            Score · Sonata in B minor. Recording · Sonata in B minor, S. 178 ·
+            Seong-Jin Cho
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="liszt-concert-etudes-s-145/index.html">
+            Liszt — Concert Études, S. 145
+          </a>
+          <small>
+            Score · 2 score selections. Recording · Waldesrauschen, S. 145 No. 1
+            · Marc-André Hamelin
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Concert étude No. 1</li>
+              <li>Concert étude No. 2</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="schumann-kreisleriana-selections/index.html">
+            Schumann — Kreisleriana, selections
+          </a>
+          <small>
+            Score · 7 score selections. Recording · Kreisleriana, Op. 16 · Jörg
+            Demus
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Kreisleriana No. 1</li>
+              <li>Kreisleriana No. 2</li>
+              <li>Kreisleriana No. 3</li>
+              <li>Kreisleriana No. 4</li>
+              <li>Kreisleriana No. 5</li>
+              <li>Kreisleriana No. 6</li>
+              <li>Kreisleriana No. 7</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="debussy-reflets-dans-leau/index.html">
+            Debussy — Reflets dans l’eau
+          </a>
+          <small>
+            Score · Reflets dans l’eau. Recording · Reflets dans l’eau ·
+            Seong-Jin Cho
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="debussy-prelude-from-pour-le-piano/index.html">
+            Debussy — Prélude from Pour le piano
+          </a>
+          <small>
+            Score · Prélude from Pour le piano. Recording · Prélude from Pour le
+            piano · Arthur Rubinstein
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="rachmaninoff-preludes-op-32-nos-5-and-10/index.html">
+            Rachmaninoff — Preludes, Op. 32, Nos. 5 and 10
+          </a>
+          <small>
+            Score · 2 score selections. Recording · Prelude in G major, Op. 32
+            No. 5 · Vladimir Ashkenazy
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Prelude No. 5</li>
+              <li>Prelude No. 10</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="prokofiev-toccata-op-11/index.html">
+            Prokofiev — Toccata, Op. 11
+          </a>
+          <small>
+            Score · Toccata, Op. 11. Recording · Toccata, Op. 11 · Martha
+            Argerich
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="liszt-hungarian-rhapsody-no-6/index.html">
+            Liszt — Hungarian Rhapsody No. 6
+          </a>
+          <small>
+            Score · Hungarian Rhapsody No. 6. Recording · Hungarian Rhapsody No.
+            6 · Georges Cziffra
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="liszt-transcendental-etudes-selections/index.html">
+            Liszt — Transcendental Études, selections
+          </a>
+          <small>
+            Score · 7 score selections. Recording · Twelve Transcendental Études
+            · Yunchan Lim
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Étude No. 1</li>
+              <li>Étude No. 3</li>
+              <li>Étude No. 4</li>
+              <li>Étude No. 5</li>
+              <li>Étude No. 9</li>
+              <li>Étude No. 10</li>
+              <li>Étude No. 11</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="ravel-miroirs-nos-3-and-4/index.html">
+            Ravel — Miroirs, Nos. 3 and 4
+          </a>
+          <small>
+            Score · 2 score selections. Recording · Miroirs · Alexei Tartakovsky
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Miroirs No. 3</li>
+              <li>Miroirs No. 4</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="scriabin-piano-sonata-no-5/index.html">
+            Scriabin — Piano Sonata No. 5
+          </a>
+          <small>
+            Score · Sonata No. 5, Op. 53. Recording · Piano Sonata No. 5, Op. 53
+            · Daniil Trifonov
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="balakirev-islamey/index.html">Balakirev — Islamey</a>
+          <small>Score · Islamey. Recording · Islamey · Masaya Kamei</small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="editable-classical-scores/index.html">
+            Editable classical scores
+          </a>
+          <small>
+            Score · Invention in C minor, BWV 773. Recording · Invention in C
+            minor, BWV 773 · Paul Barton
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="art-songs/index.html">Art songs</a>
+          <small>
+            Score · Erlkönig, D. 328 · piano realization. Recording · Erlkönig,
+            D. 328 · Dietrich Fischer-Dieskau and Gerald Moore
+          </small>
+        </li>
+        <li data-format="Music archive">
+          <a href="court-dancing/index.html">Court dancing</a>
+          <small>Recording · Rigaudon à quatre · Danza Antica, Zürich</small>
+        </li>
+        <li data-format="Music archive">
+          <a href="louvre-aulos-reconstruction/index.html">
+            Louvre aulos reconstruction
+          </a>
+          <small>
+            Recording · Improvisation on the reconstructed Louvre aulos ·
+            Barnaby Brown
+          </small>
+        </li>
+        <li data-format="Music archive">
+          <a href="pipe-organ-stoplists/index.html">Pipe organ stoplists</a>
+          <small>
+            Recording · Toccata and Fugue in D minor, BWV 565 · Leo van
+            Doeselaar
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="shostakovich-24-preludes-and-fugues-op-87/index.html">
+            Shostakovich — 24 Preludes and Fugues, Op.87
+          </a>
+          <small>
+            Recording · 24 Preludes and Fugues, Op. 87 · Sofia Sacco
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="historical-score-editions/index.html">
+            Historical score editions
+          </a>
+          <small>
+            Score · Prelude in C major, BWV 846. Recording · J.S. Bach - Prelude
+            in C Major · Rousseau
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="mussorgsky-pictures-at-an-exhibition/index.html">
+            Mussorgsky — Pictures at an Exhibition
+          </a>
+          <small>
+            Score · Promenade I. Recording · Pictures at an Exhibition · Evgeny
+            Kissin
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="nazareth-odeon/index.html">Nazareth — Odeon</a>
+          <small>
+            Score · Ernesto Nazareth - Odeon. Recording · Odeon · Paul Barton
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="nazareth-brejeiro/index.html">Nazareth — Brejeiro</a>
+          <small>Recording · Brejeiro · Clélia Iruzun</small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="gonzaga-atraente/index.html">Gonzaga — Atraente</a>
+          <small>
+            Score · Atraente polca. Recording · Atraente · Maria Teresa Madeira
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="gonzaga-gaucho/index.html">Gonzaga — Gaúcho</a>
+          <small>
+            Score · Corta Jaca. Recording · Gaúcho (Corta-jaca) · Stanislav
+            Stanchev
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="cervantes-danzas-cubanas/index.html">
+            Cervantes — Danzas Cubanas
+          </a>
+          <small>
+            Score · Los tres golpes. Recording · Los tres golpes · Elena
+            Casanova
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="dett-in-the-bottoms/index.html">Dett — In the Bottoms</a>
+          <small>
+            Recording · In the Bottoms · suite · William Chapman Nyaho
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="hensel-das-jahr-h-385/index.html">
+            Hensel — Das Jahr, H.385
+          </a>
+          <small>
+            Recording · Das Jahr · twelve months and postlude · Soojung Hong
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="bartok-mikrokosmos-sz-107/index.html">
+            Bartók — Mikrokosmos, Sz.107
+          </a>
+          <small>
+            Score · Six unison melodies. Recording · Bartok: 6 Unison Melodies
+            (Mikrokosmos Nos.1-6) · Albumleaf Piano
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="bartok-romanian-folk-dances-sz-56/index.html">
+            Bartók — Romanian Folk Dances, Sz.56
+          </a>
+          <small>
+            Score · Stick Dance. Recording · Romanian Folk Dances · Zoltán
+            Thurzó
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="ravel-le-tombeau-de-couperin-m-68/index.html">
+            Ravel — Le tombeau de Couperin, M.68
+          </a>
+          <small>
+            Score · Le tombeau de Couperin (piano) (M.Ravel M.68). Recording ·
+            Le tombeau de Couperin · Zoltán Fejérvári
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="debussy-children-s-corner-cd-119/index.html">
+            Debussy — Children&#x27;s Corner, CD 119
+          </a>
+          <small>
+            Score · 6 score selections. Recording · Children’s Corner · Paul
+            Barton
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Doctor Gradus ad Parnassum</li>
+              <li>Jimbo’s Lullaby</li>
+              <li>Serenade for the Doll</li>
+              <li>The Snow Is Dancing</li>
+              <li>The Little Shepherd</li>
+              <li>Golliwogg’s Cakewalk</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="debussy-preludes-livre-1-cd-125/index.html">
+            Debussy — Préludes, Livre 1, CD 125
+          </a>
+          <small>
+            Score · 12 score selections. Recording · Préludes, Books I and II ·
+            Anna Tsybuleva
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Danseuses de Delphes</li>
+              <li>Voiles</li>
+              <li>Le vent dans la plaine</li>
+              <li>Les sons et les parfums</li>
+              <li>Les collines d’Anacapri</li>
+              <li>Des pas sur la neige</li>
+              <li>Ce qu’a vu le vent d’ouest</li>
+              <li>La fille aux cheveux de lin</li>
+              <li>La sérénade interrompue</li>
+              <li>La cathédrale engloutie</li>
+              <li>La danse de Puck</li>
+              <li>Minstrels</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a
+            href="mendelssohn-lieder-ohne-worte-songs-without-words/index.html"
+          >
+            Mendelssohn — Lieder ohne Worte (Songs Without Words)
+          </a>
+          <small>
+            Score · Venetian Boat Song, Op. 19 No. 6. Recording · Venetian Boat
+            Song, Op. 19 No. 6 · Paul Barton
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="brahms-3-intermezzi-op-117/index.html">
+            Brahms — 3 Intermezzi, Op.117
+          </a>
+          <small>Recording · Three Intermezzi, Op. 117 · András Schiff</small>
+        </li>
+        <li data-format="Score and performance">
+          <a
+            href="brahms-variations-and-fugue-on-a-theme-by-handel-op-24/index.html"
+          >
+            Brahms — Variations and Fugue on a Theme by Handel, Op.24
+          </a>
+          <small>
+            Score · Variations and Fugue on the theme of Handel, Op. 24 ·
+            competition MIDI. Recording · Variations and Fugue on a Theme by
+            Handel, Op. 24 · Jonathan Fournel
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="robert-schumann-album-fur-die-jugend-op-68/index.html">
+            Robert Schumann — Album für die Jugend, Op.68
+          </a>
+          <small>
+            Score · Mélodie, Op. 68 No. 1. Recording · Album for the Young, Op.
+            68 · Vladimir Feltsman
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="robert-schumann-carnaval-op-9/index.html">
+            Robert Schumann — Carnaval, Op.9
+          </a>
+          <small>
+            Score · Carnaval, Op. 9 · competition MIDI. Recording · Carnaval,
+            Op. 9 · Marc-André Hamelin
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="scriabin-24-preludes-op-11/index.html">
+            Scriabin — 24 Preludes, Op.11
+          </a>
+          <small>
+            Score · Prelude in C major, Op. 11 No. 1. Recording · 24 Preludes,
+            Op. 11 · two performances · Lettberg and Stanev
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="prokofiev-visions-fugitives-op-22/index.html">
+            Prokofiev — Visions fugitives, Op.22
+          </a>
+          <small>
+            Score · Ridicolosamente. Recording · Visions fugitives, Op. 22 ·
+            Boris Berman
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="gershwin-3-preludes/index.html">Gershwin — 3 Preludes</a>
+          <small>Recording · Three Preludes · Krystian Zimerman</small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="tchaikovsky-the-seasons-op-37a/index.html">
+            Tchaikovsky — The Seasons, Op.37a
+          </a>
+          <small>
+            Score · 12 score selections. Recording · The Seasons, Op. 37a · Olga
+            Scheps
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>January</li>
+              <li>February</li>
+              <li>March</li>
+              <li>April</li>
+              <li>May</li>
+              <li>June</li>
+              <li>July</li>
+              <li>August</li>
+              <li>September</li>
+              <li>October</li>
+              <li>November</li>
+              <li>December</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="tchaikovsky-children-s-album-op-39/index.html">
+            Tchaikovsky — Children&#x27;s Album, Op.39
+          </a>
+          <small>
+            Score · March of the Wooden Soldiers. Recording · Children’s Album,
+            Op. 39 · Mikhail Pletnev
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="rachmaninoff-10-preludes-op-23/index.html">
+            Rachmaninoff — 10 Preludes, Op.23
+          </a>
+          <small>
+            Score · Prelude Op. 23, No. 5. Recording · Prelude in G minor, Op.
+            23 No. 5 · Yuja Wang
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="satie-sports-et-divertissements/index.html">
+            Satie — Sports et divertissements
+          </a>
+          <small>
+            Recording · Sports et divertissements · Alexei Aceto, piano · Erin
+            Hilgartner, recitation
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="robert-schumann-fantasiestucke-op-12/index.html">
+            Robert Schumann — Fantasiestücke, Op.12
+          </a>
+          <small>
+            Score · Aufschwung, Op. 12 No. 2. Recording · Fantasiestücke, Op. 12
+            · Seong-Jin Cho
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="beethoven-diabelli-variations-op-120/index.html">
+            Beethoven — Diabelli Variations, Op. 120
+          </a>
+          <small>Recording · Diabelli Variations, Op. 120 · Marta Czech</small>
+        </li>
+        <li data-format="Performance">
+          <a href="janacek-on-an-overgrown-path/index.html">
+            Janáček — On an Overgrown Path
+          </a>
+          <small>
+            Recording · On an Overgrown Path, Book I · Josef Páleníček
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="james-p-johnson-carolina-shout/index.html">
+            James P. Johnson — Carolina Shout
+          </a>
+          <small>
+            Recording · Carolina Shout · 1944 performance · James P. Johnson
+          </small>
+        </li>
+        <li data-format="Music archive">
+          <a href="musical-source-records/index.html">Musical source records</a>
+          <small>Recording · Così dunque tradisci, K. 432 · Bryn Terfel</small>
+        </li>
+        <li data-format="Music archive">
+          <a href="broadside-ballads/index.html">Broadside ballads</a>
+          <small>
+            Recording · Little Musgrave and Lady Barnard · Martin Carthy
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="albeniz-suite-espanola-no-1-op-47/index.html">
+            Albéniz — Suite española No.1, Op.47
+          </a>
+          <small>
+            Score · Asturias (Leyenda). Recording · Suite española No. 1, Op. 47
+            · Alicia de Larrocha
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="granados-12-danzas-espanolas/index.html">
+            Granados — 12 Danzas españolas
+          </a>
+          <small>Recording · Twelve Spanish Dances · Alicia de Larrocha</small>
+        </li>
+        <li data-format="Performance">
+          <a href="mompou-impresiones-intimas/index.html">
+            Mompou — Impresiones intimas
+          </a>
+          <small>Recording · Impresiones íntimas · Luis Ángel Martínez</small>
+        </li>
+        <li data-format="Performance">
+          <a href="villa-lobos-a-prole-do-bebe-no-1-w140/index.html">
+            Villa-Lobos — A prole do bebê No.1, W140
+          </a>
+          <small>Recording · A prole do bebê, Book I · Clélia Iruzun</small>
+        </li>
+        <li data-format="Performance">
+          <a href="gottschalk-bamboula-op-2/index.html">
+            Gottschalk — Bamboula, Op.2
+          </a>
+          <small>Recording · Bamboula, Op. 2 · Eugene List</small>
+        </li>
+        <li data-format="Performance">
+          <a href="gottschalk-le-banjo-op-15/index.html">
+            Gottschalk — Le banjo, Op.15
+          </a>
+          <small>Recording · Le banjo, Op. 15 · Christina Pepper</small>
+        </li>
+        <li data-format="Performance">
+          <a href="price-at-the-cotton-gin/index.html">
+            Price — At the Cotton Gin
+          </a>
+          <small>Recording · At the Cotton Gin · Artina McCain</small>
+        </li>
+        <li data-format="Performance">
+          <a href="coleridge-taylor-24-negro-melodies-op-59/index.html">
+            Coleridge-Taylor — 24 Negro Melodies, Op.59
+          </a>
+          <small>
+            Recording · At the Dawn of Day, Op. 59 No. 1 · Alessandra Garavello
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="chaminade-6-etudes-de-concert-op-35/index.html">
+            Chaminade — 6 Études de concert, Op.35
+          </a>
+          <small>
+            Score · Automne. Recording · Automne, Op. 35 No. 2 · Yijiao Feng
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="clara-schumann-3-romances-op-21/index.html">
+            Clara Schumann — 3 Romances, Op.21
+          </a>
+          <small>
+            Recording · Three Romances, Op. 21 · Siyumeng (Cathy) Wang
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="clara-schumann-soirees-musicales-op-6/index.html">
+            Clara Schumann — Soirées musicales, Op.6
+          </a>
+          <small>
+            Recording · Soirées musicales, Op. 6 · Patricia García Gil
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="bartok-allegro-barbaro-sz-49/index.html">
+            Bartók — Allegro barbaro, Sz.49
+          </a>
+          <small>Recording · Allegro barbaro, Sz. 49 · Dénes Várjon</small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="dvorak-8-humoresques-op-101/index.html">
+            Dvořák — 8 Humoresques, Op.101
+          </a>
+          <small>
+            Score · Humoresque No. 7. Recording · Humoresque in G-flat major,
+            Op. 101 No. 7 · Ivo Kahánek
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="faure-barcarolle-no-1-op-26/index.html">
+            Fauré — Barcarolle No.1, Op.26
+          </a>
+          <small>Recording · Barcarolle No. 1, Op. 26 · Lucas Debargue</small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="ravel-sonatine-m-40/index.html">Ravel — Sonatine, M.40</a>
+          <small>
+            Score · Sonatine (M.Ravel M.40). Recording · Sonatine · Friedrich
+            Gulda
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="debussy-estampes-cd-108/index.html">
+            Debussy — Estampes, CD 108
+          </a>
+          <small>
+            Score · 3 score selections. Recording · Estampes · two performances
+            · Javier Perianes and Nelson Goerner
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Pagodes</li>
+              <li>La soirée dans Grenade</li>
+              <li>Jardins sous la pluie</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="debussy-preludes-livre-2-cd-131/index.html">
+            Debussy — Préludes, Livre 2, CD 131
+          </a>
+          <small>
+            Score · 12 score selections. Recording · Préludes, Book II · Ilya
+            Itin
+          </small>
+          <details>
+            <summary>Score selections</summary>
+            <ol>
+              <li>Brouillards</li>
+              <li>Feuilles mortes</li>
+              <li>La puerta del Vino</li>
+              <li>Les fées sont d’exquises danseuses</li>
+              <li>Bruyères</li>
+              <li>Général Lavine</li>
+              <li>La terrasse des audiences</li>
+              <li>Ondine</li>
+              <li>Hommage à S. Pickwick</li>
+              <li>Canope</li>
+              <li>Les tierces alternées</li>
+              <li>Feux d’artifice</li>
+            </ol>
+          </details>
+        </li>
+        <li data-format="Score and performance">
+          <a href="rachmaninoff-morceaux-de-fantaisie-op-3/index.html">
+            Rachmaninoff — Morceaux de fantaisie, Op.3
+          </a>
+          <small>
+            Score · Prelude in C-sharp minor. Recording · Prelude in C-sharp
+            minor, Op. 3 No. 2 · Evgeny Kissin
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="liszt-consolations-s-172/index.html">
+            Liszt — Consolations, S.172
+          </a>
+          <small>
+            Score · Consolation No. 3. Recording · Consolation No. 3 · Vladimir
+            Horowitz
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="palmgren-24-preludes-op-17/index.html">
+            Palmgren — 24 Preludes, Op.17
+          </a>
+          <small>Recording · 24 Preludes, Op. 17 · Henri Sigfridsson</small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="macdowell-10-woodland-sketches-op-51/index.html">
+            MacDowell — 10 Woodland Sketches, Op.51
+          </a>
+          <small>
+            Score · To a Wild Rose. Recording · To a Wild Rose · Chenyin Li
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="taki-2-piano-pieces/index.html">Taki — 2 Piano Pieces</a>
+          <small>Recording · Menuett · Phillip Sear</small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="liszt-liebestraume-s-541/index.html">
+            Liszt — Liebesträume, S.541
+          </a>
+          <small>
+            Score · Liebesträume No. 3. Recording · Liebestraum No. 3 · Arthur
+            Rubinstein
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="beach-4-sketches-op-15/index.html">
+            Beach — 4 Sketches, Op.15
+          </a>
+          <small>Recording · Four Sketches, Op. 15 · Anny Chen</small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="schoenberg-6-little-piano-pieces-op-19/index.html">
+            Schoenberg — 6 Little Piano Pieces, Op.19
+          </a>
+          <small>
+            Score · Six Little Piano Pieces, Op. 19. Recording · Six Little
+            Piano Pieces, Op. 19 · Jean Louis Steuerman
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="webern-variations-for-piano-op-27/index.html">
+            Webern — Variations for Piano, Op.27
+          </a>
+          <small>Recording · Variations for Piano, Op. 27 · Glenn Gould</small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="berg-piano-sonata-op-1/index.html">
+            Berg — Piano Sonata, Op.1
+          </a>
+          <small>
+            Score · Sonata Op. 1 · competition MIDI. Recording · Piano Sonata,
+            Op. 1 · Seong-Jin Cho
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="boulanger-3-morceaux/index.html">Boulanger — 3 Morceaux</a>
+          <small>
+            Score · D’un vieux jardin. Recording · Trois morceaux pour piano ·
+            Evgenia Nekrasova
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="medtner-forgotten-melodies-i-op-38/index.html">
+            Medtner — Forgotten Melodies I, Op.38
+          </a>
+          <small>
+            Recording · Sonata reminiscenza, Op. 38 No. 1 · Alexander Malofeev
+          </small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="beethoven-6-bagatelles-op-126/index.html">
+            Beethoven — 6 Bagatelles, Op.126
+          </a>
+          <small>
+            Score · Six Bagatelles, Op. 126. Recording · Six Bagatelles, Op. 126
+            · Alfred Brendel
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="granados-escenas-romanticas/index.html">
+            Granados — Escenas románticas
+          </a>
+          <small>Recording · Escenas románticas · Daniel Ligorio</small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="glinkabalakirev-the-lark/index.html">
+            Glinka–Balakirev — The Lark
+          </a>
+          <small>Score · The Lark. Recording · The Lark · Evgeny Kissin</small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="albeniz-iberia/index.html">Albéniz — Iberia</a>
+          <small>
+            Score · Evocacion from &quot;Iberia&quot; · competition MIDI.
+            Recording · Iberia, Books I and II · Daniel Barenboim
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="granados-goyescas-piano-suite/index.html">
+            Granados — Goyescas (piano suite)
+          </a>
+          <small>Recording · Goyescas · Edmund Battersby</small>
+        </li>
+        <li data-format="Performance">
+          <a href="falla-fantasia-betica/index.html">Falla — Fantasía bética</a>
+          <small>Recording · Fantasía bética · Alicia de Larrocha</small>
+        </li>
+        <li data-format="Performance">
+          <a href="carreno-corbeille-des-fleurs-op-9/index.html">
+            Carreño — Corbeille des fleurs, Op.9
+          </a>
+          <small>Recording · Corbeille des fleurs, Op. 9 · Alan Feinberg</small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="ravel-jeux-d-eau-m-30/index.html">
+            Ravel — Jeux d&#x27;eau, M.30
+          </a>
+          <small>
+            Score · Jeux d’eau. Recording · Jeux d’eau · Martha Argerich
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="bartok-out-of-doors-sz-81/index.html">
+            Bartók — Out of Doors, Sz.81
+          </a>
+          <small>Recording · Out of Doors, Sz. 81 · Can Çakmur</small>
+        </li>
+        <li data-format="Score and performance">
+          <a href="ravel-gaspard-de-la-nuit-m-55/index.html">
+            Ravel — Gaspard de la nuit, M.55
+          </a>
+          <small>
+            Score · Le Gibet. Recording · Gaspard de la nuit · Marc-André
+            Hamelin
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="ives-piano-sonata-no-2-s-88/index.html">
+            Ives — Piano Sonata No.2, S.88
+          </a>
+          <small>Recording · Concord Sonata · Marc-André Hamelin</small>
+        </li>
+        <li data-format="Performance">
+          <a href="cowell-the-banshee-hc-405/index.html">
+            Cowell — The Banshee, HC 405
+          </a>
+          <small>Recording · The Banshee · Robert Miller</small>
+        </li>
+        <li data-format="Music archive">
+          <a href="bach-keyboard-repertoire/index.html">
+            Bach keyboard repertoire
+          </a>
+          <small>Recording · Fugue in D minor, BWV 851 · András Schiff</small>
+        </li>
+        <li data-format="Music archive">
+          <a href="guqin-tablature/index.html">Guqin tablature</a>
+          <small>Recording · John Thompson · Shenpin Wuyi Yi</small>
+        </li>
+        <li data-format="Music archive">
+          <a href="carnatic-krtis/index.html">Carnatic kṛtis</a>
+          <small>Recording · Ananda Natana Prakasam · Pantula Rama</small>
+        </li>
+        <li data-format="Music archive">
+          <a href="korean-time-cell-notation/index.html">
+            Korean time-cell notation
+          </a>
+          <small>
+            Recording · 고려가요 청산별곡 Cheongsanbyeolgok (靑山別曲) · 문숙희
+          </small>
+        </li>
+        <li data-format="Music archive">
+          <a href="ottoman-and-turkish-makam-repertoire/index.html">
+            Ottoman and Turkish makam repertoire
+          </a>
+          <small>
+            Recording · Ferahfeza Saz Semaisi - Tanburi Cemil Bey - Sami ERDOĞAN
+            - Muhammed CEYLAN - Mithat ÇÖMLEKÇİ · Mithat Çömlekçi
+          </small>
+        </li>
+        <li data-format="Music archive">
+          <a href="church-bell-ringing/index.html">Church bell ringing</a>
+          <small>
+            Recording · Plain Hunt on 6 · Central Council of Church Bell Ringers
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="ligeti-musica-ricercata/index.html">
+            Ligeti — Musica ricercata
+          </a>
+          <small>Recording · Musica ricercata · Juan Pérez Floristán</small>
+        </li>
+        <li data-format="Performance">
+          <a href="glass-complete-piano-etudes/index.html">
+            Glass — Complete Piano Etudes
+          </a>
+          <small>
+            Recording · The Complete Piano Etudes · Nos. 1–20 · Vanessa Wagner
+          </small>
+        </li>
+        <li data-format="Performance">
+          <a href="ades-traced-overhead/index.html">Adès — Traced Overhead</a>
+          <small>Recording · Traced Overhead, Op. 15 · Andrew Zhou</small>
+        </li>
+      </ol>
+    </main>
+    <script src="shared/gallery.js"></script>
+  </body>
+</html>

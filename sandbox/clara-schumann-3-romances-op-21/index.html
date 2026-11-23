@@ -1,23 +1,143 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Clara Schumann — 3 Romances, Op.21 · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Clara Schumann — 3 Romances, Op.21</h1>
-        <p>Trace the melody in the first Romance and mark where another voice sounds above it.</p>
-        <div id="experiment"></div>
-        
+      <h1>Clara Schumann — 3 Romances, Op.21</h1>
+      <section>
+        <h2>Performance</h2>
+        <div
+          class="performance"
+          data-video="BTbNItXBxGI"
+          data-title="Three Romances, Op. 21"
+        >
+          <p>
+            Three Romances, Op. 21
+            <small>· Siyumeng (Cathy) Wang · 11:06</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=BTbNItXBxGI">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <details>
+          <summary>Play your own MIDI edition</summary>
+          <div data-score-player data-instrument="piano">
+            <p data-edition-name></p>
+
+            <label class="movement">
+              Movement
+              <select data-movements></select>
+            </label>
+            <div class="transport" data-transport hidden>
+              <button type="button" data-play class="primary">Play</button>
+              <input
+                data-position
+                type="range"
+                min="0"
+                max="1"
+                value="0"
+                step=".01"
+                aria-label="Score position"
+              />
+              <time data-clock></time>
+              <select data-speed aria-label="Playback speed">
+                <option value=".5">½ speed</option>
+                <option value=".75">¾ speed</option>
+                <option selected value="1">1× speed</option>
+                <option value="1.25">1¼ speed</option>
+              </select>
+            </div>
+            <canvas
+              data-roll
+              hidden
+              width="990"
+              height="220"
+              role="img"
+              aria-label="Scrolling piano roll, with time running from left to right"
+            ></canvas>
+
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+            <p role="status" data-status></p>
+          </div>
+        </details>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a
+              href="https://imslp.org/wiki/3_Romances,_Op.21_(Schumann,_Clara)"
+            >
+              Score editions on IMSLP
+            </a>
+          </li>
+        </ul>
+      </details>
+      <section>
+        <h2>Score facsimile</h2>
+        <a href="score-page.webp">
+          <img
+            class="facsimile"
+            src="score-page.webp"
+            alt="Opening score page"
+          />
+        </a>
+      </section>
     </main>
-    <footer><p><a href="https://imslp.org/wiki/3_Romances,_Op.21_(Schumann,_Clara)">IMSLP</a></p><p><a href="https://imslp.org/wiki/File:PMLP140542-Schumann,_Clara,_3_Romanzen,_Op.21._No.1_(etc).pdf">Score facsimile · Leipzig: Breitkopf und Härtel , n.d.  Plate V.A. 27.</a></p><nav aria-label="Experiment sequence"><a href="../chaminade-6-etudes-de-concert-op-35/index.html">← Previous · Chaminade — 6 Études de concert, Op.35</a> <a href="../clara-schumann-soirees-musicales-op-6/index.html">Next · Clara Schumann — Soirées musicales, Op.6 →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script>const study = {"task":"Trace the melody in the first Romance and mark where another voice sounds above it.","action":"Mark score","mark":"Score mark","files":["score-page.webp"]};</script><script src="../shared/plate.js"></script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          IMSLP ·
+          <a href="https://imslp.org/wiki/3_Romances,_Op.21_(Schumann,_Clara)">
+            Edition
+          </a>
+        </p>
+        <p>
+          Pub lisher . Info. Leipzig: Breitkopf und Härtel , n.d. Plate V.A. 27.
+          ·
+          <a
+            href="https://imslp.org/wiki/File:PMLP140542-Schumann,_Clara,_3_Romanzen,_Op.21._No.1_(etc).pdf"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../chaminade-6-etudes-de-concert-op-35/index.html">
+          ← Previous · Chaminade — 6 Études de concert, Op.35
+        </a>
+        <a href="../clara-schumann-soirees-musicales-op-6/index.html">
+          Next · Clara Schumann — Soirées musicales, Op.6 →
+        </a>
+      </nav>
+    </footer>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

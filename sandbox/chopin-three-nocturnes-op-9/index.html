@@ -1,23 +1,197 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Chopin — Three Nocturnes, Op. 9 · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Chopin — Three Nocturnes, Op. 9</h1>
-        <p>Mark a statement of the nocturne melody. Move to its decorated return and switch back to compare.</p>
-        <div id="experiment"></div>
-        <p>Edition · Nocturne</p>
+      <h1>Chopin — Three Nocturnes, Op. 9</h1>
+      <section>
+        <h2>Performance</h2>
+        <div
+          class="performance"
+          data-video="EKlonPJnypI"
+          data-title="Nocturne No. 1 in B-flat minor, Op. 9"
+        >
+          <p>
+            Nocturne No. 1 in B-flat minor, Op. 9
+            <small>· Claudio Arrau · 5:47</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=EKlonPJnypI">
+            Watch on YouTube
+          </a>
+        </div>
+        <div
+          class="performance"
+          data-video="-PaYq5Pt228"
+          data-title="Chopin – Nocturne Op. 9 No. 2 | The Original 265M-View Recording"
+        >
+          <p>
+            Chopin – Nocturne Op. 9 No. 2 | The Original 265M-View Recording
+            <small>· Vadim Chaimovich · 4:28</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=-PaYq5Pt228">
+            Watch on YouTube
+          </a>
+        </div>
+        <div
+          class="performance"
+          data-video="t4zcHuq6WH8"
+          data-title="Chopin: Nocturne No. 3 in B Major, Op. 9 No. 3"
+        >
+          <p>
+            Chopin: Nocturne No. 3 in B Major, Op. 9 No. 3
+            <small>· Claudio Arrau · 7:13</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=t4zcHuq6WH8">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <h2>Sampled grand piano</h2>
+        <div data-score-player data-instrument="piano">
+          <p data-edition-name>3 selections · plays continuously</p>
+
+          <label class="movement">
+            Movement
+            <select data-movements></select>
+          </label>
+          <div class="transport" data-transport hidden>
+            <button type="button" data-play class="primary">Play</button>
+            <input
+              data-position
+              type="range"
+              min="0"
+              max="1"
+              value="0"
+              step=".01"
+              aria-label="Score position"
+            />
+            <time data-clock></time>
+            <select data-speed aria-label="Playback speed">
+              <option value=".5">½ speed</option>
+              <option value=".75">¾ speed</option>
+              <option selected value="1">1× speed</option>
+              <option value="1.25">1¼ speed</option>
+            </select>
+          </div>
+          <canvas
+            data-roll
+            hidden
+            width="990"
+            height="220"
+            role="img"
+            aria-label="Scrolling piano roll, with time running from left to right"
+          ></canvas>
+
+          <details>
+            <summary>Open a local MIDI file</summary>
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+          </details>
+          <p role="status" data-status></p>
+        </div>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O9/nocturne_in_b-flat_minor/nocturne_in_b-flat_minor-a4.pdf"
+            >
+              Nocturne No. 1 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O9/chopin_nocturne_op9_n2/chopin_nocturne_op9_n2-a4.pdf"
+            >
+              Nocturne No. 2 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/ChopinFF/O9/chopin_nocturne_op9_n3/chopin_nocturne_op9_n3-a4.pdf"
+            >
+              Nocturne No. 3 · PDF
+            </a>
+          </li>
+        </ul>
+      </details>
     </main>
-    <footer><p><a href="https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/ChopinFF/O9">Mutopia Project</a></p><p><a href="https://www.mutopiaproject.org/ftp/ChopinFF/O9/chopin_nocturne_op9_n2/chopin_nocturne_op9_n2.mid">Adapted from the Mutopia Project edition by Renato Biolcati Rinaldi · Creative Commons Attribution-ShareAlike 3.0.</a></p><nav aria-label="Experiment sequence"><a href="../chladni-plate-figures/index.html">← Previous · Chladni plate figures</a> <a href="../apollo-8-earthrise-photography/index.html">Next · Apollo 8 Earthrise photography →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script src="notes.js"></script><script src="../shared/midi.js"></script><script src="../shared/score.js"></script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          Mutopia Project ·
+          <a
+            href="https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/ChopinFF/O9"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Mutopia Project · Benjamin D. Esham · Creative Commons
+          Attribution-ShareAlike 2.5 ·
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O9/nocturne_in_b-flat_minor/nocturne_in_b-flat_minor.mid"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Mutopia Project · Renato Biolcati Rinaldi · Creative Commons
+          Attribution-ShareAlike 3.0 ·
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O9/chopin_nocturne_op9_n2/chopin_nocturne_op9_n2.mid"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Mutopia Project · Glen Larsen · Creative Commons
+          Attribution-ShareAlike 4.0 ·
+          <a
+            href="https://www.mutopiaproject.org/ftp/ChopinFF/O9/chopin_nocturne_op9_n3/chopin_nocturne_op9_n3.mid"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a href="../chladni-plate-figures/index.html">
+          ← Previous · Chladni plate figures
+        </a>
+        <a href="../apollo-8-earthrise-photography/index.html">
+          Next · Apollo 8 Earthrise photography →
+        </a>
+      </nav>
+    </footer>
+    <script src="notes.js"></script>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>

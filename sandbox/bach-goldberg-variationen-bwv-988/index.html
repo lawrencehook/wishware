@@ -1,23 +1,558 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Bach — Goldberg-Variationen, BWV 988 · Wishware Sandbox</title>
     <script src="../../site-theme.js"></script>
-    <link rel="icon" href="../../favicons/wishware.svg">
-    <link rel="stylesheet" href="../shared/experiments.css">
-</head>
-<body>
-    <nav data-site-theme-slot><a href="../index.html">← Sandbox</a></nav>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">All music</a>
+    </nav>
     <main>
-        <h1>Bach — Goldberg-Variationen, BWV 988</h1>
-        <p>Loop the aria’s opening phrase and mark each new bass attack.</p>
-        <div id="experiment"></div>
-        <p>Recording · Bach, Goldberg Variations, Aria (Musopen version)</p>
+      <h1>Bach — Goldberg-Variationen, BWV 988</h1>
+      <section>
+        <h2>Performance</h2>
+        <p>Goldberg Variations · Aria, Musopen edition</p>
+        <audio
+          controls
+          preload="metadata"
+          aria-label="Goldberg Variations · Aria, Musopen edition"
+          src="performance.mp3"
+        ></audio>
+        <div
+          class="performance"
+          data-video="NOS5CJTOOKE"
+          data-title="Goldberg Variations, BWV 988 · 1981 performance"
+        >
+          <p>
+            Goldberg Variations, BWV 988 · 1981 performance
+            <small>· Glenn Gould · 51:00</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=NOS5CJTOOKE">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <h2>Sampled grand piano</h2>
+        <div data-score-player data-instrument="piano">
+          <p data-edition-name>32 selections · plays continuously</p>
+
+          <label class="movement">
+            Movement
+            <select data-movements></select>
+          </label>
+          <div class="transport" data-transport hidden>
+            <button type="button" data-play class="primary">Play</button>
+            <input
+              data-position
+              type="range"
+              min="0"
+              max="1"
+              value="0"
+              step=".01"
+              aria-label="Score position"
+            />
+            <time data-clock></time>
+            <select data-speed aria-label="Playback speed">
+              <option value=".5">½ speed</option>
+              <option value=".75">¾ speed</option>
+              <option selected value="1">1× speed</option>
+              <option value="1.25">1¼ speed</option>
+            </select>
+          </div>
+          <canvas
+            data-roll
+            hidden
+            width="990"
+            height="220"
+            role="img"
+            aria-label="Scrolling piano roll, with time running from left to right"
+          ></canvas>
+
+          <details>
+            <summary>Open a local MIDI file</summary>
+            <input
+              type="file"
+              data-file
+              aria-label="MIDI file"
+              accept=".mid,.midi,audio/midi"
+            />
+          </details>
+          <p role="status" data-status></p>
+        </div>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-aria/bwv-988-aria-a4.pdf"
+            >
+              Aria · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v01/bwv-988-v01-a4.pdf"
+            >
+              Variation 1 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v02/bwv-988-v02-a4.pdf"
+            >
+              Variation 2 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v03/bwv-988-v03-a4.pdf"
+            >
+              Variation 3 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v04/bwv-988-v04-a4.pdf"
+            >
+              Variation 4 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v05/bwv-988-v05-a4.pdf"
+            >
+              Variation 5 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v06/bwv-988-v06-a4.pdf"
+            >
+              Variation 6 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v07/bwv-988-v07-a4.pdf"
+            >
+              Variation 7 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v08/bwv-988-v08-a4.pdf"
+            >
+              Variation 8 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v09/bwv-988-v09-a4.pdf"
+            >
+              Variation 9 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v10/bwv-988-v10-a4.pdf"
+            >
+              Variation 10 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v11/bwv-988-v11-a4.pdf"
+            >
+              Variation 11 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v12/bwv-988-v12-a4.pdf"
+            >
+              Variation 12 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v13/bwv-988-v13-a4.pdf"
+            >
+              Variation 13 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v14/bwv-988-v14-a4.pdf"
+            >
+              Variation 14 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v15/bwv-988-v15-a4.pdf"
+            >
+              Variation 15 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v16/bwv-988-v16-a4.pdf"
+            >
+              Variation 16 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v17/bwv-988-v17-a4.pdf"
+            >
+              Variation 17 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v18/bwv-988-v18-a4.pdf"
+            >
+              Variation 18 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v19/bwv-988-v19-a4.pdf"
+            >
+              Variation 19 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v20/bwv-988-v20-a4.pdf"
+            >
+              Variation 20 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v21/bwv-988-v21-a4.pdf"
+            >
+              Variation 21 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v22/bwv-988-v22-a4.pdf"
+            >
+              Variation 22 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v23/bwv-988-v23-a4.pdf"
+            >
+              Variation 23 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v24/bwv-988-v24-a4.pdf"
+            >
+              Variation 24 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v25/bwv-988-v25-a4.pdf"
+            >
+              Variation 25 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v26/bwv-988-v26-a4.pdf"
+            >
+              Variation 26 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v27/bwv-988-v27-a4.pdf"
+            >
+              Variation 27 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v28/bwv-988-v28-a4.pdf"
+            >
+              Variation 28 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v29/bwv-988-v29-a4.pdf"
+            >
+              Variation 29 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v30/bwv-988-v30-a4.pdf"
+            >
+              Variation 30 · PDF
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://imslp.org/wiki/Goldberg-Variationen,_BWV_988_(Bach,_Johann_Sebastian)"
+            >
+              Score editions on IMSLP
+            </a>
+          </li>
+        </ul>
+      </details>
     </main>
-    <footer><p><a href="https://imslp.org/wiki/Goldberg-Variationen,_BWV_988_(Bach,_Johann_Sebastian)">IMSLP</a></p><p><a href="https://commons.wikimedia.org/wiki/File:Bach,_Goldberg_Variations,_Aria_(Musopen_version).ogg">Opening excerpt, converted to mono MP3. Johann Sebastian Bach · CC0 http://creativecommons.org/publicdomain/zero/1.0/deed.en</a></p><nav aria-label="Experiment sequence"><a href="../mozart-variations-on-ah-vous-dirai-je-maman-k-265/index.html">← Previous · Mozart — Variations on Ah, vous dirai-je maman, K. 265</a> <a href="../satie-gymnopedie-no-1/index.html">Next · Satie — Gymnopédie No. 1 →</a></nav></footer>
-    <script src="../shared/lab.js"></script>
-    <script src="../shared/listening.js"></script>
-</body>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>
+          IMSLP ·
+          <a
+            href="https://imslp.org/wiki/Goldberg-Variationen,_BWV_988_(Bach,_Johann_Sebastian)"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Mutopia Project · JD Erickson · Creative Commons
+          Attribution-ShareAlike 3.0 ·
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-aria/bwv-988-aria.mid"
+          >
+            1
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v01/bwv-988-v01.mid"
+          >
+            2
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v02/bwv-988-v02.mid"
+          >
+            3
+          </a>
+        </p>
+        <p>
+          Mutopia Project · Hajo Dezelski · Creative Commons
+          Attribution-ShareAlike 3.0 ·
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v03/bwv-988-v03.mid"
+          >
+            1
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v04/bwv-988-v04.mid"
+          >
+            2
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v05/bwv-988-v05.mid"
+          >
+            3
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v06/bwv-988-v06.mid"
+          >
+            4
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v07/bwv-988-v07.mid"
+          >
+            5
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v08/bwv-988-v08.mid"
+          >
+            6
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v09/bwv-988-v09.mid"
+          >
+            7
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v10/bwv-988-v10.mid"
+          >
+            8
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v11/bwv-988-v11.mid"
+          >
+            9
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v12/bwv-988-v12.mid"
+          >
+            10
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v13/bwv-988-v13.mid"
+          >
+            11
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v14/bwv-988-v14.mid"
+          >
+            12
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v15/bwv-988-v15.mid"
+          >
+            13
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v16/bwv-988-v16.mid"
+          >
+            14
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v17/bwv-988-v17.mid"
+          >
+            15
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v19/bwv-988-v19.mid"
+          >
+            16
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v20/bwv-988-v20.mid"
+          >
+            17
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v21/bwv-988-v21.mid"
+          >
+            18
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v22/bwv-988-v22.mid"
+          >
+            19
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v23/bwv-988-v23.mid"
+          >
+            20
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v24/bwv-988-v24.mid"
+          >
+            21
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v25/bwv-988-v25.mid"
+          >
+            22
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v26/bwv-988-v26.mid"
+          >
+            23
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v27/bwv-988-v27.mid"
+          >
+            24
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v28/bwv-988-v28.mid"
+          >
+            25
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v29/bwv-988-v29.mid"
+          >
+            26
+          </a>
+          ,
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v30/bwv-988-v30.mid"
+          >
+            27
+          </a>
+        </p>
+        <p>
+          Mutopia Project · Benjamin D. Esham · Creative Commons
+          Attribution-ShareAlike 3.0 ·
+          <a
+            href="https://www.mutopiaproject.org/ftp/BachJS/BWV988/bwv-988-v18/bwv-988-v18.mid"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Complete source recording, transcoded to MP3. Johann Sebastian Bach ·
+          CC0 http://creativecommons.org/publicdomain/zero/1.0/deed.en ·
+          <a
+            href="https://commons.wikimedia.org/wiki/File:Bach,_Goldberg_Variations,_Aria_(Musopen_version).ogg"
+          >
+            Edition
+          </a>
+        </p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Experiment sequence">
+        <a
+          href="../mozart-variations-on-ah-vous-dirai-je-maman-k-265/index.html"
+        >
+          ← Previous · Mozart — Variations on Ah, vous dirai-je maman, K. 265
+        </a>
+        <a href="../satie-gymnopedie-no-1/index.html">
+          Next · Satie — Gymnopédie No. 1 →
+        </a>
+      </nav>
+    </footer>
+    <script src="notes.js"></script>
+    <script src="../shared/midi.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
 </html>
