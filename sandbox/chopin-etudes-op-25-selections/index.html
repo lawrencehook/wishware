@@ -12,7 +12,7 @@
   <body class="music-page">
     <nav data-site-theme-slot>
       <a href="../index.html">← Sandbox</a>
-      <a href="../music-pieces.html">All music</a>
+      <a href="../music-pieces.html">Playable music pieces</a>
     </nav>
     <main>
       <h1>Chopin — Études, Op. 25, selections</h1>
@@ -85,15 +85,6 @@
             aria-label="Scrolling piano roll, with time running from left to right"
           ></canvas>
 
-          <details>
-            <summary>Open a local MIDI file</summary>
-            <input
-              type="file"
-              data-file
-              aria-label="MIDI file"
-              accept=".mid,.midi,audio/midi"
-            />
-          </details>
           <p role="status" data-status></p>
         </div>
       </section>
@@ -226,18 +217,13 @@
           <a href="../../music/bach-data/piano-credits.txt">Edition</a>
         </p>
       </details>
-      <nav aria-label="Experiment sequence">
-        <a href="../chopin-etudes-op-10-selections/index.html">
-          ← Previous · Chopin — Études, Op. 10, selections
-        </a>
-        <a href="../schubert-impromptus-d-935-nos-1-and-3/index.html">
-          Next · Schubert — Impromptus, D. 935, Nos. 1 and 3 →
-        </a>
+      <nav aria-label="Music collection">
+        <a href="../chopin-etudes-op-10-selections/index.html">← Previous · Chopin — Études, Op. 10, selections</a>
+        <a href="../chopin-fantaisie-impromptu-op-66/index.html">Next → · Chopin — Fantaisie-Impromptu, Op. 66</a>
       </nav>
     </footer>
     <script src="notes.js"></script>
     <script src="measures.js"></script>
-    <script src="../shared/midi.js"></script>
     <script src="../shared/sheet.js"></script>
     <script src="../shared/score.js"></script>
     <script src="../shared/performance.js"></script>

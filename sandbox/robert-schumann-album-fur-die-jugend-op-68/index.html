@@ -14,7 +14,7 @@
   <body class="music-page">
     <nav data-site-theme-slot>
       <a href="../index.html">← Sandbox</a>
-      <a href="../music-pieces.html">All music</a>
+      <a href="../music-pieces.html">Playable music pieces</a>
     </nav>
     <main>
       <h1>Robert Schumann — Album für die Jugend, Op.68</h1>
@@ -86,15 +86,6 @@
             aria-label="Scrolling piano roll, with time running from left to right"
           ></canvas>
 
-          <details>
-            <summary>Open a local MIDI file</summary>
-            <input
-              type="file"
-              data-file
-              aria-label="MIDI file"
-              accept=".mid,.midi,audio/midi"
-            />
-          </details>
           <p role="status" data-status></p>
         </div>
       </section>
@@ -136,20 +127,13 @@
           <a href="../../music/bach-data/piano-credits.txt">Edition</a>
         </p>
       </details>
-      <nav aria-label="Experiment sequence">
-        <a
-          href="../brahms-variations-and-fugue-on-a-theme-by-handel-op-24/index.html"
-        >
-          ← Previous · Brahms — Variations and Fugue on a Theme by Handel, Op.24
-        </a>
-        <a href="../robert-schumann-carnaval-op-9/index.html">
-          Next · Robert Schumann — Carnaval, Op.9 →
-        </a>
+      <nav aria-label="Music collection">
+        <a href="../ravel-sonatine-m-40/index.html">← Previous · Ravel — Sonatine, M.40</a>
+        <a href="../robert-schumann-carnaval-op-9/index.html">Next → · Robert Schumann — Carnaval, Op.9</a>
       </nav>
     </footer>
     <script src="notes.js"></script>
     <script src="measures.js"></script>
-    <script src="../shared/midi.js"></script>
     <script src="../shared/sheet.js"></script>
     <script src="../shared/score.js"></script>
     <script src="../shared/performance.js"></script>

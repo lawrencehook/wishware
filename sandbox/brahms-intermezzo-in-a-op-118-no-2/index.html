@@ -12,7 +12,7 @@
   <body class="music-page">
     <nav data-site-theme-slot>
       <a href="../index.html">← Sandbox</a>
-      <a href="../music-pieces.html">All music</a>
+      <a href="../music-pieces.html">Playable music pieces</a>
     </nav>
     <main>
       <h1>Brahms — Intermezzo in A, Op. 118 No. 2</h1>
@@ -70,15 +70,6 @@
             aria-label="Scrolling piano roll, with time running from left to right"
           ></canvas>
 
-          <details>
-            <summary>Open a local MIDI file</summary>
-            <input
-              type="file"
-              data-file
-              aria-label="MIDI file"
-              accept=".mid,.midi,audio/midi"
-            />
-          </details>
           <p role="status" data-status></p>
         </div>
       </section>
@@ -120,18 +111,13 @@
           <a href="../../music/bach-data/piano-credits.txt">Edition</a>
         </p>
       </details>
-      <nav aria-label="Experiment sequence">
-        <a href="../schumann-arabeske-op-18/index.html">
-          ← Previous · Schumann — Arabeske, Op. 18
-        </a>
-        <a href="../ravel-pavane-pour-une-infante-defunte/index.html">
-          Next · Ravel — Pavane pour une infante défunte →
-        </a>
+      <nav aria-label="Music collection">
+        <a href="../boulanger-3-morceaux/index.html">← Previous · Boulanger — 3 Morceaux</a>
+        <a href="../brahms-variations-and-fugue-on-a-theme-by-handel-op-24/index.html">Next → · Brahms — Variations and Fugue on a Theme by Handel, Op.24</a>
       </nav>
     </footer>
     <script src="notes.js"></script>
     <script src="measures.js"></script>
-    <script src="../shared/midi.js"></script>
     <script src="../shared/sheet.js"></script>
     <script src="../shared/score.js"></script>
     <script src="../shared/performance.js"></script>

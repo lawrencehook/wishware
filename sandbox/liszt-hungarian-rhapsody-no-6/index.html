@@ -12,7 +12,7 @@
   <body class="music-page">
     <nav data-site-theme-slot>
       <a href="../index.html">← Sandbox</a>
-      <a href="../music-pieces.html">All music</a>
+      <a href="../music-pieces.html">Playable music pieces</a>
     </nav>
     <main>
       <h1>Liszt — Hungarian Rhapsody No. 6</h1>
@@ -70,15 +70,6 @@
             aria-label="Scrolling piano roll, with time running from left to right"
           ></canvas>
 
-          <details>
-            <summary>Open a local MIDI file</summary>
-            <input
-              type="file"
-              data-file
-              aria-label="MIDI file"
-              accept=".mid,.midi,audio/midi"
-            />
-          </details>
           <p role="status" data-status></p>
         </div>
       </section>
@@ -120,18 +111,13 @@
           <a href="../../music/bach-data/piano-credits.txt">Edition</a>
         </p>
       </details>
-      <nav aria-label="Experiment sequence">
-        <a href="../prokofiev-toccata-op-11/index.html">
-          ← Previous · Prokofiev — Toccata, Op. 11
-        </a>
-        <a href="../liszt-transcendental-etudes-selections/index.html">
-          Next · Liszt — Transcendental Études, selections →
-        </a>
+      <nav aria-label="Music collection">
+        <a href="../liszt-consolations-s-172/index.html">← Previous · Liszt — Consolations, S.172</a>
+        <a href="../liszt-la-campanella/index.html">Next → · Liszt — La campanella</a>
       </nav>
     </footer>
     <script src="notes.js"></script>
     <script src="measures.js"></script>
-    <script src="../shared/midi.js"></script>
     <script src="../shared/sheet.js"></script>
     <script src="../shared/score.js"></script>
     <script src="../shared/performance.js"></script>

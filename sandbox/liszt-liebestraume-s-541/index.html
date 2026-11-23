@@ -12,7 +12,7 @@
   <body class="music-page">
     <nav data-site-theme-slot>
       <a href="../index.html">← Sandbox</a>
-      <a href="../music-pieces.html">All music</a>
+      <a href="../music-pieces.html">Playable music pieces</a>
     </nav>
     <main>
       <h1>Liszt — Liebesträume, S.541</h1>
@@ -70,15 +70,6 @@
             aria-label="Scrolling piano roll, with time running from left to right"
           ></canvas>
 
-          <details>
-            <summary>Open a local MIDI file</summary>
-            <input
-              type="file"
-              data-file
-              aria-label="MIDI file"
-              accept=".mid,.midi,audio/midi"
-            />
-          </details>
           <p role="status" data-status></p>
         </div>
       </section>
@@ -116,18 +107,13 @@
           <a href="../../music/bach-data/piano-credits.txt">Edition</a>
         </p>
       </details>
-      <nav aria-label="Experiment sequence">
-        <a href="../taki-2-piano-pieces/index.html">
-          ← Previous · Taki — 2 Piano Pieces
-        </a>
-        <a href="../beach-4-sketches-op-15/index.html">
-          Next · Beach — 4 Sketches, Op.15 →
-        </a>
+      <nav aria-label="Music collection">
+        <a href="../liszt-la-campanella/index.html">← Previous · Liszt — La campanella</a>
+        <a href="../liszt-sonata-in-b-minor/index.html">Next → · Liszt — Sonata in B minor</a>
       </nav>
     </footer>
     <script src="notes.js"></script>
     <script src="measures.js"></script>
-    <script src="../shared/midi.js"></script>
     <script src="../shared/sheet.js"></script>
     <script src="../shared/score.js"></script>
     <script src="../shared/performance.js"></script>

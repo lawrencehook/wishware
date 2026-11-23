@@ -12,7 +12,7 @@
   <body class="music-page">
     <nav data-site-theme-slot>
       <a href="../index.html">← Sandbox</a>
-      <a href="../music-pieces.html">All music</a>
+      <a href="../music-pieces.html">Playable music pieces</a>
     </nav>
     <main>
       <h1>Robert Schumann — Fantasiestücke, Op.12</h1>
@@ -70,15 +70,6 @@
             aria-label="Scrolling piano roll, with time running from left to right"
           ></canvas>
 
-          <details>
-            <summary>Open a local MIDI file</summary>
-            <input
-              type="file"
-              data-file
-              aria-label="MIDI file"
-              accept=".mid,.midi,audio/midi"
-            />
-          </details>
           <p role="status" data-status></p>
         </div>
       </section>
@@ -119,18 +110,13 @@
           <a href="../../music/bach-data/piano-credits.txt">Edition</a>
         </p>
       </details>
-      <nav aria-label="Experiment sequence">
-        <a href="../satie-sports-et-divertissements/index.html">
-          ← Previous · Satie — Sports et divertissements
-        </a>
-        <a href="../beethoven-diabelli-variations-op-120/index.html">
-          Next · Beethoven — Diabelli Variations, Op. 120 →
-        </a>
+      <nav aria-label="Music collection">
+        <a href="../robert-schumann-carnaval-op-9/index.html">← Previous · Robert Schumann — Carnaval, Op.9</a>
+        <a href="../satie-gnossiennes-nos-13/index.html">Next → · Satie — Gnossiennes Nos. 1–3</a>
       </nav>
     </footer>
     <script src="notes.js"></script>
     <script src="measures.js"></script>
-    <script src="../shared/midi.js"></script>
     <script src="../shared/sheet.js"></script>
     <script src="../shared/score.js"></script>
     <script src="../shared/performance.js"></script>

@@ -40,54 +40,6 @@
           </a>
         </div>
       </section>
-      <section>
-        <details>
-          <summary>Play your own MIDI edition</summary>
-          <div data-score-player data-instrument="piano">
-            <p data-edition-name></p>
-
-            <label class="movement">
-              Movement
-              <select data-movements></select>
-            </label>
-            <div class="transport" data-transport hidden>
-              <button type="button" data-play class="primary">Play</button>
-              <input
-                data-position
-                type="range"
-                min="0"
-                max="1"
-                value="0"
-                step=".01"
-                aria-label="Score position"
-              />
-              <time data-clock></time>
-              <select data-speed aria-label="Playback speed">
-                <option value=".5">½ speed</option>
-                <option value=".75">¾ speed</option>
-                <option selected value="1">1× speed</option>
-                <option value="1.25">1¼ speed</option>
-              </select>
-            </div>
-            <canvas
-              data-roll
-              hidden
-              width="990"
-              height="220"
-              role="img"
-              aria-label="Scrolling piano roll, with time running from left to right"
-            ></canvas>
-
-            <input
-              type="file"
-              data-file
-              aria-label="MIDI file"
-              accept=".mid,.midi,audio/midi"
-            />
-            <p role="status" data-status></p>
-          </div>
-        </details>
-      </section>
       <details>
         <summary>Sheet music</summary>
         <ul>
@@ -135,9 +87,6 @@
         </a>
       </nav>
     </footer>
-    <script src="../shared/midi.js"></script>
-    <script src="../shared/sheet.js"></script>
-    <script src="../shared/score.js"></script>
     <script src="../shared/performance.js"></script>
   </body>
 </html>

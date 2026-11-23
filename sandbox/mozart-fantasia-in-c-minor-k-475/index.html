@@ -12,7 +12,7 @@
   <body class="music-page">
     <nav data-site-theme-slot>
       <a href="../index.html">← Sandbox</a>
-      <a href="../music-pieces.html">All music</a>
+      <a href="../music-pieces.html">Playable music pieces</a>
     </nav>
     <main>
       <h1>Mozart — Fantasia in C minor, K. 475</h1>
@@ -70,15 +70,6 @@
             aria-label="Scrolling piano roll, with time running from left to right"
           ></canvas>
 
-          <details>
-            <summary>Open a local MIDI file</summary>
-            <input
-              type="file"
-              data-file
-              aria-label="MIDI file"
-              accept=".mid,.midi,audio/midi"
-            />
-          </details>
           <p role="status" data-status></p>
         </div>
       </section>
@@ -120,18 +111,13 @@
           <a href="../../music/bach-data/piano-credits.txt">Edition</a>
         </p>
       </details>
-      <nav aria-label="Experiment sequence">
-        <a href="../albeniz-rumores-de-la-caleta-op-71-no-6/index.html">
-          ← Previous · Albéniz — Rumores de la caleta, Op. 71 No. 6
-        </a>
-        <a href="../chopin-barcarolle-op-60/index.html">
-          Next · Chopin — Barcarolle, Op. 60 →
-        </a>
+      <nav aria-label="Music collection">
+        <a href="../mendelssohn-lieder-ohne-worte-songs-without-words/index.html">← Previous · Mendelssohn — Lieder ohne Worte (Songs Without Words)</a>
+        <a href="../mozart-piano-sonatas/index.html">Next → · Mozart — Piano Sonata in A major, K. 331</a>
       </nav>
     </footer>
     <script src="notes.js"></script>
     <script src="measures.js"></script>
-    <script src="../shared/midi.js"></script>
     <script src="../shared/sheet.js"></script>
     <script src="../shared/score.js"></script>
     <script src="../shared/performance.js"></script>

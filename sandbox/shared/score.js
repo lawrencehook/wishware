@@ -362,26 +362,6 @@
         status.textContent = '';
     });
     window.addEventListener('pagehide', pause);
-    const file = get('file');
-    let loadId = 0;
-    file.onchange = async () => {
-        const selected = file.files[0];
-        if (!selected) return;
-        const id = ++loadId;
-        try {
-            if (selected.size > 8 * 1024 * 1024)
-                throw Error('Choose a MIDI file under 8 MB.');
-            const imported = readMidi(await selected.arrayBuffer());
-            if (id !== loadId) return;
-            usingTake = false;
-            if (editions) editions.selectedIndex = -1;
-            useEdition([{ name: selected.name, ...imported }]);
-            status.textContent = selected.name;
-            get('edition-name').textContent = selected.name;
-        } catch (e) {
-            if (id === loadId) status.textContent = e.message;
-        }
-    };
     const editions = get('editions');
     if (editions)
         editions.onchange = () => {

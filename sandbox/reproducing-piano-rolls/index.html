@@ -12,7 +12,7 @@
   <body class="music-page">
     <nav data-site-theme-slot>
       <a href="../index.html">← Sandbox</a>
-      <a href="../music-pieces.html">All music</a>
+      <a href="../music-pieces.html">Playable music pieces</a>
     </nav>
     <main>
       <h1>Reproducing piano rolls</h1>
@@ -73,15 +73,6 @@
             <input type="checkbox" checked data-expression />
             Use recorded attack strengths
           </label>
-          <details>
-            <summary>Open a local MIDI file</summary>
-            <input
-              type="file"
-              data-file
-              aria-label="MIDI file"
-              accept=".mid,.midi,audio/midi"
-            />
-          </details>
           <p role="status" data-status></p>
         </div>
       </section>
@@ -111,15 +102,12 @@
           <a href="https://supra.stanford.edu/download/">Edition</a>
         </p>
       </details>
-      <nav aria-label="Experiment sequence">
-        <a href="../liszt-la-campanella/index.html">
-          ← Previous · Liszt — La campanella
-        </a>
-        <a href="../andean-khipus/index.html">Next · Andean khipus →</a>
+      <nav aria-label="Music collection">
+        <a href="../chopin-24-preludes-op-28/index.html">← Previous · Chopin — 24 Preludes, Op. 28</a>
+        <a href="../chopin-barcarolle-op-60/index.html">Next → · Chopin — Barcarolle, Op. 60</a>
       </nav>
     </footer>
     <script src="notes.js"></script>
-    <script src="../shared/midi.js"></script>
     <script src="../shared/sheet.js"></script>
     <script src="../shared/score.js"></script>
     <script src="../shared/performance.js"></script>

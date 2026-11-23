@@ -14,7 +14,7 @@
   <body class="music-page">
     <nav data-site-theme-slot>
       <a href="../index.html">← Sandbox</a>
-      <a href="../music-pieces.html">All music</a>
+      <a href="../music-pieces.html">Playable music pieces</a>
     </nav>
     <main>
       <h1>Mendelssohn — Lieder ohne Worte (Songs Without Words)</h1>
@@ -72,15 +72,6 @@
             aria-label="Scrolling piano roll, with time running from left to right"
           ></canvas>
 
-          <details>
-            <summary>Open a local MIDI file</summary>
-            <input
-              type="file"
-              data-file
-              aria-label="MIDI file"
-              accept=".mid,.midi,audio/midi"
-            />
-          </details>
           <p role="status" data-status></p>
         </div>
       </section>
@@ -129,18 +120,13 @@
           <a href="../../music/bach-data/piano-credits.txt">Edition</a>
         </p>
       </details>
-      <nav aria-label="Experiment sequence">
-        <a href="../debussy-preludes-livre-1-cd-125/index.html">
-          ← Previous · Debussy — Préludes, Livre 1, CD 125
-        </a>
-        <a href="../brahms-3-intermezzi-op-117/index.html">
-          Next · Brahms — 3 Intermezzi, Op.117 →
-        </a>
+      <nav aria-label="Music collection">
+        <a href="../macdowell-10-woodland-sketches-op-51/index.html">← Previous · MacDowell — 10 Woodland Sketches, Op.51</a>
+        <a href="../mozart-fantasia-in-c-minor-k-475/index.html">Next → · Mozart — Fantasia in C minor, K. 475</a>
       </nav>
     </footer>
     <script src="notes.js"></script>
     <script src="measures.js"></script>
-    <script src="../shared/midi.js"></script>
     <script src="../shared/sheet.js"></script>
     <script src="../shared/score.js"></script>
     <script src="../shared/performance.js"></script>

@@ -9,7 +9,7 @@
         let shown = 0;
         for (const item of entries) {
             const matchesFormat =
-                format.selectedIndex === 0 ||
+                !format || format.selectedIndex === 0 ||
                 item.dataset.format === format.value;
             item.hidden = !(
                 matchesFormat &&
@@ -21,10 +21,10 @@
             shown +
             (document.querySelector('.music-list')
                 ? shown === 1
-                    ? ' entry'
-                    : ' entries'
+                    ? ' piece or collection'
+                    : ' pieces and collections'
                 : ' experiment' + (shown === 1 ? '' : 's'));
     }
     search.addEventListener('input', update);
-    format.addEventListener('change', update);
+    format?.addEventListener('change', update);
 })();

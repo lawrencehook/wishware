@@ -12,7 +12,7 @@
   <body class="music-page">
     <nav data-site-theme-slot>
       <a href="../index.html">← Sandbox</a>
-      <a href="../music-pieces.html">All music</a>
+      <a href="../music-pieces.html">Playable music pieces</a>
     </nav>
     <main>
       <h1>Chopin — 24 Preludes, Op. 28</h1>
@@ -70,15 +70,6 @@
             aria-label="Scrolling piano roll, with time running from left to right"
           ></canvas>
 
-          <details>
-            <summary>Open a local MIDI file</summary>
-            <input
-              type="file"
-              data-file
-              aria-label="MIDI file"
-              accept=".mid,.midi,audio/midi"
-            />
-          </details>
           <p role="status" data-status></p>
         </div>
       </section>
@@ -427,18 +418,13 @@
           <a href="../../music/bach-data/piano-credits.txt">Edition</a>
         </p>
       </details>
-      <nav aria-label="Experiment sequence">
-        <a href="../satie-gymnopedie-no-1/index.html">
-          ← Previous · Satie — Gymnopédie No. 1
-        </a>
-        <a href="../schubert-four-impromptus-d-899/index.html">
-          Next · Schubert — Four Impromptus, D. 899 →
-        </a>
+      <nav aria-label="Music collection">
+        <a href="../chaminade-6-etudes-de-concert-op-35/index.html">← Previous · Chaminade — 6 Études de concert, Op.35</a>
+        <a href="../reproducing-piano-rolls/index.html">Next → · Chopin — Ballade No. 1 in G minor (Carreño piano roll)</a>
       </nav>
     </footer>
     <script src="notes.js"></script>
     <script src="measures.js"></script>
-    <script src="../shared/midi.js"></script>
     <script src="../shared/sheet.js"></script>
     <script src="../shared/score.js"></script>
     <script src="../shared/performance.js"></script>

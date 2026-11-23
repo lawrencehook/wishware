@@ -12,7 +12,7 @@
   <body class="music-page">
     <nav data-site-theme-slot>
       <a href="../index.html">← Sandbox</a>
-      <a href="../music-pieces.html">All music</a>
+      <a href="../music-pieces.html">Playable music pieces</a>
     </nav>
     <main>
       <h1>Chopin — Four Ballades</h1>
@@ -70,15 +70,6 @@
             aria-label="Scrolling piano roll, with time running from left to right"
           ></canvas>
 
-          <details>
-            <summary>Open a local MIDI file</summary>
-            <input
-              type="file"
-              data-file
-              aria-label="MIDI file"
-              accept=".mid,.midi,audio/midi"
-            />
-          </details>
           <p role="status" data-status></p>
         </div>
       </section>
@@ -159,18 +150,13 @@
           <a href="../../music/bach-data/piano-credits.txt">Edition</a>
         </p>
       </details>
-      <nav aria-label="Experiment sequence">
-        <a href="../haydn-keyboard-sonatas-selected-movements/index.html">
-          ← Previous · Haydn — Keyboard sonatas, selected movements
-        </a>
-        <a href="../chopin-etudes-op-10-selections/index.html">
-          Next · Chopin — Études, Op. 10, selections →
-        </a>
+      <nav aria-label="Music collection">
+        <a href="../chopin-fantaisie-impromptu-op-66/index.html">← Previous · Chopin — Fantaisie-Impromptu, Op. 66</a>
+        <a href="../chopin-heroic-polonaise-op-53/index.html">Next → · Chopin — Heroic Polonaise, Op. 53</a>
       </nav>
     </footer>
     <script src="notes.js"></script>
     <script src="measures.js"></script>
-    <script src="../shared/midi.js"></script>
     <script src="../shared/sheet.js"></script>
     <script src="../shared/score.js"></script>
     <script src="../shared/performance.js"></script>

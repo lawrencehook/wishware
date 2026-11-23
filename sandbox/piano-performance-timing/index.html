@@ -12,7 +12,7 @@
   <body class="music-page">
     <nav data-site-theme-slot>
       <a href="../index.html">← Sandbox</a>
-      <a href="../music-pieces.html">All music</a>
+      <a href="../music-pieces.html">Playable music pieces</a>
     </nav>
     <main>
       <h1>Piano performance timing</h1>
@@ -85,15 +85,6 @@
             aria-label="Scrolling piano roll, with time running from left to right"
           ></canvas>
 
-          <details>
-            <summary>Open a local MIDI file</summary>
-            <input
-              type="file"
-              data-file
-              aria-label="MIDI file"
-              accept=".mid,.midi,audio/midi"
-            />
-          </details>
           <p role="status" data-status></p>
         </div>
       </section>
@@ -168,18 +159,13 @@
         </p>
         <p><a href="https://github.com/DCMLab/grieg_lyric_pieces/blob/main/notes/op12n02.notes.tsv">Waltz score edition</a> · Digital and Cognitive Musicology Lab · grieg_lyric_pieces · CC BY-NC-SA 4.0. Adapted score data retain the same license.</p>
       </details>
-      <nav aria-label="Experiment sequence">
-        <a href="../satellite-portraits-of-typhoons/index.html">
-          ← Previous · Satellite portraits of typhoons
-        </a>
-        <a href="../beethoven-string-quartets/index.html">
-          Next · Beethoven string quartets →
-        </a>
+      <nav aria-label="Music collection">
+        <a href="../grieg-lyric-pieces/index.html">← Previous · Grieg — Lyric Pieces, Book I</a>
+        <a href="../haydn-keyboard-sonatas-selected-movements/index.html">Next → · Haydn — Keyboard sonatas, selected movements</a>
       </nav>
     </footer>
     <script src="notes.js"></script>
     <script src="measures.js"></script>
-    <script src="../shared/midi.js"></script>
     <script src="../shared/sheet.js"></script>
     <script src="../shared/score.js"></script>
     <script src="../shared/performance.js"></script>
