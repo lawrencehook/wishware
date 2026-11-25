@@ -69,8 +69,9 @@ document.querySelector('header p').textContent = work.sub;
 const edition = document.querySelector('#edition');
 edition.textContent = work.score.text;
 edition.href = work.score.href;
-document.querySelector('#performer').textContent = work.recording.text;
-document.querySelector('#recording-link').href = 'https://www.youtube.com/watch?v=' + work.recording.video;
+document.querySelector('.recording').hidden = !work.recording;
+document.querySelector('#performer').textContent = work.recording?.text;
+document.querySelector('#recording-link').href = 'https://www.youtube.com/watch?v=' + work.recording?.video + (work.recording?.start ? '&t=' + work.recording.start + 's' : '');
 
 // Beats are quarter notes. Without measure data a beat is one second.
 const notation = movement.notation?.bars.length ? movement.notation : null;
@@ -269,7 +270,7 @@ watch.onclick = () => {
     video.allow = 'autoplay; encrypted-media; fullscreen; picture-in-picture';
     video.allowFullscreen = true;
     video.referrerPolicy = 'strict-origin-when-cross-origin';
-    video.src = 'https://www.youtube-nocookie.com/embed/' + work.recording.video + '?autoplay=1&enablejsapi=1';
+    video.src = 'https://www.youtube-nocookie.com/embed/' + work.recording.video + '?autoplay=1&enablejsapi=1' + (work.recording.start ? '&start=' + work.recording.start : '');
     watch.replaceWith(video);
 };
 // A click inside the embed moves focus into it; that is the listener starting the recording.

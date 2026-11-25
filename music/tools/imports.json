@@ -1,0 +1,542 @@
+{
+ "beethoven-sonata-1": [
+  {
+   "name": "Allegro",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/1-1/midi_score.mid"
+  },
+  {
+   "name": "Adagio",
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O2/LVB_Sonate_02no1_2/LVB_Sonate_02no1_2.mid"
+  },
+  {
+   "name": "Menuetto: Allegretto",
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O2/LVB_Sonate_02no1_3/LVB_Sonate_02no1_3.mid"
+  },
+  {
+   "name": "Prestissimo",
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O2/LVB_Sonate_02no1_4/LVB_Sonate_02no1_4.mid"
+  }
+ ],
+ "beethoven-sonata-2": [
+  {
+   "name": "Allegro vivace",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/2-1/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-3": [
+  {
+   "name": "Allegro con brio",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/3-1/midi_score.mid"
+  },
+  {
+   "name": "Adagio",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/3-2/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-4": [
+  {
+   "name": "Allegro molto e con brio",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/4-1/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-5": [
+  {
+   "name": "Allegro molto e con brio",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/5-1/midi_score.mid"
+  },
+  {
+   "name": "Finale: Prestissimo",
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O10/LVB_Sonate_10no1_3/LVB_Sonate_10no1_3.mid"
+  }
+ ],
+ "beethoven-sonata-6": [
+  {
+   "name": "Allegro",
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O10/lvb_sonate_10no2_1/lvb_sonate_10no2_1.mid"
+  },
+  {
+   "name": "Allegretto",
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O10/lvb_sonate_10no2_2/lvb_sonate_10no2_2.mid"
+  },
+  {
+   "name": "Presto",
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O10/lvb_sonate_10no2_3/lvb_sonate_10no2_3.mid"
+  }
+ ],
+ "beethoven-sonata-7": [
+  {
+   "name": "Presto",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/7-1/midi_score.mid"
+  },
+  {
+   "name": "Largo e mesto",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/7-2/midi_score.mid"
+  },
+  {
+   "name": "Menuetto: Allegro",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/7-3/midi_score.mid"
+  },
+  {
+   "name": "Rondo: Allegro",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/7-4/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-9": [
+  {
+   "name": "Allegro",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/9-1/midi_score.mid"
+  },
+  {
+   "name": "Allegretto",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/9-2_no_trio/midi_score.mid"
+  },
+  {
+   "name": "Rondo: Allegro comodo",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/9-3/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-10": [
+  {
+   "name": "Allegro",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/10-1/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-11": [
+  {
+   "name": "Allegro con brio",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/11-1/midi_score.mid"
+  },
+  {
+   "name": "Adagio con molta espressione",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/11-2/midi_score.mid"
+  },
+  {
+   "name": "Menuetto",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/11-3/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-12": [
+  {
+   "name": "Andante con variazioni",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/12-1/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-13": [
+  {
+   "name": "Allegro vivace",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/13-4/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-14": [
+  {
+   "name": "Adagio sostenuto",
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O27/moonlight/moonlight-mids.zip#moonlight1.mid"
+  },
+  {
+   "name": "Allegretto",
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O27/moonlight/moonlight-mids.zip#moonlight2.mid",
+   "speed": 2.8
+  },
+  {
+   "name": "Presto agitato",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/14-3/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-15": [
+  {
+   "name": "Allegro",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/15-1/midi_score.mid"
+  },
+  {
+   "name": "Rondo: Allegro ma non troppo",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/15-4/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-16": [
+  {
+   "name": "Allegro vivace",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/16-1/midi_score.mid"
+  },
+  {
+   "name": "Adagio grazioso",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/16-2/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-17": [
+  {
+   "name": "Largo – Allegro",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/17-1/midi_score.mid"
+  },
+  {
+   "name": "Adagio",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/17-2/midi_score.mid"
+  },
+  {
+   "name": "Allegretto",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/17-3/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-18": [
+  {
+   "name": "Allegro",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/18-1/midi_score.mid"
+  },
+  {
+   "name": "Scherzo: Allegretto vivace",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/18-2/midi_score.mid"
+  },
+  {
+   "name": "Menuetto: Moderato e grazioso",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/18-3/midi_score.mid"
+  },
+  {
+   "name": "Presto con fuoco",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/18-4/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-19": [
+  {
+   "name": "Andante",
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O49/LVB_Sonate_49no1_1/LVB_Sonate_49no1_1.mid"
+  },
+  {
+   "name": "Rondo: Allegro",
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O49/LVB_Sonate_49no1_2/LVB_Sonate_49no1_2.mid"
+  }
+ ],
+ "beethoven-sonata-20": [
+  {
+   "name": "Allegro ma non troppo",
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O49/LVB_Sonate_49no2_1/LVB_Sonate_49no2_1.mid"
+  },
+  {
+   "name": "Tempo di Menuetto",
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O49/LVB_Sonate_49no2_2/LVB_Sonate_49no2_2.mid"
+  }
+ ],
+ "beethoven-sonata-21": [
+  {
+   "name": "Allegro con brio",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/21-1/midi_score.mid"
+  },
+  {
+   "name": "Introduzione: Adagio molto",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/21-2/midi_score.mid"
+  },
+  {
+   "name": "Rondo: Allegretto moderato – Prestissimo",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/21-3/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-22": [
+  {
+   "name": "In tempo d’un menuetto",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/22-1/midi_score.mid"
+  },
+  {
+   "name": "Allegretto",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/22-2/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-23": [
+  {
+   "name": "Allegro assai",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/23-1/midi_score.mid"
+  },
+  {
+   "name": "Andante con moto",
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O57/LVB_Sonate_57_2/LVB_Sonate_57_2.mid"
+  },
+  {
+   "name": "Allegro ma non troppo – Presto",
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O57/LVB_Sonate_57_3/LVB_Sonate_57_3.mid"
+  }
+ ],
+ "beethoven-sonata-24": [
+  {
+   "name": "Adagio cantabile – Allegro ma non troppo",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/24-1/midi_score.mid"
+  },
+  {
+   "name": "Allegro vivace",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/24-2/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-25": [
+  {
+   "name": "Presto alla tedesca",
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O79/LVB_Sonate_79_1/LVB_Sonate_79_1.mid"
+  },
+  {
+   "name": "Andante",
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O79/LVB_Sonate_79_2/LVB_Sonate_79_2.mid"
+  },
+  {
+   "name": "Vivace",
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O79/LVB_Sonate_79_3/LVB_Sonate_79_3.mid"
+  }
+ ],
+ "beethoven-sonata-26": [
+  {
+   "name": "Das Lebewohl: Adagio – Allegro",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/26-1/midi_score.mid"
+  },
+  {
+   "name": "Abwesenheit: Andante espressivo",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/26-2/midi_score.mid"
+  },
+  {
+   "name": "Das Wiedersehen: Vivacissimamente",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/26-3/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-27": [
+  {
+   "name": "Mit Lebhaftigkeit und durchaus mit Empfindung und Ausdruck",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/27-1/midi_score.mid"
+  },
+  {
+   "name": "Nicht zu geschwind und sehr singbar vorgetragen",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/27-2/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-28": [
+  {
+   "name": "Etwas lebhaft, und mit der innigsten Empfindung",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/28-1/midi_score.mid"
+  },
+  {
+   "name": "Lebhaft, marschmäßig",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/28-2/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-29": [
+  {
+   "name": "Scherzo: Assai vivace",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/29-2/midi_score.mid"
+  },
+  {
+   "name": "Adagio sostenuto",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/29-3/midi_score.mid"
+  },
+  {
+   "name": "Largo – Allegro risoluto",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/29-4/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-30": [
+  {
+   "name": "Vivace ma non troppo – Adagio espressivo",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/30-1/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-31": [
+  {
+   "name": "Moderato cantabile molto espressivo",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/31-1/midi_score.mid"
+  },
+  {
+   "name": "Allegro molto",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/31-2/midi_score.mid"
+  },
+  {
+   "name": "Adagio ma non troppo – Fuga: Allegro ma non troppo",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/31-3_4/midi_score.mid"
+  }
+ ],
+ "beethoven-sonata-32": [
+  {
+   "name": "Maestoso – Allegro con brio ed appassionato",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/32-1/midi_score.mid"
+  }
+ ],
+ "mozart-sonata-k-545": [
+  {
+   "name": "Allegro",
+   "midi": "https://www.mutopiaproject.org/ftp/MozartWA/KV545/K545-1/K545-1.mid"
+  },
+  {
+   "name": "Andante",
+   "midi": "https://www.mutopiaproject.org/ftp/MozartWA/KV545/K545-2/K545-2.mid"
+  },
+  {
+   "name": "Rondo: Allegretto",
+   "midi": "https://www.mutopiaproject.org/ftp/MozartWA/KV545/K545-3/K545-3.mid"
+  }
+ ],
+ "mozart-sonata-k-457": [
+  {
+   "name": "Molto allegro",
+   "midi": "https://www.mutopiaproject.org/ftp/MozartWA/KV457/sonata1/sonata1.mid"
+  },
+  {
+   "name": "Adagio",
+   "midi": "https://www.mutopiaproject.org/ftp/MozartWA/KV457/sonata2/sonata2.mid"
+  },
+  {
+   "name": "Allegro assai",
+   "midi": "https://www.mutopiaproject.org/ftp/MozartWA/KV457/sonata3/sonata3.mid"
+  }
+ ],
+ "mozart-sonata-k-332": [
+  {
+   "name": "Allegro",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Mozart/Piano_Sonatas/12-1/midi_score.mid"
+  },
+  {
+   "name": "Adagio",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Mozart/Piano_Sonatas/12-2/midi_score.mid",
+   "speed": 0.33
+  },
+  {
+   "name": "Allegro assai",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Mozart/Piano_Sonatas/12-3/midi_score.mid"
+  }
+ ],
+ "mozart-sonata-k-310": [
+  {
+   "name": "Allegro maestoso",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Mozart/Piano_Sonatas/8-1/midi_score.mid"
+  }
+ ],
+ "mozart-sonata-k-309": [
+  {
+   "name": "Allegro con spirito",
+   "midi": "https://www.mutopiaproject.org/ftp/MozartWA/KV309/KV309_1/KV309_1.mid"
+  }
+ ],
+ "mozart-fantasia-in-d-minor-k-397": [
+  {
+   "name": "Fantasia in D minor",
+   "midi": "https://www.mutopiaproject.org/ftp/MozartWA/KV397/Fantasia/Fantasia.mid"
+  }
+ ],
+ "rachmaninoff-preludes-op-23": [
+  {
+   "name": "Prelude in F-sharp minor, Op. 23 No. 1",
+   "midi": "https://www.mutopiaproject.org/ftp/RachmaninoffS/O23/rach-prelude23-01/rach-prelude23-01.mid"
+  },
+  {
+   "name": "Prelude in B-flat major, Op. 23 No. 2",
+   "midi": "https://www.mutopiaproject.org/ftp/RachmaninoffS/O23/rach-prelude23-02/rach-prelude23-02.mid"
+  },
+  {
+   "name": "Prelude in D minor, Op. 23 No. 3",
+   "midi": "https://www.mutopiaproject.org/ftp/RachmaninoffS/O23/rach-prelude23-03/rach-prelude23-03.mid"
+  },
+  {
+   "name": "Prelude in D major, Op. 23 No. 4",
+   "midi": "https://www.mutopiaproject.org/ftp/RachmaninoffS/O23/rach-prelude23-04/rach-prelude23-04.mid"
+  },
+  {
+   "name": "Prelude in G minor, Op. 23 No. 5",
+   "midi": "https://www.mutopiaproject.org/ftp/RachmaninoffS/O23/rach-prelude23-05/rach-prelude23-05.mid"
+  },
+  {
+   "name": "Prelude in E-flat major, Op. 23 No. 6",
+   "midi": "https://www.mutopiaproject.org/ftp/RachmaninoffS/O23/rach-prelude23-06/rach-prelude23-06.mid"
+  },
+  {
+   "name": "Prelude in A-flat major, Op. 23 No. 8",
+   "midi": "https://www.mutopiaproject.org/ftp/RachmaninoffS/O23/rach-prelude23-08/rach-prelude23-08.mid"
+  },
+  {
+   "name": "Prelude in E-flat minor, Op. 23 No. 9",
+   "midi": "https://www.mutopiaproject.org/ftp/RachmaninoffS/O23/rach-prelude23-09/rach-prelude23-09.mid"
+  },
+  {
+   "name": "Prelude in G-flat major, Op. 23 No. 10",
+   "midi": "https://www.mutopiaproject.org/ftp/RachmaninoffS/O23/rach-prelude23-10/rach-prelude23-10.mid"
+  }
+ ],
+ "brahms-waltzes-op-39": [
+  {
+   "name": "Waltz in G major, Op. 39 No. 10",
+   "midi": "https://www.mutopiaproject.org/ftp/BrahmsJ/O39/waltz-op39-10/waltz-op39-10.mid"
+  },
+  {
+   "name": "Waltz in A-flat major, Op. 39 No. 15",
+   "midi": "https://www.mutopiaproject.org/ftp/BrahmsJ/O39/waltz-op39-15/waltz-op39-15.mid"
+  }
+ ],
+ "brahms-wiegenlied-op-49-no-4": [
+  {
+   "name": "Wiegenlied",
+   "midi": "https://www.mutopiaproject.org/ftp/BrahmsJ/O49/Wiegenlied/Wiegenlied-mids.zip#Wiegenlied.mid"
+  }
+ ],
+ "schubert-moment-musical-no-1-d-780": [
+  {
+   "name": "Moment musical No. 1",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Schubert/Moment_Musical_no_1/midi_score.mid"
+  }
+ ],
+ "schubert-piano-sonata-in-g-d-894": [
+  {
+   "name": "Andante",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Schubert/Piano_Sonatas/894-2/midi_score.mid"
+  }
+ ],
+ "schumann-toccata-op-7": [
+  {
+   "name": "Toccata",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Schumann/Toccata/midi_score.mid"
+  }
+ ],
+ "schumann-romanze-op-28-no-2": [
+  {
+   "name": "Romanze in F-sharp major",
+   "midi": "https://www.mutopiaproject.org/ftp/SchumannR/O28/romanze-op28-2/romanze-op28-2.mid"
+  }
+ ],
+ "liszt-mephisto-waltz-no-1": [
+  {
+   "name": "Mephisto Waltz No. 1",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Liszt/Mephisto_Waltz/midi_score.mid"
+  }
+ ],
+ "liszt-ballade-no-2": [
+  {
+   "name": "Ballade No. 2",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Liszt/Ballade_2/midi_score.mid"
+  }
+ ],
+ "liszt-gondoliera": [
+  {
+   "name": "Gondoliera",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Liszt/Annees_de_pelerinage_2/1_Gondoliera/midi_score.mid"
+  }
+ ],
+ "liszt-paganini-etude-no-6": [
+  {
+   "name": "Étude No. 6",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Liszt/Gran_Etudes_de_Paganini/6_Theme_and_Variations/midi_score.mid"
+  }
+ ],
+ "liszt-consolation-no-1": [
+  {
+   "name": "Consolation No. 1",
+   "midi": "https://www.mutopiaproject.org/ftp/LisztF/S.172/liszt-consolation-no1/liszt-consolation-no1.mid"
+  }
+ ],
+ "liszt-consolation-no-4": [
+  {
+   "name": "Consolation No. 4",
+   "midi": "https://www.mutopiaproject.org/ftp/LisztF/S.172/liszt-consolation-no4/liszt-consolation-no4.mid"
+  }
+ ],
+ "beethoven-piano-sonatas": [
+  {
+   "name": "Grave – Allegro di molto e con brio",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/8-1/midi_score.mid"
+  },
+  {
+   "name": "Adagio cantabile",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/8-2/midi_score.mid"
+  },
+  {
+   "name": "Rondo: Allegro",
+   "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/8-3/midi_score.mid"
+  }
+ ]
+}

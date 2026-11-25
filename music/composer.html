@@ -3,39 +3,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Composer · Wishware</title><script src="../site-theme.js"></script>
 <link rel="icon" href="../favicons/favicon.ico">
-<style>
-:root{color-scheme:inherit;--ink:light-dark(#2e2c1c, #efede0);--muted:light-dark(#4c554e, #b4beb6);--rule:light-dark(#c1c9c6, #36413d);--gold:light-dark(#836b26, #e9ce80)}
-*{box-sizing:border-box}body{margin:0;background:light-dark(#ecf0f2, #0b1012);color:var(--ink);font:16px/1.45 "Instrument Sans",system-ui,sans-serif}
-main{max-width:1180px;margin:auto;padding:clamp(20px,5vw,64px)}
-footer,.section{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.title{font:normal clamp(52px,8vw,94px)/1 Georgia,serif;letter-spacing:-.065em;margin:36px 0 26px;padding-bottom:20px;border-bottom:1px solid var(--rule)}a{color:inherit;text-decoration:none}
-.feature{background:light-dark(#e3e9e9, #141c1b);border:1px solid light-dark(#b5bdb3, #465043);display:grid;grid-template-columns:minmax(215px,.85fr) 1.4fr;align-items:center;padding:24px clamp(20px,3.5vw,42px);gap:20px}
-.feature canvas{width:100%;height:150px;display:block}.eyebrow{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--gold)}
-h2,h3{font-family:Georgia,serif;font-weight:normal;letter-spacing:-.035em}
-.feature h2{font-size:clamp(28px,3.6vw,47px);line-height:1.1;margin:10px 0}.meta,footer{font-size:13px;color:var(--muted)}
-.section{margin:35px 0 10px;align-items:baseline}.section h2{font-size:31px;margin:0}
-.grid{display:grid;grid-template-columns:1fr 1fr;column-gap:34px}
-.work{border-top:1px solid var(--rule);display:grid;grid-template-columns:36px 1fr minmax(50px,100px) 38px;align-items:center;gap:10px;padding:16px 3px}
-.number,.time{font:12px ui-monospace,monospace;color:var(--muted)}.time{text-align:right}.work h3{font-size:22px;margin:0 0 2px}.work canvas,.pair canvas{width:100%;height:42px;opacity:.85}
-a:hover h2,a:hover h3{color:var(--gold)}a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-footer{margin-top:30px;border-top:1px solid var(--rule);padding-top:14px;flex-wrap:wrap}footer a{text-decoration:underline;text-underline-offset:3px}
-@media(max-width:720px){.grid{grid-template-columns:1fr}.feature{grid-template-columns:1fr}.feature canvas{height:95px}.work{grid-template-columns:30px 1fr 65px 35px}.section h2{font-size:26px}}
-nav{display:flex;align-items:center;flex-wrap:wrap;gap:clamp(8px,3vw,24px);margin-bottom:28px;font-size:14px;color:var(--muted)}nav a[aria-current],nav a:hover{color:var(--gold)}
-.about{max-width:72ch;margin:0;color:var(--muted)}.about a{text-decoration:underline;text-underline-offset:3px;white-space:nowrap}.about a:hover{color:var(--gold)}[hidden]{display:none}
-.featured{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:12px}
-.featured .feature{display:flex;flex-direction:column;align-items:stretch;gap:9px;padding:20px}
-.feature h3{font-size:clamp(24px,2.5vw,33px);line-height:1.12;margin:0}
-.feature .meta{margin-top:auto}
-.feature canvas{height:84px}
-.pair{display:grid;grid-template-columns:minmax(140px,1fr) 1fr 1fr;gap:12px;align-items:center;border-top:1px solid var(--rule);padding:12px 0}.pair h3{margin:0;font-size:21px}.pair a{display:grid;grid-template-columns:minmax(0,1fr) minmax(50px,100px);align-items:center;gap:6px;padding:5px 0}.pair a:hover{text-decoration:underline}.pair small{display:block;color:var(--muted);font-size:12px}
-@media(max-width:720px){.pair a{grid-template-columns:minmax(0,1fr)}.pair canvas{max-width:100px}}
-@media(max-width:540px){.pair{grid-template-columns:1.1fr 1fr 1fr;gap:6px}.pair h3{font-size:17px}.section{flex-wrap:wrap}}
-#other-collections{margin-top:32px;border-top:1px solid var(--rule);padding-top:14px;color:var(--muted)}
-#other-collections h2{font-size:21px;margin:0 0 8px}
-#other-collections ul{display:flex;flex-wrap:wrap;gap:8px 22px;list-style:none;margin:0;padding:0;font-size:14px}
-#other-collections a{text-decoration:underline;text-underline-offset:3px}#other-collections a:hover{color:var(--gold)}
-html[data-theme="light"] canvas{filter:brightness(.61) saturate(1.35)}
-</style>
+<link rel="stylesheet" href="composer.css">
 <main>
 <nav aria-label="Site sections"><a href="../index.html">Apps</a><a href="../games/index.html">Games</a><a href="../notes/index.html">Notes</a><a href="index.html" aria-current="page">Music</a><a href="../sandbox/index.html">Sandbox</a></nav>
 <h1 class="title"></h1>
@@ -49,8 +17,8 @@ html[data-theme="light"] canvas{filter:brightness(.61) saturate(1.35)}
 </section>
 <footer><a href="archive/index.html">Archive</a></footer>
 </main>
+<script src="portrait.js"></script>
 <script>
-const voiceColors = ['#e9ce80','#8acfc3','#d9a8c1','#a6b7eb','#e8a17b','#b5c888','#d1b2ff'];
 const portraits = [];
 const title = document.querySelector('.title');
 const catalog = document.querySelector('#catalog');
@@ -133,35 +101,6 @@ function render(composer) {
         footer.prepend(item);
     }
     new ResizeObserver(() => portraits.forEach(args => portrait(...args))).observe(document.querySelector('main'));
-}
-
-// The small portraits use actual note onsets from each score.
-function portrait(canvas, data, featured) {
-    const w=canvas.clientWidth, h=canvas.clientHeight, scale=devicePixelRatio;
-    canvas.width=Math.round(w*scale); canvas.height=Math.round(h*scale);
-    const ctx=canvas.getContext('2d');
-    ctx.scale(scale,scale);
-    const notes=data.parts.flatMap(([, ...part])=>part.flatMap(note=>note.slice(2)));
-    const lo=Math.min(...notes),hi=Math.max(...notes);
-    for (const [color, ...part] of data.parts) {
-        let prev;
-        ctx.strokeStyle=ctx.fillStyle=voiceColors[color];
-        for (const [tick, length, ...pitches] of part) {
-            const x = 3 + tick*(w-7)/data.span;
-            const ys = pitches.sort((a,b) => a-b).map(pitch => h-5-(pitch-lo)*(h-10)/(hi-lo||1));
-            ys.forEach((y, index) => {
-                if (prev && tick <= prev.end+.1) {
-                    ctx.globalAlpha=.65;
-                    ctx.beginPath();
-                    ctx.moveTo(prev.x, prev.ys[Math.min(index, prev.ys.length-1)]);
-                    ctx.lineTo(x,y);
-                    ctx.stroke();
-                }
-                ctx.globalAlpha=.86;ctx.beginPath();ctx.arc(x,y,featured?2.4:1.2,0,2*Math.PI);ctx.fill();
-            });
-            prev={x,ys,end:tick+length};
-        }
-    }
 }
 
 // The composer id only ever names a generated file in composers/.

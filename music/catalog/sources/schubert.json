@@ -1,0 +1,134 @@
+{
+ "schubert-ave-maria-d-839": {
+  "score": [
+   "Mutopia · Ph. Raynaud · Public Domain",
+   "",
+   "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/SchubertF/D839/SchubertF-D839_AveMaria",
+   "https://www.mutopiaproject.org/ftp/SchubertF/D839/SchubertF-D839_AveMaria/SchubertF-D839_AveMaria-a4.pdf"
+  ],
+  "recording": [
+   "tDQj7j-xogM",
+   "Barbara Bonney and Geoffrey Parsons"
+  ]
+ },
+ "schubert-four-impromptus-d-899": {
+  "score": [
+   "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/fosfrancesco/asap-dataset/tree/master/Schubert/Impromptu_op.90_D.899"
+  ],
+  "recording": [
+   [
+    "48ZG9D5BROU",
+    "Ronald Brautigam",
+    "Four Impromptus, D. 899",
+    0
+   ],
+   [
+    "48ZG9D5BROU",
+    "Ronald Brautigam",
+    "Four Impromptus, D. 899",
+    498
+   ],
+   [
+    "48ZG9D5BROU",
+    "Ronald Brautigam",
+    "Four Impromptus, D. 899",
+    760
+   ],
+   [
+    "48ZG9D5BROU",
+    "Ronald Brautigam",
+    "Four Impromptus, D. 899",
+    1122
+   ]
+  ]
+ },
+ "schubert-impromptus-d-935-nos-1-and-3": {
+  "score": [
+   "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/fosfrancesco/asap-dataset/tree/master/Schubert/Impromptu_op142"
+  ],
+  "recording": [
+   "j1rCDLGcVhs",
+   "Alfred Brendel",
+   "Four Impromptus, D. 935"
+  ]
+ },
+ "schubert-moment-musical-no-3-d-780": {
+  "score": [
+   "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/fosfrancesco/asap-dataset/tree/master/Schubert/Moment_musical_no_3"
+  ],
+  "recording": [
+   "1UHoNP5Si_0",
+   "Charles Szczepanek"
+  ]
+ },
+ "schubert-piano-sonata-in-a-d-664": {
+  "score": [
+   "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/fosfrancesco/asap-dataset/tree/master/Schubert/Piano_Sonatas"
+  ],
+  "recording": [
+   [
+    "1h92eE_R0xU",
+    "Alfred Brendel",
+    "Sonata in A major, D. 664",
+    7
+   ],
+   [
+    "1h92eE_R0xU",
+    "Alfred Brendel",
+    "Sonata in A major, D. 664",
+    757
+   ],
+   [
+    "1h92eE_R0xU",
+    "Alfred Brendel",
+    "Sonata in A major, D. 664",
+    1022
+   ]
+  ]
+ },
+ "schubert-wanderer-fantasy-d-760": {
+  "score": [
+   "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/fosfrancesco/asap-dataset/tree/master/Schubert/Wanderer_fantasie"
+  ],
+  "recording": [
+   "wAnhIV8wzw0",
+   "Alfred Brendel"
+  ]
+ },
+ "schubert-moment-musical-no-1-d-780": {
+  "score": [
+   "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/fosfrancesco/asap-dataset/tree/master/Schubert/Moment_Musical_no_1"
+  ],
+  "recording": [
+   "6KjMOqSDEoQ",
+   "Alfred Brendel"
+  ]
+ },
+ "schubert-piano-sonata-in-g-d-894": {
+  "score": [
+   "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/fosfrancesco/asap-dataset/tree/master/Schubert/Piano_Sonatas/894-2"
+  ],
+  "recording": [
+   [
+    "cBisjKwg43U",
+    "Alfred Brendel",
+    "complete sonata",
+    756
+   ]
+  ]
+ }
+}

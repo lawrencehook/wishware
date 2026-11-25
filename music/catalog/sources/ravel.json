@@ -1,0 +1,78 @@
+{
+ "ravel-gaspard-de-la-nuit-m-55": {
+  "score": [
+   "PDMX (Long et al.), record 6156396 · CC0",
+   "",
+   "https://imslp.org/wiki/Gaspard_de_la_nuit,_M.55_(Ravel,_Maurice)"
+  ],
+  "recording": [
+   "2njejBerYqo",
+   "Marc-André Hamelin"
+  ]
+ },
+ "ravel-jeux-d-eau-m-30": {
+  "score": [
+   "PDMX (Long et al.), record 6323707 · CC0",
+   "",
+   "https://imslp.org/wiki/Jeux_d%27eau,_M.30_(Ravel,_Maurice)"
+  ],
+  "recording": [
+   "nSNGK6dJ0qs",
+   "Martha Argerich"
+  ]
+ },
+ "ravel-le-tombeau-de-couperin-m-68": {
+  "score": [
+   "PDMX (Long et al.), record 5145647 · CC0",
+   "",
+   "https://imslp.org/wiki/Le_tombeau_de_Couperin,_M.68_(Ravel,_Maurice)"
+  ],
+  "recording": [
+   "lDqQBQu2DEI",
+   "Zoltán Fejérvári"
+  ]
+ },
+ "ravel-miroirs-nos-3-and-4": {
+  "score": [
+   "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/fosfrancesco/asap-dataset/tree/master/Ravel/Miroirs"
+  ],
+  "recording": [
+   [
+    "vR9sl6LkqCs",
+    "Alexei Tartakovsky",
+    "Miroirs",
+    515
+   ],
+   [
+    "vR9sl6LkqCs",
+    "Alexei Tartakovsky",
+    "Miroirs",
+    897
+   ]
+  ]
+ },
+ "ravel-pavane-pour-une-infante-defunte": {
+  "score": [
+   "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/fosfrancesco/asap-dataset/tree/master/Ravel/Pavane"
+  ],
+  "recording": [
+   "UIXe7H52UkA",
+   "Seong-Jin Cho"
+  ]
+ },
+ "ravel-sonatine-m-40": {
+  "score": [
+   "PDMX (Long et al.), record 5111461 · CC0",
+   "",
+   "https://imslp.org/wiki/Sonatine,_M.40_(Ravel,_Maurice)"
+  ],
+  "recording": [
+   "Rd9-fRyCYf8",
+   "Friedrich Gulda"
+  ]
+ }
+}

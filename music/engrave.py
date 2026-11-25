@@ -101,11 +101,14 @@ def find_barlines(dark, top, bottom, lines, accepted=()):
                 continue
         if marks and a - marks[-1][1] < space * 2:
             marks[-1][1] = b
+        elif len(marks) == 1 and marks[0][0] - left < space * 3 and a - marks[0][1] < space * 12:
+            continue  # a repeat sign after the clef opens the first measure; it does not end one
         else:
             marks.append([a, b])
     if not marks:
         marks = [[left, left + 1]]
-    return [int((a + b) // 2) for a, b in marks], right, right - marks[-1][1] < space * 2, doubtful
+    # A change of key or clef announced after the last barline is not the start of a measure.
+    return [int((a + b) // 2) for a, b in marks], right, right - marks[-1][1] < space * 10, doubtful
 
 
 def signatures(notes, tempo, bars):
@@ -147,11 +150,14 @@ def engrave(folder, index, url, notes, notation, work, debug):
     pdf = work / folder / (str(index) + '.pdf')
     pdf.parent.mkdir(parents=True, exist_ok=True)
     if not pdf.exists():
-        request = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        request = urllib.request.Request(url.partition('#')[0], headers={'User-Agent': 'Mozilla/5.0'})
         pdf.write_bytes(urllib.request.urlopen(request).read())
     for old in pdf.parent.glob('%d-*.png' % index):
         old.unlink()
+    # "<url>#<first>-<last>" keeps only those pages, for an edition that prints several movements together.
+    first, _, last = url.partition('#')[2].partition('-')
     subprocess.run(['gs', '-q', '-dSAFER', '-dNOPAUSE', '-dBATCH', '-sDEVICE=pnggray', '-r%d' % DPI,
+                    *(['-dFirstPage=' + first, '-dLastPage=' + last] if last else []),
                     '-dTextAlphaBits=4', '-dGraphicsAlphaBits=4',
                     '-sOutputFile=' + str(pdf.parent / ('%d-%%d.png' % index)), str(pdf)], check=True)
     pages = sorted(pdf.parent.glob('%d-*.png' % index), key=lambda p: int(p.stem.split('-')[1]))

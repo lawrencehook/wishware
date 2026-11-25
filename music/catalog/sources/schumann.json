@@ -1,0 +1,157 @@
+{
+ "robert-schumann-album-fur-die-jugend-op-68": {
+  "score": [
+   "Wikimedia Commons · Poniol60 · Public domain",
+   "",
+   "https://imslp.org/wiki/Album_f%C3%BCr_die_Jugend,_Op.68_(Schumann,_Robert)"
+  ],
+  "recording": [
+   "ZUqvMYO9CjI",
+   "Vladimir Feltsman"
+  ]
+ },
+ "robert-schumann-fantasiestucke-op-12": {
+  "score": [
+   "Wikimedia Commons · Public domain",
+   "",
+   "https://imslp.org/wiki/Fantasiest%C3%BCcke,_Op.12_(Schumann,_Robert)"
+  ],
+  "recording": [
+   "yOanowGonN4",
+   "Seong-Jin Cho"
+  ]
+ },
+ "schumann-arabeske-op-18": {
+  "score": [
+   "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/fosfrancesco/asap-dataset/tree/master/Schumann/Arabeske"
+  ],
+  "recording": [
+   "jZq9TORPb3c",
+   "Tiffany Poon"
+  ]
+ },
+ "schumann-kinderszenen": {
+  "score": [
+   "DCML · schumann_kinderszenen · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/DCMLab/schumann_kinderszenen"
+  ],
+  "recording": [
+   [
+    "yibf6QNjgGU",
+    "Vladimir Horowitz",
+    "Kinderszenen, Op. 15 · thirteen pieces",
+    38
+   ],
+   [
+    "yibf6QNjgGU",
+    "Vladimir Horowitz",
+    "Kinderszenen, Op. 15 · thirteen pieces",
+    129
+   ],
+   [
+    "yibf6QNjgGU",
+    "Vladimir Horowitz",
+    "Kinderszenen, Op. 15 · thirteen pieces",
+    195
+   ],
+   [
+    "yibf6QNjgGU",
+    "Vladimir Horowitz",
+    "Kinderszenen, Op. 15 · thirteen pieces",
+    228
+   ],
+   [
+    "yibf6QNjgGU",
+    "Vladimir Horowitz",
+    "Kinderszenen, Op. 15 · thirteen pieces",
+    278
+   ],
+   [
+    "yibf6QNjgGU",
+    "Vladimir Horowitz",
+    "Kinderszenen, Op. 15 · thirteen pieces",
+    317
+   ],
+   [
+    "yibf6QNjgGU",
+    "Vladimir Horowitz",
+    "Kinderszenen, Op. 15 · thirteen pieces",
+    369
+   ],
+   [
+    "yibf6QNjgGU",
+    "Vladimir Horowitz",
+    "Kinderszenen, Op. 15 · thirteen pieces",
+    523
+   ],
+   [
+    "yibf6QNjgGU",
+    "Vladimir Horowitz",
+    "Kinderszenen, Op. 15 · thirteen pieces",
+    602
+   ],
+   [
+    "yibf6QNjgGU",
+    "Vladimir Horowitz",
+    "Kinderszenen, Op. 15 · thirteen pieces",
+    643
+   ],
+   [
+    "yibf6QNjgGU",
+    "Vladimir Horowitz",
+    "Kinderszenen, Op. 15 · thirteen pieces",
+    732
+   ],
+   [
+    "yibf6QNjgGU",
+    "Vladimir Horowitz",
+    "Kinderszenen, Op. 15 · thirteen pieces",
+    832
+   ],
+   [
+    "yibf6QNjgGU",
+    "Vladimir Horowitz",
+    "Kinderszenen, Op. 15 · thirteen pieces",
+    931
+   ]
+  ]
+ },
+ "schumann-kreisleriana-selections": {
+  "score": [
+   "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/fosfrancesco/asap-dataset/tree/master/Schumann/Kreisleriana"
+  ],
+  "recording": [
+   "LePVJQGgH9g",
+   "Jörg Demus",
+   "Kreisleriana, Op. 16"
+  ]
+ },
+ "schumann-toccata-op-7": {
+  "score": [
+   "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/fosfrancesco/asap-dataset/tree/master/Schumann/Toccata"
+  ],
+  "recording": [
+   "ztvEgLjZWYU",
+   "György Cziffra"
+  ]
+ },
+ "schumann-romanze-op-28-no-2": {
+  "score": [
+   "Mutopia · rune@zedeler.dk · Public Domain",
+   "",
+   "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/SchumannR/O28/romanze-op28-2",
+   "https://www.mutopiaproject.org/ftp/SchumannR/O28/romanze-op28-2/romanze-op28-2-a4.pdf"
+  ],
+  "recording": [
+   "QxzqjShS5BA",
+   "Alicia de Larrocha"
+  ]
+ }
+}

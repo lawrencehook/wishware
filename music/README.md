@@ -2,7 +2,7 @@
 
 The [music catalog](index.html) includes five collections. Each uses the notation and sources available for its repertoire.
 
-Composer pages share one template: `composer.html?c=<id>` reads `composers/<id>.js`, which `node music/build.js` generates from the score data. Rerun the build after changing a score or the featured works. Bach's catalog comes from `bach-data/`; other composers are listed by hand in `catalog.js` and play from `pieces/<folder>/notes.js` in `piece.html`, a copy of the Bach player (`bach-fugue.html`) that reads the sandbox note format. Its sheet music comes from `notation/<folder>/`, which `engrave.py` cuts from the Mutopia PDF named in `catalog.js` (see the notes at the top of that script); a piece without an engraving shows no sheet music. The non-Bach collections below are not linked from the site for now.
+`index.html` is the composer directory. Composer pages share one template: `composer.html?c=<id>` reads `composers/<id>.js`, which `node music/build.js` generates from the score data. Rerun the build after changing a score or the featured works. Bach's catalog comes from `bach-data/`; other composers are listed by hand in `catalog.js` and play from `pieces/<folder>/notes.js` in `piece.html`, a copy of the Bach player (`bach-fugue.html`) that reads the sandbox note format. Its sheet music comes from `notation/<folder>/`, which `engrave.py` cuts from the Mutopia PDF named in `catalog.js` (see the notes at the top of that script); a piece without an engraving shows no sheet music. The non-Bach collections below are not linked from the site for now.
 
 | Collection | Scope and playback |
 | --- | --- |
@@ -10,6 +10,39 @@ Composer pages share one template: `composer.html?c=<id>` reads `composers/<id>.
 | [Korean jeongganbo](jeongganbo/index.html) | Seven columns of *Cheongsanbyeolgok* with a cursor on the historical facsimile. Four further Jeonggan editions pair local piano and janggu playback with synchronized grid notation. Original editable scores and instrument credits ship with the player. |
 | [Carnatic kṛtis](carnatic/index.html) | Dīkṣitar’s five-element group, with lyrics and notation in the external Malayalam edition and timestamped performances by D. K. Jayaraman. All five entries include offline piano readings of the opening notes. The full vocal recordings and edition require internet access. |
 | [Ottoman saz semâîsi](ottoman/index.html) | 39 complete timed transcriptions across 29 makams, playable offline with section navigation and 64 pages of locally bundled sheet music. The SymbTr-derived scores carry the source collection’s CC BY-NC-SA 4.0 license. |
+
+## Composer list
+
+The composers to showcase, in rough order. The list favors keyboard music, because that is what the player and the engraved editions handle best; composers known mainly for opera or orchestral work (Wagner, Verdi, Puccini, Mahler, Vivaldi) are left out for now. Counts are as of 2026-11-24.
+
+To add a composer: `tools/survey.py` lists what each sandbox folder holds, `tools/sources.py` writes `catalog/sources/<id>.json` from the credits and recordings on the sandbox pages, you write `catalog/<id>.js` and add the id to `catalog.js`, `tools/migrate.py` moves the note data to `pieces/` and retires the sandbox pages, then run `engrave.py` and `build.js`. Run the tools from the repo root.
+
+Pieces the sandbox never had come straight from score MIDI: list them in `tools/imports.json` and run `tools/midi.py`, which writes `pieces/<folder>/` from Mutopia editions (which also give the engraved sheet music) or the ASAP dataset. Add the score credit to `catalog/sources/<id>.json`; a recording is optional there.
+
+| # | Composer | Status | Notes (sandbox folders waiting, for those not done) |
+|---|---|---|---|
+| 1 | Johann Sebastian Bach | Done | 78 works; 2 more to fold in from the sandbox (Goldberg Variations, keyboard repertoire) |
+| 2 | Frédéric Chopin | Done | 61 works |
+| 3 | Wolfgang Amadeus Mozart | Done | 17 works |
+| 4 | Ludwig van Beethoven | Done | 78 works, with movements from 31 of the 32 sonatas; Diabelli Variations (no note data) and the string quartets stay in the sandbox |
+| 5 | Franz Schubert | Done | 14 works; Erlkönig stays on the art songs page |
+| 6 | Claude Debussy | Done | 41 works |
+| 7 | Franz Liszt | Done | 20 works |
+| 8 | Robert Schumann | Done | 25 works; Carnaval (no note data) stays in the sandbox |
+| 9 | Sergei Rachmaninoff | Done | 12 works |
+| 10 | Maurice Ravel | Done | 7 works |
+| 11 | Erik Satie | Done | 6 works; Sports et divertissements (no note data) stays in the sandbox |
+| 12 | Johannes Brahms | Done | 4 works; no open score data found yet for Op. 117, the Handel Variations or the Hungarian Dances |
+| 13 | Joseph Haydn | | 1 |
+| 14 | Felix Mendelssohn | | 1 |
+| 15 | Pyotr Ilyich Tchaikovsky | | 2 |
+| 16 | Edvard Grieg | | 1 |
+| 17 | Domenico Scarlatti | | 1 |
+| 18 | George Frideric Handel | | none |
+| 19 | Sergei Prokofiev | | 2 |
+| 20 | Dmitri Shostakovich | | 1 |
+
+Also plausible, each with material in the sandbox: Scott Joplin (5), Béla Bartók (4), Isaac Albéniz (3), Alexander Scriabin (2), Clara Schumann (2), George Gershwin (1), Modest Mussorgsky (1), Gabriel Fauré (1).
 
 ## Johann Sebastian Bach
 

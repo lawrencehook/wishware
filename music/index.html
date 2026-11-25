@@ -1,7 +1,41 @@
 <!doctype html>
 <html lang="en">
-<meta charset="utf-8">
-<meta http-equiv="refresh" content="0;url=composer.html?c=bach">
-<title>Music · Wishware</title>
-<a href="composer.html?c=bach">Johann Sebastian Bach</a>
-</html>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Composers · Wishware</title><script src="../site-theme.js"></script>
+<link rel="icon" href="../favicons/favicon.ico">
+<link rel="stylesheet" href="composer.css">
+<main class="directory">
+<nav aria-label="Site sections"><a href="../index.html">Apps</a><a href="../games/index.html">Games</a><a href="../notes/index.html">Notes</a><a href="index.html" aria-current="page">Music</a><a href="../sandbox/index.html">Sandbox</a></nav>
+<h1 class="title">Composers</h1>
+<div class="featured" id="composers"></div>
+<section id="other-collections" aria-labelledby="other-heading">
+<h2 id="other-heading">Other music collections</h2>
+<ul>
+<li><a href="../sandbox/music-pieces.html">Playable music pieces in the sandbox</a></li>
+</ul>
+</section>
+<footer><a href="archive/index.html">Archive</a></footer>
+</main>
+<script src="portrait.js"></script>
+<script src="composers/index.js"></script>
+<script>
+const portraits = [];
+for (const composer of COMPOSER_INDEX) {
+    const card = document.createElement('a');
+    card.className = 'feature';
+    card.href = 'composer.html?c=' + composer.id;
+    const parts = [['span', 'eyebrow', composer.years], ['h3', '', composer.name], ['canvas'], ['span', 'meta', composer.works + ' works']];
+    for (const [tag, className, text] of parts) {
+        const node = document.createElement(tag);
+        if (className) node.className = className;
+        if (text) node.textContent = text;
+        if (tag === 'canvas') {
+            node.setAttribute('aria-hidden', 'true');
+            portraits.push([node, composer.portrait, true]);
+        }
+        card.append(node);
+    }
+    document.querySelector('#composers').append(card);
+}
+new ResizeObserver(() => portraits.forEach(args => portrait(...args))).observe(document.querySelector('main'));
+</script></html>

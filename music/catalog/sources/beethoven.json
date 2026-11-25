@@ -1,0 +1,1036 @@
+{
+ "beethoven-6-bagatelles-op-126": {
+  "score": [
+   "Wikimedia Commons · Michael Bednarek · CC0",
+   "",
+   "https://imslp.org/wiki/6_Bagatelles,_Op.126_(Beethoven,_Ludwig_van)"
+  ],
+  "recording": [
+   "JqWOsgW15bQ",
+   "Alfred Brendel"
+  ]
+ },
+ "beethoven-fur-elise-woo-59": {
+  "score": [
+   "Mutopia · Stelios Samelis · Public Domain",
+   "",
+   "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BeethovenLv/WoO59/fur_Elise_WoO59",
+   "https://www.mutopiaproject.org/ftp/BeethovenLv/WoO59/fur_Elise_WoO59/fur_Elise_WoO59-a4.pdf"
+  ],
+  "recording": [
+   "FW_KCau2iTI",
+   "Lang Lang"
+  ]
+ },
+ "beethoven-piano-sonatas": {
+  "score": [
+   "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas"
+  ],
+  "recording": [
+   [
+    "SrcOcKYQX3c",
+    "Daniel Barenboim",
+    "Sonata No. 8 in C minor, Op. 13 · Pathétique",
+    19
+   ],
+   [
+    "SrcOcKYQX3c",
+    "Daniel Barenboim",
+    "Sonata No. 8 in C minor, Op. 13 · Pathétique",
+    586
+   ],
+   [
+    "SrcOcKYQX3c",
+    "Daniel Barenboim",
+    "Sonata No. 8 in C minor, Op. 13 · Pathétique",
+    911
+   ]
+  ]
+ },
+ "beethoven-rage-over-a-lost-penny-op-129": {
+  "score": [
+   "Mutopia · Magnus Lewis-Smith · Public Domain",
+   "",
+   "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BeethovenLv/O129/beethoven_rondo_op129",
+   "https://www.mutopiaproject.org/ftp/BeethovenLv/O129/beethoven_rondo_op129/beethoven_rondo_op129-a4.pdf"
+  ],
+  "recording": [
+   "F8R5QCPUqaI",
+   "Sergey Belyavsky"
+  ]
+ },
+ "beethoven-sonata-1": {
+  "score": [
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/1-1"
+   ],
+   [
+    "Mutopia · Javier Ruiz-Alma · CC BY-SA 4.0",
+    "",
+    "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BeethovenLv/O2/LVB_Sonate_02no1_2",
+    "https://www.mutopiaproject.org/ftp/BeethovenLv/O2/LVB_Sonate_02no1_2/LVB_Sonate_02no1_2-a4.pdf"
+   ],
+   [
+    "Mutopia · Stelios Samelis · Public Domain",
+    "",
+    "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BeethovenLv/O2/LVB_Sonate_02no1_3",
+    "https://www.mutopiaproject.org/ftp/BeethovenLv/O2/LVB_Sonate_02no1_3/LVB_Sonate_02no1_3-a4.pdf"
+   ],
+   [
+    "Mutopia · Stelios Samelis · Public Domain",
+    "",
+    "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BeethovenLv/O2/LVB_Sonate_02no1_4",
+    "https://www.mutopiaproject.org/ftp/BeethovenLv/O2/LVB_Sonate_02no1_4/LVB_Sonate_02no1_4-a4.pdf"
+   ]
+  ],
+  "recording": [
+   [
+    "V7SUN6Jq5jY",
+    "Richard Goode",
+    "complete sonata",
+    0
+   ],
+   [
+    "V7SUN6Jq5jY",
+    "Richard Goode",
+    "complete sonata",
+    358
+   ],
+   [
+    "V7SUN6Jq5jY",
+    "Richard Goode",
+    "complete sonata",
+    681
+   ],
+   [
+    "V7SUN6Jq5jY",
+    "Richard Goode",
+    "complete sonata",
+    875
+   ]
+  ]
+ },
+ "beethoven-sonata-2": {
+  "score": [
+   "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/2-1"
+  ],
+  "recording": [
+   [
+    "jpm5GEBKG7A",
+    "Daniel Barenboim",
+    "complete sonata",
+    20
+   ]
+  ]
+ },
+ "beethoven-sonata-3": {
+  "score": [
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/3-1"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/3-2"
+   ]
+  ],
+  "recording": [
+   "ThvKrhqh3fE",
+   "Claudio Arrau",
+   "complete sonata"
+  ]
+ },
+ "beethoven-sonata-4": {
+  "score": [
+   "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/4-1"
+  ],
+  "recording": [
+   [
+    "apdu4nNqQdU",
+    "Daniel Barenboim",
+    "complete sonata",
+    0
+   ]
+  ]
+ },
+ "beethoven-sonata-5": {
+  "score": [
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/5-1"
+   ],
+   [
+    "Mutopia · Stelios Samelis · Public Domain",
+    "",
+    "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BeethovenLv/O10/LVB_Sonate_10no1_3",
+    "https://www.mutopiaproject.org/ftp/BeethovenLv/O10/LVB_Sonate_10no1_3/LVB_Sonate_10no1_3-a4.pdf"
+   ]
+  ],
+  "recording": [
+   [
+    "gpkrTPXKeDs",
+    "Daniel Barenboim",
+    "complete sonata",
+    0
+   ],
+   [
+    "gpkrTPXKeDs",
+    "Daniel Barenboim",
+    "complete sonata",
+    865
+   ]
+  ]
+ },
+ "beethoven-sonata-6": {
+  "score": [
+   [
+    "Mutopia · Stelios Samelis · Public Domain",
+    "",
+    "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BeethovenLv/O10/lvb_sonate_10no2_1",
+    "https://www.mutopiaproject.org/ftp/BeethovenLv/O10/lvb_sonate_10no2_1/lvb_sonate_10no2_1-a4.pdf"
+   ],
+   [
+    "Mutopia · Stelios Samelis · Public Domain",
+    "",
+    "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BeethovenLv/O10/lvb_sonate_10no2_2",
+    "https://www.mutopiaproject.org/ftp/BeethovenLv/O10/lvb_sonate_10no2_2/lvb_sonate_10no2_2-a4.pdf"
+   ],
+   [
+    "Mutopia · Stelios Samelis · Public Domain",
+    "",
+    "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BeethovenLv/O10/lvb_sonate_10no2_3",
+    "https://www.mutopiaproject.org/ftp/BeethovenLv/O10/lvb_sonate_10no2_3/lvb_sonate_10no2_3-a4.pdf"
+   ]
+  ],
+  "recording": [
+   [
+    "4RFN1qhL2gk",
+    "Daniel Barenboim",
+    "complete sonata",
+    20
+   ],
+   [
+    "4RFN1qhL2gk",
+    "Daniel Barenboim",
+    "complete sonata",
+    389
+   ],
+   [
+    "4RFN1qhL2gk",
+    "Daniel Barenboim",
+    "complete sonata",
+    647
+   ]
+  ]
+ },
+ "beethoven-sonata-7": {
+  "score": [
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/7-1"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/7-2"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/7-3"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/7-4"
+   ]
+  ],
+  "recording": [
+   [
+    "NWJEjDGBavU",
+    "Daniel Barenboim",
+    "complete sonata",
+    18
+   ],
+   [
+    "NWJEjDGBavU",
+    "Daniel Barenboim",
+    "complete sonata",
+    456
+   ],
+   [
+    "NWJEjDGBavU",
+    "Daniel Barenboim",
+    "complete sonata",
+    1103
+   ],
+   [
+    "NWJEjDGBavU",
+    "Daniel Barenboim",
+    "complete sonata",
+    1278
+   ]
+  ]
+ },
+ "beethoven-sonata-9": {
+  "score": [
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/9-1"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/9-2_no_trio"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/9-3"
+   ]
+  ],
+  "recording": [
+   [
+    "-cIVrlAl9FI",
+    "Daniel Barenboim",
+    "complete sonata",
+    19
+   ],
+   [
+    "-cIVrlAl9FI",
+    "Daniel Barenboim",
+    "complete sonata",
+    430
+   ],
+   [
+    "-cIVrlAl9FI",
+    "Daniel Barenboim",
+    "complete sonata",
+    701
+   ]
+  ]
+ },
+ "beethoven-sonata-10": {
+  "score": [
+   "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/10-1"
+  ],
+  "recording": [
+   [
+    "ZmIYyB3ip_E",
+    "Daniel Barenboim",
+    "complete sonata",
+    19
+   ]
+  ]
+ },
+ "beethoven-sonata-11": {
+  "score": [
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/11-1"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/11-2"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/11-3"
+   ]
+  ],
+  "recording": [
+   [
+    "kxJ5dDjxvNE",
+    "Daniel Barenboim",
+    "complete sonata",
+    0
+   ],
+   [
+    "kxJ5dDjxvNE",
+    "Daniel Barenboim",
+    "complete sonata",
+    459
+   ],
+   [
+    "kxJ5dDjxvNE",
+    "Daniel Barenboim",
+    "complete sonata",
+    1021
+   ]
+  ]
+ },
+ "beethoven-sonata-12": {
+  "score": [
+   "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/12-1"
+  ],
+  "recording": [
+   [
+    "3bWNtC_rLl0",
+    "Daniel Barenboim",
+    "complete sonata",
+    21
+   ]
+  ]
+ },
+ "beethoven-sonata-13": {
+  "score": [
+   "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/13-4"
+  ],
+  "recording": [
+   [
+    "k8GB2Ovog_c",
+    "Daniel Barenboim",
+    "complete sonata",
+    700
+   ]
+  ]
+ },
+ "beethoven-sonata-14": {
+  "score": [
+   [
+    "Mutopia · Stewart Holmes · CC BY-SA 2.5",
+    "",
+    "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BeethovenLv/O27/moonlight",
+    "https://www.mutopiaproject.org/ftp/BeethovenLv/O27/moonlight/moonlight-a4.pdf#1-5"
+   ],
+   [
+    "Mutopia · Stewart Holmes · CC BY-SA 2.5",
+    "",
+    "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BeethovenLv/O27/moonlight"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/14-3"
+   ]
+  ],
+  "recording": [
+   [
+    "1mH-qwWcyc4",
+    "Daniel Barenboim",
+    "complete sonata",
+    19
+   ],
+   [
+    "1mH-qwWcyc4",
+    "Daniel Barenboim",
+    "complete sonata",
+    423
+   ],
+   [
+    "1mH-qwWcyc4",
+    "Daniel Barenboim",
+    "complete sonata",
+    560
+   ]
+  ]
+ },
+ "beethoven-sonata-15": {
+  "score": [
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/15-1"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/15-4"
+   ]
+  ],
+  "recording": [
+   [
+    "Ml26daGaUqc",
+    "Daniel Barenboim",
+    "complete sonata",
+    19
+   ],
+   [
+    "Ml26daGaUqc",
+    "Daniel Barenboim",
+    "complete sonata",
+    1338
+   ]
+  ]
+ },
+ "beethoven-sonata-16": {
+  "score": [
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/16-1"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/16-2"
+   ]
+  ],
+  "recording": [
+   [
+    "pjyECmatgm0",
+    "Daniel Barenboim",
+    "complete sonata",
+    21
+   ],
+   [
+    "pjyECmatgm0",
+    "Daniel Barenboim",
+    "complete sonata",
+    408
+   ]
+  ]
+ },
+ "beethoven-sonata-17": {
+  "score": [
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/17-1"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/17-2"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/17-3"
+   ]
+  ],
+  "recording": [
+   [
+    "Fkrr3nUZ0YU",
+    "Daniel Barenboim",
+    "complete sonata",
+    20
+   ],
+   [
+    "Fkrr3nUZ0YU",
+    "Daniel Barenboim",
+    "complete sonata",
+    575
+   ],
+   [
+    "Fkrr3nUZ0YU",
+    "Daniel Barenboim",
+    "complete sonata",
+    1118
+   ]
+  ]
+ },
+ "beethoven-sonata-18": {
+  "score": [
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/18-1"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/18-2"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/18-3"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/18-4"
+   ]
+  ],
+  "recording": [
+   [
+    "p7775Z-RZYw",
+    "Daniel Barenboim",
+    "complete sonata",
+    20
+   ],
+   [
+    "p7775Z-RZYw",
+    "Daniel Barenboim",
+    "complete sonata",
+    538
+   ],
+   [
+    "p7775Z-RZYw",
+    "Daniel Barenboim",
+    "complete sonata",
+    842
+   ],
+   [
+    "p7775Z-RZYw",
+    "Daniel Barenboim",
+    "complete sonata",
+    1115
+   ]
+  ]
+ },
+ "beethoven-sonata-19": {
+  "score": [
+   [
+    "Mutopia · Stelios Samelis · Public Domain",
+    "",
+    "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BeethovenLv/O49/LVB_Sonate_49no1_1",
+    "https://www.mutopiaproject.org/ftp/BeethovenLv/O49/LVB_Sonate_49no1_1/LVB_Sonate_49no1_1-a4.pdf"
+   ],
+   [
+    "Mutopia · Stelios Samelis · Public Domain",
+    "",
+    "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BeethovenLv/O49/LVB_Sonate_49no1_2",
+    "https://www.mutopiaproject.org/ftp/BeethovenLv/O49/LVB_Sonate_49no1_2/LVB_Sonate_49no1_2-a4.pdf"
+   ]
+  ],
+  "recording": [
+   [
+    "dOB7OCN7hUc",
+    "Daniel Barenboim",
+    "complete sonata",
+    19
+   ],
+   [
+    "dOB7OCN7hUc",
+    "Daniel Barenboim",
+    "complete sonata",
+    302
+   ]
+  ]
+ },
+ "beethoven-sonata-20": {
+  "score": [
+   [
+    "Mutopia · Stelios Samelis · Public Domain",
+    "",
+    "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BeethovenLv/O49/LVB_Sonate_49no2_1",
+    "https://www.mutopiaproject.org/ftp/BeethovenLv/O49/LVB_Sonate_49no2_1/LVB_Sonate_49no2_1-a4.pdf"
+   ],
+   [
+    "Mutopia · Stelios Samelis · Public Domain",
+    "",
+    "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BeethovenLv/O49/LVB_Sonate_49no2_2",
+    "https://www.mutopiaproject.org/ftp/BeethovenLv/O49/LVB_Sonate_49no2_2/LVB_Sonate_49no2_2-a4.pdf"
+   ]
+  ],
+  "recording": [
+   [
+    "y0KgQEt0PR4",
+    "Daniel Barenboim",
+    "complete sonata",
+    20
+   ],
+   [
+    "y0KgQEt0PR4",
+    "Daniel Barenboim",
+    "complete sonata",
+    299
+   ]
+  ]
+ },
+ "beethoven-sonata-21": {
+  "score": [
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/21-1"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/21-2"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/21-3"
+   ]
+  ],
+  "recording": [
+   [
+    "Y7BjlA0gDvg",
+    "Daniel Barenboim",
+    "complete sonata",
+    23
+   ],
+   [
+    "Y7BjlA0gDvg",
+    "Daniel Barenboim",
+    "complete sonata",
+    698
+   ],
+   [
+    "Y7BjlA0gDvg",
+    "Daniel Barenboim",
+    "complete sonata",
+    974
+   ]
+  ]
+ },
+ "beethoven-sonata-22": {
+  "score": [
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/22-1"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/22-2"
+   ]
+  ],
+  "recording": [
+   [
+    "KOXm8nZtIkg",
+    "Daniel Barenboim",
+    "complete sonata",
+    19
+   ],
+   [
+    "KOXm8nZtIkg",
+    "Daniel Barenboim",
+    "complete sonata",
+    380
+   ]
+  ]
+ },
+ "beethoven-sonata-23": {
+  "score": [
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/23-1"
+   ],
+   [
+    "Mutopia · Andreas Scherer · Public Domain",
+    "",
+    "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BeethovenLv/O57/LVB_Sonate_57_2",
+    "https://www.mutopiaproject.org/ftp/BeethovenLv/O57/LVB_Sonate_57_2/LVB_Sonate_57_2-a4.pdf"
+   ],
+   [
+    "Mutopia · Stelios Samelis · Public Domain",
+    "",
+    "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BeethovenLv/O57/LVB_Sonate_57_3",
+    "https://www.mutopiaproject.org/ftp/BeethovenLv/O57/LVB_Sonate_57_3/LVB_Sonate_57_3-a4.pdf"
+   ]
+  ],
+  "recording": [
+   [
+    "bpu3FOZkHd4",
+    "Daniel Barenboim",
+    "complete sonata",
+    19
+   ],
+   [
+    "bpu3FOZkHd4",
+    "Daniel Barenboim",
+    "complete sonata",
+    668
+   ],
+   [
+    "bpu3FOZkHd4",
+    "Daniel Barenboim",
+    "complete sonata",
+    1117
+   ]
+  ]
+ },
+ "beethoven-sonata-24": {
+  "score": [
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/24-1"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/24-2"
+   ]
+  ],
+  "recording": [
+   [
+    "-7Xjievtz3A",
+    "Daniel Barenboim",
+    "complete sonata",
+    20
+   ],
+   [
+    "-7Xjievtz3A",
+    "Daniel Barenboim",
+    "complete sonata",
+    297
+   ]
+  ]
+ },
+ "beethoven-sonata-25": {
+  "score": [
+   [
+    "Mutopia · Stelios Samelis · Public Domain",
+    "",
+    "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BeethovenLv/O79/LVB_Sonate_79_1",
+    "https://www.mutopiaproject.org/ftp/BeethovenLv/O79/LVB_Sonate_79_1/LVB_Sonate_79_1-a4.pdf"
+   ],
+   [
+    "Mutopia · Stelios Samelis · Public Domain",
+    "",
+    "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BeethovenLv/O79/LVB_Sonate_79_2",
+    "https://www.mutopiaproject.org/ftp/BeethovenLv/O79/LVB_Sonate_79_2/LVB_Sonate_79_2-a4.pdf"
+   ],
+   [
+    "Mutopia · Stelios Samelis · Public Domain",
+    "",
+    "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/BeethovenLv/O79/LVB_Sonate_79_3",
+    "https://www.mutopiaproject.org/ftp/BeethovenLv/O79/LVB_Sonate_79_3/LVB_Sonate_79_3-a4.pdf"
+   ]
+  ],
+  "recording": [
+   [
+    "ZvxhqlqNhu4",
+    "Daniel Barenboim",
+    "complete sonata",
+    19
+   ],
+   [
+    "ZvxhqlqNhu4",
+    "Daniel Barenboim",
+    "complete sonata",
+    205
+   ],
+   [
+    "ZvxhqlqNhu4",
+    "Daniel Barenboim",
+    "complete sonata",
+    387
+   ]
+  ]
+ },
+ "beethoven-sonata-26": {
+  "score": [
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/26-1"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/26-2"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/26-3"
+   ]
+  ],
+  "recording": [
+   [
+    "K-ChTHM9B2w",
+    "Daniel Barenboim",
+    "complete sonata",
+    22
+   ],
+   [
+    "K-ChTHM9B2w",
+    "Daniel Barenboim",
+    "complete sonata",
+    480
+   ],
+   [
+    "K-ChTHM9B2w",
+    "Daniel Barenboim",
+    "complete sonata",
+    749
+   ]
+  ]
+ },
+ "beethoven-sonata-27": {
+  "score": [
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/27-1"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/27-2"
+   ]
+  ],
+  "recording": [
+   [
+    "mUX1ctW_ruA",
+    "Daniel Barenboim",
+    "complete sonata",
+    22
+   ],
+   [
+    "mUX1ctW_ruA",
+    "Daniel Barenboim",
+    "complete sonata",
+    393
+   ]
+  ]
+ },
+ "beethoven-sonata-28": {
+  "score": [
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/28-1"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/28-2"
+   ]
+  ],
+  "recording": [
+   [
+    "dD2Bqolt8_Y",
+    "Daniel Barenboim",
+    "complete sonata",
+    20
+   ],
+   [
+    "dD2Bqolt8_Y",
+    "Daniel Barenboim",
+    "complete sonata",
+    276
+   ]
+  ]
+ },
+ "beethoven-sonata-29": {
+  "score": [
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/29-2"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/29-3"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/29-4"
+   ]
+  ],
+  "recording": [
+   [
+    "J4hjpgtTe7M",
+    "Daniel Barenboim",
+    "complete sonata",
+    787
+   ],
+   [
+    "J4hjpgtTe7M",
+    "Daniel Barenboim",
+    "complete sonata",
+    968
+   ],
+   [
+    "J4hjpgtTe7M",
+    "Daniel Barenboim",
+    "complete sonata",
+    2283
+   ]
+  ]
+ },
+ "beethoven-sonata-30": {
+  "score": [
+   "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/30-1"
+  ],
+  "recording": [
+   [
+    "RibUw_Ln4Jk",
+    "Daniel Barenboim",
+    "complete sonata",
+    20
+   ]
+  ]
+ },
+ "beethoven-sonata-31": {
+  "score": [
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/31-1"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/31-2"
+   ],
+   [
+    "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+    "",
+    "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/31-3_4"
+   ]
+  ],
+  "recording": [
+   [
+    "5RmF3fpPgCc",
+    "Daniel Barenboim",
+    "complete sonata",
+    0
+   ],
+   [
+    "5RmF3fpPgCc",
+    "Daniel Barenboim",
+    "complete sonata",
+    445
+   ],
+   [
+    "5RmF3fpPgCc",
+    "Daniel Barenboim",
+    "complete sonata",
+    585
+   ]
+  ]
+ },
+ "beethoven-sonata-32": {
+  "score": [
+   "ASAP dataset · Foscarin et al. · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/fosfrancesco/asap-dataset/tree/master/Beethoven/Piano_Sonatas/32-1"
+  ],
+  "recording": [
+   [
+    "bYe27pJ2RBI",
+    "Daniel Barenboim",
+    "complete sonata",
+    20
+   ]
+  ]
+ }
+}
