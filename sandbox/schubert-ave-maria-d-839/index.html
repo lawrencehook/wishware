@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Schubert — Ave Maria, D. 839 · Wishware Sandbox</title>
+    <script src="../../site-theme.js"></script>
+    <link href="../../favicons/wishware.svg" rel="icon" />
+    <link href="../shared/experiments.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared/music.css" />
+  </head>
+  <body class="music-page">
+    <nav data-site-theme-slot>
+      <a href="../index.html">← Sandbox</a>
+      <a href="../music-pieces.html">Playable music pieces</a>
+    </nav>
+    <main>
+      <h1>Schubert — Ave Maria, D. 839</h1>
+      <section>
+        <h2>Performance</h2>
+        <div
+          class="performance"
+          data-video="tDQj7j-xogM"
+          data-title="Ave Maria, D. 839"
+        >
+          <p>
+            Ave Maria, D. 839
+            <small>· Barbara Bonney, soprano · Geoffrey Parsons, piano</small>
+          </p>
+          <button type="button" class="primary">Play recording</button>
+          <a href="https://www.youtube.com/watch?v=tDQj7j-xogM">
+            Watch on YouTube
+          </a>
+        </div>
+      </section>
+      <section>
+        <h2>Sampled grand piano</h2>
+        <div data-score-player data-instrument="piano">
+          <p data-edition-name>Ave Maria, D. 839</p>
+
+          <label class="movement">
+            Movement
+            <select data-movements></select>
+          </label>
+          <div class="transport" data-transport hidden>
+            <button type="button" data-play class="primary">Play</button>
+            <input
+              data-position
+              type="range"
+              min="0"
+              max="1"
+              value="0"
+              step=".01"
+              aria-label="Score position"
+            />
+            <time data-clock></time>
+            <select data-speed aria-label="Playback speed">
+              <option value=".5">½ speed</option>
+              <option value=".75">¾ speed</option>
+              <option selected value="1">1× speed</option>
+              <option value="1.25">1¼ speed</option>
+            </select>
+          </div>
+          <canvas
+            data-roll
+            hidden
+            width="990"
+            height="220"
+            role="img"
+            aria-label="Scrolling piano roll, with time running from left to right"
+          ></canvas>
+
+          <p role="status" data-status></p>
+        </div>
+      </section>
+      <details>
+        <summary>Sheet music</summary>
+        <ul>
+          <li>
+            <a
+              href="https://www.mutopiaproject.org/ftp/SchubertF/D839/SchubertF-D839_AveMaria/SchubertF-D839_AveMaria-a4.pdf"
+            >
+              Ave Maria, D. 839 · PDF
+            </a>
+          </li>
+        </ul>
+      </details>
+    </main>
+    <footer>
+      <details>
+        <summary>Sources and editions</summary>
+        <p>Voice and piano score edited by Ph. Raynaud for the Mutopia Project (public domain). The sampled piano plays both the vocal line and the accompaniment through all three verses. <a href="https://www.mutopiaproject.org/ftp/SchubertF/D839/SchubertF-D839_AveMaria/SchubertF-D839_AveMaria.mid">Source MIDI</a></p>
+        <p>
+          Instrument samples · Alexander Holm, Salamander grand piano ·
+          <a href="../../music/bach-data/piano-credits.txt">Edition</a>
+        </p>
+      </details>
+      <nav aria-label="Music collection">
+        <a href="../schoenberg-6-little-piano-pieces-op-19/index.html">← Previous · Schoenberg — 6 Little Piano Pieces, Op.19</a>
+        <a href="../art-songs/index.html">Next → · Schubert — Erlkönig, D. 328</a>
+      </nav>
+    </footer>
+    <script src="notes.js"></script>
+    <script src="../shared/sheet.js"></script>
+    <script src="../shared/score.js"></script>
+    <script src="../shared/performance.js"></script>
+  </body>
+</html>

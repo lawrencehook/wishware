@@ -103,49 +103,68 @@
             : cursor;
     }
     function render() {
-        const t = position(),
-            span = 12 * rate,
-            left = Math.floor(t / span) * span;
+        const t = position();
         clock.textContent = format(t) + ' / ' + format(duration);
         seek.value = t;
         const chapter = movements.findLastIndex((v) => v <= t);
         if (chapter >= 0) chapters.selectedIndex = chapter;
         showMeasure(edition[chapter], t - (movements[chapter] ?? 0));
         if (canvas.hidden) return;
-        const width = canvas.width,
-            height = canvas.height;
+        const width = canvas.clientWidth, height = canvas.clientHeight;
+        if (!width || !height) return;
+        const density = window.devicePixelRatio || 1;
+        const pixels = Math.round(width * density), rows = Math.round(height * density);
+        if (canvas.width !== pixels || canvas.height !== rows) {
+            canvas.width = pixels;
+            canvas.height = rows;
+        }
+        g.setTransform(density, 0, 0, density, 0, 0);
+        const span = (width < 600 ? 6 : 12) * rate;
+        const left = Math.max(0, Math.min(t - span * 0.38, duration - span));
+        const x = time => 7 + (time - left) * (width - 14) / span;
+        const row = (height - 36) / Math.max(1, maxPitch - minPitch + 1);
+        const y = pitch => 10 + (maxPitch - pitch) * row;
+        const playing = active || (usingTake && recording && !recording.paused);
         g.fillStyle = '#192b28';
         g.fillRect(0, 0, width, height);
-        const row = (height - 36) / Math.max(1, maxPitch - minPitch + 1);
         for (let p = minPitch; p <= maxPitch; p++) {
-            const y = 8 + (maxPitch - p) * row;
             if (p % 12 === 0) {
                 g.fillStyle = '#384942';
-                g.fillRect(0, y, width, 1);
+                g.fillRect(0, y(p), width, 1);
             }
         }
+        g.fillStyle = '#fdf5d8';
+        g.fillRect(x(t), 4, 1, height - 25);
         for (let j = atTime(left - maxLength); j < timeline.length; j++) {
             const n = timeline[j];
-            if (n.time >= left + span) break;
-            if (n.time + n.length <= left) continue;
-            const x = ((n.time - left) / span) * width;
-            g.fillStyle = colors[groupIds.indexOf(n.group) % colors.length];
-            g.fillRect(
-                x,
-                8 + (maxPitch - n.pitch) * row,
-                Math.max(2, (n.length / span) * width - 1),
-                Math.max(2, row * 0.83),
-            );
+            if (n.time > left + span) break;
+            const end = n.time + n.length;
+            if (end < left) continue;
+            const startX = x(n.time), pitchY = y(n.pitch);
+            const struck = playing && t >= n.time && t < end;
+            g.fillStyle = g.strokeStyle = colors[groupIds.indexOf(n.group) % colors.length];
+            g.globalAlpha = struck ? 0.9 : 0.48;
+            g.fillRect(startX, pitchY - 1, Math.max(1, x(end) - startX), 2);
+            const radius = Math.min(4, Math.max(2.2, row * 0.7));
+            if (struck && t - n.time < 0.18) {
+                g.globalAlpha = 0.35 * (1 - (t - n.time) / 0.18);
+                g.beginPath();
+                g.arc(startX, pitchY, radius + 4, 0, Math.PI * 2);
+                g.fill();
+            }
+            g.globalAlpha = struck ? 1 : 0.78;
+            g.beginPath();
+            g.arc(startX, pitchY, radius, 0, Math.PI * 2);
+            if (t <= n.time || struck) g.fill();
+            else g.stroke();
         }
+        g.globalAlpha = 1;
         g.fillStyle = '#fdf5d8';
-        g.fillRect(((t - left) / span) * width, 0, 2, height - 24);
-        g.font = '16px system-ui';
-        g.fillText(format(left), 8, height - 5);
-        g.fillText(
-            format(Math.min(left + span, duration)),
-            width - 55,
-            height - 5,
-        );
+        g.font = '12px system-ui';
+        g.textAlign = 'left';
+        g.fillText(format(left), 7, height - 5);
+        g.textAlign = 'right';
+        g.fillText(format(Math.min(left + span, duration)), width - 7, height - 5);
     }
 
     function pause() {
@@ -338,7 +357,7 @@
     let resumeSeek = false;
     seek.addEventListener('input', () => {
         const value = +seek.value;
-        if (usingTake && take?.downbeats && lastSound === 'recording' &&
+        if (usingTake && recording && lastSound === 'recording' &&
             Number.isFinite(recording.duration)) {
             recording.currentTime = Math.min(recording.duration, value);
         }
@@ -375,7 +394,7 @@
         };
     if (compare && take) {
         recording.addEventListener('play', () => {
-            if (take.downbeats && !usingTake) {
+            if (!usingTake) {
                 usingTake = true;
                 if (editions) editions.selectedIndex = 0;
                 useEdition([take]);
@@ -384,15 +403,18 @@
             lastSound = 'recording';
             compare.textContent = 'Hear this point on sampled piano';
         });
-        if (take.downbeats) {
-            const followRecording = () => {
-                if (!usingTake || active || lastSound !== 'recording') return;
-                cursor = Math.min(duration, recording.currentTime);
-                render();
-            };
-            for (const event of ['play', 'timeupdate', 'seeked', 'pause'])
-                recording.addEventListener(event, followRecording);
+        let recordingFrame;
+        function followRecording() {
+            cancelAnimationFrame(recordingFrame);
+            if (!usingTake || active || lastSound !== 'recording') return;
+            cursor = Math.min(duration, recording.currentTime);
+            render();
+            if (!recording.paused && !recording.ended)
+                recordingFrame = requestAnimationFrame(followRecording);
         }
+        for (const event of ['play', 'seeked', 'pause', 'ended'])
+            recording.addEventListener(event, followRecording);
+        window.addEventListener('pagehide', () => cancelAnimationFrame(recordingFrame));
         compare.onclick = async () => {
             if (lastSound === 'score' && usingTake) {
                 const t = position();
@@ -428,5 +450,6 @@
             move(movements[index], true);
         };
     });
+    new ResizeObserver(render).observe(canvas);
     useEdition(take ? [take] : library);
 })();

@@ -12,7 +12,7 @@ function createMeasureView(canvas) {
     const system = document.createElement('div');
     system.className = 'measure-system';
     figure.append(caption, system);
-    canvas.before(figure);
+    canvas.after(figure);
 
     const vendor = new URL('vendor/abcjs-basic-min.js', document.currentScript.src);
     let engraver, current, source, previous = -1, systemStart = -1;

@@ -1,11 +1,13 @@
 (() => {
     const search = document.querySelector('#find'),
         format = document.querySelector('#format');
+    const notable = document.getElementById('notable');
     const entries = [
         ...document.querySelectorAll('.gallery > li, .music-list > li'),
     ];
     function update() {
         const query = search.value.trim().toLocaleLowerCase();
+        if (notable) notable.hidden = Boolean(query);
         let shown = 0;
         for (const item of entries) {
             const matchesFormat =
