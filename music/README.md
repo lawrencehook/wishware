@@ -2,6 +2,8 @@
 
 The [music catalog](index.html) includes five collections. Each uses the notation and sources available for its repertoire.
 
+Composer pages share one template: `composer.html?c=<id>` reads `composers/<id>.js`, which `node music/build.js` generates from the score data. Rerun the build after changing a score or the featured works. Bach's catalog comes from `bach-data/`; other composers are listed by hand in `catalog.js` and play from `pieces/<folder>/notes.js` in `piece.html`, a copy of the Bach player (`bach-fugue.html`) that reads the sandbox note format. Its sheet music comes from `notation/<folder>/`, which `engrave.py` cuts from the Mutopia PDF named in `catalog.js` (see the notes at the top of that script); a piece without an engraving shows no sheet music. The non-Bach collections below are not linked from the site for now.
+
 | Collection | Scope and playback |
 | --- | --- |
 | [Guqin](guqin/index.html) | All 64 titles in Zhu Quan’s 1425 handbook, with a facsimile and a playable demonstration of the opening gestures of entry 44. |
