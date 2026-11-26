@@ -3,3 +3,4 @@ tools/smoketest/results*.json
 auto-brainstorm.log
 tools/browsertest/results.json
 tools/browsertest/screenshots/
+__pycache__/

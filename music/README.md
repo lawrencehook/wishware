@@ -1,8 +1,25 @@
-# Open music collections and listening experiments
+# Music
 
-The [music catalog](index.html) includes five collections. Each uses the notation and sources available for its repertoire.
+[`index.html`](index.html) is a directory of composers. Each composer has a page with a short note, selected works and a catalog, and each work has a player page: a piano roll that plays in the browser, engraved sheet music that follows along where an edition matches, and a recording on YouTube.
 
-`index.html` is the composer directory. Composer pages share one template: `composer.html?c=<id>` reads `composers/<id>.js`, which `node music/build.js` generates from the score data. Rerun the build after changing a score or the featured works. Bach's catalog comes from `bach-data/`; other composers are listed by hand in `catalog.js` and play from `pieces/<folder>/notes.js` in `piece.html`, a copy of the Bach player (`bach-fugue.html`) that reads the sandbox note format. Its sheet music comes from `notation/<folder>/`, which `engrave.py` cuts from the Mutopia PDF named in `catalog.js` (see the notes at the top of that script); a piece without an engraving shows no sheet music. The non-Bach collections below are not linked from the site for now.
+## How it is built
+
+- **Composer pages** share one template: `composer.html?c=<id>` reads `composers/<id>.js`, which `node music/build.js` generates. Rerun the build after changing a catalog, a source or a score. The directory lists composers oldest first.
+- **Catalogs** are written by hand in `catalog/<id>.js` (format in `catalog.js`), with score credits and recordings in `catalog/sources/<id>.json`. A recording can carry the second at which the piece starts in a video of a whole set.
+- **Piece pages** are `piece.html?c=<id>&p=<folder>&m=<movement>`, playing `pieces/<folder>/notes.js` and `measures.js`.
+- **Sheet music** in `notation/<folder>/` is cut by `engrave.py` from the Mutopia PDF named in the sources (see the notes at the top of that script). A piece whose printed measures cannot be matched shows none.
+- **Bach** predates the template: his catalog comes from `bach-data/` and his pieces play in `bach-fugue.html`, which `piece.html` was copied from. A fix to the player usually belongs in both.
+
+## Known gaps
+
+- Tempos come from the source files and few have been checked by ear. `tools/imports.json` records the ones corrected by hand (`speed`, `tempo`); Chopin’s Ballade No. 4 was also rescaled by 1.5 in place, because its marks count dotted quarters.
+- Mutopia MIDI plays each printed measure once: repeats are skipped and a minuet ends after its trio.
+- Pieces from the ASAP and DCML datasets have no engraved edition, so no sheet music.
+- Bach’s pieces have no recordings, and his Goldberg Variations are still in the sandbox.
+
+## Other collections
+
+Four earlier collections remain in this folder but are not linked from the site for now.
 
 | Collection | Scope and playback |
 | --- | --- |
@@ -13,7 +30,7 @@ The [music catalog](index.html) includes five collections. Each uses the notatio
 
 ## Composer list
 
-The composers to showcase, in rough order. The list favors keyboard music, because that is what the player and the engraved editions handle best; composers known mainly for opera or orchestral work (Wagner, Verdi, Puccini, Mahler, Vivaldi) are left out for now. Counts are as of 2026-11-24.
+The composers to showcase, in the order they were added. The list favors keyboard music, because that is what the player and the engraved editions handle best; composers known mainly for opera or orchestral work (Wagner, Verdi, Puccini, Mahler, Vivaldi) are left out for now. Counts are as of 2026-11-25.
 
 To add a composer: `tools/survey.py` lists what each sandbox folder holds, `tools/sources.py` writes `catalog/sources/<id>.json` from the credits and recordings on the sandbox pages, you write `catalog/<id>.js` and add the id to `catalog.js`, `tools/migrate.py` moves the note data to `pieces/` and retires the sandbox pages, then run `engrave.py` and `build.js`. Run the tools from the repo root.
 
@@ -33,14 +50,14 @@ Pieces the sandbox never had come straight from score MIDI: list them in `tools/
 | 10 | Maurice Ravel | Done | 7 works |
 | 11 | Erik Satie | Done | 6 works; Sports et divertissements (no note data) stays in the sandbox |
 | 12 | Johannes Brahms | Done | 4 works; no open score data found yet for Op. 117, the Handel Variations or the Hungarian Dances |
-| 13 | Joseph Haydn | | 1 |
-| 14 | Felix Mendelssohn | | 1 |
-| 15 | Pyotr Ilyich Tchaikovsky | | 2 |
-| 16 | Edvard Grieg | | 1 |
-| 17 | Domenico Scarlatti | | 1 |
-| 18 | George Frideric Handel | | none |
-| 19 | Sergei Prokofiev | | 2 |
-| 20 | Dmitri Shostakovich | | 1 |
+| 13 | Joseph Haydn | Done | 17 works, movements from ten sonatas |
+| 14 | Felix Mendelssohn | Done | 7 works |
+| 15 | Pyotr Ilyich Tchaikovsky | Done | 16 works |
+| 16 | Edvard Grieg | Done | 13 works |
+| 17 | Domenico Scarlatti | Done | 4 works |
+| 18 | George Frideric Handel | Done | 21 works, mostly the short Aylesford Pieces; no open score data found yet for the harpsichord suites |
+| 19 | Sergei Prokofiev | Done | 2 works |
+| 20 | Dmitri Shostakovich |  | no note data, and the music is still in copyright |
 
 Also plausible, each with material in the sandbox: Scott Joplin (5), Béla Bartók (4), Isaac Albéniz (3), Alexander Scriabin (2), Clara Schumann (2), George Gershwin (1), Modest Mussorgsky (1), Gabriel Fauré (1).
 

@@ -78,8 +78,8 @@ def find_barlines(dark, top, bottom, lines, accepted=()):
     """Columns inked from the top staff line to the bottom one; close pairs (double bars) merge.
 
     Returns the positions, the right end of the staff, whether the last barline closes the
-    system (a long measure, such as a cadenza, can run on into the next system), and the
-    doubtful columns as [(column, score)]. Text can interrupt a barline, so a column inked for
+    system (a long measure, such as a cadenza, can run on into the next system), the
+    doubtful columns as [(column, score)], and which of the positions are double barlines. Text can interrupt a barline, so a column inked for
     most of the height may be one; but so may two stems that happen to line up. The lower the
     score, the less ink touches the column. A doubtful column counts only if listed in `accepted`.
     """
@@ -108,7 +108,8 @@ def find_barlines(dark, top, bottom, lines, accepted=()):
     if not marks:
         marks = [[left, left + 1]]
     # A change of key or clef announced after the last barline is not the start of a measure.
-    return [int((a + b) // 2) for a, b in marks], right, right - marks[-1][1] < space * 10, doubtful
+    wide = [b - a >= space for a, b in marks]  # a double or repeat barline
+    return [int((a + b) // 2) for a, b in marks], right, right - marks[-1][1] < space * 10, doubtful, wide
 
 
 def signatures(notes, tempo, bars):
@@ -125,13 +126,15 @@ def signatures(notes, tempo, bars):
     return [frozenset(notes) for notes in found]
 
 
-def unfold(heard, printed, long):
+def unfold(heard, printed, long, split=()):
     """Printed measure for each measure heard.
 
-    `long` maps a printed measure to the number of heard measures it spans. Beyond that, one
-    literal repeat is understood, with or without a first ending.
+    `long` maps a printed measure to the number of heard measures it spans, and `split` lists
+    printed measures that only finish the one before. Beyond that, one literal repeat is
+    understood, with or without a first ending.
     """
-    spans = [index for index in range(printed) for _ in range(long.get(index, 1))]
+    spans = [index for index in range(printed) if index not in split for _ in range(long.get(index, 1))]
+    printed -= len(split)
     count = len(heard)
     if count == len(spans):
         return spans
@@ -173,7 +176,7 @@ def engrave(folder, index, url, notes, notation, work, debug):
     heard = len(notation['bars']) - sum(count - 1 for count in long.values())
     accepted = {}  # (page, top of system) -> doubtful columns to count as barlines
     for attempt in range(2):
-        systems, bars, images, doubtful = [], [], [], []
+        systems, bars, images, doubtful, double = [], [], [], [], []
         open_measure = False
         for page_number, page in enumerate(pages, 1):
             image = Image.open(page).convert('L')
@@ -195,13 +198,15 @@ def engrave(folder, index, url, notes, notation, work, debug):
                 y0 = cuts[i - 1] if i else max(0, top - int(margin * 1.8))  # room for a tempo marking
                 y1 = cuts[i] if i + 1 < len(found) else min(image.height, bottom + margin)
                 key = (page_number, top)
-                x, end, closed, maybe = find_barlines(faint, top, bottom, lines, accepted.get(key, ()))
+                x, end, closed, maybe, wide = find_barlines(faint, top, bottom, lines, accepted.get(key, ()))
                 doubtful += [(score, key, column) for column, score in maybe]
                 edges = x if closed else x + [int(end)]
                 for k in range(len(edges) - 1):
                     # The rest of a measure left open by the previous system is not a new measure.
                     if not (k == 0 and open_measure):
                         bars.append([len(systems), edges[k], edges[k + 1] - edges[k]])
+                        if k + 1 < len(wide) and wide[k + 1]:
+                            double.append(len(bars))  # the measure that follows a double barline
                 open_measure = not closed
                 systems.append({'file': '%s/%d-%d.webp' % (folder, index, page_number),
                                 'imageHeight': image.height, 'y': int(y0), 'h': int(y1 - y0)})
@@ -222,7 +227,12 @@ def engrave(folder, index, url, notes, notation, work, debug):
         for _, key, column in best:
             accepted.setdefault(key, set()).add(column)
 
-    order = unfold(signatures(notes, notation['tempo'], notation['bars']), len(bars), long)
+    # A repeat sign inside a measure, as where each half of a dance opens with an upbeat, prints
+    # that measure in two parts. If the double barlines account exactly for the surplus of
+    # printed measures, take each as such a division.
+    double = [index for index in double if index < len(bars)]
+    split = double if double and len(bars) - len(double) == heard else ()
+    order = unfold(signatures(notes, notation['tempo'], notation['bars']), len(bars), long, split)
     play = [[bar[0], printed] for bar, printed in zip(notation['bars'], order)]
 
     out = HERE / 'notation' / folder

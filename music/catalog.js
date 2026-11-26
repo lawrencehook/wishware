@@ -19,5 +19,5 @@
 //   Most composers keep `sources` in catalog/sources/<id>.json.
 
 // Composers in the order the directory lists them, after Bach.
-const order = ['chopin', 'mozart', 'beethoven', 'schubert', 'debussy', 'liszt', 'schumann', 'rachmaninoff', 'ravel', 'satie', 'brahms'];
+const order = ['chopin', 'mozart', 'beethoven', 'schubert', 'debussy', 'liszt', 'schumann', 'rachmaninoff', 'ravel', 'satie', 'brahms', 'haydn', 'mendelssohn', 'tchaikovsky', 'grieg', 'scarlatti', 'handel', 'prokofiev'];
 module.exports = Object.fromEntries(order.map((id) => [id, require('./catalog/' + id + '.js')]));

@@ -7,9 +7,10 @@
 canvas{height:clamp(210px,32vh,340px)}
 .sheet{margin-top:20px}.sheet header{padding:0 0 8px;border:0;align-items:baseline}
 .sheet h2{font:normal 22px Georgia,serif;margin:0}.sheet a{font-size:14px;color:light-dark(#3b443d, #c7d0c9)}
-.paper{overflow-x:auto;background:light-dark(#272413, #f7f5ea);border-radius:5px}.paper svg{display:block;width:100%;min-width:590px}
+.paper{overflow-x:auto;background:#f7f5ea;border-radius:5px}.paper svg{display:block;width:100%;min-width:590px}
 .paper image{mix-blend-mode:multiply}.paper rect{fill:#e4b93d;opacity:.21;mix-blend-mode:multiply}
 [hidden]{display:none!important}
+.neighbours{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:22px;font-size:14px}.neighbours a{color:light-dark(#685930, #ddcd9f);text-underline-offset:4px}.neighbours a:only-child[rel=next]{margin-left:auto}
 .recording p{margin-bottom:10px;font-size:14px}.recording iframe{display:block;width:min(100%,720px);aspect-ratio:16/9;border:0;border-radius:5px}
 </style><main><header><div><span class="composer"></span><h1></h1><p></p></div><a class="back" href="index.html">← All works</a></header>
 <canvas aria-label="Colored paths show note onsets from left to right, with higher pitches higher on screen."></canvas>
@@ -24,7 +25,7 @@ canvas{height:clamp(210px,32vh,340px)}
 <p id="performer"></p>
 <button id="watch">Play recording</button>
 </section>
-<footer><div class="voices" aria-label="Audible voices"></div><div class="credit"><a id="edition"></a> · <a href="bach-data/piano-credits.txt">Salamander grand piano</a></div></footer><p role="status" id="status"></p></main>
+<footer><div class="voices" aria-label="Audible voices"></div><div class="credit"><a id="edition"></a> · <a href="bach-data/piano-credits.txt">Salamander grand piano</a></div></footer><p role="status" id="status"></p><nav class="neighbours" aria-label="Neighbouring works"></nav></main>
 <script>
 // The Bach player, fed by a piece in pieces/<p>/: notes.js holds
 // {movements: [{name, notes: [[seconds, pitch, length, hand, velocity], ...]}]} and
@@ -42,7 +43,7 @@ const load = src => new Promise((resolve, reject) => {
 });
 function missing() {
     document.querySelector('h1').textContent = 'Piece not found';
-    for (const part of document.querySelectorAll('canvas, .controls, .sheet, footer')) part.hidden = true;
+    for (const part of document.querySelectorAll('canvas, .controls, .sheet, footer, .neighbours')) part.hidden = true;
 }
 (async () => {
     // Both ids only ever name files inside this repo.
@@ -56,8 +57,19 @@ function missing() {
     const composer = COMPOSERS[composerId];
     const movement = score.movements[movementIndex];
     const link = 'piece.html?c=' + composerId + '&p=' + folder + '&m=' + movementIndex;
-    const work = composer.sections.flatMap(section => section.works ?? []).find(item => item.href === link);
+    const works = composer.sections.flatMap(section => section.works ?? []);
+    const work = works.find(item => item.href === link);
     if (!movement || !work) return missing();
+    // The works on either side, in the order of the composer's page.
+    const at = works.indexOf(work);
+    for (const [neighbour, rel, label] of [[works[at - 1], 'prev', text => '← ' + text], [works[at + 1], 'next', text => text + ' →']]) {
+        if (!neighbour) continue;
+        const anchor = document.createElement('a');
+        anchor.href = neighbour.href;
+        anchor.rel = rel;
+        anchor.textContent = label(neighbour.heading);
+        document.querySelector('.neighbours').append(anchor);
+    }
     start(composer, work, movement);
 })();
 
@@ -108,13 +120,16 @@ const totalBeats = Math.max(...voices.flat().map(n => n.t + n.length));
 // Measures as heard: [beat, label, index of the printed measure]. The engraving knows the
 // print, including repeats and cadenzas; otherwise measures.js numbers them.
 const sheet = typeof ENGRAVING === 'undefined' ? null : ENGRAVING;
+// A printed measure that only finishes the one before it (after a repeat sign) is never played to,
+// so measures are numbered by their place among the printed measures that are.
+const played = sheet && [...new Set(sheet.play.map(([, printed]) => printed))].sort((x, y) => x - y);
 const heard = sheet
     ? sheet.play.filter(([, printed], i, all) => printed !== all[i - 1]?.[1])
-        .map(([beat, printed]) => [beat, sheet.pickup ? printed : printed + 1, printed])
+        .map(([beat, printed]) => [beat, played.indexOf(printed) + (sheet.pickup ? 0 : 1), printed])
     : (notation?.bars ?? []).map(([beat, number]) => [beat, number]);
 const bars = heard.map(([beat]) => beat);
 const measures = bars.length;
-const lastNumber = sheet ? sheet.bars.length - (sheet.pickup ? 1 : 0) : heard.at(-1)?.[1];
+const lastNumber = sheet ? played.length - (sheet.pickup ? 1 : 0) : heard.at(-1)?.[1];
 const pitches = voices.flat().flatMap(n => n.pitches);
 const lowest = Math.min(...pitches), highest = Math.max(...pitches);
 const canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d'),play=document.querySelector('#play'),seek=document.querySelector('#seek'),speed=document.querySelector('#speed'),bar=document.querySelector('#bar');

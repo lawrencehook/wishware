@@ -1,0 +1,118 @@
+{
+ "grieg-lyric-pieces": {
+  "score": [
+   "DCML · grieg_lyric_pieces · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/DCMLab/grieg_lyric_pieces"
+  ],
+  "recording": [
+   [
+    "jZzrPmbQTME",
+    "Eternal Classics Brothers (channel)",
+    "Lyric Pieces, Book I, Op. 12",
+    0
+   ],
+   [
+    "jZzrPmbQTME",
+    "Eternal Classics Brothers (channel)",
+    "Lyric Pieces, Book I, Op. 12",
+    69
+   ],
+   [
+    "jZzrPmbQTME",
+    "Eternal Classics Brothers (channel)",
+    "Lyric Pieces, Book I, Op. 12",
+    182
+   ],
+   [
+    "jZzrPmbQTME",
+    "Eternal Classics Brothers (channel)",
+    "Lyric Pieces, Book I, Op. 12",
+    313
+   ],
+   [
+    "jZzrPmbQTME",
+    "Eternal Classics Brothers (channel)",
+    "Lyric Pieces, Book I, Op. 12",
+    373
+   ],
+   [
+    "jZzrPmbQTME",
+    "Eternal Classics Brothers (channel)",
+    "Lyric Pieces, Book I, Op. 12",
+    464
+   ],
+   [
+    "jZzrPmbQTME",
+    "Eternal Classics Brothers (channel)",
+    "Lyric Pieces, Book I, Op. 12",
+    523
+   ],
+   [
+    "jZzrPmbQTME",
+    "Eternal Classics Brothers (channel)",
+    "Lyric Pieces, Book I, Op. 12",
+    630
+   ]
+  ]
+ },
+ "grieg-peer-gynt-suite-no-1": {
+  "score": [
+   [
+    "Mutopia · Deborah Lowrey · Public Domain",
+    "",
+    "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/GriegE/O46/02-lamortdase",
+    "https://www.mutopiaproject.org/ftp/GriegE/O46/02-lamortdase/02-lamortdase-a4.pdf"
+   ],
+   [
+    "Mutopia · Coyau · Public Domain",
+    "",
+    "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/GriegE/O46/Dans_l_antre_du_roi_de_la_montagne",
+    "https://www.mutopiaproject.org/ftp/GriegE/O46/Dans_l_antre_du_roi_de_la_montagne/Dans_l_antre_du_roi_de_la_montagne-a4.pdf"
+   ]
+  ],
+  "recording": [
+   null,
+   [
+    "l7zcS8yr33Q",
+    "Paul Barton"
+   ]
+  ]
+ },
+ "grieg-march-of-the-trolls-op-54-no-3": {
+  "score": [
+   "Mutopia · Anonymous · Public Domain",
+   "",
+   "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/GriegE/O54/Troldtog",
+   "https://www.mutopiaproject.org/ftp/GriegE/O54/Troldtog/Troldtog-a4.pdf"
+  ],
+  "recording": [
+   "VNZ2zFSjaXc",
+   "Mikhail Pletnev"
+  ]
+ },
+ "grieg-wedding-day-at-troldhaugen-op-65-no-6": {
+  "score": [
+   "Mutopia · David Whipple · Public Domain",
+   "",
+   "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/GriegE/O65/troldhaugen",
+   "https://www.mutopiaproject.org/ftp/GriegE/O65/troldhaugen/troldhaugen-a4.pdf"
+  ],
+  "recording": [
+   "cx8B1OS1ViA",
+   "Grzegorz Niemczuk"
+  ]
+ },
+ "grieg-mountaineers-song-op-73-no-7": {
+  "score": [
+   "Mutopia · Ted Stanion · Public Domain",
+   "",
+   "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/GriegE/O73/7-MountaineersSong",
+   "https://www.mutopiaproject.org/ftp/GriegE/O73/7-MountaineersSong/7-MountaineersSong-a4.pdf"
+  ],
+  "recording": [
+   "UQc0Rk87JMQ",
+   "fromsuntosun (channel)"
+  ]
+ }
+}

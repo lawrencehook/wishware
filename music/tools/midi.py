@@ -3,8 +3,9 @@
 imports.json lists, per folder, the movements in order:
     {"<folder>": [{"name": ..., "midi": <url, or zip url + "#" + member>, "pickup": <quarter notes>,
                    "upper": [<note tracks that are the upper hand, counted from 0>],
-                   "speed": <factor, for a source whose tempo is plainly wrong>}]}
-pickup, upper and speed are optional. A Mutopia MIDI does not say that it opens with a partial
+                   "speed": <factor, for a source whose tempo is plainly wrong>,
+                   "tempo": {<quarter note where a tempo mark stands>: <corrected quarter notes per minute>}}]}
+pickup, upper, speed and tempo are optional. A Mutopia MIDI does not say that it opens with a partial
 measure, so without "pickup" the edition's LilyPond source is searched for \\partial. Without
 "upper", tracks are sorted into hands by their names, or failing that by how high they lie.
 
@@ -103,7 +104,8 @@ def convert(entry, work):
             tracks.append((name, notes))
 
     # Seconds at each tempo change, then seconds at any tick.
-    tempos = sorted((tick, tempo / entry.get('speed', 1)) for tick, tempo in dict(tempos).items()) or [(0, 500000)]
+    retempo = {float(beat): 60e6 / bpm for beat, bpm in entry.get('tempo', {}).items()}
+    tempos = sorted((tick, retempo.get(tick / tpq, tempo) / entry.get('speed', 1)) for tick, tempo in dict(tempos).items()) or [(0, 500000)]
     if tempos[0][0] > 0:
         tempos.insert(0, (0, tempos[0][1]))
     marks, seconds = [], 0.0

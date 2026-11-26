@@ -1,0 +1,49 @@
+{
+ "domenico-scarlatti-keyboard-sonatas": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas"
+  ],
+  "recording": [
+   "JdxP2Y4OEyA",
+   "Andrew Remillard"
+  ]
+ },
+ "scarlatti-sonata-k-11": {
+  "score": [
+   "Mutopia · Bas Wassink · Public Domain",
+   "",
+   "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/ScarlattiD/K11/sonatensatz",
+   "https://www.mutopiaproject.org/ftp/ScarlattiD/K11/sonatensatz/sonatensatz-a4.pdf"
+  ],
+  "recording": [
+   "4BUHo6zpdNc",
+   "Ivo Pogorelich"
+  ]
+ },
+ "scarlatti-sonata-k-455": {
+  "score": [
+   "Mutopia · Knute Snortum · CC BY-SA 4.0",
+   "",
+   "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/ScarlattiD/K455/scarlatti-k455",
+   "https://www.mutopiaproject.org/ftp/ScarlattiD/K455/scarlatti-k455/scarlatti-k455-a4.pdf"
+  ],
+  "recording": [
+   "yIAk61xEZ80",
+   "Yuja Wang"
+  ]
+ },
+ "scarlatti-sonata-k-491": {
+  "score": [
+   "Mutopia · Knute Snortum · CC BY-SA 4.0",
+   "",
+   "https://github.com/MutopiaProject/MutopiaProject/tree/master/ftp/ScarlattiD/K491/scarlatti-k491",
+   "https://www.mutopiaproject.org/ftp/ScarlattiD/K491/scarlatti-k491/scarlatti-k491-a4.pdf"
+  ],
+  "recording": [
+   "q9T9eETuwVE",
+   "Vladimir Horowitz"
+  ]
+ }
+}
