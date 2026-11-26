@@ -59,6 +59,7 @@ Pieces the sandbox never had come straight from score MIDI: list them in `tools/
 | 18 | George Frideric Handel | Done | 32 works: the Aylesford Pieces, “The Harmonious Blacksmith” (DCML) and piano versions of his best-known pieces, the Passacaglia among them |
 | 19 | Sergei Prokofiev | Done | 2 works |
 | 20 | Dmitri Shostakovich |  | no note data, and the music is still in copyright |
+| 21 | Gustav Holst | Done | 3 works: Jupiter, “I Vow to Thee, My Country” and In the Bleak Midwinter, as piano versions |
 
 Also plausible, each with material in the sandbox: Scott Joplin (5), Béla Bartók (4), Isaac Albéniz (3), Alexander Scriabin (2), Clara Schumann (2), George Gershwin (1), Modest Mussorgsky (1), Gabriel Fauré (1).
 
@@ -87,6 +88,7 @@ Each composer’s page should hold their best-known pieces. As a guide, this lis
 | Rachmaninoff | Piano Concerto No. 2; Prelude in C-sharp minor; Piano Concerto No. 3; Prelude in G minor | both preludes, and the concerto’s theme | the concertos proper |
 | Ravel | Boléro; Pavane pour une infante défunte | Pavane | Boléro |
 | Prokofiev | Toccata; Dance of the Knights; Peter and the Wolf | Toccata | the other two are still in copyright in the United States |
+| Holst | Mars and Jupiter from The Planets; I Vow to Thee, My Country; First Suite in E-flat | Jupiter, I Vow to Thee (simplified); also In the Bleak Midwinter | Mars, the band suites |
 
 What is still missing, with what has been tried, is kept in [missing-pieces.md](missing-pieces.md). A score that is published openly with no licence stated is used and credited as “licence not stated”.
 

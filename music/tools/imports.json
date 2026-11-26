@@ -2691,5 +2691,23 @@
    "name": "Sonata in E major, K. 380",
    "midi": "music/tools/files/scarlatti-k380-imslp-293512.mid"
   }
+ ],
+ "holst-in-the-bleak-midwinter": [
+  {
+   "name": "In the Bleak Midwinter",
+   "midi": "https://vivace-music.org/library/in-the-bleak-midwinter-holst-piano/musicxml/in-the-bleak-midwinter-holst.mxl"
+  }
+ ],
+ "holst-i-vow-to-thee-my-country": [
+  {
+   "name": "I Vow to Thee, My Country",
+   "midi": "https://vivace-music.org/library/jupiter-thaxted-theme-holst-easy-piano/musicxml/jupiter-thaxted-theme-holst.mxl"
+  }
+ ],
+ "holst-jupiter": [
+  {
+   "name": "Jupiter, the Bringer of Jollity",
+   "midi": "https://vivace-music.org/library/jupiter-the-bringer-of-jollity-holst-piano/musicxml/jupiter-the-bringer-of-jollity-holst.mxl"
+  }
  ]
 }

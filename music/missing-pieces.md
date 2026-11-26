@@ -34,6 +34,9 @@ Found since this list was started: Scarlatti's K. 380 (an IMSLP MIDI, fetched th
 | Rachmaninoff | Piano Concerto No. 3 | |
 | Rachmaninoff | Rhapsody on a Theme of Paganini, Variation 18 | |
 | Ravel | Boléro | public domain in the United States since 2024. github.com/nsceaux/Ravel_Bolero is a CC0 LilyPond score of the full orchestra; it would need LilyPond installed to produce MIDI, and an ensemble treatment |
+| Holst | Mars, the Bringer of War (The Planets) | not on Mutopia, Vivace or IMSLP (which has only PDFs of The Planets); paid arrangements only |
+| Holst | First Suite in E-flat and Second Suite in F for military band | |
+| Holst | Venus and Saturn (The Planets) | |
 | Prokofiev | Dance of the Knights (Romeo and Juliet) | still in copyright in the United States; left alone |
 | Prokofiev | Peter and the Wolf | still in copyright in the United States; left alone |
 
