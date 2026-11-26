@@ -10,7 +10,41 @@
   },
   {
    "name": "Menuetto: Allegretto",
-   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O2/LVB_Sonate_02no1_3/LVB_Sonate_02no1_3.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O2/LVB_Sonate_02no1_3/LVB_Sonate_02no1_3.mid",
+   "order": [
+    [
+     0,
+     42
+    ],
+    [
+     0,
+     42
+    ],
+    [
+     42,
+     120
+    ],
+    [
+     42,
+     120
+    ],
+    [
+     120,
+     150
+    ],
+    [
+     120,
+     150
+    ],
+    [
+     150,
+     null
+    ],
+    [
+     0,
+     120
+    ]
+   ]
   },
   {
    "name": "Prestissimo",
@@ -523,7 +557,29 @@
   },
   {
    "name": "Andante",
-   "midi": "https://www.mutopiaproject.org/ftp/MozartWA/KV545/K545-2/K545-2.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/MozartWA/KV545/K545-2/K545-2.mid",
+   "order": [
+    [
+     0,
+     48
+    ],
+    [
+     0,
+     48
+    ],
+    [
+     48,
+     96
+    ],
+    [
+     48,
+     96
+    ],
+    [
+     96,
+     null
+    ]
+   ]
   },
   {
    "name": "Rondo: Allegretto",
@@ -728,6 +784,55 @@
   {
    "name": "Consolation No. 4",
    "midi": "https://www.mutopiaproject.org/ftp/LisztF/S.172/liszt-consolation-no4/liszt-consolation-no4.mid"
+  }
+ ],
+ "beethoven-fur-elise-woo-59": [
+  {
+   "name": "Für Elise",
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/WoO59/fur_Elise_WoO59/fur_Elise_WoO59.mid",
+   "short": {
+    "11": 1
+   },
+   "order": [
+    [
+     0,
+     12
+    ],
+    [
+     0,
+     11
+    ],
+    [
+     12,
+     34.5
+    ],
+    [
+     13.5,
+     33
+    ],
+    [
+     34.5,
+     null
+    ]
+   ]
+  }
+ ],
+ "beethoven-rage-over-a-lost-penny-op-129": [
+  {
+   "name": "Rondo a capriccio",
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O129/beethoven_rondo_op129/beethoven_rondo_op129.mid"
+  }
+ ],
+ "rachmaninoff-morceaux-de-fantaisie-op-3": [
+  {
+   "name": "Prelude in C-sharp minor",
+   "midi": "https://www.mutopiaproject.org/ftp/RachmaninoffS/O3/rach-prelude-op3-no2/rach-prelude-op3-no2.mid"
+  }
+ ],
+ "satie-gymnopedie-no-1": [
+  {
+   "name": "Gymnopédie No. 1",
+   "midi": "https://www.mutopiaproject.org/ftp/SatieE/gymnopedie_1/gymnopedie_1.mid"
   }
  ],
  "haydn-sonata-hob-xvi-6": [
@@ -988,7 +1093,21 @@
   {
    "name": "Song Without Words, Op. 19 No. 5",
    "midi": "https://www.mutopiaproject.org/ftp/Mendelssohn-BartholdyF/O19/5.Inquietude/5.Inquietude.mid",
-   "speed": 2.7
+   "speed": 2.7,
+   "order": [
+    [
+     0,
+     198
+    ],
+    [
+     0,
+     198
+    ],
+    [
+     198,
+     null
+    ]
+   ]
   },
   {
    "name": "Venetian Gondola Song, Op. 19 No. 6",
@@ -1077,7 +1196,21 @@
  "grieg-mountaineers-song-op-73-no-7": [
   {
    "name": "The Mountaineer’s Song",
-   "midi": "https://www.mutopiaproject.org/ftp/GriegE/O73/7-MountaineersSong/7-MountaineersSong.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/GriegE/O73/7-MountaineersSong/7-MountaineersSong.mid",
+   "order": [
+    [
+     0,
+     260
+    ],
+    [
+     56,
+     260
+    ],
+    [
+     260,
+     null
+    ]
+   ]
   }
  ],
  "scarlatti-sonata-k-11": [
@@ -1103,13 +1236,49 @@
  "scarlatti-sonata-k-455": [
   {
    "name": "Sonata in G major, K. 455",
-   "midi": "https://www.mutopiaproject.org/ftp/ScarlattiD/K455/scarlatti-k455/scarlatti-k455.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/ScarlattiD/K455/scarlatti-k455/scarlatti-k455.mid",
+   "order": [
+    [
+     0,
+     188
+    ],
+    [
+     0,
+     188
+    ],
+    [
+     188,
+     null
+    ],
+    [
+     188,
+     null
+    ]
+   ]
   }
  ],
  "scarlatti-sonata-k-491": [
   {
    "name": "Sonata in D major, K. 491",
-   "midi": "https://www.mutopiaproject.org/ftp/ScarlattiD/K491/scarlatti-k491/scarlatti-k491.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/ScarlattiD/K491/scarlatti-k491/scarlatti-k491.mid",
+   "order": [
+    [
+     0,
+     132
+    ],
+    [
+     0,
+     132
+    ],
+    [
+     132,
+     null
+    ],
+    [
+     132,
+     null
+    ]
+   ]
   }
  ],
  "handel-aylesford-pieces": [
@@ -1201,7 +1370,29 @@
   },
   {
    "name": "Menuet I",
-   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/09-menueti/09-menueti.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/09-menueti/09-menueti.mid",
+   "order": [
+    [
+     0,
+     12
+    ],
+    [
+     0,
+     12
+    ],
+    [
+     12,
+     24
+    ],
+    [
+     12,
+     22.5
+    ],
+    [
+     24,
+     null
+    ]
+   ]
   },
   {
    "name": "Menuet II",

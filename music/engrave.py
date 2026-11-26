@@ -79,7 +79,7 @@ def find_systems(dark):
             for i in range(0, len(staves), 2)]
 
 
-def find_barlines(dark, top, bottom, lines, accepted=()):
+def find_barlines(dark, top, bottom, lines, accepted=(), openers=()):
     """Columns inked from the top staff line to the bottom one; close pairs (double bars) merge.
 
     Returns the positions, the right end of the staff, whether the last barline closes the
@@ -106,8 +106,9 @@ def find_barlines(dark, top, bottom, lines, accepted=()):
                 continue
         if marks and a - marks[-1][1] < space * 2:
             marks[-1][1] = b
-        elif len(marks) == 1 and marks[0][0] - left < space * 3 and a - marks[0][1] < space * 12:
-            continue  # a repeat sign after the clef opens the first measure; it does not end one
+        elif len(marks) == 1 and marks[0][0] - left < space * 3 and (
+                a - marks[0][1] < space * (20 if any(first <= b and a <= last for first, last in openers) else 12)):
+            continue  # a repeat sign after the clef (`openers`) opens the first measure; it does not end one
         else:
             marks.append([a, b])
     if not marks:
@@ -163,14 +164,17 @@ def find_repeats(dark, top, bottom, lines):
     return signs, brackets
 
 
-def repeat_plan(bars, printed, split, ends, begins, voltas):
+def repeat_plan(bars, widths, split, ends, begins, voltas):
     """The passages to play, in order, as [[from, to]] in quarter notes (to is None at the end),
     for a movement whose notes run once through the print; or None if it has no repeats.
 
     `ends` and `begins` hold, for each repeat sign, the number of printed measures before it;
     `voltas` lists the printed measures under each bracket. A sign inside a measure (see `split`)
-    is taken to stand one upbeat before that measure's end.
+    is taken to stand one upbeat before that measure's end, unless what precedes it is only
+    the sliver between an indented system's edge and its opening sign. `widths` are those of
+    the printed measures.
     """
+    printed = len(widths)
     if not ends or (ends == {printed} and not begins and not voltas):
         return None  # a lone sign at the very end is more likely a misread final barline
     whole = [i for i in range(printed) if i not in split]
@@ -182,6 +186,8 @@ def repeat_plan(bars, printed, split, ends, begins, voltas):
         if boundary >= printed:
             return None
         if boundary in split:
+            if widths[boundary - 1] < widths[boundary] * .35:
+                return bars[linear(boundary - 1)][0]
             if upbeat is None:
                 raise ValueError('a repeat sign stands inside a measure of a piece with no upbeat')
             k = linear(boundary - 1)
@@ -291,12 +297,13 @@ def engrave(folder, index, url, notes, notation, work, debug):
                 y0 = cuts[i - 1] if i else max(0, top - int(margin * 1.8))  # room for a tempo marking
                 y1 = cuts[i] if i + 1 < len(found) else min(image.height, bottom + margin)
                 key = (page_number, top)
-                x, end, closed, maybe, wide = find_barlines(faint, top, bottom, lines, accepted.get(key, ()))
+                signs, brackets = find_repeats(dark, top, bottom, lines)
+                x, end, closed, maybe, wide = find_barlines(faint, top, bottom, lines, accepted.get(key, ()),
+                                                            [(a, b) for a, b, closes, opens in signs if opens])
                 doubtful += [(score, key, column) for column, score in maybe]
                 edges = x if closed else x + [int(end)]
                 # Printed measure k of this system is number base + k; barline k has base + k measures before it.
                 base, space = len(bars) - open_measure, (lines[4] - lines[0]) / 4
-                signs, brackets = find_repeats(dark, top, bottom, lines)
                 for a, b, closes, opens in signs:
                     k = int(np.argmin([abs(position - (a + b) / 2) for position in x]))
                     if abs(x[k] - (a + b) / 2) > space * 3:
@@ -331,16 +338,38 @@ def engrave(folder, index, url, notes, notation, work, debug):
         # Fewer barlines than measures heard: the cleanest doubtful columns make up the difference.
         missing = heard - len(bars)
         best = sorted(doubtful)[:max(0, missing)]
-        if attempt or missing <= 0 or len(best) < missing or best[-1][0] > 0.07:
+        if attempt or missing <= 0 or len(best) < missing or best[-1][0] > 0.12:
             break
         for _, key, column in best:
             accepted.setdefault(key, set()).add(column)
 
     # A repeat sign inside a measure, as where each half of a dance opens with an upbeat, prints
-    # that measure in two parts. If the double barlines account exactly for the surplus of
-    # printed measures, take each as such a division.
+    # that measure in two parts. If the double barlines, or just those that are repeat signs,
+    # account exactly for the surplus of printed measures, take each as such a division.
     double = [index for index in double if index < len(bars)]
-    split = double if double and len(bars) - len(double) == heard else ()
+    if debug:
+        print('      printed %d, heard %d, double barlines before %s, repeat ends %s, begins %s, voltas %s, doubtful %s' % (
+            len(bars), heard, double, sorted(ends), sorted(begins), voltas, [round(d[0], 2) for d in sorted(doubtful)[:6]]))
+    signed = [index for index in double if index in ends or index in begins]
+    surplus = len(bars) - heard
+    split = double if double and len(double) == surplus else signed if signed and len(signed) == surplus else ()
+    if not split and 0 < surplus < len(double) <= 12 and not long:
+        # Some of the double barlines divide a measure and some do not. A measure with more notes
+        # is printed wider, so take the choice whose merged widths best follow the notes heard.
+        from itertools import combinations
+        busy = np.log1p([len(notes_in) for notes_in in signatures(notes, notation['tempo'], notation['bars'])][:heard])
+        best = None
+        for chosen in combinations(double, surplus):
+            widths = []
+            for i, (_, _, width) in enumerate(bars):
+                if i in chosen:
+                    widths[-1] += width
+                else:
+                    widths.append(width)
+            score = np.corrcoef(busy, widths)[0, 1]
+            if best is None or score > best[0]:
+                best = (score, chosen)
+        split = list(best[1])
     plan = None
     if linear:
         whole = [i for i in range(len(bars)) if i not in split]
@@ -351,7 +380,7 @@ def engrave(folder, index, url, notes, notation, work, debug):
         order = unfold(signatures(notes, notation['tempo'], notation['bars']), len(bars), long, split)
         if len(set(order)) == len(order):  # played once through: the print says what to repeat
             try:
-                plan = repeat_plan(notation['bars'], len(bars), set(split), ends, begins, voltas)
+                plan = repeat_plan(notation['bars'], [width for _, _, width in bars], set(split), ends, begins, voltas)
             except ValueError:
                 pass  # the sheet music still follows; the repeats stay unplayed
     play = [[bar[0], printed] for bar, printed in zip(notation['bars'], order)]

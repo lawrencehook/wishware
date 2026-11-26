@@ -5,8 +5,10 @@ imports.json lists, per folder, the movements in order:
                    "upper": [<note tracks that are the upper hand, counted from 0>],
                    "speed": <factor, for a source whose tempo is plainly wrong>,
                    "tempo": {<quarter note where a tempo mark stands>: <corrected quarter notes per minute>},
+                   "short": {<quarter note where a measure starts>: <its length, if not a full measure>},
                    "order": [[<from>, <to>], ...]}]}
-pickup, upper, speed, tempo and order are optional. order lists the passages to play, in quarter
+pickup, upper, speed, tempo, short and order are optional. short is for a first ending that
+leaves out the upbeat it repeats to. order lists the passages to play, in quarter
 notes of the edition played once through (to is null at the end); ../engrave.py --repeats writes
 it from the repeat signs of the print. A Mutopia MIDI does not say that it opens with a partial
 measure, so without "pickup" the edition's LilyPond source is searched for \\partial. Without
@@ -144,8 +146,9 @@ def convert(entry, work):
             print('      no LilyPond source found; assuming no pickup')
             pickup = 0
 
-    def measures(meters, keys, end):
-        """[[quarter, number, meter, key]] for the measures up to `end` quarter notes."""
+    def measures(meters, keys, end, short={}):
+        """[[quarter, number, meter, key]] for the measures up to `end` quarter notes.
+        `short` gives the length of a measure, by the quarter note it starts at, that is not a full one."""
         bars, number = [], 1
         if pickup:
             bars.append([0, 0, '%d/%d' % meters[0][1], keys[0][1]])
@@ -159,11 +162,11 @@ def convert(entry, work):
                 key = next(k for t, k in reversed(keys) if t / tpq <= beat + 1e-6) if keys[0][0] / tpq <= beat + 1e-6 else keys[0][1]
                 bars.append([round(beat, 4), number, '%d/%d' % (n, d), key])
                 number += 1
-                beat += length
+                beat += short.get(round(beat, 4), length)
         return bars
 
     end = max(start + length for start, _, length, _, _ in notes)
-    bars = measures(meters, keys, end / tpq)
+    bars = measures(meters, keys, end / tpq, {float(beat): length for beat, length in entry.get('short', {}).items()})
     linear = None
     if entry.get('order'):
         # Play the passages of the edition in the order given, as its repeat signs direct.
