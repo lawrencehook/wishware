@@ -11,6 +11,8 @@ module.exports = {
     sources: require('./sources/tchaikovsky.json'),
     featured: [
         ['tchaikovsky-the-seasons-op-37a', 5, 'The Seasons · June', 'Barcarolle', 'Op. 37a No. 6'],
+        ['tchaikovsky-dance-of-the-little-swans', 0, 'Swan Lake', 'Dance of the Little Swans', 'Swan Lake, Op. 20'],
+        ['tchaikovsky-dance-of-the-sugar-plum-fairy', 0, 'The Nutcracker', 'Dance of the Sugar Plum Fairy', 'The Nutcracker, Op. 71'],
         ['tchaikovsky-the-seasons-op-37a', 9, 'The Seasons · October', 'Autumn Song', 'Op. 37a No. 10'],
         ['tchaikovsky-the-seasons-op-37a', 10, 'The Seasons · November', 'Troika', 'Op. 37a No. 11'],
         ['tchaikovsky-children-s-album-op-39', 1, 'Children’s Album · D major', 'March of the Wooden Soldiers', 'Op. 39 No. 5'],
@@ -51,6 +53,15 @@ module.exports = {
             title: 'Other works',
             rows: [
                 ['tchaikovsky-dumka-op-59', 'Dumka', 'Op. 59 · C minor'],
+            ],
+        },
+        {
+            title: 'From the ballets, arranged for piano',
+            rows: [
+                ['tchaikovsky-swan-lake-theme', 'Scene (Swan Theme)', 'Swan Lake, Op. 20 · simplified'],
+                ['tchaikovsky-dance-of-the-little-swans', 'Dance of the Little Swans', 'Swan Lake, Op. 20'],
+                ['tchaikovsky-nutcracker-march', 'March', 'The Nutcracker, Op. 71'],
+                ['tchaikovsky-dance-of-the-sugar-plum-fairy', 'Dance of the Sugar Plum Fairy', 'The Nutcracker, Op. 71'],
             ],
         },
     ],

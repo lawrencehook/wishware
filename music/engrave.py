@@ -207,6 +207,29 @@ def repeat_plan(bars, widths, split, ends, begins, voltas):
     return plan
 
 
+def played_measures(plan, starts, total):
+    """The measure of the edition (an index into `starts`, where each begins) that every measure
+    heard falls in, when the passages of `plan` are played in order. Measures heard begin
+    wherever the first passage's do, and keep their length across a repeat."""
+    spans, moved = [], 0
+    for begin, finish in plan:
+        finish = total if finish is None else finish
+        if finish > begin:
+            spans.append((begin, finish, moved))
+            moved += finish - begin
+    out, k = [], 0
+    while True:
+        at = starts[k] if k < 2 else out_at + length
+        if at >= moved - 1e-6:
+            return out
+        if k == 1:
+            length = starts[2] - starts[1] if len(starts) > 2 else total - starts[1]
+        begin, _, shift = next(span for span in reversed(spans) if span[2] <= at + 1e-6)
+        place = at - shift + begin
+        out.append(max(i for i, start in enumerate(starts) if start <= place + 1e-6))
+        out_at, k = at, k + 1
+
+
 def signatures(notes, tempo, bars):
     """What sounds in each measure, for spotting a repeat: a set of (position, pitch)."""
     def beat(seconds):
@@ -371,7 +394,29 @@ def engrave(folder, index, url, notes, notation, work, debug):
                 best = (score, chosen)
         split = list(best[1])
     plan = None
-    if linear:
+    order = None
+    if not linear and heard > len(bars) and ends and not long:
+        # The notes already play the repeats. Read them off the print, and see which reading of
+        # its double barlines makes the measures come out as many as are heard.
+        first = notation['bars']
+        upbeat = (first[1][0] - first[0][0]) / (first[2][0] - first[1][0]) if first[0][1] == 0 and len(first) > 2 else 0
+        for attempt in (signed, double, []):
+            whole = [i for i in range(len(bars)) if i not in attempt]
+            starts = [0.0] + [upbeat + k for k in range(len(whole) - 1)] if upbeat else [float(k) for k in range(len(whole))]
+            total = starts[-1] + 1
+            try:
+                passages = repeat_plan([[start, k if upbeat else k + 1] for k, start in enumerate(starts)],
+                                       [width for _, _, width in bars], set(attempt), ends, begins, voltas)
+            except ValueError:
+                continue
+            if passages:
+                through = played_measures(passages, starts, total)
+                if len(through) == heard:
+                    order = [whole[k] for k in through]
+                    break
+    if order:
+        pass
+    elif linear:
         whole = [i for i in range(len(bars)) if i not in split]
         if len(whole) != heard:
             raise ValueError('found %d printed measures for the %d of the edition' % (len(whole), heard))

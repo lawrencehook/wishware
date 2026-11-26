@@ -1,14 +1,15 @@
 """Turn score MIDI files (Mutopia, the ASAP dataset) and Humdrum scores into pieces/<folder>/notes.js and measures.js.
 
 imports.json lists, per folder, the movements in order:
-    {"<folder>": [{"name": ..., "midi": <url, or zip url + "#" + member, or the url of a .krn score>,
-                   "pickup": <quarter notes>,
+    {"<folder>": [{"name": ..., "midi": <url, or zip url + "#" + member, or the url of a .krn score
+                                         of a DCML corpus's .notes.tsv, or of a MusicXML file>,
+                   "ly": <url of the LilyPond source, if not beside a Mutopia MIDI>, "pickup": <quarter notes>,
                    "upper": [<note tracks that are the upper hand, counted from 0>],
                    "speed": <factor, for a source whose tempo is plainly wrong>,
                    "tempo": {<quarter note where a tempo mark stands>: <corrected quarter notes per minute>},
                    "short": {<quarter note where a measure starts>: <its length, if not a full measure>},
                    "order": [[<from>, <to>], ...]}]}
-pickup, upper, speed, tempo, short and order are optional. short is for a first ending that
+ly, pickup, upper, speed, tempo, short and order are optional. short is for a first ending that
 leaves out the upbeat it repeats to. order lists the passages to play, in quarter
 notes of the edition played once through (to is null at the end); ../engrave.py --repeats writes
 it from the repeat signs of the print. A Mutopia MIDI does not say that it opens with a partial
@@ -52,15 +53,15 @@ def midi_bytes(source, work):
     return data
 
 
-def lilypond_pickup(source, work):
-    """Quarter notes of the first \\partial in the edition's source, or 0."""
+def lilypond_pickup(source, work, ly=None):
+    """Quarter notes of the first \\partial in the edition's source (`ly`, or the file beside a Mutopia MIDI), or 0."""
     url, _, member = source.partition('#')
-    if 'mutopiaproject.org' not in url:
+    if 'mutopiaproject.org' not in url and not ly:
         return 0
     stem = re.sub(r'(-mids\.zip|\.mid)$', '', url)
     texts = []
     try:
-        texts.append(fetch(stem + '.ly', work).decode('utf8', 'replace'))
+        texts.append(fetch(ly or stem + '.ly', work).decode('utf8', 'replace'))
     except Exception:
         try:
             archive = zipfile.ZipFile(io.BytesIO(fetch(stem + '-lys.zip', work)))
@@ -90,6 +91,20 @@ def convert(entry, work):
         sys.path.insert(0, str(HERE))
         import kern
         data, found = kern.read(data.decode('utf8'))
+        entry = {**found, **entry}
+    if entry['midi'].endswith(('.mxl', '.musicxml')):
+        import sys
+        sys.path.insert(0, str(HERE))
+        import kern
+        data, found = kern.read_musicxml(data)
+        entry = {**found, **entry}
+    if entry['midi'].endswith('.notes.tsv'):
+        # A DCML corpus score: dcml.py builds the MIDI and reads its upbeat and repeats.
+        import sys
+        sys.path.insert(0, str(HERE))
+        import dcml
+        measures = entry['midi'].replace('/notes/', '/measures/').replace('.notes.tsv', '.measures.tsv')
+        data, found = dcml.read(data.decode('utf8'), fetch(measures, work).decode('utf8'))
         entry = {**found, **entry}
     midi = mido.MidiFile(file=io.BytesIO(data))
     tpq = midi.ticks_per_beat
@@ -150,7 +165,7 @@ def convert(entry, work):
 
     pickup = entry.get('pickup')
     if pickup is None:
-        pickup = lilypond_pickup(entry['midi'], work)
+        pickup = lilypond_pickup(entry['midi'], work, entry.get('ly'))
         if pickup is None:
             print('      no LilyPond source found; assuming no pickup')
             pickup = 0

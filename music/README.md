@@ -35,7 +35,7 @@ The composers to showcase, in the order they were added. The list favors keyboar
 
 To add a composer: `tools/survey.py` lists what each sandbox folder holds, `tools/sources.py` writes `catalog/sources/<id>.json` from the credits and recordings on the sandbox pages, you write `catalog/<id>.js` and add the id to `catalog.js`, `tools/migrate.py` moves the note data to `pieces/` and retires the sandbox pages, then run `engrave.py` and `build.js`. Run the tools from the repo root.
 
-Pieces the sandbox never had come straight from score MIDI: list them in `tools/imports.json` and run `tools/midi.py`, which writes `pieces/<folder>/` from Mutopia editions (which also give the engraved sheet music) or the ASAP dataset. It also reads Humdrum `.krn` scores through `tools/kern.py`, which takes the upbeat, tempo and repeats from the score itself. Add the score credit to `catalog/sources/<id>.json`; a recording is optional there.
+Pieces the sandbox never had come straight from score MIDI: list them in `tools/imports.json` and run `tools/midi.py`, which writes `pieces/<folder>/` from Mutopia editions (which also give the engraved sheet music) or the ASAP dataset. It also reads Humdrum `.krn` scores through `tools/kern.py`, which takes the upbeat, tempo and repeats from the score itself. A DCML corpus’s `.notes.tsv` goes through `tools/dcml.py` the same way, but needs a tempo given by hand. MusicXML (`.mxl`) is read too. Add the score credit to `catalog/sources/<id>.json`; a recording is optional there.
 
 | # | Composer | Status | Notes (sandbox folders waiting, for those not done) |
 |---|---|---|---|
@@ -50,17 +50,45 @@ Pieces the sandbox never had come straight from score MIDI: list them in `tools/
 | 9 | Sergei Rachmaninoff | Done | 12 works |
 | 10 | Maurice Ravel | Done | 7 works |
 | 11 | Erik Satie | Done | 6 works; Sports et divertissements (no note data) stays in the sandbox |
-| 12 | Johannes Brahms | Done | 4 works; no open score data found yet for Op. 117, the Handel Variations or the Hungarian Dances |
+| 12 | Johannes Brahms | Done | 6 works, including Hungarian Dances Nos. 1 and 5 |
 | 13 | Joseph Haydn | Done | 17 works, movements from ten sonatas |
 | 14 | Felix Mendelssohn | Done | 7 works |
 | 15 | Pyotr Ilyich Tchaikovsky | Done | 16 works |
 | 16 | Edvard Grieg | Done | 13 works |
-| 17 | Domenico Scarlatti | Done | 67 works: 64 from Craig Sapp’s Humdrum edition of the Longo sonatas (all it holds), 3 from Mutopia |
-| 18 | George Frideric Handel | Done | 21 works, mostly the short Aylesford Pieces; no open score data found yet for the harpsichord suites |
+| 17 | Domenico Scarlatti | Done | 89 works: 64 from Craig Sapp’s Humdrum edition of the Longo sonatas (all it holds), 21 well-known ones from Knute Snortum’s LilyPond edition (K. 1–370 so far; its K. 21–30 release holds the wrong files), K. 27 from the DCML corpus, K. 466 from PDMX, 2 from Mutopia. K. 380 is in none of these yet |
+| 18 | George Frideric Handel | Done | 32 works: the Aylesford Pieces, “The Harmonious Blacksmith” (DCML) and piano versions of his best-known pieces, the Passacaglia among them |
 | 19 | Sergei Prokofiev | Done | 2 works |
 | 20 | Dmitri Shostakovich |  | no note data, and the music is still in copyright |
 
 Also plausible, each with material in the sandbox: Scott Joplin (5), Béla Bartók (4), Isaac Albéniz (3), Alexander Scriabin (2), Clara Schumann (2), George Gershwin (1), Modest Mussorgsky (1), Gabriel Fauré (1).
+
+## Most-viewed pieces
+
+Each composer’s page should hold their best-known pieces. As a guide, this lists what tops YouTube’s most-viewed results for a search on the composer’s name (checked 2026-11-26; compilations, remixes and sleep playlists set aside), alongside the editorial top fives in uDiscover Music’s “10 essential pieces” lists. An orchestral or vocal piece counts if an open piano version exists.
+
+| Composer | Most viewed on YouTube | Here | Still missing |
+|---|---|---|---|
+| Bach | Air; Cello Suite No. 1 Prelude; Toccata and Fugue in D minor; Prelude in C | all four | editorial picks: St Matthew Passion, Fantasia and Fugue in G minor |
+| Scarlatti | K. 141, K. 27, K. 1, K. 466, K. 380 | K. 141, 27, 1, 466 | K. 380 |
+| Handel | Sarabande; Passacaglia (after Halvorsen); Hallelujah Chorus; Arrival of the Queen of Sheba; Ombra mai fu | all five, as piano versions; the Sarabande and Hallelujah are abridged | Zadok the Priest, Lascia ch’io pianga |
+| Haydn | Trumpet Concerto; “Surprise” Symphony Andante; “Emperor” Quartet slow movement | none of these | all three (only an easy “Surprise” theme found) |
+| Mozart | Lacrimosa; Queen of the Night aria; Piano Concerto No. 21 Andante; Rondo alla turca; Symphony No. 40 | Lacrimosa, Andante, Rondo alla turca, Symphony No. 40 theme | Queen of the Night, Eine kleine Nachtmusik |
+| Beethoven | “Moonlight” Sonata; Symphony No. 5; Für Elise | Moonlight, Für Elise | Symphony No. 5 (a piano reduction exists on Mutopia), Ode to Joy |
+| Schubert | Serenade (Ständchen); Ave Maria; Impromptu in G-flat; Piano Trio No. 2 Andante; Erlkönig | Ave Maria, Impromptu | Serenade, Trio Andante, Erlkönig |
+| Mendelssohn | Wedding March; Violin Concerto; Hebrides Overture; Spring Song | none of these | all four |
+| Chopin | Nocturne Op. 9 No. 2; Nocturne in C-sharp minor; Fantaisie-Impromptu; Nocturne Op. 9 No. 1 | all four | editorial pick: Polonaise-Fantaisie |
+| Schumann | Piano Concerto; Träumerei; Kinderszenen; Widmung | Träumerei, Kinderszenen | Piano Concerto, Widmung, Carnaval |
+| Liszt | Hungarian Rhapsody No. 2; La campanella; Liebestraum No. 3; Paganini Étude No. 6 | all but the first | Hungarian Rhapsody No. 2 |
+| Brahms | Lullaby; Hungarian Dance No. 5 | both | symphonies and concertos |
+| Tchaikovsky | Waltz of the Flowers; 1812 Overture; Sugar Plum Fairy; Swan Lake theme; Dance of the Little Swans; Valse sentimentale | Sugar Plum Fairy, Little Swans, Swan theme (simplified) | Waltz of the Flowers, 1812 Overture, Valse sentimentale |
+| Grieg | In the Hall of the Mountain King; Morning Mood; Solveig’s Song; Piano Concerto | Mountain King | Morning Mood (a version exists; licence unchecked), Solveig’s Song, Piano Concerto |
+| Debussy | Clair de lune; Arabesques; Rêverie | Clair de lune, Arabesques | Rêverie |
+| Satie | Gymnopédie No. 1; Gnossienne No. 1 | both | Gnossiennes 4–6 |
+| Rachmaninoff | Piano Concerto No. 2; Prelude in C-sharp minor; Piano Concerto No. 3; Prelude in G minor | both preludes, and the concerto’s theme | the concertos proper |
+| Ravel | Boléro; Pavane pour une infante défunte | Pavane | Boléro |
+| Prokofiev | Toccata; Dance of the Knights; Peter and the Wolf | Toccata | the other two are still in copyright in the United States |
+
+The piano versions of orchestral and vocal pieces come from the Vivace Music library (vivace-music.org), which republishes CC0 and public-domain MuseScore scores from the PDMX dataset as MusicXML; `tools/midi.py` reads those directly.
 
 ## Johann Sebastian Bach
 

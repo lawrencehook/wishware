@@ -45,5 +45,11 @@ module.exports = {
             from: 'rachmaninoff-preludes-op-32-nos-5-and-10',
             rows: [['G major', 'Op. 32 No. 5', 5], ['B minor', 'Op. 32 No. 10', 10]],
         },
+        {
+            title: 'Arranged for piano',
+            rows: [
+                ['rachmaninoff-piano-concerto-no-2-theme', 'Piano Concerto No. 2: theme', 'Op. 18 · C minor'],
+            ],
+        },
     ],
 };

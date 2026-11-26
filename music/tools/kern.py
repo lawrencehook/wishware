@@ -97,3 +97,25 @@ def read(text):
         file = Path(folder) / 'score.mid'
         score.write('midi', fp=str(file))
         return file.read_bytes(), options
+
+
+def read_musicxml(data):
+    """The same for a MusicXML file (.mxl or .musicxml, as bytes): (MIDI bytes, options).
+    The tempo comes through in the MIDI; only an opening partial measure is reported."""
+    from music21 import bar, converter
+
+    with tempfile.TemporaryDirectory() as folder:
+        source = Path(folder) / ('score.mxl' if data[:2] == b'PK' else 'score.musicxml')
+        source.write_bytes(data)
+        score = converter.parse(str(source))
+        options = {}
+        first = score.parts[0].getElementsByClass('Measure')[0]
+        if 0 < first.duration.quarterLength < first.barDuration.quarterLength:
+            options['pickup'] = float(first.duration.quarterLength)
+        for measure in score.recurse().getElementsByClass('Measure'):
+            for side in ('leftBarline', 'rightBarline'):
+                if isinstance(getattr(measure, side), bar.Repeat):
+                    setattr(measure, side, None)
+        file = Path(folder) / 'score.mid'
+        score.write('midi', fp=str(file))
+        return file.read_bytes(), options

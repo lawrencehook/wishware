@@ -11,6 +11,7 @@ module.exports = {
     sources: require('./sources/mozart.json'),
     featured: [
         ['mozart-piano-sonatas', 2, 'Piano Sonata No. 11 · A major', 'Rondo alla turca', 'K. 331'],
+        ['mozart-lacrimosa', 0, 'Requiem', 'Lacrimosa', 'Requiem, K. 626'],
         ['mozart-sonata-k-545', 0, 'Piano Sonata No. 16 · C major', 'Sonata facile', 'K. 545 · I'],
         ['mozart-variations-on-ah-vous-dirai-je-maman-k-265', 0, 'Variations · C major', '“Ah, vous dirai-je, Maman”', 'K. 265'],
         ['mozart-fantasia-in-d-minor-k-397', 0, 'Fantasia · D minor', 'Fantasia in D minor', 'K. 397'],
@@ -64,6 +65,14 @@ module.exports = {
                 ['mozart-variations-on-ah-vous-dirai-je-maman-k-265', 'Twelve Variations on “Ah, vous dirai-je, Maman”', 'K. 265 · C major'],
                 ['mozart-fantasia-in-d-minor-k-397', 'Fantasia in D minor', 'K. 397'],
                 ['mozart-fantasia-in-c-minor-k-475', 'Fantasia in C minor', 'K. 475'],
+            ],
+        },
+        {
+            title: 'Arranged for piano',
+            rows: [
+                ['mozart-symphony-no-40-theme', 'Symphony No. 40: opening theme', 'K. 550 · G minor'],
+                ['mozart-piano-concerto-no-21-andante', 'Andante', 'Piano Concerto No. 21, K. 467'],
+                ['mozart-lacrimosa', 'Lacrimosa', 'Requiem, K. 626'],
             ],
         },
     ],

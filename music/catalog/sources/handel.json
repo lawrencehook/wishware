@@ -159,5 +159,72 @@
    "FMiGrsZePu0",
    "Sheetmusic2print (channel)"
   ]
+ },
+ "handel-harmonious-blacksmith-hwv-430": {
+  "score": [
+   "DCML · handel_keyboard · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/DCMLab/handel_keyboard"
+  ]
+ },
+ "handel-passacaglia-hwv-432": {
+  "score": [
+   "TruuMoo · via PDMX and Vivace Music · CC0",
+   "",
+   "https://vivace-music.org/sheets/passacaglia-handel-halvorsen-piano.html",
+   "https://vivace-music.org/pdfs/passacaglia-handel-halvorsen-piano.pdf"
+  ],
+  "recording": [
+   "peVLkLSPuHM",
+   "Viviana Giglio (channel)"
+  ]
+ },
+ "handel-sarabande-hwv-437": {
+  "score": [
+   "lokicfb · via PDMX and Vivace Music · CC0",
+   "",
+   "https://vivace-music.org/sheets/sarabande-in-d-minor-hwv-437-handel-piano.html",
+   "https://vivace-music.org/pdfs/sarabande-in-d-minor-hwv-437-handel-piano.pdf"
+  ],
+  "recording": [
+   "klPZIGQcrHA",
+   "JB F (channel)"
+  ]
+ },
+ "handel-hallelujah-chorus": {
+  "score": [
+   "Isaac Watts · via PDMX and Vivace Music · Public Domain",
+   "",
+   "https://vivace-music.org/sheets/hallelujah-chorus-messiah-handel-piano.html",
+   "https://vivace-music.org/pdfs/hallelujah-chorus-messiah-handel-piano.pdf"
+  ],
+  "recording": [
+   "usfiAsWR4qU",
+   "Luis Peres (channel)"
+  ]
+ },
+ "handel-arrival-of-the-queen-of-sheba": {
+  "score": [
+   "manzruben91 · via PDMX and Vivace Music · CC0",
+   "",
+   "https://vivace-music.org/sheets/arrival-of-the-queen-of-sheba-handel-piano.html",
+   "https://vivace-music.org/pdfs/arrival-of-the-queen-of-sheba-handel-piano.pdf"
+  ],
+  "recording": [
+   "-TGKJ9MgCOQ",
+   "schmobot (channel)"
+  ]
+ },
+ "handel-ombra-mai-fu": {
+  "score": [
+   "Yanagimoto · via PDMX and Vivace Music · CC0",
+   "",
+   "https://vivace-music.org/sheets/largo-ombra-mai-fu-handel-piano.html",
+   "https://vivace-music.org/pdfs/largo-ombra-mai-fu-handel-piano.pdf"
+  ],
+  "recording": [
+   "N7XH-58eB8c",
+   "Francesco Bonazzi Bonazeta (channel)"
+  ]
  }
 }
