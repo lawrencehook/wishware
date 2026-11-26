@@ -11,6 +11,7 @@ module.exports = {
     sources: require('./sources/mozart.json'),
     featured: [
         ['mozart-piano-sonatas', 2, 'Piano Sonata No. 11 · A major', 'Rondo alla turca', 'K. 331'],
+        ['mozart-eine-kleine-nachtmusik', 0, 'Serenade No. 13 · G major', 'Eine kleine Nachtmusik: I. Allegro', 'K. 525 · string quartet, played on piano'],
         ['mozart-lacrimosa', 0, 'Requiem', 'Lacrimosa', 'Requiem, K. 626'],
         ['mozart-sonata-k-545', 0, 'Piano Sonata No. 16 · C major', 'Sonata facile', 'K. 545 · I'],
         ['mozart-variations-on-ah-vous-dirai-je-maman-k-265', 0, 'Variations · C major', '“Ah, vous dirai-je, Maman”', 'K. 265'],
@@ -70,6 +71,7 @@ module.exports = {
         {
             title: 'Arranged for piano',
             rows: [
+                ['mozart-eine-kleine-nachtmusik', 'Eine kleine Nachtmusik: I. Allegro', 'K. 525 · string quartet, played on piano'],
                 ['mozart-symphony-no-40-theme', 'Symphony No. 40: opening theme', 'K. 550 · G minor'],
                 ['mozart-piano-concerto-no-21-andante', 'Andante', 'Piano Concerto No. 21, K. 467'],
                 ['mozart-lacrimosa', 'Lacrimosa', 'Requiem, K. 626'],

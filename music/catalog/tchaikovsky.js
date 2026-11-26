@@ -52,12 +52,15 @@ module.exports = {
         {
             title: 'Other works',
             rows: [
+                ['tchaikovsky-piano-concerto-no-1-theme', 'Piano Concerto No. 1: theme', 'Op. 23'],
                 ['tchaikovsky-dumka-op-59', 'Dumka', 'Op. 59 · C minor'],
             ],
         },
         {
             title: 'From the ballets, arranged for piano',
             rows: [
+                ['tchaikovsky-nutcracker-pas-de-deux', 'Pas de deux', 'The Nutcracker, Op. 71'],
+                ['tchaikovsky-waltz-of-the-flowers', 'Waltz of the Flowers', 'The Nutcracker, Op. 71 · piano four hands'],
                 ['tchaikovsky-swan-lake-theme', 'Scene (Swan Theme)', 'Swan Lake, Op. 20 · simplified'],
                 ['tchaikovsky-dance-of-the-little-swans', 'Dance of the Little Swans', 'Swan Lake, Op. 20'],
                 ['tchaikovsky-nutcracker-march', 'March', 'The Nutcracker, Op. 71'],

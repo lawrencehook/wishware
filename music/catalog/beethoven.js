@@ -49,6 +49,7 @@ module.exports = {
     sources: require('./sources/beethoven.json'),
     featured: [
         [folder(14), 0, 'Piano Sonata No. 14 · C-sharp minor', '“Moonlight” Sonata', 'Op. 27 No. 2 · I'],
+        ['beethoven-symphony-no-5-piano', 0, 'Symphony No. 5 · C minor', 'Symphony No. 5', 'Op. 67 · piano reduction'],
         ['beethoven-fur-elise-woo-59', 0, 'Bagatelle · A minor', 'Für Elise', 'WoO 59'],
         [folder(8), 1, 'Piano Sonata No. 8 · C minor', '“Pathétique” Sonata', 'Op. 13 · II'],
         [folder(17), 2, 'Piano Sonata No. 17 · D minor', '“Tempest” Sonata', 'Op. 31 No. 2 · III'],
@@ -65,6 +66,8 @@ module.exports = {
         {
             title: 'Other works',
             rows: [
+                ['beethoven-symphony-no-5-piano', 'Symphony No. 5', 'Op. 67 · piano reduction'],
+                ['beethoven-ode-to-joy', 'Ode to Joy', 'Symphony No. 9, Op. 125 · simplified'],
                 ['beethoven-fur-elise-woo-59', 'Für Elise', 'WoO 59 · Bagatelle in A minor'],
                 ['beethoven-6-bagatelles-op-126', 'Six Bagatelles', 'Op. 126 · played through'],
                 ['beethoven-rage-over-a-lost-penny-op-129', '“Rage Over a Lost Penny”', 'Op. 129 · Rondo a capriccio in G major'],

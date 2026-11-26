@@ -45,6 +45,7 @@ module.exports = {
         {
             title: 'Other works',
             rows: [
+                ['schumann-widmung-op-25-no-1', 'Widmung', 'Myrthen, Op. 25 No. 1 · voice and piano'],
                 ['schumann-toccata-op-7', 'Toccata', 'Op. 7 · C major'],
                 ['robert-schumann-fantasiestucke-op-12', 'Aufschwung', 'Fantasiestücke, Op. 12 No. 2'],
                 ['schumann-arabeske-op-18', 'Arabeske', 'Op. 18 · C major'],

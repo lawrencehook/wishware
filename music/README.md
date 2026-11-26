@@ -41,7 +41,7 @@ Pieces the sandbox never had come straight from score MIDI: list them in `tools/
 |---|---|---|---|
 | 1 | Johann Sebastian Bach | Done | 82 works; 2 more to fold in from the sandbox (Goldberg Variations, keyboard repertoire) |
 | 2 | Frédéric Chopin | Done | 61 works |
-| 3 | Wolfgang Amadeus Mozart | Done | 17 works |
+| 3 | Wolfgang Amadeus Mozart | Done | 21 works |
 | 4 | Ludwig van Beethoven | Done | 78 works, with movements from 31 of the 32 sonatas; Diabelli Variations (no note data) and the string quartets stay in the sandbox |
 | 5 | Franz Schubert | Done | 14 works; Erlkönig stays on the art songs page |
 | 6 | Claude Debussy | Done | 41 works |
@@ -50,10 +50,10 @@ Pieces the sandbox never had come straight from score MIDI: list them in `tools/
 | 9 | Sergei Rachmaninoff | Done | 12 works |
 | 10 | Maurice Ravel | Done | 7 works |
 | 11 | Erik Satie | Done | 6 works; Sports et divertissements (no note data) stays in the sandbox |
-| 12 | Johannes Brahms | Done | 6 works, including Hungarian Dances Nos. 1 and 5 |
-| 13 | Joseph Haydn | Done | 17 works, movements from ten sonatas |
-| 14 | Felix Mendelssohn | Done | 7 works |
-| 15 | Pyotr Ilyich Tchaikovsky | Done | 16 works |
+| 12 | Johannes Brahms | Done | 7 works, including Hungarian Dances Nos. 1 and 5 and the Rhapsody in B minor |
+| 13 | Joseph Haydn | Done | 19 works: movements from ten sonatas, and two simplified themes |
+| 14 | Felix Mendelssohn | Done | 8 works |
+| 15 | Pyotr Ilyich Tchaikovsky | Done | 23 works |
 | 16 | Edvard Grieg | Done | 13 works |
 | 17 | Domenico Scarlatti | Done | 89 works: 64 from Craig Sapp’s Humdrum edition of the Longo sonatas (all it holds), 21 well-known ones from Knute Snortum’s LilyPond edition (K. 1–370 so far; its K. 21–30 release holds the wrong files), K. 27 from the DCML corpus, K. 466 from PDMX, 2 from Mutopia. K. 380 is in none of these yet |
 | 18 | George Frideric Handel | Done | 32 works: the Aylesford Pieces, “The Harmonious Blacksmith” (DCML) and piano versions of his best-known pieces, the Passacaglia among them |
@@ -71,22 +71,24 @@ Each composer’s page should hold their best-known pieces. As a guide, this lis
 | Bach | Air; Cello Suite No. 1 Prelude; Toccata and Fugue in D minor; Prelude in C | all four | editorial picks: St Matthew Passion, Fantasia and Fugue in G minor |
 | Scarlatti | K. 141, K. 27, K. 1, K. 466, K. 380 | K. 141, 27, 1, 466 | K. 380 |
 | Handel | Sarabande; Passacaglia (after Halvorsen); Hallelujah Chorus; Arrival of the Queen of Sheba; Ombra mai fu | all five, as piano versions; the Sarabande and Hallelujah are abridged | Zadok the Priest, Lascia ch’io pianga |
-| Haydn | Trumpet Concerto; “Surprise” Symphony Andante; “Emperor” Quartet slow movement | none of these | all three (only an easy “Surprise” theme found) |
-| Mozart | Lacrimosa; Queen of the Night aria; Piano Concerto No. 21 Andante; Rondo alla turca; Symphony No. 40 | Lacrimosa, Andante, Rondo alla turca, Symphony No. 40 theme | Queen of the Night, Eine kleine Nachtmusik |
-| Beethoven | “Moonlight” Sonata; Symphony No. 5; Für Elise | Moonlight, Für Elise | Symphony No. 5 (a piano reduction exists on Mutopia), Ode to Joy |
-| Schubert | Serenade (Ständchen); Ave Maria; Impromptu in G-flat; Piano Trio No. 2 Andante; Erlkönig | Ave Maria, Impromptu | Serenade, Trio Andante, Erlkönig |
-| Mendelssohn | Wedding March; Violin Concerto; Hebrides Overture; Spring Song | none of these | all four |
+| Haydn | Trumpet Concerto; “Surprise” Symphony Andante; “Emperor” Quartet slow movement | the “Surprise” theme and the Emperor’s Hymn, both simplified | Trumpet Concerto |
+| Mozart | Lacrimosa; Queen of the Night aria; Piano Concerto No. 21 Andante; Rondo alla turca; Symphony No. 40 | Lacrimosa, Andante, Rondo alla turca, Symphony No. 40 theme; also Eine kleine Nachtmusik (first movement) | Queen of the Night |
+| Beethoven | “Moonlight” Sonata; Symphony No. 5; Für Elise | all three (the symphony as a piano reduction); also Ode to Joy, simplified | — |
+| Schubert | Serenade (Ständchen); Ave Maria; Impromptu in G-flat; Piano Trio No. 2 Andante; Erlkönig | Serenade and Erlkönig (Liszt’s transcriptions), Ave Maria, Impromptu | Trio Andante |
+| Mendelssohn | Wedding March; Violin Concerto; Hebrides Overture; Spring Song | Wedding March | Violin Concerto, Hebrides Overture, Spring Song |
 | Chopin | Nocturne Op. 9 No. 2; Nocturne in C-sharp minor; Fantaisie-Impromptu; Nocturne Op. 9 No. 1 | all four | editorial pick: Polonaise-Fantaisie |
-| Schumann | Piano Concerto; Träumerei; Kinderszenen; Widmung | Träumerei, Kinderszenen | Piano Concerto, Widmung, Carnaval |
+| Schumann | Piano Concerto; Träumerei; Kinderszenen; Widmung | Träumerei, Kinderszenen, Widmung | Piano Concerto, Carnaval |
 | Liszt | Hungarian Rhapsody No. 2; La campanella; Liebestraum No. 3; Paganini Étude No. 6 | all but the first | Hungarian Rhapsody No. 2 |
 | Brahms | Lullaby; Hungarian Dance No. 5 | both | symphonies and concertos |
-| Tchaikovsky | Waltz of the Flowers; 1812 Overture; Sugar Plum Fairy; Swan Lake theme; Dance of the Little Swans; Valse sentimentale | Sugar Plum Fairy, Little Swans, Swan theme (simplified) | Waltz of the Flowers, 1812 Overture, Valse sentimentale |
-| Grieg | In the Hall of the Mountain King; Morning Mood; Solveig’s Song; Piano Concerto | Mountain King | Morning Mood (a version exists; licence unchecked), Solveig’s Song, Piano Concerto |
-| Debussy | Clair de lune; Arabesques; Rêverie | Clair de lune, Arabesques | Rêverie |
+| Tchaikovsky | Waltz of the Flowers; 1812 Overture; Sugar Plum Fairy; Swan Lake theme; Dance of the Little Swans; Valse sentimentale | Waltz of the Flowers (four hands), Sugar Plum Fairy, Pas de deux, Little Swans, Swan theme (simplified), Piano Concerto No. 1 theme | 1812 Overture, Valse sentimentale |
+| Grieg | In the Hall of the Mountain King; Morning Mood; Solveig’s Song; Piano Concerto | Mountain King, Morning Mood; also Anitra’s Dance and Butterfly | Solveig’s Song, Piano Concerto |
+| Debussy | Clair de lune; Arabesques; Rêverie | all three | — |
 | Satie | Gymnopédie No. 1; Gnossienne No. 1 | both | Gnossiennes 4–6 |
 | Rachmaninoff | Piano Concerto No. 2; Prelude in C-sharp minor; Piano Concerto No. 3; Prelude in G minor | both preludes, and the concerto’s theme | the concertos proper |
 | Ravel | Boléro; Pavane pour une infante défunte | Pavane | Boléro |
 | Prokofiev | Toccata; Dance of the Knights; Peter and the Wolf | Toccata | the other two are still in copyright in the United States |
+
+What is still missing, with what has been tried, is kept in [missing-pieces.md](missing-pieces.md). A score that is published openly with no licence stated is used and credited as “licence not stated”.
 
 The piano versions of orchestral and vocal pieces come from the Vivace Music library (vivace-music.org), which republishes CC0 and public-domain MuseScore scores from the PDMX dataset as MusicXML; `tools/midi.py` reads those directly.
 

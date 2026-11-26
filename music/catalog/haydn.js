@@ -11,6 +11,7 @@ module.exports = {
     sources: require('./sources/haydn.json'),
     featured: [
         ['haydn-sonata-hob-xvi-50', 0, 'Keyboard Sonata · C major', 'Sonata in C major', 'Hob. XVI:50 · I'],
+        ['haydn-surprise-symphony-andante', 0, 'Symphony No. 94', '“Surprise” Symphony: Andante theme', 'Symphony No. 94 · simplified'],
         ['haydn-sonata-hob-xvi-49', 0, 'Keyboard Sonata · E-flat major', 'Sonata in E-flat major', 'Hob. XVI:49 · I'],
         ['haydn-sonata-hob-xvi-32', 0, 'Keyboard Sonata · B minor', 'Sonata in B minor', 'Hob. XVI:32 · I'],
     ],
@@ -100,6 +101,13 @@ module.exports = {
             from: 'haydn-sonata-hob-xvi-50',
             rows: [
                 ['Allegro', 'First movement'],
+            ],
+        },
+        {
+            title: 'Arranged for piano',
+            rows: [
+                ['haydn-surprise-symphony-andante', '“Surprise” Symphony: Andante theme', 'Symphony No. 94 · simplified'],
+                ['haydn-emperor-hymn', 'Emperor’s Hymn', 'String Quartet Op. 76 No. 3 · simplified'],
             ],
         },
     ],

@@ -11,6 +11,7 @@ module.exports = {
     sources: require('./sources/grieg.json'),
     featured: [
         ['grieg-peer-gynt-suite-no-1', 1, 'Peer Gynt Suite No. 1 · piano version', 'In the Hall of the Mountain King', 'Op. 46 No. 4'],
+        ['grieg-morning-mood', 0, 'Peer Gynt Suite No. 1 · piano version', 'Morning Mood', 'Peer Gynt Suite No. 1, Op. 46 No. 1'],
         ['grieg-wedding-day-at-troldhaugen-op-65-no-6', 0, 'Lyric Pieces, Book VIII · D major', 'Wedding Day at Troldhaugen', 'Op. 65 No. 6'],
         ['grieg-lyric-pieces', 0, 'Lyric Pieces, Book I · E-flat major', 'Arietta', 'Op. 12 No. 1'],
         ['grieg-march-of-the-trolls-op-54-no-3', 0, 'Lyric Pieces, Book V · D minor', 'March of the Trolls', 'Op. 54 No. 3'],
@@ -36,6 +37,7 @@ module.exports = {
         {
             title: 'Later Lyric Pieces',
             rows: [
+                ['grieg-butterfly-op-43-no-1', 'Butterfly', 'Book III, Op. 43 No. 1'],
                 ['grieg-march-of-the-trolls-op-54-no-3', 'March of the Trolls', 'Book V, Op. 54 No. 3'],
                 ['grieg-wedding-day-at-troldhaugen-op-65-no-6', 'Wedding Day at Troldhaugen', 'Book VIII, Op. 65 No. 6'],
                 ['grieg-mountaineers-song-op-73-no-7', 'The Mountaineer’s Song', 'Moods, Op. 73 No. 7'],
@@ -48,6 +50,13 @@ module.exports = {
             rows: [
                 ['Åse’s Death', 'Op. 46 No. 2', 2],
                 ['In the Hall of the Mountain King', 'Op. 46 No. 4', 4],
+            ],
+        },
+        {
+            title: 'Arranged for piano',
+            rows: [
+                ['grieg-anitras-dance', 'Anitra’s Dance', 'Peer Gynt Suite No. 1, Op. 46 No. 3'],
+                ['grieg-morning-mood', 'Morning Mood', 'Peer Gynt Suite No. 1, Op. 46 No. 1'],
             ],
         },
     ],

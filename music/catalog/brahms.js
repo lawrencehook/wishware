@@ -39,5 +39,12 @@ module.exports = {
                 ['brahms-hungarian-dance-no-5', 'Hungarian Dance No. 5', 'WoO 1 No. 5'],
             ],
         },
+        {
+            title: 'Other works',
+            rows: [
+                ['brahms-ballade-op-10-no-1', 'Ballade in D minor', 'Op. 10 No. 1 · “Edward”'],
+                ['brahms-rhapsody-op-79-no-1', 'Rhapsody in B minor', 'Op. 79 No. 1'],
+            ],
+        },
     ],
 };

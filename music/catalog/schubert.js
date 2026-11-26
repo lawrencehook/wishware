@@ -11,6 +11,7 @@ module.exports = {
     sources: require('./sources/schubert.json'),
     featured: [
         ['schubert-ave-maria-d-839', 0, 'Song · piano realization', 'Ave Maria', 'D. 839'],
+        ['schubert-standchen-d-957', 0, 'Schwanengesang · arr. Liszt', 'Ständchen (Serenade)', 'D. 957 No. 4 · transcribed by Liszt'],
         ['schubert-four-impromptus-d-899', 2, 'Impromptus, D. 899 · G-flat major', 'Impromptu in G-flat major', 'D. 899 No. 3'],
         ['schubert-moment-musical-no-3-d-780', 0, 'Moments musicaux · F minor', 'Moment musical No. 3', 'D. 780 No. 3'],
         ['schubert-four-impromptus-d-899', 1, 'Impromptus, D. 899 · E-flat major', 'Impromptu in E-flat major', 'D. 899 No. 2'],
@@ -40,6 +41,8 @@ module.exports = {
         {
             title: 'Other works',
             rows: [
+                ['schubert-erlkonig-d-328', 'Erlkönig', 'D. 328 · transcribed by Liszt'],
+                ['schubert-standchen-d-957', 'Ständchen (Serenade)', 'D. 957 No. 4 · transcribed by Liszt'],
                 ['schubert-wanderer-fantasy-d-760', '“Wanderer” Fantasy', 'D. 760 · C major'],
                 ['schubert-moment-musical-no-1-d-780', 'Moment musical No. 1', 'D. 780 No. 1 · C major'],
                 ['schubert-moment-musical-no-3-d-780', 'Moment musical No. 3', 'D. 780 No. 3 · F minor'],

@@ -2412,5 +2412,221 @@
     ]
    ]
   }
+ ],
+ "mendelssohn-wedding-march": [
+  {
+   "name": "Wedding March",
+   "midi": "https://vivace-music.org/library/wedding-march-mendelssohn-piano/musicxml/wedding-march-mendelssohn.mxl",
+   "order": [
+    [
+     0,
+     249
+    ],
+    [
+     225,
+     245
+    ],
+    [
+     249,
+     285
+    ],
+    [
+     253,
+     281
+    ],
+    [
+     285,
+     376
+    ],
+    [
+     352,
+     376
+    ],
+    [
+     376,
+     585
+    ],
+    [
+     553,
+     585
+    ],
+    [
+     585,
+     null
+    ]
+   ]
+  }
+ ],
+ "haydn-emperor-hymn": [
+  {
+   "name": "Emperor’s Hymn",
+   "midi": "https://vivace-music.org/library/das-lied-der-deutschen-haydn-easy-piano/musicxml/das-lied-der-deutschen-haydn.mxl"
+  }
+ ],
+ "haydn-surprise-symphony-andante": [
+  {
+   "name": "Andante theme",
+   "midi": "https://vivace-music.org/library/surprise-symphony-andante-theme-haydn-easy-piano/musicxml/surprise-symphony-andante-theme-haydn.mxl"
+  }
+ ],
+ "schubert-standchen-d-957": [
+  {
+   "name": "Ständchen (Serenade)",
+   "midi": "https://vivace-music.org/library/standchen-serenade-schubert-liszt-piano/musicxml/standchen-serenade-schubert-liszt.mxl"
+  }
+ ],
+ "schubert-erlkonig-d-328": [
+  {
+   "name": "Erlkönig",
+   "midi": "https://vivace-music.org/library/erlkonig-schubert-liszt-liszt-piano/musicxml/erlkonig-schubert-liszt-liszt.mxl"
+  }
+ ],
+ "debussy-reverie": [
+  {
+   "name": "Rêverie",
+   "midi": "https://vivace-music.org/library/reverie-debussy-piano/musicxml/reverie-debussy.mxl"
+  }
+ ],
+ "debussy-la-plus-que-lente": [
+  {
+   "name": "La plus que lente",
+   "midi": "https://vivace-music.org/library/la-plus-que-lente-debussy-piano/musicxml/la-plus-que-lente-debussy.mxl"
+  }
+ ],
+ "tchaikovsky-waltz-of-the-flowers": [
+  {
+   "name": "Waltz of the Flowers",
+   "midi": "https://vivace-music.org/library/waltz-of-the-flowers-the-nutcracker-tchaikovsky-piano-duet/musicxml/waltz-of-the-flowers-the-nutcracker-tchaikovsky.mxl"
+  }
+ ],
+ "tchaikovsky-nutcracker-pas-de-deux": [
+  {
+   "name": "Pas de deux",
+   "midi": "https://vivace-music.org/library/pas-de-deux-tchaikovsky-piano/musicxml/pas-de-deux-tchaikovsky.mxl"
+  }
+ ],
+ "tchaikovsky-piano-concerto-no-1-theme": [
+  {
+   "name": "Piano Concerto No. 1: theme",
+   "midi": "https://vivace-music.org/library/piano-concerto-no-1-theme-tchaikovsky/musicxml/piano-concerto-no-1-theme-tchaikovsky.mxl"
+  }
+ ],
+ "brahms-rhapsody-op-79-no-1": [
+  {
+   "name": "Rhapsody in B minor",
+   "midi": "https://vivace-music.org/library/rhapsody-in-b-minor-op-79-no-1-brahms-piano/musicxml/rhapsody-in-b-minor-op-79-no-1-brahms.mxl",
+   "order": [
+    [
+     0,
+     116
+    ],
+    [
+     0,
+     116
+    ],
+    [
+     116,
+     416
+    ],
+    [
+     376,
+     412
+    ],
+    [
+     416,
+     492
+    ],
+    [
+     420,
+     492
+    ],
+    [
+     492,
+     null
+    ]
+   ]
+  }
+ ],
+ "beethoven-ode-to-joy": [
+  {
+   "name": "Ode to Joy",
+   "midi": "https://vivace-music.org/library/ode-to-joy-beethoven-easy-piano/musicxml/ode-to-joy-beethoven.mxl"
+  }
+ ],
+ "ravel-le-gibet": [
+  {
+   "name": "Le gibet",
+   "midi": "https://vivace-music.org/library/le-gibet-gaspard-de-la-nuit-ravel-piano/musicxml/le-gibet-gaspard-de-la-nuit-ravel.mxl"
+  }
+ ],
+ "beethoven-symphony-no-5-piano": [
+  {
+   "name": "Symphony No. 5",
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O67/beethoven_fifth_op67/beethoven_fifth_op67.mid"
+  }
+ ],
+ "schumann-widmung-op-25-no-1": [
+  {
+   "name": "Widmung",
+   "midi": "https://www.mutopiaproject.org/ftp/SchumannR/O25/schumann-widmung/schumann-widmung.mid"
+  }
+ ],
+ "mozart-eine-kleine-nachtmusik": [
+  {
+   "name": "Allegro",
+   "midi": "https://www.mutopiaproject.org/ftp/MozartWA/KV525/eine-kleine-nachtmusik-mvt1/eine-kleine-nachtmusik-mvt1.mid"
+  }
+ ],
+ "grieg-morning-mood": [
+  {
+   "name": "Morning Mood",
+   "midi": "https://vivace-music.org/library/morning-mood-peer-gynt-suite-no-1-piano-transcription--piano/musicxml/op46-1.mxl"
+  }
+ ],
+ "grieg-anitras-dance": [
+  {
+   "name": "Anitra’s Dance",
+   "midi": "https://vivace-music.org/library/anitra-s-dance-grieg-piano/musicxml/op46-3.mxl",
+   "order": [
+    [
+     0,
+     312
+    ],
+    [
+     114,
+     309
+    ],
+    [
+     312,
+     null
+    ]
+   ]
+  }
+ ],
+ "grieg-butterfly-op-43-no-1": [
+  {
+   "name": "Butterfly",
+   "midi": "https://vivace-music.org/library/butterfly-lyric-pieces-op-43-no-1-grieg-piano/musicxml/butterfly.mxl",
+   "order": [
+    [
+     0,
+     24
+    ],
+    [
+     0,
+     24
+    ],
+    [
+     24,
+     null
+    ]
+   ]
+  }
+ ],
+ "brahms-ballade-op-10-no-1": [
+  {
+   "name": "Ballade in D minor",
+   "midi": "https://vivace-music.org/library/ballad-no-1-in-d-minor-op-10-brahms-piano/musicxml/ballad10-1.mxl"
+  }
  ]
 }

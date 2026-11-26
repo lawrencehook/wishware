@@ -27,6 +27,7 @@ module.exports = {
         {
             title: 'Other works',
             rows: [
+                ['ravel-le-gibet', 'Le gibet', 'Gaspard de la nuit, M. 55 No. 2'],
                 ['ravel-pavane-pour-une-infante-defunte', 'Pavane pour une infante défunte', 'M. 19 · G major'],
                 ['ravel-jeux-d-eau-m-30', 'Jeux d’eau', 'M. 30 · E major'],
                 ['ravel-sonatine-m-40', 'Sonatine', 'M. 40 · played through'],

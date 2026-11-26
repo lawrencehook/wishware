@@ -67,6 +67,8 @@ module.exports = {
         {
             title: 'Other works',
             rows: [
+                ['debussy-la-plus-que-lente', 'La plus que lente', 'L. 121 · Valse'],
+                ['debussy-reverie', 'Rêverie', 'L. 68'],
                 ['debussy-prelude-from-pour-le-piano', 'Prélude', 'Pour le piano, No. 1'],
                 ['debussy-reflets-dans-leau', 'Reflets dans l’eau', 'Images, Book I, No. 1'],
             ],

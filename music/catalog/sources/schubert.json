@@ -130,5 +130,29 @@
     756
    ]
   ]
+ },
+ "schubert-standchen-d-957": {
+  "score": [
+   "tonic64 · via PDMX and Vivace Music · CC0",
+   "",
+   "https://vivace-music.org/sheets/standchen-serenade-schubert-liszt-piano.html",
+   "https://vivace-music.org/pdfs/standchen-serenade-schubert-liszt-piano.pdf"
+  ],
+  "recording": [
+   "0bjB-IWEYI0",
+   "Sergei Egorov (channel)"
+  ]
+ },
+ "schubert-erlkonig-d-328": {
+  "score": [
+   "Musemeister · via PDMX and Vivace Music · CC0",
+   "",
+   "https://vivace-music.org/sheets/erlkonig-schubert-liszt-liszt-piano.html",
+   "https://vivace-music.org/pdfs/erlkonig-schubert-liszt-liszt-piano.pdf"
+  ],
+  "recording": [
+   "JS91p-vmSf0",
+   "OxfordSong (channel)"
+  ]
  }
 }
