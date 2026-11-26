@@ -42,8 +42,24 @@ module.exports = {
         {
             title: 'Other works',
             rows: [
+                ['brahms-rhapsody-op-119-no-4', 'Rhapsody in E-flat major', 'Op. 119 No. 4'],
                 ['brahms-ballade-op-10-no-1', 'Ballade in D minor', 'Op. 10 No. 1 · “Edward”'],
                 ['brahms-rhapsody-op-79-no-1', 'Rhapsody in B minor', 'Op. 79 No. 1'],
+            ],
+        },
+        {
+            title: 'Three Intermezzi, Op. 117',
+            rows: [
+                ['brahms-intermezzo-op-117-no-2', 'Intermezzo in B-flat minor', 'Op. 117 No. 2'],
+                ['brahms-intermezzo-op-117-no-1', 'Intermezzo in E-flat major', 'Op. 117 No. 1'],
+            ],
+        },
+        {
+            title: 'Seven Fantasies, Op. 116',
+            rows: [
+                ['brahms-intermezzo-op-116-no-6', 'Intermezzo in E major', 'Op. 116 No. 6'],
+                ['brahms-intermezzo-op-116-no-5', 'Intermezzo in E minor', 'Op. 116 No. 5'],
+                ['brahms-intermezzo-op-116-no-2', 'Intermezzo in A minor', 'Op. 116 No. 2'],
             ],
         },
     ],

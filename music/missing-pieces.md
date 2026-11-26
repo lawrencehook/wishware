@@ -4,13 +4,16 @@ Well-known pieces that are not on a composer's page yet, to be searched for one 
 
 "Most viewed" means it tops YouTube's most-viewed results for the composer's name (checked 2026-11-26); "editorial" means it is in the top five of uDiscover Music's "10 essential pieces" list, or BBC Music Magazine's for Satie. Where something was tried, it is noted, so the next search can start elsewhere.
 
-Sources already searched for everything below: Mutopia, the ASAP dataset, Craig Sapp's Humdrum editions, the DCML corpora, Knute Snortum's LilyPond editions, and the Vivace Music library (PDMX scores).
+Sources already searched for everything below: Mutopia (by composer and by title), the ASAP dataset, Craig Sapp's Humdrum editions, the DCML corpora, Knute Snortum's LilyPond editions, the Vivace Music library (PDMX scores), and piano-midi.de.
+
+IMSLP often has a MIDI or engraving file for these, noted below by file number. Its downloads sit behind a disclaimer page and a script-driven redirect, so they need a real browser; a fetched file goes in `tools/files/` and is named in `tools/imports.json`.
+
+Found since this list was started: Scarlatti's K. 380 (an IMSLP MIDI, fetched through a browser and kept in `tools/files/`); Liszt's Hungarian Rhapsody No. 2 and Grieg's To Spring (piano-midi.de), Chopin's Polonaise-Fantaisie (the Chopin Institute's first-editions corpus, which holds all of Chopin).
 
 ## Most viewed, not found
 
 | Composer | Piece | Notes |
 |---|---|---|
-| Scarlatti | Sonata in E major, K. 380 | Snortum's edition stops at K. 370; not in Sapp's 65 or DCML's 69 |
 | Handel | Zadok the Priest | choral |
 | Handel | Lascia ch'io pianga (Rinaldo) | aria |
 | Haydn | Trumpet Concerto in E-flat | |
@@ -20,18 +23,17 @@ Sources already searched for everything below: Mutopia, the ASAP dataset, Craig 
 | Schubert | Piano Trio No. 2, D. 929: Andante con moto | Vivace has it for trio; not tried as an ensemble piece |
 | Mendelssohn | Violin Concerto in E minor | |
 | Mendelssohn | The Hebrides Overture | |
-| Mendelssohn | Spring Song, Op. 62 No. 6 | a Song Without Words for solo piano, so the likeliest to exist somewhere |
+| Mendelssohn | Spring Song, Op. 62 No. 6 | not on Mutopia or piano-midi.de (which has Op. 62 Nos. 3–5). IMSLP's Op. 62 MIDI (#221024) is No. 4 for recorders; its MuseScore and Sibelius engraving files (#596077, #221023) are unchecked and would need converting |
 | Schumann | Piano Concerto in A minor | |
-| Liszt | Hungarian Rhapsody No. 2 | solo piano; the likeliest to exist somewhere |
 | Tchaikovsky | 1812 Overture | |
-| Tchaikovsky | Valse sentimentale, Op. 51 No. 6 | solo piano |
+| Tchaikovsky | Valse sentimentale, Op. 51 No. 6 | solo piano. IMSLP's Op. 51 page has no MIDI or engraving file |
 | Grieg | Solveig's Song | |
 | Grieg | Piano Concerto in A minor | Vivace has a two-piano version; not tried |
-| Satie | Gnossiennes Nos. 4–6 | |
+| Satie | Gnossiennes Nos. 4–6 | Mutopia has only Nos. 1–3. IMSLP has MuseScore engraving files (#944589, #944592), which would need converting, and a recorder-arrangement MIDI |
 | Rachmaninoff | Piano Concerto No. 2 (beyond its theme) | |
 | Rachmaninoff | Piano Concerto No. 3 | |
 | Rachmaninoff | Rhapsody on a Theme of Paganini, Variation 18 | |
-| Ravel | Boléro | public domain in the United States since 2024 |
+| Ravel | Boléro | public domain in the United States since 2024. github.com/nsceaux/Ravel_Bolero is a CC0 LilyPond score of the full orchestra; it would need LilyPond installed to produce MIDI, and an ensemble treatment |
 | Prokofiev | Dance of the Knights (Romeo and Juliet) | still in copyright in the United States; left alone |
 | Prokofiev | Peter and the Wolf | still in copyright in the United States; left alone |
 
@@ -70,13 +72,12 @@ Sources already searched for everything below: Mutopia, the ASAP dataset, Craig 
 | Beethoven | String Quartet No. 14; Piano Concerto No. 5 (Vivace has its Adagio, not tried) |
 | Schubert | "Trout" Quintet; "Unfinished" Symphony; Die schöne Müllerin; "Death and the Maiden" Quartet |
 | Mendelssohn | Octet; "Scottish" and "Italian" Symphonies |
-| Chopin | Polonaise-Fantaisie, Op. 61 |
-| Schumann | Carnaval, Op. 9 (the sandbox page has no note data) |
+| Schumann | Carnaval, Op. 9 (the sandbox page has no note data; not on Mutopia or piano-midi.de; IMSLP has no MIDI or engraving file) |
 | Schumann | Études symphoniques, Op. 13 |
 | Liszt | La lugubre gondola |
 | Brahms | Symphonies Nos. 1 and 4; Piano Concerto No. 1; Violin Concerto; Piano Quintet |
 | Tchaikovsky | The Sleeping Beauty (Valse) |
-| Grieg | To Spring, Op. 43 No. 6; Funeral March for Rikard Nordraak; Ballade, Op. 24 |
+| Grieg | Funeral March for Rikard Nordraak; Ballade, Op. 24 |
 | Debussy | String Quartet (Vivace has it for ensemble, not tried); Prélude à l'après-midi d'un faune; Pelléas et Mélisande |
 | Satie | Musique d'ameublement; Véritables préludes flasques; La diva de l'empire; Vexations |
 | Rachmaninoff | Cello Sonata; Symphony No. 2; The Isle of the Dead |

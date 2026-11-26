@@ -11,6 +11,7 @@ module.exports = {
     sources: require('./sources/liszt.json'),
     featured: [
         ['liszt-la-campanella', 0, 'Grandes études de Paganini · G-sharp minor', 'La campanella', 'S. 141 No. 3'],
+        ['liszt-hungarian-rhapsody-no-2', 0, 'Hungarian Rhapsodies · C-sharp minor', 'Hungarian Rhapsody No. 2', 'S. 244 No. 2 · C-sharp minor'],
         ['liszt-liebestraume-s-541', 0, 'Liebesträume · A-flat major', 'Liebestraum No. 3', 'S. 541 No. 3'],
         ['liszt-consolations-s-172', 0, 'Consolations · D-flat major', 'Consolation No. 3', 'S. 172 No. 3'],
         ['liszt-hungarian-rhapsody-no-6', 0, 'Hungarian Rhapsodies · D-flat major', 'Hungarian Rhapsody No. 6', 'S. 244 No. 6'],
@@ -40,6 +41,7 @@ module.exports = {
         {
             title: 'Other works',
             rows: [
+                ['liszt-hungarian-rhapsody-no-2', 'Hungarian Rhapsody No. 2', 'S. 244 No. 2 · C-sharp minor'],
                 ['liszt-la-campanella', 'La campanella', 'S. 141 No. 3 · G-sharp minor'],
                 ['liszt-paganini-etude-no-6', 'Paganini Étude No. 6', 'S. 141 No. 6 · A minor · theme and variations'],
                 ['liszt-gondoliera', 'Gondoliera', 'Venezia e Napoli, S. 162 No. 1'],

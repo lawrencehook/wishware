@@ -26,6 +26,9 @@ module.exports = {
         'He died in Paris at 39, most likely of tuberculosis.',
     wikipedia: 'https://en.wikipedia.org/wiki/Fr%C3%A9d%C3%A9ric_Chopin',
     sources: {
+        'chopin-polonaise-fantaisie-op-61': {
+            score: ['Chopin First Editions · Fryderyk Chopin Institute · CC BY 4.0', '', 'https://github.com/pl-wnifc/humdrum-chopin-first-editions'],
+        },
         'chopin-nocturne-in-c-sharp-minor-op-posth': {
             score: ['janiyaaaaa · via PDMX and Vivace Music · CC0', '', 'https://vivace-music.org/sheets/nocturne-no-20-in-c-sharp-minor-b-49-chopin-piano.html', 'https://vivace-music.org/pdfs/nocturne-no-20-in-c-sharp-minor-b-49-chopin-piano.pdf'],
         },
@@ -189,6 +192,7 @@ module.exports = {
         {
             title: 'Other works',
             rows: [
+                ['chopin-polonaise-fantaisie-op-61', 'Polonaise-Fantaisie', 'Op. 61 · A-flat major'],
                 ['chopin-nocturne-in-c-sharp-minor-op-posth', 'Nocturne in C-sharp minor', 'Op. posth. · Lento con gran espressione'],
                 ['chopin-mazurkas', 'Mazurka in A minor', 'Op. 17 No. 4'],
                 ['chopin-heroic-polonaise-op-53', '“Heroic” Polonaise', 'Op. 53 · A-flat major'],

@@ -69,16 +69,16 @@ Each composer’s page should hold their best-known pieces. As a guide, this lis
 | Composer | Most viewed on YouTube | Here | Still missing |
 |---|---|---|---|
 | Bach | Air; Cello Suite No. 1 Prelude; Toccata and Fugue in D minor; Prelude in C | all four | editorial picks: St Matthew Passion, Fantasia and Fugue in G minor |
-| Scarlatti | K. 141, K. 27, K. 1, K. 466, K. 380 | K. 141, 27, 1, 466 | K. 380 |
+| Scarlatti | K. 141, K. 27, K. 1, K. 466, K. 380 | all five | — |
 | Handel | Sarabande; Passacaglia (after Halvorsen); Hallelujah Chorus; Arrival of the Queen of Sheba; Ombra mai fu | all five, as piano versions; the Sarabande and Hallelujah are abridged | Zadok the Priest, Lascia ch’io pianga |
 | Haydn | Trumpet Concerto; “Surprise” Symphony Andante; “Emperor” Quartet slow movement | the “Surprise” theme and the Emperor’s Hymn, both simplified | Trumpet Concerto |
 | Mozart | Lacrimosa; Queen of the Night aria; Piano Concerto No. 21 Andante; Rondo alla turca; Symphony No. 40 | Lacrimosa, Andante, Rondo alla turca, Symphony No. 40 theme; also Eine kleine Nachtmusik (first movement) | Queen of the Night |
 | Beethoven | “Moonlight” Sonata; Symphony No. 5; Für Elise | all three (the symphony as a piano reduction); also Ode to Joy, simplified | — |
 | Schubert | Serenade (Ständchen); Ave Maria; Impromptu in G-flat; Piano Trio No. 2 Andante; Erlkönig | Serenade and Erlkönig (Liszt’s transcriptions), Ave Maria, Impromptu | Trio Andante |
 | Mendelssohn | Wedding March; Violin Concerto; Hebrides Overture; Spring Song | Wedding March | Violin Concerto, Hebrides Overture, Spring Song |
-| Chopin | Nocturne Op. 9 No. 2; Nocturne in C-sharp minor; Fantaisie-Impromptu; Nocturne Op. 9 No. 1 | all four | editorial pick: Polonaise-Fantaisie |
+| Chopin | Nocturne Op. 9 No. 2; Nocturne in C-sharp minor; Fantaisie-Impromptu; Nocturne Op. 9 No. 1 | all four, and the Polonaise-Fantaisie | — |
 | Schumann | Piano Concerto; Träumerei; Kinderszenen; Widmung | Träumerei, Kinderszenen, Widmung | Piano Concerto, Carnaval |
-| Liszt | Hungarian Rhapsody No. 2; La campanella; Liebestraum No. 3; Paganini Étude No. 6 | all but the first | Hungarian Rhapsody No. 2 |
+| Liszt | Hungarian Rhapsody No. 2; La campanella; Liebestraum No. 3; Paganini Étude No. 6 | all four | — |
 | Brahms | Lullaby; Hungarian Dance No. 5 | both | symphonies and concertos |
 | Tchaikovsky | Waltz of the Flowers; 1812 Overture; Sugar Plum Fairy; Swan Lake theme; Dance of the Little Swans; Valse sentimentale | Waltz of the Flowers (four hands), Sugar Plum Fairy, Pas de deux, Little Swans, Swan theme (simplified), Piano Concerto No. 1 theme | 1812 Overture, Valse sentimentale |
 | Grieg | In the Hall of the Mountain King; Morning Mood; Solveig’s Song; Piano Concerto | Mountain King, Morning Mood; also Anitra’s Dance and Butterfly | Solveig’s Song, Piano Concerto |

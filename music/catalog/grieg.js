@@ -37,6 +37,7 @@ module.exports = {
         {
             title: 'Later Lyric Pieces',
             rows: [
+                ['grieg-to-spring-op-43-no-6', 'To Spring', 'Book III, Op. 43 No. 6'],
                 ['grieg-butterfly-op-43-no-1', 'Butterfly', 'Book III, Op. 43 No. 1'],
                 ['grieg-march-of-the-trolls-op-54-no-3', 'March of the Trolls', 'Book V, Op. 54 No. 3'],
                 ['grieg-wedding-day-at-troldhaugen-op-65-no-6', 'Wedding Day at Troldhaugen', 'Book VIII, Op. 65 No. 6'],

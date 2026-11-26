@@ -2628,5 +2628,68 @@
    "name": "Ballade in D minor",
    "midi": "https://vivace-music.org/library/ballad-no-1-in-d-minor-op-10-brahms-piano/musicxml/ballad10-1.mxl"
   }
+ ],
+ "liszt-hungarian-rhapsody-no-2": [
+  {
+   "name": "Hungarian Rhapsody No. 2",
+   "midi": "http://piano-midi.de/midis/liszt/liz_rhap02.mid"
+  }
+ ],
+ "grieg-to-spring-op-43-no-6": [
+  {
+   "name": "To Spring",
+   "midi": "http://piano-midi.de/midis/grieg/grieg_spring.mid"
+  }
+ ],
+ "brahms-intermezzo-op-117-no-1": [
+  {
+   "name": "Intermezzo in E-flat major",
+   "midi": "http://piano-midi.de/midis/brahms/brahms_opus117_1.mid"
+  }
+ ],
+ "brahms-intermezzo-op-117-no-2": [
+  {
+   "name": "Intermezzo in B-flat minor",
+   "midi": "http://piano-midi.de/midis/brahms/brahms_opus117_2.mid"
+  }
+ ],
+ "brahms-intermezzo-op-116-no-2": [
+  {
+   "name": "Intermezzo in A minor",
+   "midi": "http://piano-midi.de/midis/brahms/br_im2.mid"
+  }
+ ],
+ "brahms-intermezzo-op-116-no-5": [
+  {
+   "name": "Intermezzo in E minor",
+   "midi": "http://piano-midi.de/midis/brahms/br_im5.mid"
+  }
+ ],
+ "brahms-intermezzo-op-116-no-6": [
+  {
+   "name": "Intermezzo in E major",
+   "midi": "http://piano-midi.de/midis/brahms/br_im6.mid"
+  }
+ ],
+ "brahms-rhapsody-op-119-no-4": [
+  {
+   "name": "Rhapsody in E-flat major",
+   "midi": "http://piano-midi.de/midis/brahms/br_rhap.mid"
+  }
+ ],
+ "chopin-polonaise-fantaisie-op-61": [
+  {
+   "name": "Polonaise-Fantaisie",
+   "midi": "https://raw.githubusercontent.com/pl-wnifc/humdrum-chopin-first-editions/HEAD/kern/061-1-BH.krn",
+   "tempo": {
+    "0": 80
+   }
+  }
+ ],
+ "scarlatti-sonata-k-380": [
+  {
+   "name": "Sonata in E major, K. 380",
+   "midi": "music/tools/files/scarlatti-k380-imslp-293512.mid"
+  }
  ]
 }

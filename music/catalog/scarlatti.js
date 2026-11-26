@@ -11,16 +11,16 @@ module.exports = {
     sources: require('./sources/scarlatti.json'),
     featured: [
         ['scarlatti-sonata-k-141', 0, 'Keyboard Sonata · D minor', 'Toccata in D minor', 'K. 141'],
+        ['scarlatti-sonata-k-380', 0, 'Keyboard Sonata · E major', 'Sonata in E major', 'K. 380'],
         ['scarlatti-sonata-k-27', 0, 'Keyboard Sonata · B minor', 'Sonata in B minor', 'K. 27'],
-        ['scarlatti-sonata-k-87', 0, 'Keyboard Sonata · B minor', 'Sonata in B minor', 'K. 87'],
-        ['scarlatti-sonata-k-9', 0, 'Keyboard Sonata · D minor', '“Pastorale”', 'K. 9'],
-        ['scarlatti-sonata-k-159', 0, 'Keyboard Sonata · C major', '“La caccia”', 'K. 159'],
+        ['scarlatti-sonata-k-466', 0, 'Keyboard Sonata · F minor', 'Sonata in F minor', 'K. 466'],
+        ['scarlatti-sonata-k-1', 0, 'Keyboard Sonata · D minor', 'Sonata in D minor', 'K. 1'],
         ['scarlatti-sonata-k-208', 0, 'Keyboard Sonata · A major', 'Sonata in A major', 'K. 208'],
     ],
     sections: [
         {
             title: 'Keyboard Sonatas',
-            count: '89 of 555',
+            count: '90 of 555',
             rows: [
                 ['scarlatti-sonata-k-1', 'Sonata in D minor', 'K. 1 · Allegro'],
                 ['scarlatti-sonata-k-9', 'Sonata in D minor', 'K. 9 · Allegro'],
@@ -89,6 +89,7 @@ module.exports = {
                 ['scarlatti-sonata-k-360', 'Sonata in B-flat major', 'K. 360 · Allegro'],
                 ['scarlatti-sonata-k-369', 'Sonata in A major', 'K. 369 · Allegro'],
                 ['scarlatti-sonata-k-372', 'Sonata in G major', 'K. 372 · Allegro'],
+                ['scarlatti-sonata-k-380', 'Sonata in E major', 'K. 380 · Andante comodo'],
                 ['scarlatti-sonata-k-384', 'Sonata in C major', 'K. 384 · Andante cantabile'],
                 ['scarlatti-sonata-k-406', 'Sonata in C major', 'K. 406 · Allegro'],
                 ['scarlatti-sonata-k-408', 'Sonata in B minor', 'K. 408 · Allegro'],
