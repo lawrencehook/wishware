@@ -1,15 +1,4 @@
 {
- "domenico-scarlatti-keyboard-sonatas": {
-  "score": [
-   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
-   "",
-   "https://github.com/craigsapp/scarlatti-keyboard-sonatas"
-  ],
-  "recording": [
-   "JdxP2Y4OEyA",
-   "Andrew Remillard"
-  ]
- },
  "scarlatti-sonata-k-11": {
   "score": [
    "Mutopia · Bas Wassink · Public Domain",
@@ -44,6 +33,702 @@
   "recording": [
    "q9T9eETuwVE",
    "Vladimir Horowitz"
+  ]
+ },
+ "scarlatti-sonata-k-1": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L366K001.krn"
+  ],
+  "recording": [
+   "OSP2jR39Eig",
+   "Scott Ross"
+  ]
+ },
+ "scarlatti-sonata-k-25": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L481K025.krn"
+  ],
+  "recording": [
+   "KAYkXuNmQYc",
+   "David Louie"
+  ]
+ },
+ "scarlatti-sonata-k-49": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L301K049.krn"
+  ],
+  "recording": [
+   "Mpd5_GDSFIo",
+   "Ryan Layne Whitney"
+  ]
+ },
+ "scarlatti-sonata-k-52": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L267K052.krn"
+  ],
+  "recording": [
+   "p2hhbiUC1M4",
+   "Scott Ross"
+  ]
+ },
+ "scarlatti-sonata-k-55": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L335K055.krn"
+  ],
+  "recording": [
+   "90glSEhQylk",
+   "David Louie"
+  ]
+ },
+ "scarlatti-sonata-k-60": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L013K060.krn"
+  ],
+  "recording": [
+   "72o2j9BsEHM",
+   "Francesco Cera"
+  ]
+ },
+ "scarlatti-sonata-k-75": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L053K075.krn"
+  ],
+  "recording": [
+   "PlTa0D-qZug",
+   "Enrico Baiano"
+  ]
+ },
+ "scarlatti-sonata-k-84": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L010K084.krn"
+  ],
+  "recording": [
+   "LKHm12lYE2A",
+   "Igor Kipnis"
+  ]
+ },
+ "scarlatti-sonata-k-85": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L166K085.krn"
+  ],
+  "recording": [
+   "LBGbtCQwYJc",
+   "Yasushi Takahashi"
+  ]
+ },
+ "scarlatti-sonata-k-93": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L336K093.krn"
+  ],
+  "recording": [
+   "693VMKh6bvM",
+   "Bohumír Stehlík"
+  ]
+ },
+ "scarlatti-sonata-k-113": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L345K113.krn"
+  ],
+  "recording": [
+   "lUBzn5aM6LY",
+   "Maria Grinberg"
+  ]
+ },
+ "scarlatti-sonata-k-114": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L344K114.krn"
+  ],
+  "recording": [
+   "BRT3BaP-t2I",
+   "Scott Ross"
+  ]
+ },
+ "scarlatti-sonata-k-122": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L334K122.krn"
+  ],
+  "recording": [
+   "agvevVP2jrY",
+   "David Louie"
+  ]
+ },
+ "scarlatti-sonata-k-139": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L006K139.krn"
+  ],
+  "recording": [
+   "Drm-glCnZeA",
+   "David Louie"
+  ]
+ },
+ "scarlatti-sonata-k-146": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L349K146.krn"
+  ],
+  "recording": [
+   "-bSJrstm9hM",
+   "Vladimir Horowitz"
+  ]
+ },
+ "scarlatti-sonata-k-148": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L064K148.krn"
+  ],
+  "recording": [
+   "v8KtFTG9Mts",
+   "Gottlieb Wallisch"
+  ]
+ },
+ "scarlatti-sonata-k-156": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L101K156.krn"
+  ],
+  "recording": [
+   "loET7qOSgQQ",
+   "Christoph Ullrich"
+  ]
+ },
+ "scarlatti-sonata-k-158": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L004K158.krn"
+  ],
+  "recording": [
+   "2NEgN3jC60Q",
+   "Beatrice Long"
+  ]
+ },
+ "scarlatti-sonata-k-160": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L015K160.krn"
+  ],
+  "recording": [
+   "V4YTujzBk2w",
+   "Chu-Fang Huang"
+  ]
+ },
+ "scarlatti-sonata-k-165": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L052K165.krn"
+  ],
+  "recording": [
+   "Po2H0fboHLc",
+   "Claudo Colombo"
+  ]
+ },
+ "scarlatti-sonata-k-166": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L051K166.krn"
+  ],
+  "recording": [
+   "FVA6_RR-W68",
+   "David Louie"
+  ]
+ },
+ "scarlatti-sonata-k-170": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L303K170.krn"
+  ],
+  "recording": [
+   "UIHas1k-PJk",
+   "Francesco Nicolosi"
+  ]
+ },
+ "scarlatti-sonata-k-200": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L054K200.krn"
+  ],
+  "recording": [
+   "4iZHs22wa5g",
+   "Duanduan Hao"
+  ]
+ },
+ "scarlatti-sonata-k-205": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L523K205.krn"
+  ],
+  "recording": [
+   "StRqAU7d18g",
+   "Scott Ross"
+  ]
+ },
+ "scarlatti-sonata-k-220": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L342K220.krn"
+  ],
+  "recording": [
+   "ukL5bIGGl9E",
+   "Scott Ross"
+  ]
+ },
+ "scarlatti-sonata-k-225": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L351K225.krn"
+  ],
+  "recording": [
+   "n-gTMKClHk4",
+   "Scott Ross"
+  ]
+ },
+ "scarlatti-sonata-k-227": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L347K227.krn"
+  ],
+  "recording": [
+   "Dp-1tFKtkas",
+   "Scott Ross"
+  ]
+ },
+ "scarlatti-sonata-k-235": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L154K235.krn"
+  ],
+  "recording": [
+   "fNXV-96KASw",
+   "Ewald Demeyere"
+  ]
+ },
+ "scarlatti-sonata-k-238": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L027K238.krn"
+  ],
+  "recording": [
+   "XNTrLwOiP1k",
+   "Theodore Mikell Guerrant"
+  ]
+ },
+ "scarlatti-sonata-k-244": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L348K244.krn"
+  ],
+  "recording": [
+   "a6klA9FebjI",
+   "Scott Ross"
+  ]
+ },
+ "scarlatti-sonata-k-251": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L305K251.krn"
+  ],
+  "recording": [
+   "7yykyLvHHDQ",
+   "Scott Ross"
+  ]
+ },
+ "scarlatti-sonata-k-258": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L178K258.krn"
+  ],
+  "recording": [
+   "fAHFDB8M7Kk",
+   "Leo Maiwald"
+  ]
+ },
+ "scarlatti-sonata-k-269": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L307K269.krn"
+  ]
+ },
+ "scarlatti-sonata-k-281": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L056K281.krn"
+  ],
+  "recording": [
+   "ad7oYYCsPGY",
+   "Andrea Marcon, organ"
+  ]
+ },
+ "scarlatti-sonata-k-296": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L198K296.krn"
+  ],
+  "recording": [
+   "nCzm5zrVxpc",
+   "Orion Weiss"
+  ]
+ },
+ "scarlatti-sonata-k-303": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L009K303.krn"
+  ],
+  "recording": [
+   "jiPRuB2QtdE",
+   "Scott Ross"
+  ]
+ },
+ "scarlatti-sonata-k-306": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L016K306.krn"
+  ],
+  "recording": [
+   "KXE3-fxQaU4",
+   "Claudio Colombo, pianist"
+  ]
+ },
+ "scarlatti-sonata-k-320": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L341K320.krn"
+  ],
+  "recording": [
+   "RYYyIGDSZf0",
+   "Scott Roos"
+  ]
+ },
+ "scarlatti-sonata-k-330": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L055K330.krn"
+  ],
+  "recording": [
+   "E1ZSgb6pvl4",
+   "Gerda Struhal"
+  ]
+ },
+ "scarlatti-sonata-k-336": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L337K336.krn"
+  ],
+  "recording": [
+   "TeGbUB0E0jU",
+   "Scott Ross"
+  ]
+ },
+ "scarlatti-sonata-k-345": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L306K345.krn"
+  ],
+  "recording": [
+   "256WB3s3RMs",
+   "Pieter-Jan Belder"
+  ]
+ },
+ "scarlatti-sonata-k-348": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L127K348.krn"
+  ],
+  "recording": [
+   "GjG2b2d_2MI",
+   "Scott Ross"
+  ]
+ },
+ "scarlatti-sonata-k-360": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L400K360.krn"
+  ],
+  "recording": [
+   "mdDAo09WJgY",
+   "Wladyslaw Klosiewicz"
+  ]
+ },
+ "scarlatti-sonata-k-369": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L240K369.krn"
+  ],
+  "recording": [
+   "Rdr7NHm9oWs",
+   "Sergio Monteiro"
+  ]
+ },
+ "scarlatti-sonata-k-372": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L302K372.krn"
+  ]
+ },
+ "scarlatti-sonata-k-384": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L002K384.krn"
+  ],
+  "recording": [
+   "sVh0aJiD7ZU",
+   "Gottlieb Wallisch"
+  ]
+ },
+ "scarlatti-sonata-k-406": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L005K406.krn"
+  ],
+  "recording": [
+   "pRERKgDSeqc",
+   "Zuzana Růžičková"
+  ]
+ },
+ "scarlatti-sonata-k-408": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L346K408.krn"
+  ],
+  "recording": [
+   "Nrmq09K28a4",
+   "Fernando De Luca"
+  ]
+ },
+ "scarlatti-sonata-k-425": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L333K425.krn"
+  ],
+  "recording": [
+   "-Pa6WQ-r70U",
+   "Eiji Hashimoto"
+  ]
+ },
+ "scarlatti-sonata-k-434": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L343K434.krn"
+  ],
+  "recording": [
+   "S3IId9S-Z5E",
+   "Cristiano Gaudio"
+  ]
+ },
+ "scarlatti-sonata-k-442": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L319K442.krn"
+  ],
+  "recording": [
+   "Nf8y64gETHk",
+   "Claudio Colombo"
+  ]
+ },
+ "scarlatti-sonata-k-450": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L338K450.krn"
+  ],
+  "recording": [
+   "w17tOpuRdrI",
+   "Stephen Malinowski, synthesizer (piano/pipe organ)"
+  ]
+ },
+ "scarlatti-sonata-k-461": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L008K461.krn"
+  ],
+  "recording": [
+   "l3ZWO_usSYk",
+   "Akira Kubota"
+  ]
+ },
+ "scarlatti-sonata-k-470": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L304K470.krn"
+  ],
+  "recording": [
+   "1aUBrs-mOQM",
+   "Scott Ross"
+  ]
+ },
+ "scarlatti-sonata-k-476": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L340K476.krn"
+  ],
+  "recording": [
+   "wiGPufjmGyA",
+   "Claire Huangci"
+  ]
+ },
+ "scarlatti-sonata-k-478": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L012K478.krn"
+  ],
+  "recording": [
+   "yh43cKGVbR4",
+   "Colin Tilney"
+  ]
+ },
+ "scarlatti-sonata-k-492": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L014K492.krn"
+  ],
+  "recording": [
+   "lcldqiJGIDQ",
+   "Magdalena Baczewska"
+  ]
+ },
+ "scarlatti-sonata-k-498": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L350K498.krn"
+  ],
+  "recording": [
+   "ghTRhxjj0c0",
+   "Mayako Sone"
+  ]
+ },
+ "scarlatti-sonata-k-502": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L003K502.krn"
+  ],
+  "recording": [
+   "1RxOrZx4joY",
+   "Malinowski, Music Animation Machine"
+  ]
+ },
+ "scarlatti-sonata-k-512": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L339K512.krn"
+  ],
+  "recording": [
+   "qca6OjvnEyg",
+   "Sean Kennard"
+  ]
+ },
+ "scarlatti-sonata-k-513": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L503K513.krn"
+  ],
+  "recording": [
+   "qA5cvAMqfBQ",
+   "Gabriele Toia"
+  ]
+ },
+ "scarlatti-sonata-k-514": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L001K514.krn"
+  ],
+  "recording": [
+   "pzjMKrXahKY",
+   "Alexandre Tharaud"
+  ]
+ },
+ "scarlatti-sonata-k-525": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L188K525.krn"
+  ],
+  "recording": [
+   "Ihfo8TySqZA",
+   "Malinowski, Music Animation Machine"
+  ]
+ },
+ "scarlatti-sonata-k-534": {
+  "score": [
+   "Craig Stuart Sapp · scarlatti-keyboard-sonatas · CC BY-NC-SA 4.0",
+   "",
+   "https://github.com/craigsapp/scarlatti-keyboard-sonatas/blob/main/kern/L011K534.krn"
+  ],
+  "recording": [
+   "vvowmCkJOnk",
+   "Scott Ross"
   ]
  }
 }

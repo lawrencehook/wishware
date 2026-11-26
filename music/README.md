@@ -35,7 +35,7 @@ The composers to showcase, in the order they were added. The list favors keyboar
 
 To add a composer: `tools/survey.py` lists what each sandbox folder holds, `tools/sources.py` writes `catalog/sources/<id>.json` from the credits and recordings on the sandbox pages, you write `catalog/<id>.js` and add the id to `catalog.js`, `tools/migrate.py` moves the note data to `pieces/` and retires the sandbox pages, then run `engrave.py` and `build.js`. Run the tools from the repo root.
 
-Pieces the sandbox never had come straight from score MIDI: list them in `tools/imports.json` and run `tools/midi.py`, which writes `pieces/<folder>/` from Mutopia editions (which also give the engraved sheet music) or the ASAP dataset. Add the score credit to `catalog/sources/<id>.json`; a recording is optional there.
+Pieces the sandbox never had come straight from score MIDI: list them in `tools/imports.json` and run `tools/midi.py`, which writes `pieces/<folder>/` from Mutopia editions (which also give the engraved sheet music) or the ASAP dataset. It also reads Humdrum `.krn` scores through `tools/kern.py`, which takes the upbeat, tempo and repeats from the score itself. Add the score credit to `catalog/sources/<id>.json`; a recording is optional there.
 
 | # | Composer | Status | Notes (sandbox folders waiting, for those not done) |
 |---|---|---|---|
@@ -55,7 +55,7 @@ Pieces the sandbox never had come straight from score MIDI: list them in `tools/
 | 14 | Felix Mendelssohn | Done | 7 works |
 | 15 | Pyotr Ilyich Tchaikovsky | Done | 16 works |
 | 16 | Edvard Grieg | Done | 13 works |
-| 17 | Domenico Scarlatti | Done | 4 works |
+| 17 | Domenico Scarlatti | Done | 67 works: 64 from Craig Sapp’s Humdrum edition of the Longo sonatas (all it holds), 3 from Mutopia |
 | 18 | George Frideric Handel | Done | 21 works, mostly the short Aylesford Pieces; no open score data found yet for the harpsichord suites |
 | 19 | Sergei Prokofiev | Done | 2 works |
 | 20 | Dmitri Shostakovich |  | no note data, and the music is still in copyright |

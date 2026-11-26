@@ -1,7 +1,8 @@
-"""Turn score MIDI files (Mutopia, the ASAP dataset) into pieces/<folder>/notes.js and measures.js.
+"""Turn score MIDI files (Mutopia, the ASAP dataset) and Humdrum scores into pieces/<folder>/notes.js and measures.js.
 
 imports.json lists, per folder, the movements in order:
-    {"<folder>": [{"name": ..., "midi": <url, or zip url + "#" + member>, "pickup": <quarter notes>,
+    {"<folder>": [{"name": ..., "midi": <url, or zip url + "#" + member, or the url of a .krn score>,
+                   "pickup": <quarter notes>,
                    "upper": [<note tracks that are the upper hand, counted from 0>],
                    "speed": <factor, for a source whose tempo is plainly wrong>,
                    "tempo": {<quarter note where a tempo mark stands>: <corrected quarter notes per minute>},
@@ -14,7 +15,7 @@ it from the repeat signs of the print. A Mutopia MIDI does not say that it opens
 measure, so without "pickup" the edition's LilyPond source is searched for \\partial. Without
 "upper", tracks are sorted into hands by their names, or failing that by how high they lie.
 
-Needs: Python with mido. Usage (from the repo root):
+Needs: Python with mido, and music21 for a .krn score. Usage (from the repo root):
     python music/tools/midi.py --work <scratch dir for downloads> [<folder> ...]
 """
 import argparse
@@ -82,7 +83,15 @@ def lilypond_pickup(source, work):
 
 
 def convert(entry, work):
-    midi = mido.MidiFile(file=io.BytesIO(midi_bytes(entry['midi'], work)))
+    data = midi_bytes(entry['midi'], work)
+    if entry['midi'].endswith('.krn'):
+        # A Humdrum score: kern.py turns it into MIDI and reads its upbeat, tempo and repeats.
+        import sys
+        sys.path.insert(0, str(HERE))
+        import kern
+        data, found = kern.read(data.decode('utf8'))
+        entry = {**found, **entry}
+    midi = mido.MidiFile(file=io.BytesIO(data))
     tpq = midi.ticks_per_beat
     tempos, meters, keys, tracks = [], [], [], []
     for track in midi.tracks:

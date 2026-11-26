@@ -1670,5 +1670,389 @@
    "name": "Rondo: Allegro",
    "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/8-3/midi_score.mid"
   }
+ ],
+ "scarlatti-sonata-k-1": [
+  {
+   "name": "Sonata in D minor, K. 1",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L366K001.krn"
+  }
+ ],
+ "scarlatti-sonata-k-25": [
+  {
+   "name": "Sonata in F-sharp minor, K. 25",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L481K025.krn"
+  }
+ ],
+ "scarlatti-sonata-k-49": [
+  {
+   "name": "Sonata in C major, K. 49",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L301K049.krn"
+  }
+ ],
+ "scarlatti-sonata-k-52": [
+  {
+   "name": "Sonata in C major, K. 52",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L267K052.krn"
+  }
+ ],
+ "scarlatti-sonata-k-55": [
+  {
+   "name": "Sonata in G major, K. 55",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L335K055.krn"
+  }
+ ],
+ "scarlatti-sonata-k-60": [
+  {
+   "name": "Sonata in G minor, K. 60",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L013K060.krn"
+  }
+ ],
+ "scarlatti-sonata-k-75": [
+  {
+   "name": "Sonata in G major, K. 75",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L053K075.krn"
+  }
+ ],
+ "scarlatti-sonata-k-84": [
+  {
+   "name": "Sonata in C minor, K. 84",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L010K084.krn"
+  }
+ ],
+ "scarlatti-sonata-k-85": [
+  {
+   "name": "Sonata in F major, K. 85",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L166K085.krn"
+  }
+ ],
+ "scarlatti-sonata-k-93": [
+  {
+   "name": "Sonata, K. 93",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L336K093.krn"
+  }
+ ],
+ "scarlatti-sonata-k-113": [
+  {
+   "name": "Sonata in A major, K. 113",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L345K113.krn"
+  }
+ ],
+ "scarlatti-sonata-k-114": [
+  {
+   "name": "Sonata in A major, K. 114",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L344K114.krn"
+  }
+ ],
+ "scarlatti-sonata-k-122": [
+  {
+   "name": "Sonata in D major, K. 122",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L334K122.krn"
+  }
+ ],
+ "scarlatti-sonata-k-139": [
+  {
+   "name": "Sonata in C minor, K. 139",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L006K139.krn"
+  }
+ ],
+ "scarlatti-sonata-k-146": [
+  {
+   "name": "Sonata in G major, K. 146",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L349K146.krn"
+  }
+ ],
+ "scarlatti-sonata-k-148": [
+  {
+   "name": "Sonata in A minor, K. 148",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L064K148.krn"
+  }
+ ],
+ "scarlatti-sonata-k-156": [
+  {
+   "name": "Sonata in C major, K. 156",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L101K156.krn"
+  }
+ ],
+ "scarlatti-sonata-k-158": [
+  {
+   "name": "Sonata in C minor, K. 158",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L004K158.krn"
+  }
+ ],
+ "scarlatti-sonata-k-160": [
+  {
+   "name": "Sonata in D major, K. 160",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L015K160.krn"
+  }
+ ],
+ "scarlatti-sonata-k-165": [
+  {
+   "name": "Sonata in C major, K. 165",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L052K165.krn"
+  }
+ ],
+ "scarlatti-sonata-k-166": [
+  {
+   "name": "Sonata in C major, K. 166",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L051K166.krn"
+  }
+ ],
+ "scarlatti-sonata-k-170": [
+  {
+   "name": "Sonata in C major, K. 170",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L303K170.krn"
+  }
+ ],
+ "scarlatti-sonata-k-200": [
+  {
+   "name": "Sonata in C major, K. 200",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L054K200.krn"
+  }
+ ],
+ "scarlatti-sonata-k-205": [
+  {
+   "name": "Sonata in F major, K. 205",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L523K205.krn"
+  }
+ ],
+ "scarlatti-sonata-k-220": [
+  {
+   "name": "Sonata in A major, K. 220",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L342K220.krn"
+  }
+ ],
+ "scarlatti-sonata-k-225": [
+  {
+   "name": "Sonata in C major, K. 225",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L351K225.krn"
+  }
+ ],
+ "scarlatti-sonata-k-227": [
+  {
+   "name": "Sonata in B minor, K. 227",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L347K227.krn"
+  }
+ ],
+ "scarlatti-sonata-k-235": [
+  {
+   "name": "Sonata in C major, K. 235",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L154K235.krn"
+  }
+ ],
+ "scarlatti-sonata-k-238": [
+  {
+   "name": "Sonata in F minor, K. 238",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L027K238.krn"
+  }
+ ],
+ "scarlatti-sonata-k-244": [
+  {
+   "name": "Sonata in G major, K. 244",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L348K244.krn"
+  }
+ ],
+ "scarlatti-sonata-k-251": [
+  {
+   "name": "Sonata in C major, K. 251",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L305K251.krn"
+  }
+ ],
+ "scarlatti-sonata-k-258": [
+  {
+   "name": "Sonata in D major, K. 258",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L178K258.krn"
+  }
+ ],
+ "scarlatti-sonata-k-269": [
+  {
+   "name": "Sonata in C major, K. 269",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L307K269.krn"
+  }
+ ],
+ "scarlatti-sonata-k-281": [
+  {
+   "name": "Sonata in D major, K. 281",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L056K281.krn"
+  }
+ ],
+ "scarlatti-sonata-k-296": [
+  {
+   "name": "Sonata in F major, K. 296",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L198K296.krn"
+  }
+ ],
+ "scarlatti-sonata-k-303": [
+  {
+   "name": "Sonata in C minor, K. 303",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L009K303.krn"
+  }
+ ],
+ "scarlatti-sonata-k-306": [
+  {
+   "name": "Sonata in E-flat major, K. 306",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L016K306.krn"
+  }
+ ],
+ "scarlatti-sonata-k-320": [
+  {
+   "name": "Sonata in A major, K. 320",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L341K320.krn"
+  }
+ ],
+ "scarlatti-sonata-k-330": [
+  {
+   "name": "Sonata in C major, K. 330",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L055K330.krn"
+  }
+ ],
+ "scarlatti-sonata-k-336": [
+  {
+   "name": "Sonata in G major, K. 336",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L337K336.krn"
+  }
+ ],
+ "scarlatti-sonata-k-345": [
+  {
+   "name": "Sonata in D major, K. 345",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L306K345.krn"
+  }
+ ],
+ "scarlatti-sonata-k-348": [
+  {
+   "name": "Sonata in C major, K. 348",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L127K348.krn"
+  }
+ ],
+ "scarlatti-sonata-k-360": [
+  {
+   "name": "Sonata in B-flat major, K. 360",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L400K360.krn"
+  }
+ ],
+ "scarlatti-sonata-k-369": [
+  {
+   "name": "Sonata in A major, K. 369",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L240K369.krn"
+  }
+ ],
+ "scarlatti-sonata-k-372": [
+  {
+   "name": "Sonata in G major, K. 372",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L302K372.krn"
+  }
+ ],
+ "scarlatti-sonata-k-384": [
+  {
+   "name": "Sonata in C major, K. 384",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L002K384.krn"
+  }
+ ],
+ "scarlatti-sonata-k-406": [
+  {
+   "name": "Sonata in C major, K. 406",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L005K406.krn"
+  }
+ ],
+ "scarlatti-sonata-k-408": [
+  {
+   "name": "Sonata in B minor, K. 408",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L346K408.krn"
+  }
+ ],
+ "scarlatti-sonata-k-425": [
+  {
+   "name": "Sonata in G major, K. 425",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L333K425.krn"
+  }
+ ],
+ "scarlatti-sonata-k-434": [
+  {
+   "name": "Sonata in G major, K. 434",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L343K434.krn"
+  }
+ ],
+ "scarlatti-sonata-k-442": [
+  {
+   "name": "Sonata in B-flat major, K. 442",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L319K442.krn"
+  }
+ ],
+ "scarlatti-sonata-k-450": [
+  {
+   "name": "Sonata in G minor, K. 450",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L338K450.krn"
+  }
+ ],
+ "scarlatti-sonata-k-461": [
+  {
+   "name": "Sonata in C major, K. 461",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L008K461.krn"
+  }
+ ],
+ "scarlatti-sonata-k-470": [
+  {
+   "name": "Sonata in G major, K. 470",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L304K470.krn"
+  }
+ ],
+ "scarlatti-sonata-k-476": [
+  {
+   "name": "Sonata in G minor, K. 476",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L340K476.krn"
+  }
+ ],
+ "scarlatti-sonata-k-478": [
+  {
+   "name": "Sonata in D major, K. 478",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L012K478.krn"
+  }
+ ],
+ "scarlatti-sonata-k-492": [
+  {
+   "name": "Sonata in D major, K. 492",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L014K492.krn"
+  }
+ ],
+ "scarlatti-sonata-k-498": [
+  {
+   "name": "Sonata in B minor, K. 498",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L350K498.krn"
+  }
+ ],
+ "scarlatti-sonata-k-502": [
+  {
+   "name": "Sonata in C major, K. 502",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L003K502.krn"
+  }
+ ],
+ "scarlatti-sonata-k-512": [
+  {
+   "name": "Sonata in D major, K. 512",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L339K512.krn"
+  }
+ ],
+ "scarlatti-sonata-k-513": [
+  {
+   "name": "Sonata in C major, K. 513",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L503K513.krn"
+  }
+ ],
+ "scarlatti-sonata-k-514": [
+  {
+   "name": "Sonata in C major, K. 514",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L001K514.krn"
+  }
+ ],
+ "scarlatti-sonata-k-525": [
+  {
+   "name": "Sonata in F major, K. 525",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L188K525.krn"
+  }
+ ],
+ "scarlatti-sonata-k-534": [
+  {
+   "name": "Sonata in D major, K. 534",
+   "midi": "https://raw.githubusercontent.com/craigsapp/scarlatti-keyboard-sonatas/main/kern/L011K534.krn"
+  }
  ]
 }
