@@ -56,7 +56,29 @@
   },
   {
    "name": "Allegretto",
-   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O10/lvb_sonate_10no2_2/lvb_sonate_10no2_2.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O10/lvb_sonate_10no2_2/lvb_sonate_10no2_2.mid",
+   "order": [
+    [
+     0,
+     24
+    ],
+    [
+     0,
+     24
+    ],
+    [
+     24,
+     114
+    ],
+    [
+     24,
+     114
+    ],
+    [
+     114,
+     null
+    ]
+   ]
   },
   {
    "name": "Presto",
@@ -197,7 +219,21 @@
  "beethoven-sonata-19": [
   {
    "name": "Andante",
-   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O49/LVB_Sonate_49no1_1/LVB_Sonate_49no1_1.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O49/LVB_Sonate_49no1_1/LVB_Sonate_49no1_1.mid",
+   "order": [
+    [
+     0,
+     66.0
+    ],
+    [
+     0,
+     66.0
+    ],
+    [
+     66.0,
+     null
+    ]
+   ]
   },
   {
    "name": "Rondo: Allegro",
@@ -207,7 +243,21 @@
  "beethoven-sonata-20": [
   {
    "name": "Allegro ma non troppo",
-   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O49/LVB_Sonate_49no2_1/LVB_Sonate_49no2_1.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O49/LVB_Sonate_49no2_1/LVB_Sonate_49no2_1.mid",
+   "order": [
+    [
+     0,
+     208
+    ],
+    [
+     0,
+     208
+    ],
+    [
+     208,
+     null
+    ]
+   ]
   },
   {
    "name": "Tempo di Menuetto",
@@ -245,7 +295,61 @@
   },
   {
    "name": "Andante con moto",
-   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O57/LVB_Sonate_57_2/LVB_Sonate_57_2.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O57/LVB_Sonate_57_2/LVB_Sonate_57_2.mid",
+   "order": [
+    [
+     0,
+     16
+    ],
+    [
+     0,
+     16
+    ],
+    [
+     16,
+     32
+    ],
+    [
+     16,
+     32
+    ],
+    [
+     32,
+     50
+    ],
+    [
+     34,
+     46
+    ],
+    [
+     50,
+     68
+    ],
+    [
+     52,
+     66
+    ],
+    [
+     68,
+     86
+    ],
+    [
+     70,
+     84
+    ],
+    [
+     86,
+     104
+    ],
+    [
+     88,
+     102
+    ],
+    [
+     104,
+     null
+    ]
+   ]
   },
   {
    "name": "Allegro ma non troppo – Presto",
@@ -265,7 +369,29 @@
  "beethoven-sonata-25": [
   {
    "name": "Presto alla tedesca",
-   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O79/LVB_Sonate_79_1/LVB_Sonate_79_1.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O79/LVB_Sonate_79_1/LVB_Sonate_79_1.mid",
+   "order": [
+    [
+     0,
+     150
+    ],
+    [
+     3,
+     147
+    ],
+    [
+     150,
+     522
+    ],
+    [
+     156,
+     510
+    ],
+    [
+     522,
+     null
+    ]
+   ]
   },
   {
    "name": "Andante",
@@ -273,7 +399,29 @@
   },
   {
    "name": "Vivace",
-   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O79/LVB_Sonate_79_3/LVB_Sonate_79_3.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/BeethovenLv/O79/LVB_Sonate_79_3/LVB_Sonate_79_3.mid",
+   "order": [
+    [
+     0,
+     16
+    ],
+    [
+     0,
+     16
+    ],
+    [
+     16,
+     32
+    ],
+    [
+     16,
+     30
+    ],
+    [
+     32,
+     null
+    ]
+   ]
   }
  ],
  "beethoven-sonata-26": [
@@ -353,7 +501,25 @@
  "mozart-sonata-k-545": [
   {
    "name": "Allegro",
-   "midi": "https://www.mutopiaproject.org/ftp/MozartWA/KV545/K545-1/K545-1.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/MozartWA/KV545/K545-1/K545-1.mid",
+   "order": [
+    [
+     0,
+     112
+    ],
+    [
+     0,
+     112
+    ],
+    [
+     112,
+     null
+    ],
+    [
+     112,
+     null
+    ]
+   ]
   },
   {
    "name": "Andante",
@@ -361,13 +527,49 @@
   },
   {
    "name": "Rondo: Allegretto",
-   "midi": "https://www.mutopiaproject.org/ftp/MozartWA/KV545/K545-3/K545-3.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/MozartWA/KV545/K545-3/K545-3.mid",
+   "order": [
+    [
+     0,
+     16
+    ],
+    [
+     0,
+     16
+    ],
+    [
+     16,
+     null
+    ]
+   ]
   }
  ],
  "mozart-sonata-k-457": [
   {
    "name": "Molto allegro",
-   "midi": "https://www.mutopiaproject.org/ftp/MozartWA/KV457/sonata1/sonata1.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/MozartWA/KV457/sonata1/sonata1.mid",
+   "order": [
+    [
+     0,
+     296
+    ],
+    [
+     0,
+     296
+    ],
+    [
+     296,
+     668
+    ],
+    [
+     296,
+     668
+    ],
+    [
+     668,
+     null
+    ]
+   ]
   },
   {
    "name": "Adagio",
@@ -537,25 +739,183 @@
  "haydn-sonata-hob-xvi-27": [
   {
    "name": "Allegro con brio",
-   "midi": "https://www.mutopiaproject.org/ftp/HaydnFJ/HOB-XVI-27/hob-xvi-27-i-allegro-con-brio/hob-xvi-27-i-allegro-con-brio.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/HaydnFJ/HOB-XVI-27/hob-xvi-27-i-allegro-con-brio/hob-xvi-27-i-allegro-con-brio.mid",
+   "order": [
+    [
+     0,
+     114.0
+    ],
+    [
+     0,
+     114.0
+    ],
+    [
+     114.0,
+     null
+    ]
+   ]
   },
   {
    "name": "Menuetto",
-   "midi": "https://www.mutopiaproject.org/ftp/HaydnFJ/HOB-XVI-27/hob-xvi-27-ii-menuet-trio/hob-xvi-27-ii-menuet-trio.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/HaydnFJ/HOB-XVI-27/hob-xvi-27-ii-menuet-trio/hob-xvi-27-ii-menuet-trio.mid",
+   "order": [
+    [
+     0,
+     42
+    ],
+    [
+     0,
+     42
+    ],
+    [
+     42,
+     126
+    ],
+    [
+     42,
+     126
+    ],
+    [
+     126,
+     150
+    ],
+    [
+     126,
+     150
+    ],
+    [
+     150,
+     null
+    ],
+    [
+     150,
+     null
+    ],
+    [
+     0,
+     126
+    ]
+   ]
   },
   {
    "name": "Presto",
-   "midi": "https://www.mutopiaproject.org/ftp/HaydnFJ/HOB-XVI-27/hob-xvi-27-iii-presto/hob-xvi-27-iii-presto.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/HaydnFJ/HOB-XVI-27/hob-xvi-27-iii-presto/hob-xvi-27-iii-presto.mid",
+   "order": [
+    [
+     0,
+     16.0
+    ],
+    [
+     0,
+     16.0
+    ],
+    [
+     16.0,
+     48.0
+    ],
+    [
+     16.0,
+     48.0
+    ],
+    [
+     48.0,
+     64.0
+    ],
+    [
+     48.0,
+     64.0
+    ],
+    [
+     64.0,
+     96.0
+    ],
+    [
+     64.0,
+     96.0
+    ],
+    [
+     96.0,
+     112.0
+    ],
+    [
+     96.0,
+     112.0
+    ],
+    [
+     112.0,
+     144.0
+    ],
+    [
+     112.0,
+     144.0
+    ],
+    [
+     144.0,
+     null
+    ]
+   ]
   }
  ],
  "haydn-sonata-hob-xvi-28": [
   {
    "name": "Allegro moderato",
-   "midi": "https://www.mutopiaproject.org/ftp/HaydnFJ/HOB-XVI-28/hob-xvi-28-i-allegro-moderato/hob-xvi-28-i-allegro-moderato.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/HaydnFJ/HOB-XVI-28/hob-xvi-28-i-allegro-moderato/hob-xvi-28-i-allegro-moderato.mid",
+   "order": [
+    [
+     0,
+     156
+    ],
+    [
+     0,
+     156
+    ],
+    [
+     156,
+     null
+    ]
+   ]
   },
   {
    "name": "Menuetto",
-   "midi": "https://www.mutopiaproject.org/ftp/HaydnFJ/HOB-XVI-28/hob-xvi-28-ii-menuetto/hob-xvi-28-ii-menuetto.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/HaydnFJ/HOB-XVI-28/hob-xvi-28-ii-menuetto/hob-xvi-28-ii-menuetto.mid",
+   "order": [
+    [
+     0,
+     36.0
+    ],
+    [
+     0,
+     36.0
+    ],
+    [
+     36.0,
+     96.0
+    ],
+    [
+     36.0,
+     96.0
+    ],
+    [
+     96.0,
+     120.0
+    ],
+    [
+     96.0,
+     120.0
+    ],
+    [
+     120.0,
+     null
+    ],
+    [
+     120.0,
+     null
+    ],
+    [
+     0,
+     96
+    ]
+   ]
   },
   {
    "name": "Presto",
@@ -636,7 +996,21 @@
   },
   {
    "name": "Venetian Gondola Song, Op. 30 No. 6",
-   "midi": "https://www.mutopiaproject.org/ftp/Mendelssohn-BartholdyF/O30/LiederOhneWorte_-_Op30_No6/LiederOhneWorte_-_Op30_No6.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/Mendelssohn-BartholdyF/O30/LiederOhneWorte_-_Op30_No6/LiederOhneWorte_-_Op30_No6.mid",
+   "order": [
+    [
+     0,
+     126.5
+    ],
+    [
+     60.5,
+     126.5
+    ],
+    [
+     126.5,
+     null
+    ]
+   ]
   },
   {
    "name": "Volkslied, Op. 53 No. 5",
@@ -709,7 +1083,21 @@
  "scarlatti-sonata-k-11": [
   {
    "name": "Sonata in C minor, K. 11",
-   "midi": "https://www.mutopiaproject.org/ftp/ScarlattiD/K11/sonatensatz/sonatensatz.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/ScarlattiD/K11/sonatensatz/sonatensatz.mid",
+   "order": [
+    [
+     0,
+     56
+    ],
+    [
+     0,
+     52
+    ],
+    [
+     56,
+     null
+    ]
+   ]
   }
  ],
  "scarlatti-sonata-k-455": [
@@ -731,11 +1119,47 @@
   },
   {
    "name": "Entrée",
-   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/02-entree/02-entree.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/02-entree/02-entree.mid",
+   "order": [
+    [
+     0,
+     28.0
+    ],
+    [
+     0,
+     28.0
+    ],
+    [
+     28.0,
+     null
+    ],
+    [
+     28.0,
+     null
+    ]
+   ]
   },
   {
    "name": "Gavotte",
-   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/03-gavotte/03-gavotte.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/03-gavotte/03-gavotte.mid",
+   "order": [
+    [
+     0,
+     32
+    ],
+    [
+     0,
+     32
+    ],
+    [
+     32,
+     null
+    ],
+    [
+     32,
+     null
+    ]
+   ]
   },
   {
    "name": "Toccata",
@@ -747,7 +1171,25 @@
   },
   {
    "name": "Impertinence",
-   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/06-impertinence/06-impertinence.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/06-impertinence/06-impertinence.mid",
+   "order": [
+    [
+     0,
+     32
+    ],
+    [
+     0,
+     32
+    ],
+    [
+     32,
+     null
+    ],
+    [
+     32,
+     null
+    ]
+   ]
   },
   {
    "name": "Concerto",
@@ -763,7 +1205,25 @@
   },
   {
    "name": "Menuet II",
-   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/10-menuetii/10-menuetii.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/10-menuetii/10-menuetii.mid",
+   "order": [
+    [
+     0,
+     24
+    ],
+    [
+     0,
+     24
+    ],
+    [
+     24,
+     null
+    ],
+    [
+     24,
+     null
+    ]
+   ]
   },
   {
    "name": "Allegro",
@@ -771,39 +1231,233 @@
   },
   {
    "name": "Menuet",
-   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/12-menuet/12-menuet.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/12-menuet/12-menuet.mid",
+   "order": [
+    [
+     0,
+     36
+    ],
+    [
+     0,
+     36
+    ],
+    [
+     36,
+     null
+    ]
+   ]
   },
   {
    "name": "Air",
-   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/13-air/13-air.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/13-air/13-air.mid",
+   "order": [
+    [
+     0,
+     18
+    ],
+    [
+     0,
+     18
+    ],
+    [
+     18,
+     42
+    ],
+    [
+     18,
+     40.5
+    ],
+    [
+     42,
+     null
+    ]
+   ]
   },
   {
    "name": "Menuet I",
-   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/14-menueti/14-menueti.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/14-menueti/14-menueti.mid",
+   "order": [
+    [
+     0,
+     12.0
+    ],
+    [
+     0,
+     12.0
+    ],
+    [
+     12.0,
+     null
+    ]
+   ]
   },
   {
    "name": "Menuet II",
-   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/15-menuetii/15-menuetii.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/15-menuetii/15-menuetii.mid",
+   "order": [
+    [
+     0,
+     24
+    ],
+    [
+     0,
+     24
+    ],
+    [
+     24,
+     null
+    ]
+   ]
   },
   {
    "name": "Air with variations",
-   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/16-airmitvar/16-airmitvar.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/16-airmitvar/16-airmitvar.mid",
+   "order": [
+    [
+     0,
+     16
+    ],
+    [
+     0,
+     16
+    ],
+    [
+     16,
+     16
+    ],
+    [
+     16,
+     16
+    ],
+    [
+     16,
+     48
+    ],
+    [
+     16,
+     48
+    ],
+    [
+     48,
+     64
+    ],
+    [
+     48,
+     64
+    ],
+    [
+     64,
+     96
+    ],
+    [
+     64,
+     96
+    ],
+    [
+     96,
+     112
+    ],
+    [
+     96,
+     112
+    ],
+    [
+     112,
+     144
+    ],
+    [
+     112,
+     142
+    ],
+    [
+     144,
+     null
+    ]
+   ]
   },
   {
    "name": "Allemande",
-   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/17-allemande/17-allemande.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/17-allemande/17-allemande.mid",
+   "order": [
+    [
+     0,
+     32.0
+    ],
+    [
+     0,
+     32.0
+    ],
+    [
+     32.0,
+     null
+    ],
+    [
+     32.0,
+     null
+    ]
+   ]
   },
   {
    "name": "Passepied",
-   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/18-passepied/18-passepied.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/18-passepied/18-passepied.mid",
+   "order": [
+    [
+     0,
+     12.0
+    ],
+    [
+     0,
+     12.0
+    ],
+    [
+     12.0,
+     null
+    ],
+    [
+     12.0,
+     null
+    ]
+   ]
   },
   {
    "name": "Menuet",
-   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/19-menuet/19-menuet.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/19-menuet/19-menuet.mid",
+   "order": [
+    [
+     0,
+     24
+    ],
+    [
+     0,
+     24
+    ],
+    [
+     24,
+     null
+    ],
+    [
+     24,
+     null
+    ]
+   ]
   },
   {
    "name": "Sonatina",
-   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/20-sonatina/20-sonatina.mid"
+   "midi": "https://www.mutopiaproject.org/ftp/HandelGF/Aylesford/20-sonatina/20-sonatina.mid",
+   "order": [
+    [
+     0,
+     105
+    ],
+    [
+     0,
+     105
+    ],
+    [
+     105,
+     null
+    ]
+   ]
   }
  ],
  "handel-sonatina-hwv-585": [

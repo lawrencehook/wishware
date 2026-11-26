@@ -14,7 +14,7 @@
 ## Known gaps
 
 - Tempos come from the source files and few have been checked by ear. `tools/imports.json` records the ones corrected by hand (`speed`, `tempo`); Chopin’s Ballade No. 4 was also rescaled by 1.5 in place, because its marks count dotted quarters.
-- Mutopia MIDI plays each printed measure once: repeats are skipped and a minuet ends after its trio.
+- Mutopia MIDI plays each printed measure once. Where the sheet music matches, `engrave.py --repeats` reads the repeat signs and first and second endings off the print and `tools/midi.py` unfolds the notes (the plan is the movement’s `order` in `tools/imports.json`; a da capo is added there by hand). Pieces whose sheet music does not match still play once through.
 - Pieces from the ASAP and DCML datasets have no engraved edition, so no sheet music.
 - Bach’s Goldberg Variations are still in the sandbox.
 

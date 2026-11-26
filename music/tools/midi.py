@@ -4,8 +4,11 @@ imports.json lists, per folder, the movements in order:
     {"<folder>": [{"name": ..., "midi": <url, or zip url + "#" + member>, "pickup": <quarter notes>,
                    "upper": [<note tracks that are the upper hand, counted from 0>],
                    "speed": <factor, for a source whose tempo is plainly wrong>,
-                   "tempo": {<quarter note where a tempo mark stands>: <corrected quarter notes per minute>}}]}
-pickup, upper, speed and tempo are optional. A Mutopia MIDI does not say that it opens with a partial
+                   "tempo": {<quarter note where a tempo mark stands>: <corrected quarter notes per minute>},
+                   "order": [[<from>, <to>], ...]}]}
+pickup, upper, speed, tempo and order are optional. order lists the passages to play, in quarter
+notes of the edition played once through (to is null at the end); ../engrave.py --repeats writes
+it from the repeat signs of the print. A Mutopia MIDI does not say that it opens with a partial
 measure, so without "pickup" the edition's LilyPond source is searched for \\partial. Without
 "upper", tracks are sorted into hands by their names, or failing that by how high they lie.
 
@@ -103,20 +106,16 @@ def convert(entry, work):
         if notes:
             tracks.append((name, notes))
 
-    # Seconds at each tempo change, then seconds at any tick.
     retempo = {float(beat): 60e6 / bpm for beat, bpm in entry.get('tempo', {}).items()}
     tempos = sorted((tick, retempo.get(tick / tpq, tempo) / entry.get('speed', 1)) for tick, tempo in dict(tempos).items()) or [(0, 500000)]
     if tempos[0][0] > 0:
         tempos.insert(0, (0, tempos[0][1]))
-    marks, seconds = [], 0.0
-    for i, (tick, tempo) in enumerate(tempos):
-        if i:
-            seconds += (tick - tempos[i - 1][0]) / tpq * tempos[i - 1][1] / 1e6
-        marks.append((tick, seconds, tempo))
-
-    def at(tick):
-        mark = next(m for m in reversed(marks) if m[0] <= tick)
-        return mark[1] + (tick - mark[0]) / tpq * mark[2] / 1e6
+    meters = sorted({tick: (n, d) for tick, n, d in meters}.items()) or [(0, (4, 4))]
+    sharps = lambda name: (['C', 'G', 'D', 'A', 'E', 'B', 'F#', 'C#'].index(name) if name in ('C', 'G', 'D', 'A', 'E', 'B', 'F#', 'C#')
+                           else -['C', 'F', 'Bb', 'Eb', 'Ab', 'Db', 'Gb', 'Cb'].index(name))
+    relative = {'A': 'C', 'E': 'G', 'B': 'D', 'F#': 'A', 'C#': 'E', 'G#': 'B', 'D#': 'F#', 'A#': 'C#',
+                'D': 'F', 'G': 'Bb', 'C': 'Eb', 'F': 'Ab', 'Bb': 'Db', 'Eb': 'Gb', 'Ab': 'Cb'}
+    keys = sorted({tick: sharps(relative[key[:-1]] if key.endswith('m') else key) for tick, key in keys}.items()) or [(0, 0)]
 
     # Hands.
     upper = entry.get('upper')
@@ -131,46 +130,96 @@ def convert(entry, work):
             middle = (max(means) + min(means)) / 2
             upper = [i for i, mean in enumerate(means) if mean >= middle]
     if len(tracks) == 1:
-        channels = None
         notes = [(start, pitch, length, 0 if pitch >= 60 else 1, velocity) for start, pitch, length, velocity in tracks[0][1]]
     else:
         notes = [(start, pitch, length, 0 if i in upper else 1, velocity)
                  for i, (_, part) in enumerate(tracks) for start, pitch, length, velocity in part]
     print('      tracks:', ', '.join('%s=%s' % (name or '?', 'upper' if i in upper else 'lower') for i, (name, _) in enumerate(tracks)))
     notes.sort()
-    rows = [[round(at(start), 3), pitch, round(at(start + length) - at(start), 3), hand, velocity]
-            for start, pitch, length, hand, velocity in notes]
 
-    # Measures.
-    end = max(start + length for start, _, length, _, _ in notes) / tpq
     pickup = entry.get('pickup')
     if pickup is None:
         pickup = lilypond_pickup(entry['midi'], work)
         if pickup is None:
             print('      no LilyPond source found; assuming no pickup')
             pickup = 0
-    meters = sorted({tick: (n, d) for tick, n, d in meters}.items()) or [(0, (4, 4))]
-    sharps = lambda name: (['C', 'G', 'D', 'A', 'E', 'B', 'F#', 'C#'].index(name) if name in ('C', 'G', 'D', 'A', 'E', 'B', 'F#', 'C#')
-                           else -['C', 'F', 'Bb', 'Eb', 'Ab', 'Db', 'Gb', 'Cb'].index(name))
-    relative = {'A': 'C', 'E': 'G', 'B': 'D', 'F#': 'A', 'C#': 'E', 'G#': 'B', 'D#': 'F#', 'A#': 'C#',
-                'D': 'F', 'G': 'Bb', 'C': 'Eb', 'F': 'Ab', 'Bb': 'Db', 'Eb': 'Gb', 'Ab': 'Cb'}
-    keys = sorted({tick: sharps(relative[key[:-1]] if key.endswith('m') else key) for tick, key in keys}.items()) or [(0, 0)]
-    bars, number = [], 1
-    if pickup:
-        bars.append([0, 0, '%d/%d' % meters[0][1], keys[0][1]])
-    for i, (tick, (n, d)) in enumerate(meters):
-        beat = max(tick / tpq, pickup) if i == 0 else tick / tpq
-        stop = meters[i + 1][0] / tpq if i + 1 < len(meters) else end
-        length = n * 4 / d
-        if i == 0 and not pickup and len(meters) > 1 and abs(stop - beat - length) < 1e-6 and length < meters[1][1][0] * 4 / meters[1][1][1]:
-            number = 0  # a notation program writes a pickup as a short first measure
-        while beat < stop - 1e-6:
-            key = next(k for t, k in reversed(keys) if t / tpq <= beat + 1e-6) if keys[0][0] / tpq <= beat + 1e-6 else keys[0][1]
-            bars.append([round(beat, 4), number, '%d/%d' % (n, d), key])
-            number += 1
-            beat += length
+
+    def measures(meters, keys, end):
+        """[[quarter, number, meter, key]] for the measures up to `end` quarter notes."""
+        bars, number = [], 1
+        if pickup:
+            bars.append([0, 0, '%d/%d' % meters[0][1], keys[0][1]])
+        for i, (tick, (n, d)) in enumerate(meters):
+            beat = max(tick / tpq, pickup) if i == 0 else tick / tpq
+            stop = meters[i + 1][0] / tpq if i + 1 < len(meters) else end
+            length = n * 4 / d
+            if i == 0 and not pickup and len(meters) > 1 and abs(stop - beat - length) < 1e-6 and length < meters[1][1][0] * 4 / meters[1][1][1]:
+                number = 0  # a notation program writes a pickup as a short first measure
+            while beat < stop - 1e-6:
+                key = next(k for t, k in reversed(keys) if t / tpq <= beat + 1e-6) if keys[0][0] / tpq <= beat + 1e-6 else keys[0][1]
+                bars.append([round(beat, 4), number, '%d/%d' % (n, d), key])
+                number += 1
+                beat += length
+        return bars
+
+    end = max(start + length for start, _, length, _, _ in notes)
+    bars = measures(meters, keys, end / tpq)
+    linear = None
+    if entry.get('order'):
+        # Play the passages of the edition in the order given, as its repeat signs direct.
+        spans, moved = [], 0
+        for begin, finish in entry['order']:
+            begin, finish = round(begin * tpq), end if finish is None else round(finish * tpq)
+            if finish > begin:
+                spans.append((begin, finish, moved))
+                moved += finish - begin
+
+        def marks_through(events):
+            out = []
+            for begin, finish, moved in spans:
+                held = [value for tick, value in events if tick <= begin][-1:] or [events[0][1]]
+                for tick, value in [(begin, held[0])] + [event for event in events if begin < event[0] < finish]:
+                    if not out or out[-1][1] != value:
+                        out.append((tick - begin + moved, value))
+            return out
+
+        once = notes
+        notes = []
+        for k, (begin, finish, moved) in enumerate(spans):
+            joined = k + 1 < len(spans) and spans[k + 1][0] == finish
+            for start, pitch, length, hand, velocity in once:
+                if begin <= start < finish:
+                    # A note held over a repeat sign stops there unless the music runs straight on.
+                    notes.append((start - begin + moved, pitch, length if joined else min(length, finish - start), hand, velocity))
+        notes.sort()
+        tempos, meters, keys = marks_through(tempos), marks_through(meters), marks_through(keys)
+        end = max(start + length for start, _, length, _, _ in notes)
+        starts = [bar[0] for bar in bars]
+        bars = measures(meters, keys, end / tpq)
+        linear = []
+        for bar in bars:
+            begin, _, moved = next(span for span in reversed(spans) if span[2] <= round(bar[0] * tpq))
+            beat = (round(bar[0] * tpq) - moved + begin) / tpq
+            linear.append(max(i for i, start in enumerate(starts) if start <= beat + 1e-6))
+
+    # Seconds at each tempo change, then seconds at any tick.
+    marks, seconds = [], 0.0
+    for i, (tick, tempo) in enumerate(tempos):
+        if i:
+            seconds += (tick - tempos[i - 1][0]) / tpq * tempos[i - 1][1] / 1e6
+        marks.append((tick, seconds, tempo))
+
+    def at(tick):
+        mark = next(m for m in reversed(marks) if m[0] <= tick)
+        return mark[1] + (tick - mark[0]) / tpq * mark[2] / 1e6
+
+    rows = [[round(at(start), 3), pitch, round(at(start + length) - at(start), 3), hand, velocity]
+            for start, pitch, length, hand, velocity in notes]
     tempo = [[round(s, 6), round(tick / tpq, 4), round(60e6 / t, 1)] for tick, s, t in marks]
-    return {'name': entry['name'], 'notes': rows}, {'bars': bars, 'tempo': tempo}
+    notation = {'bars': bars, 'tempo': tempo}
+    if linear:
+        notation['linear'] = linear  # for each measure heard, its number in the edition played once through
+    return {'name': entry['name'], 'notes': rows}, notation
 
 
 def main():

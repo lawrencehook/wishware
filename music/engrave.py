@@ -15,6 +15,11 @@ measures in measures.js (one literal repeat is understood; anything else is not)
 written for it and its page shows no sheet music. --debug saves each page with the detected
 systems and barlines drawn on it, next to the downloaded PDF.
 
+The repeat signs and first and second endings of the print are read too. For a movement
+imported by tools/midi.py that plays once through, --repeats writes the passages to play, in
+order, to that movement's entry in tools/imports.json; run midi.py again to unfold the notes,
+then this script again to match the unfolded measures to the print.
+
 Needs: Ghostscript (gs), cwebp, and Python with numpy and pillow.
 Usage: python music/engrave.py --work <scratch dir for downloads> <folder> [<folder> ...]
 """
@@ -112,6 +117,90 @@ def find_barlines(dark, top, bottom, lines, accepted=()):
     return [int((a + b) // 2) for a, b in marks], right, right - marks[-1][1] < space * 10, doubtful, wide
 
 
+def find_repeats(dark, top, bottom, lines):
+    """Repeat signs and volta brackets of one system.
+
+    Returns the signs as [(left, right, ends a repeat, begins one)] and the brackets as
+    [(left, right)]. A sign is a double barline with a thick stroke and dots in the middle
+    spaces of both staves; a bracket is a long thin line above the staff with a hook at its left.
+    """
+    space = (lines[4] - lines[0]) / 4
+    band = dark[top:bottom]
+    inked = band.sum(axis=0)
+
+    def dots(x0, x1):
+        count = 0
+        for staff in (lines[:5], lines[5:]):
+            for k in (1, 2):
+                box = dark[int(round(staff[k] + space * .2)):int(round(staff[k + 1] - space * .2)) + 1, max(0, x0):x1]
+                columns = np.flatnonzero(box.sum(axis=0))
+                if 4 <= box.sum() <= space * space * .7 and columns[-1] - columns[0] <= space * .75:
+                    count += 1
+        return count >= 3
+
+    groups = []
+    for a, b in runs(inked >= (bottom - top) * 0.86):
+        if groups and a - groups[-1][1] < space * 1.2:
+            groups[-1][1:] = [int(b), max(groups[-1][2], b - a)]
+        else:
+            groups.append([int(a), int(b), b - a])
+    signs = []
+    for a, b, thick in groups:
+        if thick >= space * .45:
+            ends, begins = dots(int(a - space * 1.5), a - 1), dots(b + 1, int(b + space * 1.5))
+            if ends or begins:
+                signs.append((a, b, ends, begins))
+    y0 = max(0, int(top - space * 9))
+    above = dark[y0:int(top - space * 1.2)]
+    brackets = []
+    for row in range(above.shape[0]):
+        for a, b in runs(above[row]):
+            if b - a < space * 5 or above[max(0, row - 3):row + 4, a + 4:b - 4].any(axis=1).sum() > max(2, space * .3):
+                continue
+            hook = dark[y0 + row:y0 + row + int(space * 1.5), a:a + 3].any(axis=1).mean() > .9
+            if hook and not any(abs(a - left) < space for left, _ in brackets):
+                brackets.append((int(a), int(b)))
+    return signs, brackets
+
+
+def repeat_plan(bars, printed, split, ends, begins, voltas):
+    """The passages to play, in order, as [[from, to]] in quarter notes (to is None at the end),
+    for a movement whose notes run once through the print; or None if it has no repeats.
+
+    `ends` and `begins` hold, for each repeat sign, the number of printed measures before it;
+    `voltas` lists the printed measures under each bracket. A sign inside a measure (see `split`)
+    is taken to stand one upbeat before that measure's end.
+    """
+    if not ends or (ends == {printed} and not begins and not voltas):
+        return None  # a lone sign at the very end is more likely a misread final barline
+    whole = [i for i in range(printed) if i not in split]
+    linear = lambda index: sum(1 for i in whole if i <= index) - 1
+    length = lambda k: bars[k + 1][0] - bars[k][0] if k + 1 < len(bars) else bars[k][0] - bars[k - 1][0]
+    upbeat = bars[1][0] - bars[0][0] if bars[0][1] == 0 else None
+
+    def beat(boundary):
+        if boundary >= printed:
+            return None
+        if boundary in split:
+            if upbeat is None:
+                raise ValueError('a repeat sign stands inside a measure of a piece with no upbeat')
+            k = linear(boundary - 1)
+            return bars[k][0] + length(k) - upbeat
+        return bars[linear(boundary)][0]
+
+    plan, cursor, previous = [], 0, 0
+    for end in sorted(ends):
+        to = beat(end)
+        back = max([b for b in begins if previous <= b < end], default=previous)
+        first = next((under for under in voltas if max(under) == end - 1), None)
+        plan.append([cursor, to])
+        plan.append([beat(back) if back else 0, beat(min(first)) if first else to])
+        cursor, previous = to, end
+    if cursor is not None:
+        plan.append([cursor, None])
+    return plan
+
+
 def signatures(notes, tempo, bars):
     """What sounds in each measure, for spotting a repeat: a set of (position, pitch)."""
     def beat(seconds):
@@ -173,10 +262,14 @@ def engrave(folder, index, url, notes, notation, work, debug):
         starts = np.arange(pickup, old[-1][0] + length - 0.001, length)
         notation = dict(notation, bars=[[0.0, 0] + old[0][2:]] + [[float(start), k + 1] + old[0][2:]
                                                                  for k, start in enumerate(starts)])
-    heard = len(notation['bars']) - sum(count - 1 for count in long.values())
+    # notation.linear, written by tools/midi.py when it unfolds repeats, gives for each measure
+    # heard its place in the edition played once through; that is what the print must match.
+    linear = notation.get('linear')
+    heard = max(linear) + 1 if linear else len(notation['bars']) - sum(count - 1 for count in long.values())
     accepted = {}  # (page, top of system) -> doubtful columns to count as barlines
     for attempt in range(2):
         systems, bars, images, doubtful, double = [], [], [], [], []
+        ends, begins, voltas = set(), set(), []
         open_measure = False
         for page_number, page in enumerate(pages, 1):
             image = Image.open(page).convert('L')
@@ -201,6 +294,22 @@ def engrave(folder, index, url, notes, notation, work, debug):
                 x, end, closed, maybe, wide = find_barlines(faint, top, bottom, lines, accepted.get(key, ()))
                 doubtful += [(score, key, column) for column, score in maybe]
                 edges = x if closed else x + [int(end)]
+                # Printed measure k of this system is number base + k; barline k has base + k measures before it.
+                base, space = len(bars) - open_measure, (lines[4] - lines[0]) / 4
+                signs, brackets = find_repeats(dark, top, bottom, lines)
+                for a, b, closes, opens in signs:
+                    k = int(np.argmin([abs(position - (a + b) / 2) for position in x]))
+                    if abs(x[k] - (a + b) / 2) > space * 3:
+                        k = 0  # the sign that opens a system, after its clef
+                    if closes and k:
+                        ends.add(base + k)
+                    if opens:
+                        begins.add(base + k)
+                for a, b in brackets:
+                    under = [base + k for k in range(len(edges) - 1)
+                             if min(b, edges[k + 1]) - max(a, edges[k]) > (edges[k + 1] - edges[k]) / 2]
+                    if under:
+                        voltas.append(under)
                 for k in range(len(edges) - 1):
                     # The rest of a measure left open by the previous system is not a new measure.
                     if not (k == 0 and open_measure):
@@ -232,7 +341,19 @@ def engrave(folder, index, url, notes, notation, work, debug):
     # printed measures, take each as such a division.
     double = [index for index in double if index < len(bars)]
     split = double if double and len(bars) - len(double) == heard else ()
-    order = unfold(signatures(notes, notation['tempo'], notation['bars']), len(bars), long, split)
+    plan = None
+    if linear:
+        whole = [i for i in range(len(bars)) if i not in split]
+        if len(whole) != heard:
+            raise ValueError('found %d printed measures for the %d of the edition' % (len(whole), heard))
+        order = [whole[k] for k in linear]
+    else:
+        order = unfold(signatures(notes, notation['tempo'], notation['bars']), len(bars), long, split)
+        if len(set(order)) == len(order):  # played once through: the print says what to repeat
+            try:
+                plan = repeat_plan(notation['bars'], len(bars), set(split), ends, begins, voltas)
+            except ValueError:
+                pass  # the sheet music still follows; the repeats stay unplayed
     play = [[bar[0], printed] for bar, printed in zip(notation['bars'], order)]
 
     out = HERE / 'notation' / folder
@@ -245,7 +366,7 @@ def engrave(folder, index, url, notes, notation, work, debug):
     (out / ('%d.js' % index)).write_text(
         '// Generated by music/engrave.py from the edition at `pdf`. Do not edit.\n'
         'const ENGRAVING = ' + json.dumps(data, separators=(',', ':')) + ';\n', encoding='utf-8')
-    return len(bars), len(images), len(play) - len(bars)
+    return len(bars), len(images), len(play) - len(bars), plan
 
 
 def movements(folder):
@@ -262,6 +383,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--work', required=True, type=Path)
     parser.add_argument('--debug', action='store_true')
+    parser.add_argument('--repeats', action='store_true')
     parser.add_argument('folders', nargs='+')
     args = parser.parse_args()
     # {folder: {movement index: PDF}} from the score entries of catalog.js.
@@ -274,6 +396,8 @@ def main():
                                       check=True, capture_output=True, text=True).stdout)
     pdfs = {folder: {int(k): v for k, v in entry.items() if k != 'all'} | (
         {0: entry['all']} if 'all' in entry else {}) for folder, entry in found.items()}
+    listing = HERE / 'tools' / 'imports.json'
+    imports = json.loads(listing.read_text())
     for folder in args.folders:
         parts = movements(folder)
         for index, (name, notes, notation) in enumerate(parts):
@@ -283,11 +407,16 @@ def main():
                 print('skip  ' + label + ': ' + ('no measure data' if url else 'no PDF edition in catalog.js'))
                 continue
             try:
-                found, count, repeated = engrave(folder, index, url, notes, notation, args.work, args.debug)
-                print('ok    %s: %d measures on %d pages%s' % (
-                    label, found, count, ', %d more heard than printed' % repeated if repeated else ''))
+                found, count, repeated, plan = engrave(folder, index, url, notes, notation, args.work, args.debug)
+                print('ok    %s: %d measures on %d pages%s%s' % (
+                    label, found, count, ', %d more heard than printed' % repeated if repeated else '',
+                    ', repeats ' + json.dumps(plan) if plan else ''))
+                if plan and args.repeats and folder in imports:
+                    imports[folder][index]['order'] = plan
             except ValueError as error:
                 print('FAIL  ' + label + ': ' + str(error))
+    if args.repeats:
+        listing.write_text(json.dumps(imports, indent=1, ensure_ascii=False))
 
 
 main()
