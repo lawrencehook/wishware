@@ -21,81 +21,6 @@ function portrait(parts, colors, start, span) {
     };
 }
 
-const composers = {
-    bach() {
-        const files = ['scores', 'sinfonias', 'preludes', 'organ-work', 'air-work', 'brandenburg', 'wtc1', 'library'];
-        const source = files.map((name) => fs.readFileSync(path.join(HERE, 'bach-data', name + '.js'), 'utf8')).join('\n');
-        const data = new Function(
-            source + '\nreturn {library, clavierPairs, INVENTIONS, SINFONIAS, FUGUE, voiceGroups, durationText, playerLink};'
-        )();
-        const { library, clavierPairs, INVENTIONS, SINFONIAS, FUGUE, voiceGroups, durationText, playerLink } = data;
-        const draw = (piece, featured) =>
-            portrait(piece.score, voiceGroups(piece), featured && piece === FUGUE ? 60 : 0, featured ? 62 : 52);
-        const featured = [
-            [1050, 'I. Allegro · D major', 'Brandenburg Concerto No. 5'],
-            [565, 'Organ · D minor', 'Toccata and Fugue'],
-            [1068, 'Orchestral Suite No. 3 · D major', 'Air'],
-            [1007, 'Cello Suite No. 1 · G major', 'Prelude for solo cello'],
-            [846, 'The Well-Tempered Clavier · Book I', 'Prelude in C major'],
-            [851, 'The Well-Tempered Clavier · Book I', 'Fugue in D minor'],
-        ].map(([bwv, eyebrow, title]) => {
-            const piece = library.find((work) => work.bwv === bwv);
-            return {
-                eyebrow,
-                title,
-                meta: 'BWV ' + bwv + ' · ' + durationText(piece),
-                href: playerLink(piece),
-                portrait: draw(piece, true),
-            };
-        });
-        const works = (pieces) =>
-            pieces.map((piece) => ({
-                title: piece.key,
-                meta: 'BWV ' + piece.bwv,
-                time: durationText(piece),
-                href: playerLink(piece),
-                label: piece.title + ' in ' + piece.key + ', BWV ' + piece.bwv,
-                portrait: draw(piece),
-            }));
-        const pairs = clavierPairs.map((pair, index) => ({
-            title: index + 1 + '. ' + pair[0].key,
-            meta: 'BWV ' + pair[0].bwv,
-            links: pair.map((piece, i) => {
-                const label = i ? 'Fugue' : 'Prelude';
-                return {
-                    label,
-                    detail: (i ? new Set(voiceGroups(piece)).size + ' voices · ' : '') + durationText(piece),
-                    href: playerLink(piece),
-                    aria: label + ' in ' + piece.key + ', BWV ' + piece.bwv,
-                    portrait: draw(piece),
-                };
-            }),
-        }));
-        return {
-            name: 'Johann Sebastian Bach',
-            years: '1685–1750',
-            about:
-                'Johann Sebastian Bach (1685–1750) was a German composer and organist of the late Baroque. ' +
-                'He worked as a church and court musician in Weimar and Köthen, and spent his last 27 years as cantor of St Thomas’s in Leipzig. ' +
-                'His music includes the Brandenburg Concertos, The Well-Tempered Clavier, the Goldberg Variations, the St Matthew Passion and the Mass in B minor, along with some 200 surviving cantatas. ' +
-                'In his lifetime he was known chiefly as an organist; a nineteenth-century revival, marked by Mendelssohn’s 1829 performance of the St Matthew Passion, made his reputation as a composer.',
-            wikipedia: 'https://en.wikipedia.org/wiki/Johann_Sebastian_Bach',
-            featured,
-            sections: [
-                { title: 'Two-Part Inventions', count: INVENTIONS.length + ' works', works: works(INVENTIONS) },
-                { title: 'Three-Part Sinfonias', count: SINFONIAS.length + ' works', works: works(SINFONIAS) },
-                { title: 'The Well-Tempered Clavier, Book I', count: '24 pairs', pairs },
-            ],
-            credits: [
-                { text: 'Bach scores from Mutopia, Project Gutenberg, and Knute Snortum' },
-                { text: 'Piano recordings by Alexander Holm', href: 'bach-data/piano-credits.txt' },
-                { text: 'Organ and string recordings', href: 'bach-data/ensemble-credits.txt' },
-                { text: 'Concerto recordings', href: 'bach-data/concerto-credits.txt' },
-            ],
-        };
-    },
-};
-
 // Catalog pieces: pieces/<folder>/notes.js holds {movements: [{name, notes: [[seconds, pitch, length, hand], ...]}]}.
 const PIECES = path.join(HERE, 'pieces');
 const pieces = new Map();
@@ -134,6 +59,7 @@ function piecePortrait(notes, onsets) {
     return portrait(parts, hands.map((_, i) => i), 0, Math.round(span * 100) / 100);
 }
 
+const composers = {};
 for (const [id, entry] of Object.entries(require('./catalog.js'))) {
     // piece.html looks its own heading up by this link, so keep the parameter order.
     const link = (folder, index) => 'piece.html?c=' + id + '&p=' + folder + '&m=' + index;
@@ -149,42 +75,59 @@ for (const [id, entry] of Object.entries(require('./catalog.js'))) {
             ...(video && { recording: { video, start, text: performer + (holds ? ' · ' + holds : '') } }),
         };
     };
+    // What a piece page needs to know about the piece a catalog entry leads to.
+    const work = (folder, index, heading, sub, onsets) => {
+        const notes = movement(folder, index);
+        return { notes, time: clock(notes), href: link(folder, index), heading, sub, ...credits(entry.sources[folder], index), portrait: piecePortrait(notes, onsets) };
+    };
     composers[id] = () => ({
         name: entry.name,
         years: entry.years,
         about: entry.about,
         wikipedia: entry.wikipedia,
-        featured: entry.featured.map(([folder, index, eyebrow, title, number]) => {
-            const notes = movement(folder, index);
-            return {
-                eyebrow,
-                title,
-                meta: number + ' · ' + clock(notes),
-                href: link(folder, index),
-                portrait: piecePortrait(notes, 56),
-            };
-        }),
-        sections: entry.sections.map((section) => ({
-            title: section.title,
-            count: section.count ?? section.rows.length + ' works',
-            works: section.rows.map((row, i) => {
-                const [folder, index, title, meta, number] = section.from ? [section.from, i, ...row] : [row[0], 0, row[1], row[2]];
+        featured: [
+            ...entry.featured.map(([folder, index, eyebrow, title, number]) => {
                 const notes = movement(folder, index);
                 return {
-                    number,
+                    eyebrow,
                     title,
-                    meta,
-                    time: clock(notes),
+                    meta: number + ' · ' + clock(notes),
                     href: link(folder, index),
-                    label: section.title + ': ' + title + ', ' + meta,
-                    heading: section.piece ? section.piece + ' in ' + title : title,
-                    sub: (section.from ? section.title + ' · ' : '') + meta,
-                    ...credits(entry.sources[folder], index),
-                    portrait: piecePortrait(notes, 48),
+                    portrait: piecePortrait(notes, 56),
                 };
             }),
-        })),
-        credits: [{ text: 'Editions, recordings and instrument samples are credited on each piece’s page' }],
+        ],
+        sections: entry.sections.map((section) => {
+            const count = section.count ?? section.rows.length + ' works';
+            // `pairs` names the two movements that each row of the section holds, as in a book of preludes and fugues.
+            if (section.pairs) {
+                return {
+                    title: section.title,
+                    count,
+                    pairs: section.rows.map(([title, meta], i) => ({
+                        title: i + 1 + '. ' + title,
+                        meta,
+                        links: section.pairs.map((label, k) => {
+                            const { notes, time, ...rest } = work(section.from, 2 * i + k, label + ' in ' + title, section.title + ' · ' + meta, 48);
+                            // Written voices that share a staff line count once.
+                            const groups = pieces.get(section.from)[2 * i + k].voices?.groups;
+                            const voices = new Set(notes.map((note) => (groups ? groups[note[3]] : note[3]))).size;
+                            return { label, detail: (k ? voices + ' voices · ' : '') + time, aria: label + ' in ' + title + ', ' + meta, ...rest };
+                        }),
+                    })),
+                };
+            }
+            return {
+                title: section.title,
+                count,
+                works: section.rows.map((row, i) => {
+                    const [folder, index, title, meta, number] = section.from ? [section.from, i, ...row] : [row[0], 0, row[1], row[2]];
+                    const { notes, ...rest } = work(folder, index, section.piece ? section.piece + ' in ' + title : title, (section.from ? section.title + ' · ' : '') + meta, 48);
+                    return { number, title, meta, label: section.title + ': ' + title + ', ' + meta, ...rest };
+                }),
+            };
+        }),
+        credits: entry.credits ?? [{ text: 'Editions, recordings and instrument samples are credited on each piece’s page' }],
     });
 }
 

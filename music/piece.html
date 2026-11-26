@@ -25,9 +25,9 @@ canvas{height:clamp(210px,32vh,340px)}
 <p id="performer"></p>
 <button id="watch">Play recording</button>
 </section>
-<footer><div class="voices" aria-label="Audible voices"></div><div class="credit"><a id="edition"></a> · <a href="bach-data/piano-credits.txt">Salamander grand piano</a></div></footer><p role="status" id="status"></p><nav class="neighbours" aria-label="Neighbouring works"></nav></main>
-<script>
-// The Bach player, fed by a piece in pieces/<p>/: notes.js holds
+<footer><div class="voices" aria-label="Audible voices"></div><div class="credit"><a id="edition"></a> · <a id="samples" href="bach-data/piano-credits.txt">Salamander grand piano</a></div></footer><p role="status" id="status"></p><nav class="neighbours" aria-label="Neighbouring works"></nav></main>
+<script src="player.js"></script><script>
+// player.js, fed by a piece in pieces/<p>/: notes.js holds
 // {movements: [{name, notes: [[seconds, pitch, length, hand, velocity], ...]}]} and
 // measures.js adds notation = {bars: [[quarter, number, meter, key]], tempo: [[seconds, quarter, bpm]]}.
 // notation/<p>/<m>.js, made by engrave.py, places each measure on the printed edition.
@@ -57,7 +57,7 @@ function missing() {
     const composer = COMPOSERS[composerId];
     const movement = score.movements[movementIndex];
     const link = 'piece.html?c=' + composerId + '&p=' + folder + '&m=' + movementIndex;
-    const works = composer.sections.flatMap(section => section.works ?? []);
+    const works = composer.sections.flatMap(section => section.works ?? section.pairs.flatMap(pair => pair.links));
     const work = works.find(item => item.href === link);
     if (!movement || !work) return missing();
     // The works on either side, in the order of the composer's page.
@@ -96,7 +96,11 @@ function scoreBeat(seconds) {
     const segment = tempoMap.findLast(entry => entry.seconds <= seconds) ?? tempoMap[0];
     return segment.beat + (seconds - segment.seconds) / segment.secondsPerBeat;
 }
-// One voice per hand, highest first. Notes struck together for the same length form a chord.
+// One voice per hand, highest first; or the written voices in order, where the movement names
+// them ({names, groups, instruments}: a group is the toggle and colour a voice shares). Notes
+// struck together for the same length form a chord. An ensemble movement may also set its gain,
+// the stereo seating of its instruments, legato (true, or the sixteenth-note onsets bowed on from
+// the note before, per voice) and a jump ({label, title, beat}) offered beside the controls.
 const hands = new Map();
 for (const [seconds, pitch, length, hand, velocity] of movement.notes) {
     if (!hands.has(hand)) hands.set(hand, []);
@@ -104,7 +108,9 @@ for (const [seconds, pitch, length, hand, velocity] of movement.notes) {
     hands.get(hand).push({t, length: scoreBeat(seconds + length) - t, pitches: [pitch], level: (velocity ?? 82) / 100});
 }
 const mean = notes => notes.reduce((sum, n) => sum + n.pitches[0], 0) / notes.length;
-const voices = [...hands.values()].sort((a, b) => mean(b) - mean(a)).map(notes => {
+const written = movement.voices;
+const ordered = written ? [...hands.keys()].sort((a, b) => a - b).map(hand => hands.get(hand)) : [...hands.values()].sort((a, b) => mean(b) - mean(a));
+const voices = ordered.map(notes => {
     const chords = [];
     for (const n of notes.sort((a, b) => a.t - b.t || a.pitches[0] - b.pitches[0])) {
         const last = chords.at(-1);
@@ -113,9 +119,8 @@ const voices = [...hands.values()].sort((a, b) => mean(b) - mean(a)).map(notes =
     }
     return chords;
 });
-const names = voices.length === 1 ? ['Piano'] : voices.length === 2 ? ['Upper', 'Lower'] : voices.map((_, i) => 'Part ' + (i + 1));
-const colors = voiceColors;
-const enabled = names.map(() => true);
+const names = written?.names ?? (voices.length === 1 ? ['Piano'] : voices.length === 2 ? ['Upper', 'Lower'] : voices.map((_, i) => 'Part ' + (i + 1)));
+const groups = written?.groups ?? voices.map((_, i) => i);
 const totalBeats = Math.max(...voices.flat().map(n => n.t + n.length));
 // Measures as heard: [beat, label, index of the printed measure]. The engraving knows the
 // print, including repeats and cadenzas; otherwise measures.js numbers them.
@@ -123,163 +128,62 @@ const sheet = typeof ENGRAVING === 'undefined' ? null : ENGRAVING;
 // A printed measure that only finishes the one before it (after a repeat sign) is never played to,
 // so measures are numbered by their place among the printed measures that are.
 const played = sheet && [...new Set(sheet.play.map(([, printed]) => printed))].sort((x, y) => x - y);
-const heard = sheet
+// An engraving may instead give its own label for each measure heard.
+const heard = sheet?.labels
+    ? sheet.play.map(([beat, printed], i) => [beat, sheet.labels[i], printed])
+    : sheet
     ? sheet.play.filter(([, printed], i, all) => printed !== all[i - 1]?.[1])
         .map(([beat, printed]) => [beat, played.indexOf(printed) + (sheet.pickup ? 0 : 1), printed])
     : (notation?.bars ?? []).map(([beat, number]) => [beat, number]);
 const bars = heard.map(([beat]) => beat);
-const measures = bars.length;
-const lastNumber = sheet ? played.length - (sheet.pickup ? 1 : 0) : heard.at(-1)?.[1];
-const pitches = voices.flat().flatMap(n => n.pitches);
-const lowest = Math.min(...pitches), highest = Math.max(...pitches);
-const canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d'),play=document.querySelector('#play'),seek=document.querySelector('#seek'),speed=document.querySelector('#speed'),bar=document.querySelector('#bar');
-seek.max = totalBeats;
-let audio, master, clock;
-// Resolve the sample once per pitch, before the playback clock starts.
-const samples = new Map();
-let running = false, offset = 0, startTime = 0;
-let startSeconds = 0, playbackSpeed = 1;
-let nextNote = [];
-const playing = new Set();
-
-async function prepareInstrument() {
-    if (!audio) {
-        audio = new AudioContext();
-        master = audio.createGain();
-        master.gain.value = .6;
-        master.connect(audio.destination);
-    }
-    await audio.resume();
-    if (samples.size) return;
-    if (typeof PIANO_SAMPLES === 'undefined') await load('bach-data/piano.js');
-    const roots = Object.keys(PIANO_SAMPLES).map(Number);
-    const decoded = new Map();
-    const notes = new Map();
-    for (const pitch of new Set(pitches)) {
-        const root = roots.reduce((best, r) => Math.abs(pitch-r) < Math.abs(pitch-best) ? r : best);
-        if (!decoded.has(root)) {
-            const sample = PIANO_SAMPLES[root];
-            const bytes = Uint8Array.from(atob(sample.data || sample), char => char.charCodeAt(0));
-            decoded.set(root, audio.decodeAudioData(bytes.buffer));
-        }
-        notes.set(pitch, root);
-    }
-    await Promise.all(decoded.values());
-    for (const [pitch, root] of notes) samples.set(pitch, {root, buffer: await decoded.get(root)});
-}
-
-function sound(pitch, when, duration, age, level) {
-    const sample = samples.get(pitch);
-    const source = audio.createBufferSource();
-    source.buffer = sample.buffer;
-    const transpose = 2 ** ((pitch - sample.root) / 12);
-    source.playbackRate.value = transpose;
-    const skip = age * transpose;
-    if (skip >= source.buffer.duration) return;
-    const envelope = audio.createGain();
-    const end = when + duration;
-    const releaseSeconds = .22;
-    envelope.gain.setValueAtTime(0, when);
-    envelope.gain.linearRampToValueAtTime(level, when + Math.min(duration, .004));
-    envelope.gain.setValueAtTime(level, end);
-    envelope.gain.exponentialRampToValueAtTime(.0001, end + releaseSeconds);
-    source.connect(envelope).connect(master);
-    const note = {source, envelope};
-    playing.add(note);
-    source.onended = () => {
-        playing.delete(note);
-        source.disconnect();
-        envelope.disconnect();
+const lastNumber = sheet && !sheet.labels ? played.length - (sheet.pickup ? 1 : 0) : heard.at(-1)?.[1];
+let sheetView = null;
+if (sheet) {
+    document.querySelector('#sheet-pdf').href = sheet.pdf;
+    // Trim the page margins, keeping room for the brace and clefs, unless the images are already cropped (`full`).
+    const left = sheet.full ? 0 : Math.max(0, Math.min(...sheet.bars.map(([, x]) => x)) - 45);
+    sheetView = {
+        width: sheet.width, left,
+        viewWidth: (sheet.full ? sheet.width : Math.min(sheet.width, Math.max(...sheet.bars.map(([, x, width]) => x + width)) + 20)) - left,
+        bars: sheet.bars.map(([system, x, width]) => ({...sheet.systems[system], file: 'notation/' + sheet.systems[system].file, x, width})),
+        printed: index => heard[index][2],
     };
-    source.start(when, skip);
-    source.stop(end + releaseSeconds + .01);
 }
-
-function position() {
-    if (!running) return offset;
-    return Math.min(totalBeats, scoreBeat(startSeconds + Math.max(0, audio.currentTime - startTime) * playbackSpeed));
+// Show about eleven seconds of music, whatever the tempo.
+const span = Math.max(8, Math.min(48, Math.round(11 * totalBeats / scoreSeconds(totalBeats))));
+const instruments = written?.instruments ?? voices.map(() => 'piano');
+const bowed = Array.isArray(movement.legato) ? movement.legato.map(onsets => new Set(onsets)) : [];
+if (instruments.some(instrument => instrument !== 'piano')) {
+    const concerto = instruments.includes('harpsichord');
+    const samples = document.querySelector('#samples');
+    samples.href = concerto ? 'bach-data/concerto-credits.txt' : 'bach-data/ensemble-credits.txt';
+    samples.textContent = concerto ? 'Concerto samples' : instruments.includes('organ') ? 'Pipe organ samples' : 'String samples';
 }
-
-function release(note) {
-    const now = audio.currentTime;
-    if (note.envelope.gain.cancelAndHoldAtTime) note.envelope.gain.cancelAndHoldAtTime(now);
-    else note.envelope.gain.cancelScheduledValues(now);
-    note.envelope.gain.setTargetAtTime(.0001, now, .005);
-    note.source.stop(now + .025);
-}
-
-function pump() {
-    const deadline = audio.currentTime + .18;
-    voices.forEach((notes, voice) => {
-        while (nextNote[voice] < notes.length) {
-            const n = notes[nextNote[voice]];
-            const onset = startTime + (scoreSeconds(n.t) - startSeconds) / playbackSpeed;
-            if (onset > deadline) break;
-            nextNote[voice]++;
-            const when = Math.max(onset, startTime, audio.currentTime);
-            const duration = startTime + (scoreSeconds(n.t + n.length) - startSeconds) / playbackSpeed - when;
-            if (duration <= 0 || !enabled[voice]) continue;
-            for (const pitch of n.pitches) sound(pitch, when, duration, when - onset, n.level);
-        }
-    });
-}
-
-function stop() {
-    offset = position();
-    running = false;
-    clearInterval(clock);
-    playing.forEach(release);
-    play.textContent = offset >= totalBeats ? 'Replay' : 'Play';
-}
-
-function schedule() {
-    startTime = audio.currentTime + .025;
-    startSeconds = scoreSeconds(offset);
-    playbackSpeed = Number(speed.value);
-    nextNote = voices.map(notes => {
-        const index = notes.findIndex(n => n.t + n.length > offset);
-        return index < 0 ? notes.length : index;
-    });
-    running = true;
-    play.textContent = 'Pause';
-    pump();
-    clock = setInterval(pump, 40);
-}
-
-function change(fn) {
-    const resume = running;
-    stop();
-    fn?.();
-    if (resume && offset < totalBeats) schedule();
-    else play.textContent = offset >= totalBeats ? 'Replay' : 'Play';
-}
-
-play.onclick = async () => {
-    if (running) { stop(); return; }
-    play.disabled = true;
-    play.textContent = 'Loading…';
-    try {
-        await prepareInstrument();
-        document.querySelector('#status').textContent = '';
-    } catch (error) {
-        play.textContent = 'Retry';
-        document.querySelector('#status').textContent = 'Instrument samples could not be loaded. Please try again.';
-        console.error(error);
-        return;
-    } finally {
-        play.disabled = false;
-    }
-    if (offset >= totalBeats) offset = 0;
-    // One performance at a time: hold the recording where it is.
-    video?.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":[]}', 'https://www.youtube-nocookie.com');
-    schedule();
-};
-// The recording host is contacted only when the listener asks for the recording.
 let video;
+const player = startPlayer({
+    title: work.heading, voices, groups, names, colors: voiceColors,
+    instruments, tempoMap, totalBeats, bars,
+    label: index => heard[index][1] === 0 ? 'Pickup' : 'm. ' + heard[index][1], lastLabel: lastNumber,
+    sheet: sheetView, span,
+    // Fast pieces show more beats at once, so their dots shrink to stay apart.
+    dotScale: Math.min(1, Math.sqrt(16 / span)), dotMax: 10, gain: movement.gain ?? .6, seating: movement.seating,
+    legato: movement.legato && ((voice, note) => movement.legato === true || bowed[voice]?.has(Math.round(note.t * 4))),
+    bpm: 60 / tempoMap[0].secondsPerBeat,
+    // One performance at a time: hold the recording where it is.
+    onPlay: () => video?.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":[]}', 'https://www.youtube-nocookie.com'),
+});
+if (movement.jump) {
+    const jump = document.createElement('button');
+    jump.textContent = movement.jump.label;
+    jump.title = movement.jump.title;
+    jump.onclick = () => player.seekTo(movement.jump.beat);
+    document.querySelector('.controls').append(jump);
+}
+// The recording host is contacted only when the listener asks for the recording.
 const watch = document.querySelector('#watch');
 if (location.protocol === 'file:') watch.remove(); // YouTube refuses to play inside a local file
 watch.onclick = () => {
-    if (running) stop();
+    player.stop();
     video = document.createElement('iframe');
     video.title = work.heading + ' · ' + work.recording.text;
     video.allow = 'autoplay; encrypted-media; fullscreen; picture-in-picture';
@@ -289,97 +193,6 @@ watch.onclick = () => {
     watch.replaceWith(video);
 };
 // A click inside the embed moves focus into it; that is the listener starting the recording.
-addEventListener('blur', () => { if (running && document.activeElement === video) stop(); });
-seek.oninput=()=>change(()=>offset=Number(seek.value));speed.onchange=()=>change();
-names.forEach((name,v)=>{const b=document.createElement('button'),dot=document.createElement('i');dot.style.background=colors[v];b.append(dot,name);b.setAttribute('aria-pressed','true');b.title='Toggle '+name.toLowerCase()+' voice';b.onclick=()=>change(()=>{enabled[v]=!enabled[v];b.setAttribute('aria-pressed',enabled[v])});document.querySelector('.voices').append(b)});
-
-function measureLabel(index) {
-    const number = heard[index][1];
-    return number === 0 ? 'Pickup' : 'm. ' + number;
-}
-function clockText(seconds) {
-    return Math.floor(seconds / 60) + ':' + String(Math.floor(seconds % 60)).padStart(2, '0');
-}
-const staff = document.querySelector('#staff');
-const paper = document.querySelector('.paper');
-const engraving = document.querySelector('#engraving');
-const highlight = document.querySelector('#measure-highlight');
-document.querySelector('.sheet:not(.recording)').hidden = !sheet;
-let imageFile, sheetLeft, sheetWidth;
-if (sheet) {
-    document.querySelector('#sheet-pdf').href = sheet.pdf;
-    engraving.setAttribute('width', sheet.width);
-    // Trim the page margins, keeping room for the brace and clefs.
-    sheetLeft = Math.max(0, Math.min(...sheet.bars.map(([, x]) => x)) - 45);
-    sheetWidth = Math.min(sheet.width, Math.max(...sheet.bars.map(([, x, width]) => x + width)) + 20) - sheetLeft;
-}
-let lastMeasure = -1;
-function showMeasure(t) {
-    if (!measures) {
-        bar.textContent = clockText(scoreSeconds(t)) + ' / ' + clockText(scoreSeconds(totalBeats));
-        return;
-    }
-    const index = Math.max(0, bars.findLastIndex(beat => beat <= t));
-    if (index === lastMeasure) return;
-    lastMeasure = index;
-    const label = measureLabel(index);
-    bar.textContent = label + ' / ' + lastNumber;
-    if (!sheet) return;
-    const [systemIndex, x, width] = sheet.bars[heard[index][2]];
-    const system = sheet.systems[systemIndex];
-    if (system.file !== imageFile) {
-        imageFile = system.file;
-        engraving.setAttribute('href', 'notation/' + system.file);
-        engraving.setAttribute('height', system.imageHeight);
-    }
-    staff.setAttribute('viewBox', [sheetLeft, system.y, sheetWidth, system.h].join(' '));
-    staff.setAttribute('aria-label', work.heading + ', ' + label);
-    highlight.setAttribute('x', x);
-    highlight.setAttribute('y', system.y);
-    highlight.setAttribute('width', width);
-    highlight.setAttribute('height', system.h);
-    const scale = staff.clientWidth / sheetWidth;
-    const left = (x - sheetLeft) * scale, right = (x - sheetLeft + width) * scale;
-    if (left < paper.scrollLeft || right > paper.scrollLeft + paper.clientWidth) {
-        paper.scrollLeft = (left + right - paper.clientWidth) / 2;
-    }
-}
-
-// Show about eleven seconds of music, whatever the tempo.
-const fullSpan = Math.max(8, Math.min(48, Math.round(11 * totalBeats / scoreSeconds(totalBeats))));
-// Fast pieces show more beats at once, so their dots shrink to stay apart.
-const dotScale = Math.min(1, Math.sqrt(16 / fullSpan));
-function draw(){
- const t=Math.max(0,position());if(running&&t>=totalBeats)stop();if(document.activeElement!==seek||running)seek.value=t;showMeasure(t);
- const w=canvas.clientWidth,h=canvas.clientHeight,d=devicePixelRatio;if(canvas.width!==Math.round(w*d)||canvas.height!==Math.round(h*d)){canvas.width=Math.round(w*d);canvas.height=Math.round(h*d)}ctx.setTransform(d,0,0,d,0,0);ctx.clearRect(0,0,w,h);
- const span=w<600?fullSpan/2:fullSpan,left=Math.max(0,Math.min(totalBeats-span,t-span*.38)),x=b=>12+(b-left)*(w-24)/span,y=p=>h-44-(p-lowest)*(h-80)/(highest-lowest||1);
- for(let i=0;i<measures;i++){const xx=x(bars[i]);if(xx<0)continue;if(xx>w)break;ctx.fillStyle='#647371';ctx.font='11px monospace';ctx.fillText(measureLabel(i).replace('m. ', ''),xx+4,h-12);ctx.fillStyle='#1d2929';ctx.fillRect(xx,18,1,h-48)}
- voices.forEach((notes,v)=>{
-    ctx.strokeStyle=ctx.fillStyle=colors[v];
-    ctx.lineWidth=1.5;
-    let prev;
-    for(const n of notes){
-        const xx=x(n.t);
-        if(xx>w+25) break;
-        if(xx < -30){ prev=n; continue; }
-        const active=running && t>=n.t && t<n.t+n.length;
-        n.pitches.forEach((pitch,i)=>{
-            const yy=y(pitch);
-            if(prev && Math.abs(prev.t+prev.length-n.t)<.004){
-                const last=prev.pitches[Math.min(i,prev.pitches.length-1)];
-                ctx.globalAlpha=enabled[v] ? .68 : .09;
-                ctx.beginPath();ctx.moveTo(x(prev.t),y(last));ctx.lineTo(xx,yy);ctx.stroke();
-            }
-            ctx.globalAlpha=enabled[v] ? (active ? 1 : .65) : .12;
-            ctx.beginPath();ctx.arc(xx,yy,Math.min(10,3+Math.sqrt(n.length)*4)*dotScale,0,Math.PI*2);
-            if(n.t>=t||active)ctx.fill();else ctx.stroke();
-            if(active&&enabled[v]){
-                ctx.globalAlpha=.22;ctx.beginPath();ctx.arc(xx,yy,14,0,Math.PI*2);ctx.fill();
-            }
-        });
-        prev=n;
-    }
- });ctx.globalAlpha=.5;ctx.fillStyle='#eeeedd';ctx.fillRect(x(t),15,1,h-47);ctx.globalAlpha=1;requestAnimationFrame(draw)
-}draw();
+addEventListener('blur', () => { if (player.isRunning() && document.activeElement === video) player.stop(); });
 }
 </script></html>

@@ -8,14 +8,15 @@
 - **Catalogs** are written by hand in `catalog/<id>.js` (format in `catalog.js`), with score credits and recordings in `catalog/sources/<id>.json`. A recording can carry the second at which the piece starts in a video of a whole set.
 - **Piece pages** are `piece.html?c=<id>&p=<folder>&m=<movement>`, playing `pieces/<folder>/notes.js` and `measures.js`.
 - **Sheet music** in `notation/<folder>/` is cut by `engrave.py` from the Mutopia PDF named in the sources (see the notes at the top of that script). A piece whose printed measures cannot be matched shows none.
-- **Bach** predates the template: his catalog comes from `bach-data/` and his pieces play in `bach-fugue.html`, which `piece.html` was copied from. A fix to the player usually belongs in both.
+- **The player** itself is `player.js`: the piano roll, playback and sheet-music highlight. `piece.html` turns a piece’s data into the description it takes (documented at the top of that file).
+- **Bach** was the first composer here and once had a player of his own. His pieces were converted from that player’s data, so their movements also name their written voices and, for the four ensemble pieces, their instruments, seating and bowing; their sheet-music files in `notation/bach-*/` were converted from that player’s measure positions rather than made by `engrave.py`. `bach-data/` now holds only the instrument samples.
 
 ## Known gaps
 
 - Tempos come from the source files and few have been checked by ear. `tools/imports.json` records the ones corrected by hand (`speed`, `tempo`); Chopin’s Ballade No. 4 was also rescaled by 1.5 in place, because its marks count dotted quarters.
 - Mutopia MIDI plays each printed measure once: repeats are skipped and a minuet ends after its trio.
 - Pieces from the ASAP and DCML datasets have no engraved edition, so no sheet music.
-- Bach’s pieces have no recordings, and his Goldberg Variations are still in the sandbox.
+- Bach’s Goldberg Variations are still in the sandbox.
 
 ## Other collections
 
@@ -38,7 +39,7 @@ Pieces the sandbox never had come straight from score MIDI: list them in `tools/
 
 | # | Composer | Status | Notes (sandbox folders waiting, for those not done) |
 |---|---|---|---|
-| 1 | Johann Sebastian Bach | Done | 78 works; 2 more to fold in from the sandbox (Goldberg Variations, keyboard repertoire) |
+| 1 | Johann Sebastian Bach | Done | 82 works; 2 more to fold in from the sandbox (Goldberg Variations, keyboard repertoire) |
 | 2 | Frédéric Chopin | Done | 61 works |
 | 3 | Wolfgang Amadeus Mozart | Done | 17 works |
 | 4 | Ludwig van Beethoven | Done | 78 works, with movements from 31 of the 32 sonatas; Diabelli Variations (no note data) and the string quartets stay in the sandbox |
@@ -87,7 +88,7 @@ Track the **composition, digital edition, annotations, and recorded sound** sepa
 
 CC0 and public-domain materials are good starting points for a redistributable catalog. CC BY permits commercial reuse with attribution. CC BY-SA also permits commercial use and requires shared adaptations of the licensed material to retain the applicable license. NC collections are a separate option for noncommercial projects. For a new piece, keep the edition URL, contributor, license, and a description of the conversion alongside its note data. [Creative Commons license guide](https://creativecommons.org/cc-licenses/)
 
-Four Invention editions in this catalog credit jeff covey under CC BY-SA 3.0 (BWV 772, 777, 780, and 783). Their converted score data retain that license. The other included Invention editions and the Stelios Samelis fugue edition are marked public domain. Catalog playback uses Holm's sampled instrument. Ishizaka's complete performances are a possible future addition. [Invention edition records](bach-data/scores.js) · [Fugue edition](https://www.mutopiaproject.org/ftp/BachJS/BWV851/bwv851_fugue06/bwv851_fugue06.ly)
+Four Invention editions in this catalog credit jeff covey under CC BY-SA 3.0 (BWV 772, 777, 780, and 783). Their converted score data retain that license. The other included Invention editions and the Stelios Samelis fugue edition are marked public domain. Catalog playback uses Holm's sampled instrument. Ishizaka's complete performances are a possible future addition. [Invention edition records](catalog/sources/bach.json) · [Fugue edition](https://www.mutopiaproject.org/ftp/BachJS/BWV851/bwv851_fugue06/bwv851_fugue06.ly)
 
 ## Listening experiments to try
 
@@ -99,7 +100,7 @@ The Sinfonias use Olivier Vermersch’s public-domain Mutopia editions. Playback
 
 ## Sheet music
 
-The player shows one printed staff system at a time and highlights the current measure. The Brandenburg engraving comes from the same MusicXML as the player. The Mutopia images in `bach-data/notation/` are cropped, losslessly compressed reproductions of the same Mutopia A4 editions credited on each player page, under their respective edition licenses. The full-score PDF link opens the original engraving. The highlight follows both repeats in BWV 777 and the opening pickup in BWV 774.
+The player shows one printed staff system at a time and highlights the current measure. The Brandenburg engraving comes from the same MusicXML as the player. The Mutopia images in `notation/bach/` are cropped, losslessly compressed reproductions of the same Mutopia A4 editions credited on each player page, under their respective edition licenses. The full-score PDF link opens the original engraving. The highlight follows both repeats in BWV 777 and the opening pickup in BWV 774.
 
 ## Selected works
 
@@ -118,4 +119,4 @@ The opening Allegro uses Geof Pawlicki’s public-domain MusicXML edition. Playb
 
 The catalog lists BWV 846–869 in the order of the book, with a separate player for each movement. The C-major Prelude and D-minor Fugue retain their Mutopia editions and original links. The other 46 movements use Knute Snortum’s LilyPond edition, release v0.3. Each player links to the individual source and full engraved PDF. [Edition and releases](https://github.com/ksnortum/bach-well-tempered-1/releases/tag/v0.3)
 
-The timing and pitch arrays in `bach-data/wtc1.js` were compiled from the edition’s written parts on separate MIDI tracks. Playback uses the edition’s tempo changes and the local sampled piano. Written-out ornaments play as encoded. Ornament symbols and dynamic markings remain visible in the engraving. The score images in `bach-data/notation/wtc1/` are cropped reproductions of the individual PDFs. The new score data and engraving crops are adaptations of Knute Snortum’s work, distributed under CC BY-SA 4.0. [Source and license statement](https://github.com/ksnortum/bach-well-tempered-1/tree/v0.3#license) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+The timing and pitch arrays, now in `pieces/bach-well-tempered-clavier-1/`, were compiled from the edition’s written parts on separate MIDI tracks. Playback uses the edition’s tempo changes and the local sampled piano. Written-out ornaments play as encoded. Ornament symbols and dynamic markings remain visible in the engraving. The score images in `notation/bach/wtc1/` are cropped reproductions of the individual PDFs. The new score data and engraving crops are adaptations of Knute Snortum’s work, distributed under CC BY-SA 4.0. [Source and license statement](https://github.com/ksnortum/bach-well-tempered-1/tree/v0.3#license) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
