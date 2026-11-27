@@ -11,6 +11,7 @@ module.exports = {
     sources: require('./sources/mendelssohn.json'),
     featured: [
         ['mendelssohn-lieder-ohne-worte-songs-without-words', 1, 'Songs Without Words · G minor', 'Venetian Gondola Song', 'Op. 19 No. 6'],
+        ['mendelssohn-spring-song-op-62-no-6', 0, 'Songs Without Words · A major', 'Spring Song', 'Songs Without Words, Op. 62 No. 6 · from an ensemble arrangement'],
         ['mendelssohn-wedding-march', 0, 'A Midsummer Night’s Dream', 'Wedding March', 'A Midsummer Night’s Dream, Op. 61'],
         ['mendelssohn-lieder-ohne-worte-songs-without-words', 2, 'Songs Without Words · F-sharp minor', 'Venetian Gondola Song', 'Op. 30 No. 6'],
         ['mendelssohn-scherzo-op-16-no-2', 0, 'Three Fantasies or Caprices · E minor', 'Scherzo in E minor', 'Op. 16 No. 2'],
@@ -32,6 +33,7 @@ module.exports = {
         {
             title: 'Other works',
             rows: [
+                ['mendelssohn-spring-song-op-62-no-6', 'Spring Song', 'Songs Without Words, Op. 62 No. 6 · from an ensemble arrangement'],
                 ['mendelssohn-scherzo-op-16-no-2', 'Scherzo in E minor', 'Three Fantasies or Caprices, Op. 16 No. 2'],
             ],
         },

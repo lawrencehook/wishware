@@ -55,6 +55,18 @@
   {
    "name": "Allegro vivace",
    "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/2-1/midi_score.mid"
+  },
+  {
+   "name": "Largo appassionato",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata02-2.krn"
+  },
+  {
+   "name": "Scherzo: Allegretto",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata02-3.krn"
+  },
+  {
+   "name": "Rondo: Grazioso",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata02-4.krn"
   }
  ],
  "beethoven-sonata-3": [
@@ -65,18 +77,42 @@
   {
    "name": "Adagio",
    "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/3-2/midi_score.mid"
+  },
+  {
+   "name": "Scherzo: Allegro",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata03-3.krn"
+  },
+  {
+   "name": "Allegro assai",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata03-4.krn"
   }
  ],
  "beethoven-sonata-4": [
   {
    "name": "Allegro molto e con brio",
    "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/4-1/midi_score.mid"
+  },
+  {
+   "name": "Largo, con gran espressione",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata04-2.krn"
+  },
+  {
+   "name": "Allegro",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata04-3.krn"
+  },
+  {
+   "name": "Rondo: Poco allegretto e grazioso",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata04-4.krn"
   }
  ],
  "beethoven-sonata-5": [
   {
    "name": "Allegro molto e con brio",
    "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/5-1/midi_score.mid"
+  },
+  {
+   "name": "Adagio molto",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata05-2.krn"
   },
   {
    "name": "Finale: Prestissimo",
@@ -155,6 +191,14 @@
   {
    "name": "Allegro",
    "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/10-1/midi_score.mid"
+  },
+  {
+   "name": "Andante",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata10-2.krn"
+  },
+  {
+   "name": "Scherzo: Allegro assai",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata10-3.krn"
   }
  ],
  "beethoven-sonata-11": [
@@ -169,15 +213,43 @@
   {
    "name": "Menuetto",
    "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/11-3/midi_score.mid"
+  },
+  {
+   "name": "Rondo: Allegretto",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata11-4.krn"
   }
  ],
  "beethoven-sonata-12": [
   {
    "name": "Andante con variazioni",
    "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/12-1/midi_score.mid"
+  },
+  {
+   "name": "Scherzo: Allegro molto",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata12-2.krn"
+  },
+  {
+   "name": "Marcia funebre sulla morte d’un eroe",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata12-3.krn"
+  },
+  {
+   "name": "Allegro",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata12-4.krn"
   }
  ],
  "beethoven-sonata-13": [
+  {
+   "name": "Andante – Allegro",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata13-1.krn"
+  },
+  {
+   "name": "Allegro molto e vivace",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata13-2.krn"
+  },
+  {
+   "name": "Adagio con espressione",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata13-3.krn"
+  },
   {
    "name": "Allegro vivace",
    "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/13-4/midi_score.mid"
@@ -204,6 +276,14 @@
    "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/15-1/midi_score.mid"
   },
   {
+   "name": "Andante",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata15-2.krn"
+  },
+  {
+   "name": "Scherzo: Allegro vivace",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata15-3.krn"
+  },
+  {
    "name": "Rondo: Allegro ma non troppo",
    "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/15-4/midi_score.mid"
   }
@@ -216,6 +296,10 @@
   {
    "name": "Adagio grazioso",
    "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/16-2/midi_score.mid"
+  },
+  {
+   "name": "Rondo: Allegretto",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata16-3.krn"
   }
  ],
  "beethoven-sonata-17": [
@@ -490,9 +574,21 @@
   {
    "name": "Lebhaft, marschmäßig",
    "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/28-2/midi_score.mid"
+  },
+  {
+   "name": "Langsam und sehnsuchtsvoll",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata28-3.krn"
+  },
+  {
+   "name": "Geschwind, doch nicht zu sehr, und mit Entschlossenheit",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata28-4.krn"
   }
  ],
  "beethoven-sonata-29": [
+  {
+   "name": "Allegro",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata29-1.krn"
+  },
   {
    "name": "Scherzo: Assai vivace",
    "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/29-2/midi_score.mid"
@@ -510,6 +606,14 @@
   {
    "name": "Vivace ma non troppo – Adagio espressivo",
    "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/30-1/midi_score.mid"
+  },
+  {
+   "name": "Prestissimo",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata30-2.krn"
+  },
+  {
+   "name": "Andante molto cantabile ed espressivo",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata30-3.krn"
   }
  ],
  "beethoven-sonata-31": [
@@ -530,6 +634,10 @@
   {
    "name": "Maestoso – Allegro con brio ed appassionato",
    "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Beethoven/Piano_Sonatas/32-1/midi_score.mid"
+  },
+  {
+   "name": "Arietta: Adagio molto semplice e cantabile",
+   "midi": "https://raw.githubusercontent.com/craigsapp/beethoven-piano-sonatas/HEAD/kern/sonata32-2.krn"
   }
  ],
  "mozart-sonata-k-545": [
@@ -655,12 +763,28 @@
   {
    "name": "Allegro maestoso",
    "midi": "https://raw.githubusercontent.com/fosfrancesco/asap-dataset/master/Mozart/Piano_Sonatas/8-1/midi_score.mid"
+  },
+  {
+   "name": "Andante cantabile con espressione",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata08-2.krn"
+  },
+  {
+   "name": "Presto",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata08-3.krn"
   }
  ],
  "mozart-sonata-k-309": [
   {
    "name": "Allegro con spirito",
    "midi": "https://www.mutopiaproject.org/ftp/MozartWA/KV309/KV309_1/KV309_1.mid"
+  },
+  {
+   "name": "Andante un poco adagio",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata07-2.krn"
+  },
+  {
+   "name": "Rondo: Allegretto grazioso",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata07-3.krn"
   }
  ],
  "mozart-fantasia-in-d-minor-k-397": [
@@ -2708,6 +2832,223 @@
   {
    "name": "Jupiter, the Bringer of Jollity",
    "midi": "https://vivace-music.org/library/jupiter-the-bringer-of-jollity-holst-piano/musicxml/jupiter-the-bringer-of-jollity-holst.mxl"
+  }
+ ],
+ "mozart-sonata-k-279": [
+  {
+   "name": "Allegro",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata01-1.krn"
+  },
+  {
+   "name": "Andante",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata01-2.krn"
+  },
+  {
+   "name": "Allegro",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata01-3.krn"
+  }
+ ],
+ "mozart-sonata-k-280": [
+  {
+   "name": "Allegro assai",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata02-1.krn"
+  },
+  {
+   "name": "Adagio",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata02-2.krn"
+  },
+  {
+   "name": "Presto",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata02-3.krn"
+  }
+ ],
+ "mozart-sonata-k-281": [
+  {
+   "name": "Allegro",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata03-1.krn"
+  },
+  {
+   "name": "Andante amoroso",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata03-2.krn"
+  },
+  {
+   "name": "Rondo: Allegro",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata03-3.krn"
+  }
+ ],
+ "mozart-sonata-k-282": [
+  {
+   "name": "Allegro",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata04-1.krn"
+  },
+  {
+   "name": "Menuetto I and II",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata04-2.krn"
+  },
+  {
+   "name": "Allegro",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata04-3.krn",
+   "tempo": {
+    "0": 132
+   }
+  }
+ ],
+ "mozart-sonata-k-283": [
+  {
+   "name": "Allegro",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata05-1.krn"
+  },
+  {
+   "name": "Andante",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata05-2.krn"
+  },
+  {
+   "name": "Presto",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata05-3.krn"
+  }
+ ],
+ "mozart-sonata-k-284": [
+  {
+   "name": "Allegro",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata06-1.krn"
+  },
+  {
+   "name": "Rondeau en polonaise: Andante",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata06-2.krn"
+  },
+  {
+   "name": "Thema",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata06-3a.krn"
+  },
+  {
+   "name": "Variation 1",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata06-3b.krn"
+  },
+  {
+   "name": "Variation 2",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata06-3c.krn",
+   "tempo": {
+    "0": 120
+   }
+  },
+  {
+   "name": "Variation 3",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata06-3d.krn"
+  },
+  {
+   "name": "Variation 4",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata06-3e.krn"
+  },
+  {
+   "name": "Variation 5",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata06-3f.krn"
+  },
+  {
+   "name": "Variation 6",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata06-3g.krn"
+  },
+  {
+   "name": "Variation 7: Minore",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata06-3h.krn"
+  },
+  {
+   "name": "Variation 8: Maggiore",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata06-3i.krn",
+   "tempo": {
+    "0": 120
+   }
+  },
+  {
+   "name": "Variation 9",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata06-3j.krn"
+  },
+  {
+   "name": "Variation 10",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata06-3k.krn"
+  },
+  {
+   "name": "Variation 11: Adagio cantabile",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata06-3l.krn"
+  },
+  {
+   "name": "Variation 12: Allegro",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata06-3m.krn"
+  }
+ ],
+ "mozart-sonata-k-311": [
+  {
+   "name": "Allegro con spirito",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata09-1.krn"
+  },
+  {
+   "name": "Andante con espressione",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata09-2.krn"
+  },
+  {
+   "name": "Rondo: Allegro",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata09-3.krn"
+  }
+ ],
+ "mozart-sonata-k-330": [
+  {
+   "name": "Allegro moderato",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata10-1.krn"
+  },
+  {
+   "name": "Andante cantabile",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata10-2.krn"
+  },
+  {
+   "name": "Allegretto",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata10-3.krn"
+  }
+ ],
+ "mozart-sonata-k-333": [
+  {
+   "name": "Allegro",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata13-1.krn"
+  },
+  {
+   "name": "Andante cantabile",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata13-2.krn"
+  },
+  {
+   "name": "Allegro grazioso",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata13-3.krn"
+  }
+ ],
+ "mozart-sonata-k-570": [
+  {
+   "name": "Allegro",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata16-1.krn"
+  },
+  {
+   "name": "Adagio",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata16-2.krn"
+  },
+  {
+   "name": "Allegretto",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata16-3.krn"
+  }
+ ],
+ "mozart-sonata-k-576": [
+  {
+   "name": "Allegro",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata17-1.krn"
+  },
+  {
+   "name": "Adagio",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata17-2.krn"
+  },
+  {
+   "name": "Allegretto",
+   "midi": "https://raw.githubusercontent.com/craigsapp/mozart-piano-sonatas/HEAD/kern/sonata17-3.krn"
+  }
+ ],
+ "mendelssohn-spring-song-op-62-no-6": [
+  {
+   "name": "Spring Song",
+   "midi": "music/tools/files/mendelssohn-spring-song-imslp-596077.mscz"
   }
  ]
 }

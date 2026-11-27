@@ -2,7 +2,7 @@
 
 imports.json lists, per folder, the movements in order:
     {"<folder>": [{"name": ..., "midi": <url, or zip url + "#" + member, or the url of a .krn score
-                                         of a DCML corpus's .notes.tsv, or of a MusicXML file>,
+                                         of a DCML corpus's .notes.tsv, or of a MusicXML or MuseScore file>,
                    "ly": <url of the LilyPond source, if not beside a Mutopia MIDI>, "pickup": <quarter notes>,
                    "upper": [<note tracks that are the upper hand, counted from 0>],
                    "speed": <factor, for a source whose tempo is plainly wrong>,
@@ -97,6 +97,12 @@ def convert(entry, work):
         sys.path.insert(0, str(HERE))
         import kern
         data, found = kern.read_musicxml(data)
+        entry = {**found, **entry}
+    if entry['midi'].endswith(('.mscz', '.mscx')):
+        import sys
+        sys.path.insert(0, str(HERE))
+        import mscx
+        data, found = mscx.read(data)
         entry = {**found, **entry}
     if entry['midi'].endswith('.notes.tsv'):
         # A DCML corpus score: dcml.py builds the MIDI and reads its upbeat and repeats.

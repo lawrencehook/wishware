@@ -8,7 +8,7 @@ Sources already searched for everything below: Mutopia (by composer and by title
 
 IMSLP often has a MIDI or engraving file for these, noted below by file number. Its downloads sit behind a disclaimer page and a script-driven redirect, so they need a real browser; a fetched file goes in `tools/files/` and is named in `tools/imports.json`.
 
-Found since this list was started: Scarlatti's K. 380 (an IMSLP MIDI, fetched through a browser and kept in `tools/files/`); Liszt's Hungarian Rhapsody No. 2 and Grieg's To Spring (piano-midi.de), Chopin's Polonaise-Fantaisie (the Chopin Institute's first-editions corpus, which holds all of Chopin).
+Found since this list was started: Mendelssohn's Spring Song (an accordion-quartet arrangement on IMSLP, read by `tools/mscx.py` and played on piano); Scarlatti's K. 380 (an IMSLP MIDI, fetched through a browser and kept in `tools/files/`); Liszt's Hungarian Rhapsody No. 2 and Grieg's To Spring (piano-midi.de), Chopin's Polonaise-Fantaisie (the Chopin Institute's first-editions corpus, which holds all of Chopin).
 
 ## Most viewed, not found
 
@@ -23,13 +23,12 @@ Found since this list was started: Scarlatti's K. 380 (an IMSLP MIDI, fetched th
 | Schubert | Piano Trio No. 2, D. 929: Andante con moto | Vivace has it for trio; not tried as an ensemble piece |
 | Mendelssohn | Violin Concerto in E minor | |
 | Mendelssohn | The Hebrides Overture | |
-| Mendelssohn | Spring Song, Op. 62 No. 6 | not on Mutopia or piano-midi.de (which has Op. 62 Nos. 3–5). IMSLP's Op. 62 MIDI (#221024) is No. 4 for recorders; its MuseScore and Sibelius engraving files (#596077, #221023) are unchecked and would need converting |
 | Schumann | Piano Concerto in A minor | |
 | Tchaikovsky | 1812 Overture | |
 | Tchaikovsky | Valse sentimentale, Op. 51 No. 6 | solo piano. IMSLP's Op. 51 page has no MIDI or engraving file |
 | Grieg | Solveig's Song | |
 | Grieg | Piano Concerto in A minor | Vivace has a two-piano version; not tried |
-| Satie | Gnossiennes Nos. 4–6 | Mutopia has only Nos. 1–3. IMSLP has MuseScore engraving files (#944589, #944592), which would need converting, and a recorder-arrangement MIDI |
+| Satie | Gnossiennes Nos. 4–6 | Mutopia has only Nos. 1–3. IMSLP's MuseScore files (#944589, #944592) are accordion arrangements of No. 1, not these |
 | Rachmaninoff | Piano Concerto No. 2 (beyond its theme) | |
 | Rachmaninoff | Piano Concerto No. 3 | |
 | Rachmaninoff | Rhapsody on a Theme of Paganini, Variation 18 | |
@@ -53,8 +52,7 @@ Found since this list was started: Scarlatti's K. 380 (an IMSLP MIDI, fetched th
 | Tchaikovsky | Swan Lake: Scene (Swan Theme) | a simplified version |
 | Tchaikovsky | Piano Concerto No. 1 | the opening theme |
 | Rachmaninoff | Piano Concerto No. 2 | the theme |
-| Beethoven | Piano sonatas | movements from 31 of 32; about 20 sonatas are incomplete. Sapp's Humdrum edition has them all |
-| Mozart | Piano sonatas | 5 of 18. Sapp's Humdrum edition has them all |
+| Mozart | Piano Sonata No. 15 in F major, K. 533/494 | the only sonata not in Sapp's edition |
 | Bach | Goldberg Variations | in the sandbox without note data |
 
 ## Editorial picks, not found

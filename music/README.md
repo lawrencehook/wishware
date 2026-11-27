@@ -35,14 +35,14 @@ The composers to showcase, in the order they were added. The list favors keyboar
 
 To add a composer: `tools/survey.py` lists what each sandbox folder holds, `tools/sources.py` writes `catalog/sources/<id>.json` from the credits and recordings on the sandbox pages, you write `catalog/<id>.js` and add the id to `catalog.js`, `tools/migrate.py` moves the note data to `pieces/` and retires the sandbox pages, then run `engrave.py` and `build.js`. Run the tools from the repo root.
 
-Pieces the sandbox never had come straight from score MIDI: list them in `tools/imports.json` and run `tools/midi.py`, which writes `pieces/<folder>/` from Mutopia editions (which also give the engraved sheet music) or the ASAP dataset. It also reads Humdrum `.krn` scores through `tools/kern.py`, which takes the upbeat, tempo and repeats from the score itself. A DCML corpus’s `.notes.tsv` goes through `tools/dcml.py` the same way, but needs a tempo given by hand. MusicXML (`.mxl`) is read too. Add the score credit to `catalog/sources/<id>.json`; a recording is optional there.
+Pieces the sandbox never had come straight from score MIDI: list them in `tools/imports.json` and run `tools/midi.py`, which writes `pieces/<folder>/` from Mutopia editions (which also give the engraved sheet music) or the ASAP dataset. It also reads Humdrum `.krn` scores through `tools/kern.py`, which takes the upbeat, tempo and repeats from the score itself. A DCML corpus’s `.notes.tsv` goes through `tools/dcml.py` the same way, but needs a tempo given by hand. MusicXML (`.mxl`) is read too, and MuseScore files (`.mscz`) through `tools/mscx.py`, without their repeats. Add the score credit to `catalog/sources/<id>.json`; a recording is optional there.
 
 | # | Composer | Status | Notes (sandbox folders waiting, for those not done) |
 |---|---|---|---|
 | 1 | Johann Sebastian Bach | Done | 82 works; 2 more to fold in from the sandbox (Goldberg Variations, keyboard repertoire) |
 | 2 | Frédéric Chopin | Done | 61 works |
-| 3 | Wolfgang Amadeus Mozart | Done | 21 works |
-| 4 | Ludwig van Beethoven | Done | 78 works, with movements from 31 of the 32 sonatas; Diabelli Variations (no note data) and the string quartets stay in the sandbox |
+| 3 | Wolfgang Amadeus Mozart | Done | 70 works: 17 of the 18 piano sonatas complete (K. 533/494 is not in Sapp’s edition), and piano versions of his best-known pieces |
+| 4 | Ludwig van Beethoven | Done | 107 works: all 32 piano sonatas complete; Diabelli Variations (no note data) and the string quartets stay in the sandbox |
 | 5 | Franz Schubert | Done | 14 works; Erlkönig stays on the art songs page |
 | 6 | Claude Debussy | Done | 41 works |
 | 7 | Franz Liszt | Done | 20 works |
@@ -76,7 +76,7 @@ Each composer’s page should hold their best-known pieces. As a guide, this lis
 | Mozart | Lacrimosa; Queen of the Night aria; Piano Concerto No. 21 Andante; Rondo alla turca; Symphony No. 40 | Lacrimosa, Andante, Rondo alla turca, Symphony No. 40 theme; also Eine kleine Nachtmusik (first movement) | Queen of the Night |
 | Beethoven | “Moonlight” Sonata; Symphony No. 5; Für Elise | all three (the symphony as a piano reduction); also Ode to Joy, simplified | — |
 | Schubert | Serenade (Ständchen); Ave Maria; Impromptu in G-flat; Piano Trio No. 2 Andante; Erlkönig | Serenade and Erlkönig (Liszt’s transcriptions), Ave Maria, Impromptu | Trio Andante |
-| Mendelssohn | Wedding March; Violin Concerto; Hebrides Overture; Spring Song | Wedding March | Violin Concerto, Hebrides Overture, Spring Song |
+| Mendelssohn | Wedding March; Violin Concerto; Hebrides Overture; Spring Song | Wedding March, Spring Song | Violin Concerto, Hebrides Overture |
 | Chopin | Nocturne Op. 9 No. 2; Nocturne in C-sharp minor; Fantaisie-Impromptu; Nocturne Op. 9 No. 1 | all four, and the Polonaise-Fantaisie | — |
 | Schumann | Piano Concerto; Träumerei; Kinderszenen; Widmung | Träumerei, Kinderszenen, Widmung | Piano Concerto, Carnaval |
 | Liszt | Hungarian Rhapsody No. 2; La campanella; Liebestraum No. 3; Paganini Étude No. 6 | all four | — |
