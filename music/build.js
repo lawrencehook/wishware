@@ -59,6 +59,11 @@ function piecePortrait(notes, onsets) {
     return portrait(parts, hands.map((_, i) => i), 0, Math.round(span * 100) / 100);
 }
 
+// A few sentences about a piece, where catalog/briefs.js has them.
+const BRIEFS = require('./catalog/briefs.js');
+for (const folder of Object.keys(BRIEFS)) if (!fs.existsSync(path.join(PIECES, folder))) throw new Error('briefs.js: no piece ' + folder);
+const brief = (folder, index) => (typeof BRIEFS[folder] === 'string' ? BRIEFS[folder] : BRIEFS[folder]?.[index] ?? BRIEFS[folder]?.all);
+
 const composers = {};
 for (const [id, entry] of Object.entries(require('./catalog.js'))) {
     // piece.html looks its own heading up by this link, so keep the parameter order.
@@ -78,7 +83,7 @@ for (const [id, entry] of Object.entries(require('./catalog.js'))) {
     // What a piece page needs to know about the piece a catalog entry leads to.
     const work = (folder, index, heading, sub, onsets) => {
         const notes = movement(folder, index);
-        return { notes, time: clock(notes), href: link(folder, index), heading, sub, ...credits(entry.sources[folder], index), portrait: piecePortrait(notes, onsets) };
+        return { notes, time: clock(notes), href: link(folder, index), heading, sub, brief: brief(folder, index), ...credits(entry.sources[folder], index), portrait: piecePortrait(notes, onsets) };
     };
     composers[id] = () => ({
         name: entry.name,

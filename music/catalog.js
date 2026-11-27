@@ -20,6 +20,8 @@
 //   A score entry may leave the licence empty when the credit already states it.
 //   Most composers keep `sources` in catalog/sources/<id>.json.
 
+// catalog/briefs.js holds a few sentences of background for the pieces that warrant them.
+
 // Composers in the order the directory lists them, after Bach.
 const order = ['bach', 'chopin', 'mozart', 'beethoven', 'schubert', 'debussy', 'liszt', 'schumann', 'rachmaninoff', 'ravel', 'satie', 'brahms', 'haydn', 'mendelssohn', 'tchaikovsky', 'grieg', 'scarlatti', 'handel', 'prokofiev', 'holst', 'mussorgsky'];
 module.exports = Object.fromEntries(order.map((id) => [id, require('./catalog/' + id + '.js')]));
