@@ -82,5 +82,38 @@
    "https://vivace-music.org/sheets/le-gibet-gaspard-de-la-nuit-ravel-piano.html",
    "https://vivace-music.org/pdfs/le-gibet-gaspard-de-la-nuit-ravel-piano.pdf"
   ]
+ },
+ "ravel-ondine": {
+  "score": [
+   "piano-midi.de · Bernd Krueger · CC BY-SA 3.0 DE",
+   "",
+   "http://piano-midi.de/ravel.htm"
+  ],
+  "recording": [
+   "5WEB_uMqQyg",
+   "Seong-Jin Cho"
+  ]
+ },
+ "ravel-scarbo": {
+  "score": [
+   "piano-midi.de · Bernd Krueger · CC BY-SA 3.0 DE",
+   "",
+   "http://piano-midi.de/ravel.htm"
+  ],
+  "recording": [
+   "8fcy2X06VH4",
+   "Rousseau (channel)"
+  ]
+ },
+ "ravel-noctuelles": {
+  "score": [
+   "piano-midi.de · Bernd Krueger · CC BY-SA 3.0 DE",
+   "",
+   "http://piano-midi.de/ravel.htm"
+  ],
+  "recording": [
+   "RCmbEIewKYo",
+   "Xandertrax (channel)"
+  ]
  }
 }

@@ -75,6 +75,7 @@ Found since this list was started: Mendelssohn's Spring Song (an accordion-quart
 | Mendelssohn | Octet; "Scottish" and "Italian" Symphonies |
 | Schumann | Carnaval, Op. 9 (the sandbox page has no note data; not on Mutopia or piano-midi.de; IMSLP has no MIDI or engraving file) |
 | Schumann | Études symphoniques, Op. 13 |
+| Mussorgsky | Night on Bald Mountain; Boris Godunov; Songs and Dances of Death (his page holds only Pictures at an Exhibition) |
 | Liszt | La lugubre gondola |
 | Brahms | Symphonies Nos. 1 and 4; Piano Concerto No. 1; Violin Concerto; Piano Quintet |
 | Tchaikovsky | The Sleeping Beauty (Valse) |

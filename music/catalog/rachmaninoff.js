@@ -51,5 +51,20 @@ module.exports = {
                 ['rachmaninoff-piano-concerto-no-2-theme', 'Piano Concerto No. 2: theme', 'Op. 18 · C minor'],
             ],
         },
+        {
+            title: 'Études-tableaux, Op. 33',
+            rows: [
+                ['rachmaninoff-etude-tableau-op-33-no-5', 'Étude-tableau in E-flat minor', 'Op. 33 No. 5'],
+                ['rachmaninoff-etude-tableau-op-33-no-6', 'Étude-tableau in E-flat major', 'Op. 33 No. 6'],
+                ['rachmaninoff-etude-tableau-op-33-no-8', 'Étude-tableau in C-sharp minor', 'Op. 33 No. 8'],
+            ],
+        },
+        {
+            title: 'Other works',
+            rows: [
+                ['rachmaninoff-prelude-op-32-no-1', 'Prelude in C major', 'Op. 32 No. 1'],
+                ['rachmaninoff-prelude-op-32-no-13', 'Prelude in D-flat major', 'Op. 32 No. 13'],
+            ],
+        },
     ],
 };

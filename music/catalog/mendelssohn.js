@@ -31,6 +31,23 @@ module.exports = {
             ],
         },
         {
+            title: 'More Songs Without Words',
+            rows: [
+                ['mendelssohn-song-without-words-op-19-no-1', 'Andante con moto', 'Op. 19 No. 1 · E major'],
+                ['mendelssohn-song-without-words-op-19-no-2', 'Andante espressivo', 'Op. 19 No. 2 · A minor'],
+                ['mendelssohn-song-without-words-op-19-no-3', 'Hunting Song', 'Op. 19 No. 3 · A major'],
+                ['mendelssohn-song-without-words-op-19-no-4', 'Moderato', 'Op. 19 No. 4 · A major'],
+                ['mendelssohn-song-without-words-op-30-no-1', 'Andante espressivo', 'Op. 30 No. 1 · E-flat major'],
+                ['mendelssohn-song-without-words-op-30-no-2', 'Allegro di molto', 'Op. 30 No. 2 · B-flat minor'],
+                ['mendelssohn-song-without-words-op-30-no-3', 'Adagio non troppo', 'Op. 30 No. 3 · E major'],
+                ['mendelssohn-song-without-words-op-30-no-4', 'Agitato e con fuoco', 'Op. 30 No. 4 · B minor'],
+                ['mendelssohn-song-without-words-op-30-no-5', 'Andante grazioso', 'Op. 30 No. 5 · D major'],
+                ['mendelssohn-song-without-words-op-62-no-3', 'Funeral March', 'Op. 62 No. 3 · E minor'],
+                ['mendelssohn-song-without-words-op-62-no-4', 'Morning Song', 'Op. 62 No. 4 · G major'],
+                ['mendelssohn-song-without-words-op-62-no-5', 'Venetian Gondola Song', 'Op. 62 No. 5 · A minor'],
+            ],
+        },
+        {
             title: 'Other works',
             rows: [
                 ['mendelssohn-spring-song-op-62-no-6', 'Spring Song', 'Songs Without Words, Op. 62 No. 6 · from an ensemble arrangement'],

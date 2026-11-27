@@ -104,6 +104,76 @@ module.exports = {
             ],
         },
         {
+            title: 'Keyboard Sonata in C major, Hob. XVI:7',
+            count: '3 movements',
+            from: 'haydn-sonata-hob-xvi-7',
+            rows: [
+                ['Allegro moderato', 'First movement'],
+                ['Menuet', 'Second movement'],
+                ['Finale: Allegro', 'Third movement'],
+            ],
+        },
+        {
+            title: 'Keyboard Sonata in G major, Hob. XVI:8',
+            count: '4 movements',
+            from: 'haydn-sonata-hob-xvi-8',
+            rows: [
+                ['Allegro', 'First movement'],
+                ['Menuet', 'Second movement'],
+                ['Andante', 'Third movement'],
+                ['Allegro', 'Fourth movement'],
+            ],
+        },
+        {
+            title: 'Keyboard Sonata in F major, Hob. XVI:9',
+            count: '3 movements',
+            from: 'haydn-sonata-hob-xvi-9',
+            rows: [
+                ['Allegro', 'First movement'],
+                ['Menuet', 'Second movement'],
+                ['Scherzo: Allegro', 'Third movement'],
+            ],
+        },
+        {
+            title: 'Keyboard Sonata in D major, Hob. XVI:33',
+            count: '3 movements',
+            from: 'haydn-sonata-hob-xvi-33',
+            rows: [
+                ['Allegro', 'First movement'],
+                ['Adagio', 'Second movement'],
+                ['Tempo di Menuet', 'Third movement'],
+            ],
+        },
+        {
+            title: 'Keyboard Sonata in C major, Hob. XVI:35',
+            count: '3 movements',
+            from: 'haydn-sonata-hob-xvi-35',
+            rows: [
+                ['Allegro con brio', 'First movement'],
+                ['Adagio', 'Second movement'],
+                ['Finale: Allegro', 'Third movement'],
+            ],
+        },
+        {
+            title: 'Keyboard Sonata in G major, Hob. XVI:40',
+            count: '2 movements',
+            from: 'haydn-sonata-hob-xvi-40',
+            rows: [
+                ['Allegretto innocente', 'First movement'],
+                ['Presto', 'Second movement'],
+            ],
+        },
+        {
+            title: 'Keyboard Sonata in A-flat major, Hob. XVI:43',
+            count: '3 movements',
+            from: 'haydn-sonata-hob-xvi-43',
+            rows: [
+                ['Moderato', 'First movement'],
+                ['Menuet', 'Second movement'],
+                ['Rondo: Presto', 'Third movement'],
+            ],
+        },
+        {
             title: 'Arranged for piano',
             rows: [
                 ['haydn-surprise-symphony-andante', '“Surprise” Symphony: Andante theme', 'Symphony No. 94 · simplified'],

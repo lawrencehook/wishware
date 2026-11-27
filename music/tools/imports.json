@@ -3050,5 +3050,499 @@
    "name": "Spring Song",
    "midi": "music/tools/files/mendelssohn-spring-song-imslp-596077.mscz"
   }
+ ],
+ "schubert-piano-sonata-d-960": [
+  {
+   "name": "Molto moderato",
+   "midi": "http://piano-midi.de/midis/schubert/schub_d960_1.mid"
+  },
+  {
+   "name": "Andante sostenuto",
+   "midi": "http://piano-midi.de/midis/schubert/schub_d960_2.mid"
+  },
+  {
+   "name": "Scherzo: Allegro vivace con delicatezza",
+   "midi": "http://piano-midi.de/midis/schubert/schub_d960_3.mid"
+  },
+  {
+   "name": "Allegro ma non troppo",
+   "midi": "http://piano-midi.de/midis/schubert/schub_d960_4.mid"
+  }
+ ],
+ "schubert-piano-sonata-d-850": [
+  {
+   "name": "Allegro vivace",
+   "midi": "http://piano-midi.de/midis/schubert/schubert_D850_1.mid"
+  },
+  {
+   "name": "Con moto",
+   "midi": "http://piano-midi.de/midis/schubert/schubert_D850_2.mid"
+  },
+  {
+   "name": "Scherzo: Allegro vivace",
+   "midi": "http://piano-midi.de/midis/schubert/schubert_D850_3.mid"
+  },
+  {
+   "name": "Rondo: Allegro moderato",
+   "midi": "http://piano-midi.de/midis/schubert/schubert_D850_4.mid"
+  }
+ ],
+ "schubert-piano-sonata-d-784": [
+  {
+   "name": "Allegro giusto",
+   "midi": "http://piano-midi.de/midis/schubert/schu_143_1.mid"
+  },
+  {
+   "name": "Andante",
+   "midi": "http://piano-midi.de/midis/schubert/schu_143_2.mid"
+  },
+  {
+   "name": "Allegro vivace",
+   "midi": "http://piano-midi.de/midis/schubert/schu_143_3.mid"
+  }
+ ],
+ "brahms-piano-sonata-no-1": [
+  {
+   "name": "Allegro",
+   "midi": "http://piano-midi.de/midis/brahms/brahms_opus1_1.mid"
+  },
+  {
+   "name": "Andante",
+   "midi": "http://piano-midi.de/midis/brahms/brahms_opus1_2.mid"
+  },
+  {
+   "name": "Scherzo: Allegro molto e con fuoco",
+   "midi": "http://piano-midi.de/midis/brahms/brahms_opus1_3.mid"
+  },
+  {
+   "name": "Finale: Allegro con fuoco",
+   "midi": "http://piano-midi.de/midis/brahms/brahms_opus1_4.mid"
+  }
+ ],
+ "mussorgsky-pictures-at-an-exhibition": [
+  {
+   "name": "Promenade – Gnomus",
+   "midi": "http://piano-midi.de/midis/mussorgsky/muss_1.mid"
+  },
+  {
+   "name": "Promenade – The Old Castle",
+   "midi": "http://piano-midi.de/midis/mussorgsky/muss_2.mid"
+  },
+  {
+   "name": "Promenade – Tuileries",
+   "midi": "http://piano-midi.de/midis/mussorgsky/muss_3.mid"
+  },
+  {
+   "name": "Bydło",
+   "midi": "http://piano-midi.de/midis/mussorgsky/muss_4.mid"
+  },
+  {
+   "name": "Promenade – Ballet of the Unhatched Chicks",
+   "midi": "http://piano-midi.de/midis/mussorgsky/muss_5.mid"
+  },
+  {
+   "name": "“Samuel” Goldenberg and “Schmuÿle”",
+   "midi": "http://piano-midi.de/midis/mussorgsky/muss_6.mid"
+  },
+  {
+   "name": "Promenade – Limoges – Catacombs",
+   "midi": "http://piano-midi.de/midis/mussorgsky/muss_7.mid"
+  },
+  {
+   "name": "The Hut on Fowl’s Legs – The Great Gate of Kiev",
+   "midi": "http://piano-midi.de/midis/mussorgsky/muss_8.mid"
+  }
+ ],
+ "haydn-sonata-hob-xvi-7": [
+  {
+   "name": "Allegro moderato",
+   "midi": "http://piano-midi.de/midis/haydn/haydn_7_1.mid"
+  },
+  {
+   "name": "Menuet",
+   "midi": "http://piano-midi.de/midis/haydn/haydn_7_2.mid"
+  },
+  {
+   "name": "Finale: Allegro",
+   "midi": "http://piano-midi.de/midis/haydn/haydn_7_3.mid"
+  }
+ ],
+ "haydn-sonata-hob-xvi-8": [
+  {
+   "name": "Allegro",
+   "midi": "http://piano-midi.de/midis/haydn/haydn_8_1.mid"
+  },
+  {
+   "name": "Menuet",
+   "midi": "http://piano-midi.de/midis/haydn/haydn_8_2.mid"
+  },
+  {
+   "name": "Andante",
+   "midi": "http://piano-midi.de/midis/haydn/haydn_8_3.mid"
+  },
+  {
+   "name": "Allegro",
+   "midi": "http://piano-midi.de/midis/haydn/haydn_8_4.mid"
+  }
+ ],
+ "haydn-sonata-hob-xvi-9": [
+  {
+   "name": "Allegro",
+   "midi": "http://piano-midi.de/midis/haydn/haydn_9_1.mid"
+  },
+  {
+   "name": "Menuet",
+   "midi": "http://piano-midi.de/midis/haydn/haydn_9_2.mid"
+  },
+  {
+   "name": "Scherzo: Allegro",
+   "midi": "http://piano-midi.de/midis/haydn/haydn_9_3.mid"
+  }
+ ],
+ "haydn-sonata-hob-xvi-33": [
+  {
+   "name": "Allegro",
+   "midi": "http://piano-midi.de/midis/haydn/haydn_33_1.mid"
+  },
+  {
+   "name": "Adagio",
+   "midi": "http://piano-midi.de/midis/haydn/haydn_33_2.mid"
+  },
+  {
+   "name": "Tempo di Menuet",
+   "midi": "http://piano-midi.de/midis/haydn/haydn_33_3.mid"
+  }
+ ],
+ "haydn-sonata-hob-xvi-35": [
+  {
+   "name": "Allegro con brio",
+   "midi": "http://piano-midi.de/midis/haydn/haydn_35_1.mid"
+  },
+  {
+   "name": "Adagio",
+   "midi": "http://piano-midi.de/midis/haydn/haydn_35_2.mid"
+  },
+  {
+   "name": "Finale: Allegro",
+   "midi": "http://piano-midi.de/midis/haydn/haydn_35_3.mid"
+  }
+ ],
+ "haydn-sonata-hob-xvi-40": [
+  {
+   "name": "Allegretto innocente",
+   "midi": "http://piano-midi.de/midis/haydn/hay_40_1.mid"
+  },
+  {
+   "name": "Presto",
+   "midi": "http://piano-midi.de/midis/haydn/hay_40_2.mid"
+  }
+ ],
+ "haydn-sonata-hob-xvi-43": [
+  {
+   "name": "Moderato",
+   "midi": "http://piano-midi.de/midis/haydn/haydn_43_1.mid"
+  },
+  {
+   "name": "Menuet",
+   "midi": "http://piano-midi.de/midis/haydn/haydn_43_2.mid"
+  },
+  {
+   "name": "Rondo: Presto",
+   "midi": "http://piano-midi.de/midis/haydn/haydn_43_3.mid"
+  }
+ ],
+ "schubert-moment-musical-no-2-d-780": [
+  {
+   "name": "Moment musical No. 2",
+   "midi": "http://piano-midi.de/midis/schubert/schumm-2.mid"
+  }
+ ],
+ "schubert-moment-musical-no-4-d-780": [
+  {
+   "name": "Moment musical No. 4",
+   "midi": "http://piano-midi.de/midis/schubert/schumm-4.mid"
+  }
+ ],
+ "schubert-moment-musical-no-5-d-780": [
+  {
+   "name": "Moment musical No. 5",
+   "midi": "http://piano-midi.de/midis/schubert/schumm-5.mid"
+  }
+ ],
+ "schubert-moment-musical-no-6-d-780": [
+  {
+   "name": "Moment musical No. 6",
+   "midi": "http://piano-midi.de/midis/schubert/schumm-6.mid"
+  }
+ ],
+ "schubert-impromptu-d-935-no-2": [
+  {
+   "name": "Impromptu in A-flat major",
+   "midi": "http://piano-midi.de/midis/schubert/schubert_d935_2.mid"
+  }
+ ],
+ "schubert-impromptu-d-935-no-4": [
+  {
+   "name": "Impromptu in F minor",
+   "midi": "http://piano-midi.de/midis/schubert/schubert_d935_4.mid"
+  }
+ ],
+ "schumann-kreisleriana-no-8": [
+  {
+   "name": "Kreisleriana No. 8",
+   "midi": "http://piano-midi.de/midis/schumann/scn16_8.mid"
+  }
+ ],
+ "schumann-abegg-variations-op-1": [
+  {
+   "name": "Abegg Variations",
+   "midi": "http://piano-midi.de/midis/schumann/schum_abegg.mid"
+  }
+ ],
+ "schumann-the-happy-farmer-op-68-no-10": [
+  {
+   "name": "The Happy Farmer",
+   "midi": "http://piano-midi.de/midis/schumann/scn68_10.mid"
+  }
+ ],
+ "schumann-knecht-ruprecht-op-68-no-12": [
+  {
+   "name": "Knecht Ruprecht",
+   "midi": "http://piano-midi.de/midis/schumann/scn68_12.mid"
+  }
+ ],
+ "rachmaninoff-prelude-op-32-no-1": [
+  {
+   "name": "Prelude in C major",
+   "midi": "http://piano-midi.de/midis/rachmaninow/rac_op32_1.mid"
+  }
+ ],
+ "rachmaninoff-prelude-op-32-no-13": [
+  {
+   "name": "Prelude in D-flat major",
+   "midi": "http://piano-midi.de/midis/rachmaninow/rac_op32_13.mid"
+  }
+ ],
+ "rachmaninoff-etude-tableau-op-33-no-5": [
+  {
+   "name": "Étude-tableau in E-flat minor",
+   "midi": "http://piano-midi.de/midis/rachmaninow/rac_op33_5.mid"
+  }
+ ],
+ "rachmaninoff-etude-tableau-op-33-no-6": [
+  {
+   "name": "Étude-tableau in E-flat major",
+   "midi": "http://piano-midi.de/midis/rachmaninow/rac_op33_6.mid"
+  }
+ ],
+ "rachmaninoff-etude-tableau-op-33-no-8": [
+  {
+   "name": "Étude-tableau in C-sharp minor",
+   "midi": "http://piano-midi.de/midis/rachmaninow/rac_op33_8.mid"
+  }
+ ],
+ "ravel-ondine": [
+  {
+   "name": "Ondine",
+   "midi": "http://piano-midi.de/midis/ravel/rav_ondi.mid"
+  }
+ ],
+ "ravel-scarbo": [
+  {
+   "name": "Scarbo",
+   "midi": "http://piano-midi.de/midis/ravel/rav_scarbo.mid"
+  }
+ ],
+ "ravel-noctuelles": [
+  {
+   "name": "Noctuelles",
+   "midi": "http://piano-midi.de/midis/ravel/ravel_miroirs_1.mid"
+  }
+ ],
+ "liszt-paganini-etude-no-1": [
+  {
+   "name": "Paganini Étude No. 1",
+   "midi": "http://piano-midi.de/midis/liszt/liz_et1.mid"
+  }
+ ],
+ "liszt-paganini-etude-no-2": [
+  {
+   "name": "Paganini Étude No. 2",
+   "midi": "http://piano-midi.de/midis/liszt/liz_et2.mid"
+  }
+ ],
+ "liszt-paganini-etude-no-4": [
+  {
+   "name": "Paganini Étude No. 4",
+   "midi": "http://piano-midi.de/midis/liszt/liz_et4.mid"
+  }
+ ],
+ "liszt-paganini-etude-no-5": [
+  {
+   "name": "Paganini Étude No. 5",
+   "midi": "http://piano-midi.de/midis/liszt/liz_et5.mid"
+  }
+ ],
+ "liszt-wilde-jagd": [
+  {
+   "name": "Wilde Jagd",
+   "midi": "http://piano-midi.de/midis/liszt/liz_et_trans8.mid"
+  }
+ ],
+ "liszt-hungarian-rhapsody-no-9": [
+  {
+   "name": "Hungarian Rhapsody No. 9",
+   "midi": "http://piano-midi.de/midis/liszt/liz_rhap09.mid"
+  }
+ ],
+ "liszt-hungarian-rhapsody-no-10": [
+  {
+   "name": "Hungarian Rhapsody No. 10",
+   "midi": "http://piano-midi.de/midis/liszt/liz_rhap10.mid"
+  }
+ ],
+ "liszt-hungarian-rhapsody-no-12": [
+  {
+   "name": "Hungarian Rhapsody No. 12",
+   "midi": "http://piano-midi.de/midis/liszt/liz_rhap12.mid"
+  }
+ ],
+ "liszt-hungarian-rhapsody-no-15": [
+  {
+   "name": "Hungarian Rhapsody No. 15",
+   "midi": "http://piano-midi.de/midis/liszt/liz_rhap15.mid"
+  }
+ ],
+ "liszt-reminiscences-de-don-juan": [
+  {
+   "name": "Réminiscences de Don Juan",
+   "midi": "http://piano-midi.de/midis/liszt/liz_donjuan.mid"
+  }
+ ],
+ "mendelssohn-song-without-words-op-19-no-1": [
+  {
+   "name": "Andante con moto",
+   "midi": "http://piano-midi.de/midis/mendelssohn/mendel_op19_1.mid"
+  }
+ ],
+ "mendelssohn-song-without-words-op-19-no-2": [
+  {
+   "name": "Andante espressivo",
+   "midi": "http://piano-midi.de/midis/mendelssohn/mendel_op19_2.mid"
+  }
+ ],
+ "mendelssohn-song-without-words-op-19-no-3": [
+  {
+   "name": "Hunting Song",
+   "midi": "http://piano-midi.de/midis/mendelssohn/mendel_op19_3.mid"
+  }
+ ],
+ "mendelssohn-song-without-words-op-19-no-4": [
+  {
+   "name": "Moderato",
+   "midi": "http://piano-midi.de/midis/mendelssohn/mendel_op19_4.mid"
+  }
+ ],
+ "mendelssohn-song-without-words-op-30-no-1": [
+  {
+   "name": "Andante espressivo",
+   "midi": "http://piano-midi.de/midis/mendelssohn/mendel_op30_1.mid"
+  }
+ ],
+ "mendelssohn-song-without-words-op-30-no-2": [
+  {
+   "name": "Allegro di molto",
+   "midi": "http://piano-midi.de/midis/mendelssohn/mendel_op30_2.mid"
+  }
+ ],
+ "mendelssohn-song-without-words-op-30-no-3": [
+  {
+   "name": "Adagio non troppo",
+   "midi": "http://piano-midi.de/midis/mendelssohn/mendel_op30_3.mid"
+  }
+ ],
+ "mendelssohn-song-without-words-op-30-no-4": [
+  {
+   "name": "Agitato e con fuoco",
+   "midi": "http://piano-midi.de/midis/mendelssohn/mendel_op30_4.mid"
+  }
+ ],
+ "mendelssohn-song-without-words-op-30-no-5": [
+  {
+   "name": "Andante grazioso",
+   "midi": "http://piano-midi.de/midis/mendelssohn/mendel_op30_5.mid"
+  }
+ ],
+ "mendelssohn-song-without-words-op-62-no-3": [
+  {
+   "name": "Funeral March",
+   "midi": "http://piano-midi.de/midis/mendelssohn/mendel_op62_3.mid"
+  }
+ ],
+ "mendelssohn-song-without-words-op-62-no-4": [
+  {
+   "name": "Morning Song",
+   "midi": "http://piano-midi.de/midis/mendelssohn/mendel_op62_4.mid"
+  }
+ ],
+ "mendelssohn-song-without-words-op-62-no-5": [
+  {
+   "name": "Venetian Gondola Song",
+   "midi": "http://piano-midi.de/midis/mendelssohn/mendel_op62_5.mid"
+  }
+ ],
+ "grieg-berceuse-op-38-no-1": [
+  {
+   "name": "Berceuse",
+   "midi": "http://piano-midi.de/midis/grieg/grieg_berceuse.mid"
+  }
+ ],
+ "grieg-halling-op-38-no-4": [
+  {
+   "name": "Halling",
+   "midi": "http://piano-midi.de/midis/grieg/grieg_halling.mid"
+  }
+ ],
+ "grieg-solitary-traveller-op-43-no-2": [
+  {
+   "name": "Solitary Traveller",
+   "midi": "http://piano-midi.de/midis/grieg/grieg_wanderer.mid"
+  }
+ ],
+ "grieg-little-bird-op-43-no-4": [
+  {
+   "name": "Little Bird",
+   "midi": "http://piano-midi.de/midis/grieg/grieg_voeglein.mid"
+  }
+ ],
+ "grieg-album-leaf-op-47-no-2": [
+  {
+   "name": "Album Leaf",
+   "midi": "http://piano-midi.de/midis/grieg/grieg_album.mid"
+  }
+ ],
+ "grieg-norwegian-march-op-54-no-2": [
+  {
+   "name": "Norwegian March",
+   "midi": "http://piano-midi.de/midis/grieg/grieg_march.mid"
+  }
+ ],
+ "grieg-brooklet-op-62-no-4": [
+  {
+   "name": "Brooklet",
+   "midi": "http://piano-midi.de/midis/grieg/grieg_brooklet.mid"
+  }
+ ],
+ "grieg-once-upon-a-time-op-71-no-1": [
+  {
+   "name": "Once upon a Time",
+   "midi": "http://piano-midi.de/midis/grieg/grieg_once_upon_a_time.mid"
+  }
+ ],
+ "grieg-puck-op-71-no-3": [
+  {
+   "name": "Puck",
+   "midi": "http://piano-midi.de/midis/grieg/grieg_kobold.mid"
+  }
  ]
 }

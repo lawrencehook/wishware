@@ -40,6 +40,17 @@ module.exports = {
             ],
         },
         {
+            title: 'Piano Sonata No. 1 in C major, Op. 1',
+            count: '4 movements',
+            from: 'brahms-piano-sonata-no-1',
+            rows: [
+                ['Allegro', 'First movement'],
+                ['Andante', 'Second movement'],
+                ['Scherzo: Allegro molto e con fuoco', 'Third movement'],
+                ['Finale: Allegro con fuoco', 'Fourth movement'],
+            ],
+        },
+        {
             title: 'Other works',
             rows: [
                 ['brahms-rhapsody-op-119-no-4', 'Rhapsody in E-flat major', 'Op. 119 No. 4'],
