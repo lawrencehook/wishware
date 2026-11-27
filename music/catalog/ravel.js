@@ -20,22 +20,26 @@ module.exports = {
     sections: [
         {
             title: 'Miroirs',
-            count: '2 of 5',
+            count: '3 of 5',
             from: 'ravel-miroirs-nos-3-and-4',
-            rows: [['Une barque sur l’océan', 'No. 3', 3], ['Alborada del gracioso', 'No. 4', 4]],
+            rows: [[['ravel-noctuelles', 0], 'Noctuelles', 'No. 1', 1], ['Une barque sur l’océan', 'No. 3', 3], ['Alborada del gracioso', 'No. 4', 4]],
+        },
+        {
+            title: 'Gaspard de la nuit, M. 55',
+            rows: [
+                [['ravel-ondine', 0], 'Ondine', 'No. 1'],
+                [['ravel-gaspard-de-la-nuit-m-55', 0], 'Le Gibet', 'No. 2'],
+                [['ravel-scarbo', 0], 'Scarbo', 'No. 3'],
+            ],
         },
         {
             title: 'Other works',
             rows: [
-                ['ravel-le-gibet', 'Le gibet', 'Gaspard de la nuit, M. 55 No. 2'],
+                ['ravel-le-gibet', 'Le Gibet', 'Gaspard de la nuit, M. 55 No. 2 · another edition'],
                 ['ravel-pavane-pour-une-infante-defunte', 'Pavane pour une infante défunte', 'M. 19 · G major'],
                 ['ravel-jeux-d-eau-m-30', 'Jeux d’eau', 'M. 30 · E major'],
                 ['ravel-sonatine-m-40', 'Sonatine', 'M. 40 · played through'],
-                ['ravel-gaspard-de-la-nuit-m-55', 'Le Gibet', 'Gaspard de la nuit, M. 55 No. 2'],
                 ['ravel-le-tombeau-de-couperin-m-68', 'Le tombeau de Couperin', 'M. 68 · played through'],
-                ['ravel-ondine', 'Ondine', 'Gaspard de la nuit, M. 55 No. 1'],
-                ['ravel-scarbo', 'Scarbo', 'Gaspard de la nuit, M. 55 No. 3'],
-                ['ravel-noctuelles', 'Noctuelles', 'Miroirs, M. 43 No. 1'],
             ],
         },
     ],

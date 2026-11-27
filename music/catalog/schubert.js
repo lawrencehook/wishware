@@ -26,11 +26,15 @@ module.exports = {
             rows: [['C minor', 'D. 899 No. 1'], ['E-flat major', 'D. 899 No. 2'], ['G-flat major', 'D. 899 No. 3'], ['A-flat major', 'D. 899 No. 4']],
         },
         {
-            title: 'Impromptus, D. 935',
-            count: '2 of 4',
+            title: 'Four Impromptus, D. 935',
             piece: 'Impromptu',
             from: 'schubert-impromptus-d-935-nos-1-and-3',
-            rows: [['F minor', 'D. 935 No. 1', 1], ['B-flat major', 'D. 935 No. 3', 3]],
+            rows: [
+                ['F minor', 'D. 935 No. 1'],
+                [['schubert-impromptu-d-935-no-2', 0], 'A-flat major', 'D. 935 No. 2'],
+                ['B-flat major', 'D. 935 No. 3'],
+                [['schubert-impromptu-d-935-no-4', 0], 'F minor', 'D. 935 No. 4'],
+            ],
         },
         {
             title: 'Piano Sonata in A major, D. 664',
@@ -89,8 +93,6 @@ module.exports = {
                 ['schubert-wanderer-fantasy-d-760', '“Wanderer” Fantasy', 'D. 760 · C major'],
                 ['schubert-piano-sonata-in-g-d-894', 'Andante', 'Piano Sonata in G major, D. 894 · second movement'],
                 ['schubert-ave-maria-d-839', 'Ave Maria', 'D. 839 · Ellens dritter Gesang, played on piano'],
-                ['schubert-impromptu-d-935-no-2', 'Impromptu in A-flat major', 'D. 935 No. 2'],
-                ['schubert-impromptu-d-935-no-4', 'Impromptu in F minor', 'D. 935 No. 4'],
             ],
         },
     ],

@@ -117,12 +117,15 @@ for (const [id, entry] of Object.entries(require('./catalog.js'))) {
                     })),
                 };
             }
+            let next = 0;
             return {
                 title: section.title,
                 count,
-                works: section.rows.map((row, i) => {
-                    const [folder, index, title, meta, number] = section.from ? [section.from, i, ...row] : [row[0], 0, row[1], row[2]];
-                    const { notes, ...rest } = work(folder, index, section.piece ? section.piece + ' in ' + title : title, (section.from ? section.title + ' · ' : '') + meta, 48);
+                works: section.rows.map((row) => {
+                    // A row that opens with [folder, index] comes from there; the rest of a `from` section follows that folder's movements in order.
+                    const own = Array.isArray(row[0]);
+                    const [folder, index, title, meta, number] = own ? [...row[0], ...row.slice(1)] : section.from ? [section.from, next++, ...row] : [row[0], 0, row[1], row[2]];
+                    const { notes, ...rest } = work(folder, index, section.piece ? section.piece + ' in ' + title : title, (section.from || own ? section.title + ' · ' : '') + meta, 48);
                     return { number, title, meta, label: section.title + ': ' + title + ', ' + meta, ...rest };
                 }),
             };

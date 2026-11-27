@@ -271,9 +271,30 @@
    "http://piano-midi.de/haydn.htm"
   ],
   "recording": [
-   "JBIg8-ZcfxM",
-   "Jean-Efflam Bavouzet",
-   "complete work"
+   [
+    "JBIg8-ZcfxM",
+    "Jean-Efflam Bavouzet",
+    "complete work",
+    9
+   ],
+   [
+    "JBIg8-ZcfxM",
+    "Jean-Efflam Bavouzet",
+    "complete work",
+    77
+   ],
+   [
+    "JBIg8-ZcfxM",
+    "Jean-Efflam Bavouzet",
+    "complete work",
+    192
+   ],
+   [
+    "JBIg8-ZcfxM",
+    "Jean-Efflam Bavouzet",
+    "complete work",
+    259
+   ]
   ]
  },
  "haydn-sonata-hob-xvi-9": {
@@ -295,9 +316,24 @@
    "http://piano-midi.de/haydn.htm"
   ],
   "recording": [
-   "XWygAD4CdZU",
-   "Jean-Efflam Bavouzet",
-   "complete work"
+   [
+    "XWygAD4CdZU",
+    "Jean-Efflam Bavouzet",
+    "complete work",
+    0
+   ],
+   [
+    "XWygAD4CdZU",
+    "Jean-Efflam Bavouzet",
+    "complete work",
+    490
+   ],
+   [
+    "XWygAD4CdZU",
+    "Jean-Efflam Bavouzet",
+    "complete work",
+    804
+   ]
   ]
  },
  "haydn-sonata-hob-xvi-35": {
@@ -307,9 +343,24 @@
    "http://piano-midi.de/haydn.htm"
   ],
   "recording": [
-   "TXnZAMZxCk4",
-   "Jean-Efflam Bavouzet",
-   "complete work"
+   [
+    "TXnZAMZxCk4",
+    "Jean-Efflam Bavouzet",
+    "complete work",
+    0
+   ],
+   [
+    "TXnZAMZxCk4",
+    "Jean-Efflam Bavouzet",
+    "complete work",
+    427
+   ],
+   [
+    "TXnZAMZxCk4",
+    "Jean-Efflam Bavouzet",
+    "complete work",
+    795
+   ]
   ]
  },
  "haydn-sonata-hob-xvi-40": {
@@ -319,9 +370,18 @@
    "http://piano-midi.de/haydn.htm"
   ],
   "recording": [
-   "KANNmdlOV9E",
-   "Alfred Brendel",
-   "complete work"
+   [
+    "KANNmdlOV9E",
+    "Alfred Brendel",
+    "complete work",
+    4
+   ],
+   [
+    "KANNmdlOV9E",
+    "Alfred Brendel",
+    "complete work",
+    553
+   ]
   ]
  },
  "haydn-sonata-hob-xvi-43": {
@@ -331,9 +391,24 @@
    "http://piano-midi.de/haydn.htm"
   ],
   "recording": [
-   "Dtp0FGrg_QM",
-   "Jean-Efflam Bavouzet",
-   "complete work"
+   [
+    "Dtp0FGrg_QM",
+    "Jean-Efflam Bavouzet",
+    "complete work",
+    0
+   ],
+   [
+    "Dtp0FGrg_QM",
+    "Jean-Efflam Bavouzet",
+    "complete work",
+    507
+   ],
+   [
+    "Dtp0FGrg_QM",
+    "Jean-Efflam Bavouzet",
+    "complete work",
+    647
+   ]
   ]
  }
 }

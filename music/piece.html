@@ -140,6 +140,7 @@ const lastNumber = sheet && !sheet.labels ? played.length - (sheet.pickup ? 1 : 
 let sheetView = null;
 if (sheet) {
     document.querySelector('#sheet-pdf').href = sheet.pdf;
+    if (!sheet.pdf.includes('.pdf')) document.querySelector('#sheet-pdf').textContent = 'Encoded score';
     // Trim the page margins, keeping room for the brace and clefs, unless the images are already cropped (`full`).
     const left = sheet.full ? 0 : Math.max(0, Math.min(...sheet.bars.map(([, x]) => x)) - 45);
     sheetView = {

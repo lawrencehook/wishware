@@ -132,9 +132,30 @@
    "http://piano-midi.de/brahms.htm"
   ],
   "recording": [
-   "EuW2WJFFh4c",
-   "olla-vogala (channel)",
-   "complete work"
+   [
+    "EuW2WJFFh4c",
+    "olla-vogala (channel)",
+    "complete work",
+    0
+   ],
+   [
+    "EuW2WJFFh4c",
+    "olla-vogala (channel)",
+    "complete work",
+    482
+   ],
+   [
+    "EuW2WJFFh4c",
+    "olla-vogala (channel)",
+    "complete work",
+    796
+   ],
+   [
+    "EuW2WJFFh4c",
+    "olla-vogala (channel)",
+    "complete work",
+    1078
+   ]
   ]
  }
 }

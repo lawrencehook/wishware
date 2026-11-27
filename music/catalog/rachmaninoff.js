@@ -40,10 +40,15 @@ module.exports = {
         },
         {
             title: 'Preludes, Op. 32',
-            count: '2 of 13',
+            count: '4 of 13',
             piece: 'Prelude',
             from: 'rachmaninoff-preludes-op-32-nos-5-and-10',
-            rows: [['G major', 'Op. 32 No. 5', 5], ['B minor', 'Op. 32 No. 10', 10]],
+            rows: [
+                [['rachmaninoff-prelude-op-32-no-1', 0], 'C major', 'Op. 32 No. 1', 1],
+                ['G major', 'Op. 32 No. 5', 5],
+                ['B minor', 'Op. 32 No. 10', 10],
+                [['rachmaninoff-prelude-op-32-no-13', 0], 'D-flat major', 'Op. 32 No. 13', 13],
+            ],
         },
         {
             title: 'Arranged for piano',
@@ -57,13 +62,6 @@ module.exports = {
                 ['rachmaninoff-etude-tableau-op-33-no-5', 'Étude-tableau in E-flat minor', 'Op. 33 No. 5'],
                 ['rachmaninoff-etude-tableau-op-33-no-6', 'Étude-tableau in E-flat major', 'Op. 33 No. 6'],
                 ['rachmaninoff-etude-tableau-op-33-no-8', 'Étude-tableau in C-sharp minor', 'Op. 33 No. 8'],
-            ],
-        },
-        {
-            title: 'Other works',
-            rows: [
-                ['rachmaninoff-prelude-op-32-no-1', 'Prelude in C major', 'Op. 32 No. 1'],
-                ['rachmaninoff-prelude-op-32-no-13', 'Prelude in D-flat major', 'Op. 32 No. 13'],
             ],
         },
     ],

@@ -53,9 +53,13 @@ def timeline(text):
                     i += 1
                 left = after
             continue
-        for i, token in enumerate(tokens):
-            if token != '.' and i < len(left):
-                left[i] = duration(token)
+        # A line of grace notes alone takes no time.
+        lengths = [None if token == '.' else duration(token) for token in tokens]
+        if not any(lengths):
+            continue
+        for i, length in enumerate(lengths):
+            if length and i < len(left):
+                left[i] = length
         step = min((value for value in left if value > 0), default=Fraction(0))
         left = [max(Fraction(0), value - step) for value in left]
         now += step

@@ -8,6 +8,8 @@
 //   (number defaults to the row's position; use it when a set has gaps)
 //   `piece` names one row on its own page: 'Ballade' + 'G minor' → “Ballade in G minor”
 // section without `from`: [folder, title, detail], each the first movement of its folder
+// in either kind, a row may open with [folder, movement index] to come from another folder:
+//   [[folder, index], title, detail, number?]
 //
 // sources: folder → {score, recording}; each is one entry for every movement in the folder, or
 //   a list with an entry per movement.

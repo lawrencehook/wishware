@@ -30,7 +30,7 @@ module.exports = {
         },
         {
             title: 'Kreisleriana, Op. 16',
-            count: '7 of 8',
+            count: '8 pieces',
             from: 'schumann-kreisleriana-selections',
             rows: [
                 ['Äußerst bewegt', 'No. 1 · D minor'],
@@ -40,6 +40,7 @@ module.exports = {
                 ['Sehr lebhaft', 'No. 5 · G minor'],
                 ['Sehr langsam', 'No. 6 · B-flat major'],
                 ['Sehr rasch', 'No. 7 · C minor'],
+                [['schumann-kreisleriana-no-8', 0], 'Schnell und spielend', 'No. 8 · G minor'],
             ],
         },
         {
@@ -51,7 +52,6 @@ module.exports = {
                 ['schumann-arabeske-op-18', 'Arabeske', 'Op. 18 · C major'],
                 ['schumann-romanze-op-28-no-2', 'Romanze in F-sharp major', 'Three Romances, Op. 28 No. 2'],
                 ['robert-schumann-album-fur-die-jugend-op-68', 'Melodie', 'Album für die Jugend, Op. 68 No. 1'],
-                ['schumann-kreisleriana-no-8', 'Kreisleriana No. 8', 'Op. 16 No. 8 · Schnell und spielend · G minor'],
                 ['schumann-abegg-variations-op-1', 'Abegg Variations', 'Op. 1 · F major'],
                 ['schumann-the-happy-farmer-op-68-no-10', 'The Happy Farmer', 'Album für die Jugend, Op. 68 No. 10'],
                 ['schumann-knecht-ruprecht-op-68-no-12', 'Knecht Ruprecht', 'Album für die Jugend, Op. 68 No. 12'],

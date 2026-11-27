@@ -162,9 +162,30 @@
    "http://piano-midi.de/schub.htm"
   ],
   "recording": [
-   "oCn0PjPHdrc",
-   "András Schiff",
-   "complete work"
+   [
+    "oCn0PjPHdrc",
+    "András Schiff",
+    "complete work",
+    0
+   ],
+   [
+    "oCn0PjPHdrc",
+    "András Schiff",
+    "complete work",
+    1184
+   ],
+   [
+    "oCn0PjPHdrc",
+    "András Schiff",
+    "complete work",
+    1695
+   ],
+   [
+    "oCn0PjPHdrc",
+    "András Schiff",
+    "complete work",
+    1961
+   ]
   ]
  },
  "schubert-piano-sonata-d-850": {
@@ -174,9 +195,30 @@
    "http://piano-midi.de/schub.htm"
   ],
   "recording": [
-   "1n5ynpDzxrU",
-   "Alfred Brendel",
-   "complete work"
+   [
+    "1n5ynpDzxrU",
+    "Alfred Brendel",
+    "complete work",
+    0
+   ],
+   [
+    "1n5ynpDzxrU",
+    "Alfred Brendel",
+    "complete work",
+    563
+   ],
+   [
+    "1n5ynpDzxrU",
+    "Alfred Brendel",
+    "complete work",
+    1280
+   ],
+   [
+    "1n5ynpDzxrU",
+    "Alfred Brendel",
+    "complete work",
+    1831
+   ]
   ]
  },
  "schubert-piano-sonata-d-784": {
@@ -186,9 +228,24 @@
    "http://piano-midi.de/schub.htm"
   ],
   "recording": [
-   "6A6AgtJH2Kk",
-   "Radu Lupu",
-   "complete work"
+   [
+    "6A6AgtJH2Kk",
+    "Radu Lupu",
+    "complete work",
+    0
+   ],
+   [
+    "6A6AgtJH2Kk",
+    "Radu Lupu",
+    "complete work",
+    587
+   ],
+   [
+    "6A6AgtJH2Kk",
+    "Radu Lupu",
+    "complete work",
+    847
+   ]
   ]
  },
  "schubert-moment-musical-no-2-d-780": {

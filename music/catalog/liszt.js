@@ -21,13 +21,14 @@ module.exports = {
     sections: [
         {
             title: 'Transcendental Études, S. 139',
-            count: '7 of 12',
+            count: '8 of 12',
             from: 'liszt-transcendental-etudes-selections',
             rows: [
                 ['Preludio', 'No. 1 · C major', 1],
                 ['Paysage', 'No. 3 · F major', 3],
                 ['Mazeppa', 'No. 4 · D minor', 4],
                 ['Feux follets', 'No. 5 · B-flat major', 5],
+                [['liszt-wilde-jagd', 0], 'Wilde Jagd', 'No. 8 · C minor', 8],
                 ['Ricordanza', 'No. 9 · A-flat major', 9],
                 ['Allegro agitato molto', 'No. 10 · F minor', 10],
                 ['Harmonies du soir', 'No. 11 · D-flat major', 11],
@@ -57,7 +58,6 @@ module.exports = {
                 ['liszt-paganini-etude-no-2', 'Paganini Étude No. 2', 'S. 141 No. 2 · E-flat major'],
                 ['liszt-paganini-etude-no-4', 'Paganini Étude No. 4', 'S. 141 No. 4 · E major · “Arpeggio”'],
                 ['liszt-paganini-etude-no-5', 'Paganini Étude No. 5', 'S. 141 No. 5 · E major · “La Chasse”'],
-                ['liszt-wilde-jagd', 'Wilde Jagd', 'Transcendental Étude, S. 139 No. 8 · C minor'],
                 ['liszt-hungarian-rhapsody-no-9', 'Hungarian Rhapsody No. 9', 'S. 244 No. 9 · E-flat major · “Carnival in Pest”'],
                 ['liszt-hungarian-rhapsody-no-10', 'Hungarian Rhapsody No. 10', 'S. 244 No. 10 · E major'],
                 ['liszt-hungarian-rhapsody-no-12', 'Hungarian Rhapsody No. 12', 'S. 244 No. 12 · C-sharp minor'],
