@@ -20,7 +20,7 @@ module.exports = {
     sections: [
         {
             title: 'Keyboard Sonatas',
-            count: '90 of 555',
+            count: '91 of 555',
             rows: [
                 ['scarlatti-sonata-k-1', 'Sonata in D minor', 'K. 1 · Allegro'],
                 ['scarlatti-sonata-k-9', 'Sonata in D minor', 'K. 9 · Allegro'],
@@ -41,6 +41,7 @@ module.exports = {
                 ['scarlatti-sonata-k-84', 'Sonata in C minor', 'K. 84 · Allegro'],
                 ['scarlatti-sonata-k-85', 'Sonata in F major', 'K. 85'],
                 ['scarlatti-sonata-k-87', 'Sonata in B minor', 'K. 87 · Andante'],
+                ['scarlatti-sonata-k-93', 'Sonata in G minor', 'K. 93'],
                 ['scarlatti-sonata-k-96', 'Sonata in D major', 'K. 96'],
                 ['scarlatti-sonata-k-98', 'Sonata in E minor', 'K. 98'],
                 ['scarlatti-sonata-k-113', 'Sonata in A major', 'K. 113 · Allegrissimo'],
@@ -67,7 +68,7 @@ module.exports = {
                 ['scarlatti-sonata-k-208', 'Sonata in A major', 'K. 208 · Adagio e cantabile'],
                 ['scarlatti-sonata-k-213', 'Sonata in D minor', 'K. 213'],
                 ['scarlatti-sonata-k-220', 'Sonata in A major', 'K. 220 · Allegro'],
-                ['scarlatti-sonata-k-225', 'Sonata in C major', 'K. 225 · Allegro [quarter]=126'],
+                ['scarlatti-sonata-k-225', 'Sonata in C major', 'K. 225 · Allegro'],
                 ['scarlatti-sonata-k-227', 'Sonata in B minor', 'K. 227 · Moderato'],
                 ['scarlatti-sonata-k-235', 'Sonata in C major', 'K. 235 · Allegro'],
                 ['scarlatti-sonata-k-238', 'Sonata in F minor', 'K. 238 · Andante'],

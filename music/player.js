@@ -21,10 +21,19 @@
 // It returns {change, stop, seekTo, isRunning} for a page's own controls.
 function startPlayer(piece) {
 const {voices, groups, names, colors, instruments, tempoMap, totalBeats, bars, sheet} = piece;
+const lightColors = piece.lightColors ?? colors;
 const measures = bars.length;
 const enabled = names.map(() => true);
-const pitches = voices.flat().flatMap(n => n.pitches);
-const lowest = Math.min(...pitches), highest = Math.max(...pitches);
+let lowest = Infinity, highest = -Infinity;
+for (const part of voices) {
+    for (const n of part) {
+        for (const p of n.pitches) {
+            if (p < lowest) lowest = p;
+            if (p > highest) highest = p;
+        }
+    }
+}
+if (!Number.isFinite(lowest)) { lowest = 60; highest = 72; }
 const canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d'),play=document.querySelector('#play'),seek=document.querySelector('#seek'),speed=document.querySelector('#speed'),bar=document.querySelector('#bar');
 seek.max = totalBeats;
 
@@ -39,9 +48,12 @@ function scoreBeat(seconds) {
 
 let audio, master, clock, outputs;
 function connectOutputs(context) {
+    // Soft limiting prevents dense multi-voice chords from clipping.
+    const limiter = context.createDynamicsCompressor();
+    limiter.connect(context.destination);
     master = context.createGain();
     master.gain.value = piece.gain;
-    master.connect(context.destination);
+    master.connect(limiter);
     if (!piece.seating) return;
     // Keep the players distinct on headphones.
     outputs = {};
@@ -78,7 +90,7 @@ async function loadBank(name) {
 }
 let running = false, offset = 0, start = 0;
 let startSeconds = 0, playbackSpeed = 1;
-let nextNote = [];
+let nextNote = [], raf = null, playRequest = 0;
 const playing = new Set();
 
 async function prepareInstrument() {
@@ -173,10 +185,12 @@ function position() {
 
 function release(note) {
     const now = audio.currentTime;
-    if (note.envelope.gain.cancelAndHoldAtTime) note.envelope.gain.cancelAndHoldAtTime(now);
-    else note.envelope.gain.cancelScheduledValues(now);
-    note.envelope.gain.setTargetAtTime(.0001, now, .005);
-    note.source.stop(now + .025);
+    try {
+        if (note.envelope.gain.cancelAndHoldAtTime) note.envelope.gain.cancelAndHoldAtTime(now);
+        else note.envelope.gain.cancelScheduledValues(now);
+        note.envelope.gain.setTargetAtTime(.0001, now, .005);
+        note.source.stop(now + .025);
+    } catch {}
 }
 
 function pump() {
@@ -201,11 +215,14 @@ function pump() {
 }
 
 function stop() {
+    playRequest++;
     offset = position();
     running = false;
     clearInterval(clock);
+    if (raf !== null) { cancelAnimationFrame(raf); raf = null; }
     playing.forEach(release);
     play.textContent = offset >= totalBeats ? 'Replay' : 'Play';
+    render();
 }
 
 function schedule() {
@@ -220,6 +237,7 @@ function schedule() {
     play.textContent = 'Pause';
     pump();
     clock = setInterval(pump, 40);
+    animate();
 }
 
 function change(fn) {
@@ -227,30 +245,38 @@ function change(fn) {
     stop();
     fn?.();
     if (resume && offset < totalBeats) schedule();
-    else play.textContent = offset >= totalBeats ? 'Replay' : 'Play';
+    else {
+        play.textContent = offset >= totalBeats ? 'Replay' : 'Play';
+        render();
+    }
 }
 
 play.onclick = async () => {
     if (running) { stop(); return; }
+    const id = ++playRequest;
     play.disabled = true;
     play.textContent = 'Loading…';
     try {
         await prepareInstrument();
+        if (id !== playRequest) return;
         document.querySelector('#status').textContent = '';
     } catch (error) {
-        play.textContent = 'Retry';
-        document.querySelector('#status').textContent = 'Instrument samples could not be loaded. Please try again.';
+        if (id === playRequest) {
+            play.textContent = 'Retry';
+            document.querySelector('#status').textContent = 'Instrument samples could not be loaded. Please try again.';
+        }
         console.error(error);
         return;
     } finally {
         play.disabled = false;
     }
+    if (id !== playRequest) return;
     if (offset >= totalBeats) offset = 0;
     piece.onPlay?.();
     schedule();
 };
 seek.oninput=()=>change(()=>offset=Number(seek.value));speed.onchange=()=>change();
-names.forEach((name,v)=>{const b=document.createElement('button'),dot=document.createElement('i');dot.style.background=colors[v];b.append(dot,name);b.setAttribute('aria-pressed','true');b.title='Toggle '+name.toLowerCase()+' voice';b.onclick=()=>change(()=>{enabled[v]=!enabled[v];b.setAttribute('aria-pressed',enabled[v])});document.querySelector('.voices').append(b)});
+names.forEach((name,v)=>{const b=document.createElement('button'),dot=document.createElement('i');dot.style.background=`light-dark(${lightColors[v % lightColors.length]}, ${colors[v % colors.length]})`;b.append(dot,name);b.setAttribute('aria-pressed','true');b.title='Toggle '+name.toLowerCase()+' voice';b.onclick=()=>change(()=>{enabled[v]=!enabled[v];b.setAttribute('aria-pressed',enabled[v])});document.querySelector('.voices').append(b)});
 
 function clockText(seconds) {
     return Math.floor(seconds / 60) + ':' + String(Math.floor(seconds % 60)).padStart(2, '0');
@@ -292,14 +318,18 @@ function showMeasure(t) {
     }
 }
 
-function draw(){
- const t=Math.max(0,position());if(running&&t>=totalBeats)stop();if(document.activeElement!==seek||running)seek.value=t;showMeasure(t);
- const w=canvas.clientWidth,h=canvas.clientHeight,d=devicePixelRatio;if(canvas.width!==Math.round(w*d)||canvas.height!==Math.round(h*d)){canvas.width=Math.round(w*d);canvas.height=Math.round(h*d)}ctx.setTransform(d,0,0,d,0,0);ctx.clearRect(0,0,w,h);
+function render(){
+ const t=Math.max(0,position());if(running&&t>=totalBeats){stop();return;}if(document.activeElement!==seek||running)seek.value=t;showMeasure(t);
+ const w=canvas.clientWidth,h=canvas.clientHeight,d=devicePixelRatio||1;if(!w||!h)return;if(canvas.width!==Math.round(w*d)||canvas.height!==Math.round(h*d)){canvas.width=Math.round(w*d);canvas.height=Math.round(h*d)}ctx.setTransform(d,0,0,d,0,0);ctx.clearRect(0,0,w,h);
+ const light=document.documentElement.dataset.theme==='light';
+ const palette=light?lightColors:colors;
  const span=w<600?piece.span/2:piece.span,left=Math.max(0,Math.min(totalBeats-span,t-span*.38)),x=b=>12+(b-left)*(w-24)/span,y=p=>h-44-(p-lowest)*(h-80)/(highest-lowest||1);
- for(let i=0;i<measures;i++){const xx=x(bars[i]);if(xx<0)continue;if(xx>w)break;ctx.fillStyle='#647371';ctx.font='11px monospace';ctx.fillText(piece.label(i).replace('m. ', ''),xx+4,h-12);ctx.fillStyle='#1d2929';ctx.fillRect(xx,18,1,h-48)}
+ ctx.font='11px monospace';
+ let lastLabelRight=-Infinity;
+ for(let i=0;i<measures;i++){const xx=x(bars[i]);if(xx<0)continue;if(xx>w)break;const lbl=piece.label(i).replace('m. ', '');const lw=ctx.measureText(lbl).width;if(xx+4>=lastLabelRight+6){ctx.fillStyle=light?'#4b5450':'#647371';ctx.fillText(lbl,xx+4,h-12);lastLabelRight=xx+4+lw;}ctx.fillStyle=light?'rgba(30,44,42,.18)':'#1d2929';ctx.fillRect(xx,18,1,h-48)}
  voices.forEach((notes,v)=>{
     const group=groups[v];
-    ctx.strokeStyle=ctx.fillStyle=colors[group];
+    ctx.strokeStyle=ctx.fillStyle=palette[group%palette.length];
     ctx.lineWidth=1.5;
     let prev;
     for(const n of notes){
@@ -314,7 +344,7 @@ function draw(){
                 ctx.globalAlpha=enabled[group] ? .68 : .09;
                 ctx.beginPath();ctx.moveTo(x(prev.t),y(last));ctx.lineTo(xx,yy);ctx.stroke();
             }
-            ctx.globalAlpha=enabled[group] ? (active ? 1 : .65) : .12;
+            ctx.globalAlpha=enabled[group] ? (active ? 1 : .72) : .12;
             ctx.beginPath();ctx.arc(xx,yy,Math.min(piece.dotMax,3+Math.sqrt(n.length)*4)*piece.dotScale,0,Math.PI*2);
             if(n.t>=t||active)ctx.fill();else ctx.stroke();
             if(active&&enabled[group]){
@@ -323,8 +353,38 @@ function draw(){
         });
         prev=n;
     }
- });ctx.globalAlpha=.5;ctx.fillStyle='#eeeedd';ctx.fillRect(x(t),15,1,h-47);ctx.globalAlpha=1;requestAnimationFrame(draw)
-}draw();
+ });ctx.globalAlpha=light?.65:.5;ctx.fillStyle=light?'#2d2c1e':'#eeeedd';ctx.fillRect(x(t),15,1,h-47);ctx.globalAlpha=1;
+}
+function animate(){
+    raf=null;
+    render();
+    if(running) raf=requestAnimationFrame(animate);
+}
+new ResizeObserver(render).observe(canvas);
+new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+window.addEventListener('pagehide', stop);
+document.addEventListener('keydown', e => {
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (['INPUT', 'SELECT', 'TEXTAREA', 'BUTTON', 'A'].includes(e.target.tagName)) return;
+    if (e.key === ' ') {
+        e.preventDefault();
+        play.click();
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+        e.preventDefault();
+        const dir = e.key === 'ArrowRight' ? 1 : -1;
+        const cur = position();
+        let target;
+        if (measures) {
+            const idx = Math.max(0, bars.findLastIndex(b => b <= cur + 0.01));
+            const next = Math.max(0, Math.min(measures - 1, idx + dir));
+            target = bars[next];
+        } else {
+            target = Math.max(0, Math.min(totalBeats, scoreBeat(scoreSeconds(cur) + dir * 5)));
+        }
+        change(() => { offset = target; });
+    }
+});
+render();
 
 return {change, stop, seekTo: beat => change(() => { offset = beat; }), isRunning: () => running};
 }

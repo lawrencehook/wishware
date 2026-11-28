@@ -32,12 +32,25 @@ notes_build_clean() {
     fi
 }
 
+music_build_clean() {
+    node music/build.js >/dev/null || return 1
+    git diff --quiet -- music/composers || { echo "music/composers/ differs from git after running music/build.js (commit the rebuilt output):" >&2; git diff --stat -- music/composers >&2; return 1; }
+    local untracked
+    untracked="$(git ls-files --others --exclude-standard -- music/composers)" || return 1
+    if [ -n "$untracked" ]; then
+        echo "music/build.js left untracked files:" >&2
+        echo "$untracked" >&2
+        return 1
+    fi
+}
+
 step "syntax check" node check-syntax.js
 step "smoke test" node tools/smoketest/run.js
 step "smoke test regression" node tools/smoketest/regression-test.js
 step "game tests" node --test games/lantern-labyrinth/tests/*.test.js
 step "notes tests" node --test notes/tests/*.test.js
 step "notes build leaves git clean" notes_build_clean
+step "music build leaves git clean" music_build_clean
 
 echo
 echo "check.sh: all checks passed"

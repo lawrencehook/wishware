@@ -12,8 +12,9 @@ canvas{height:clamp(210px,32vh,340px)}
 [hidden]{display:none!important}
 .neighbours{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:22px;font-size:14px}.neighbours a{color:light-dark(#685930, #ddcd9f);text-underline-offset:4px}.neighbours a:only-child[rel=next]{margin-left:auto}
 #brief{max-width:70ch;margin:20px 0 6px;line-height:1.55}
+.header-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .recording p{margin-bottom:10px;font-size:14px}.recording iframe{display:block;width:min(100%,720px);aspect-ratio:16/9;border:0;border-radius:5px}
-</style><main><header><div><span class="composer"></span><h1></h1><p></p></div><a class="back" href="index.html">← All works</a></header>
+</style><main><header><div><span class="composer"></span><h1></h1><p></p></div><div class="header-actions" data-site-theme-slot><a class="back" href="index.html">← All works</a></div></header>
 <p id="brief"></p>
 <canvas aria-label="Colored paths show note onsets from left to right, with higher pitches higher on screen."></canvas>
 <div class="controls"><button class="play" id="play">Play</button><input id="seek" type="range" min="0" max="1" step=".01" value="0" aria-label="Position in piece"><span class="bar" id="bar"></span><select id="speed" aria-label="Playback speed"><option value=".5">½ speed</option><option value=".75">¾ speed</option><option value="1" selected>1× speed</option></select></div>
@@ -36,6 +37,7 @@ canvas{height:clamp(210px,32vh,340px)}
 const params = new URLSearchParams(location.search);
 const composerId = params.get('c') ?? '', folder = params.get('p') ?? '', movementIndex = Number(params.get('m') ?? 0);
 const voiceColors = ['#e9ce80','#8acfc3','#d9a8c1','#a6b7eb','#e8a17b','#b5c888','#d1b2ff'];
+const lightVoiceColors = ['#9c7518','#1f7a6c','#a34474','#3c5cb8','#b8562b','#527323','#7a4ec2'];
 const load = src => new Promise((resolve, reject) => {
     const script = document.createElement('script');
     script.src = src;
@@ -125,7 +127,13 @@ const voices = ordered.map(notes => {
 });
 const names = written?.names ?? (voices.length === 1 ? ['Piano'] : voices.length === 2 ? ['Upper', 'Lower'] : voices.map((_, i) => 'Part ' + (i + 1)));
 const groups = written?.groups ?? voices.map((_, i) => i);
-const totalBeats = Math.max(...voices.flat().map(n => n.t + n.length));
+let totalBeats = 0;
+for (const part of voices) {
+    for (const n of part) {
+        const end = n.t + n.length;
+        if (end > totalBeats) totalBeats = end;
+    }
+}
 // Measures as heard: [beat, label, index of the printed measure]. The engraving knows the
 // print, including repeats and cadenzas; otherwise measures.js numbers them.
 const sheet = typeof ENGRAVING === 'undefined' ? null : ENGRAVING;
@@ -166,7 +174,7 @@ if (instruments.some(instrument => instrument !== 'piano')) {
 }
 let video;
 const player = startPlayer({
-    title: work.heading, voices, groups, names, colors: voiceColors,
+    title: work.heading, voices, groups, names, colors: voiceColors, lightColors: lightVoiceColors,
     instruments, tempoMap, totalBeats, bars,
     label: index => heard[index][1] === 0 ? 'Pickup' : 'm. ' + heard[index][1], lastLabel: lastNumber,
     sheet: sheetView, span,

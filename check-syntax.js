@@ -23,9 +23,13 @@ function mathFiles(dir) {
     if (!fs.existsSync(dir)) return [];
     return fs.readdirSync(dir, { withFileTypes: true }).flatMap(entry => entry.isDirectory() ? mathFiles(path.join(dir, entry.name)) : entry.name === 'index.html' ? [path.join(dir, entry.name)] : []);
 }
+function musicFiles() {
+    const dir = path.join(root, 'music');
+    return ['index.html', 'composer.html', 'piece.html'].map(f => path.join(dir, f)).filter(f => fs.existsSync(f));
+}
 const files = wanted.length
     ? wanted.map(n => path.join(root, 'apps', n, 'index.html'))
-    : [path.join(root, 'index.html'), ...sectionFiles('apps'), ...sectionFiles('games'), ...mathFiles(path.join(root, 'math')), ...mathFiles(path.join(root, 'notes'))];
+    : [path.join(root, 'index.html'), ...sectionFiles('apps'), ...sectionFiles('games'), ...mathFiles(path.join(root, 'math')), ...mathFiles(path.join(root, 'notes')), ...musicFiles()];
 
 const scriptRe = /<script(\s[^>]*)?>([\s\S]*?)<\/script>/gi;
 // Code must come from the repo (see libs/README.md). Google Fonts is the one
@@ -102,7 +106,11 @@ if (!wanted.length) {
     // First-party JS that no <script src> names (workers, imports, tests) still has to parse
     const walk = dir => !fs.existsSync(dir) ? [] : fs.readdirSync(dir, { withFileTypes: true }).flatMap(e =>
         e.name === 'node_modules' ? [] : e.isDirectory() ? walk(path.join(dir, e.name)) : /\.m?js$/.test(e.name) ? [path.join(dir, e.name)] : []);
-    for (const local of ['apps', 'games', 'notes', 'tools'].flatMap(d => walk(path.join(root, d)))) {
+    const musicJs = [
+        ...['build.js', 'catalog.js', 'player.js', 'portrait.js'].map(f => path.join(root, 'music', f)).filter(f => fs.existsSync(f)),
+        ...walk(path.join(root, 'music', 'catalog')),
+    ];
+    for (const local of [...['apps', 'games', 'notes', 'tools'].flatMap(d => walk(path.join(root, d))), ...musicJs]) {
         if (checkedLocal.has(local)) continue;
         try { execFileSync(process.execPath, ['--check', local], { stdio: ['ignore', 'ignore', 'pipe'] }); ok++; }
         catch (e) { failures.push({ name: path.relative(root, local), msg: e.stderr.toString().split('\n').slice(0, 6).join('\n') }); }

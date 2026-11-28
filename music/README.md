@@ -40,11 +40,11 @@ Pieces the sandbox never had come straight from score MIDI: list them in `tools/
 | # | Composer | Status | Notes (sandbox folders waiting, for those not done) |
 |---|---|---|---|
 | 1 | Johann Sebastian Bach | Done | 82 works; 2 more to fold in from the sandbox (Goldberg Variations, keyboard repertoire) |
-| 2 | Frédéric Chopin | Done | 61 works |
+| 2 | Frédéric Chopin | Done | 63 works |
 | 3 | Wolfgang Amadeus Mozart | Done | 70 works: 17 of the 18 piano sonatas complete (K. 533/494 is not in Sapp’s edition), and piano versions of his best-known pieces |
 | 4 | Ludwig van Beethoven | Done | 107 works: all 32 piano sonatas complete; Diabelli Variations (no note data) and the string quartets stay in the sandbox |
 | 5 | Franz Schubert | Done | 33 works, with the sonatas D. 784, D. 850 and D. 960 and all six Moments musicaux; Erlkönig stays on the art songs page |
-| 6 | Claude Debussy | Done | 41 works |
+| 6 | Claude Debussy | Done | 43 works |
 | 7 | Franz Liszt | Done | 31 works |
 | 8 | Robert Schumann | Done | 30 works; Carnaval (no note data) stays in the sandbox |
 | 9 | Sergei Rachmaninoff | Done | 18 works |
@@ -55,7 +55,7 @@ Pieces the sandbox never had come straight from score MIDI: list them in `tools/
 | 14 | Felix Mendelssohn | Done | 21 works, eighteen of them Songs Without Words |
 | 15 | Pyotr Ilyich Tchaikovsky | Done | 23 works |
 | 16 | Edvard Grieg | Done | 26 works |
-| 17 | Domenico Scarlatti | Done | 89 works: 64 from Craig Sapp’s Humdrum edition of the Longo sonatas (all it holds), 21 well-known ones from Knute Snortum’s LilyPond edition (K. 1–370 so far; its K. 21–30 release holds the wrong files), K. 27 from the DCML corpus, K. 466 from PDMX, 2 from Mutopia. K. 380 is in none of these yet |
+| 17 | Domenico Scarlatti | Done | 91 works: 65 from Craig Sapp’s Humdrum edition of the Longo sonatas (all it holds), 21 well-known ones from Knute Snortum’s LilyPond edition (K. 1–370 so far; its K. 21–30 release holds the wrong files), K. 27 from the DCML corpus, K. 466 from PDMX, K. 380 from IMSLP, and 2 from Mutopia |
 | 18 | George Frideric Handel | Done | 32 works: the Aylesford Pieces, “The Harmonious Blacksmith” (DCML) and piano versions of his best-known pieces, the Passacaglia among them |
 | 19 | Sergei Prokofiev | Done | 2 works |
 | 20 | Dmitri Shostakovich |  | no note data, and the music is still in copyright |

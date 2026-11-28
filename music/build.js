@@ -34,7 +34,12 @@ function movement(folder, index) {
     return found.notes;
 }
 function clock(notes) {
-    const seconds = Math.round(Math.max(...notes.map(([time, , length]) => time + length)));
+    let maxEnd = 0;
+    for (const [time, , length] of notes) {
+        const end = time + length;
+        if (end > maxEnd) maxEnd = end;
+    }
+    const seconds = Math.round(maxEnd);
     return Math.floor(seconds / 60) + ':' + String(seconds % 60).padStart(2, '0');
 }
 // Tempos vary too much for a fixed number of seconds, so the window is the first `onsets` attacks.
