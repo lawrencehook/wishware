@@ -63,6 +63,15 @@
             tick: (v) => (v < 10 ? v.toFixed(1) : Math.round(v)) + 'm',
         },
         {
+            id: 'composer',
+            label: 'Composer (chronological)',
+            short: 'Composer',
+            get: (p) => p[0],
+            fmt: (v) => composers[Math.round(v)]?.name ?? '',
+            tick: (v) => composers[Math.round(v)]?.short ?? '',
+            categorical: true,
+        },
+        {
             id: 'birth',
             label: 'Composer birth year',
             short: 'Birth year',
@@ -76,6 +85,7 @@
 
     const PRESETS = [
         { id: 'texture', label: 'Density vs. Chromaticism', x: 'density', y: 'chromaticism', color: 'era' },
+        { id: 'by-composer', label: 'Composer vs. Chromaticism', x: 'composer', y: 'chromaticism', color: 'era' },
         { id: 'history', label: 'History of Chromaticism', x: 'birth', y: 'chromaticism', color: 'era' },
         { id: 'scale', label: 'Duration vs. Pitch Span', x: 'durMin', y: 'span', color: 'era' },
         { id: 'register', label: 'Density vs. Mean Pitch', x: 'density', y: 'meanPitch', color: 'era' },
@@ -573,12 +583,15 @@
         mapCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
         mapCtx.clearRect(0, 0, w, h);
 
-        const padL = 56, padR = 20, padT = 16, padB = 42;
-        const plotW = Math.max(80, w - padL - padR);
-        const plotH = Math.max(80, h - padT - padB);
-
         const xm = metricById[state.xMetric];
         const ym = metricById[state.yMetric];
+
+        const padL = ym.categorical ? 92 : 56;
+        const padR = xm.categorical ? 22 : 20;
+        const padT = 16;
+        const padB = xm.categorical ? 82 : 42;
+        const plotW = Math.max(80, w - padL - padR);
+        const plotH = Math.max(80, h - padT - padB);
 
         // Compute domain over ALL pieces so filtering highlights a subset in consistent coordinates.
         const allX = pieces.map((p) => xm.get(p));
@@ -587,18 +600,61 @@
         const domY = niceDomain(allY, ym.discrete);
         if (xm.id === 'birth') { domX.min = 1675; domX.max = 1905; }
         if (ym.id === 'birth') { domY.min = 1675; domY.max = 1905; }
+        if (xm.categorical) { domX.min = -0.6; domX.max = composers.length - 0.4; }
+        if (ym.categorical) { domY.min = -0.6; domY.max = composers.length - 0.4; }
 
         const toSX = (val) => padL + ((val - domX.min) / (domX.max - domX.min)) * plotW;
-        const toSY = (val) => padT + plotH - ((val - domY.min) / (domY.max - domY.min)) * plotH;
+        const toSY = (val) => ym.categorical
+            ? padT + ((val - domY.min) / (domY.max - domY.min)) * plotH
+            : padT + plotH - ((val - domY.min) / (domY.max - domY.min)) * plotH;
 
         // Plot background
         mapCtx.fillStyle = tok.bg;
         mapCtx.fillRect(padL, padT, plotW, plotH);
 
+        // Alternating categorical lane bands (helps the eye track each composer column/row)
+        const stripeTint = tok.light ? 'rgba(46,44,28,0.035)' : 'rgba(239,237,224,0.035)';
+        const activeLaneTint = tok.light ? 'rgba(131,107,38,0.11)' : 'rgba(233,206,128,0.09)';
+        const focusIdx = activePieceIndex();
+        const focusComp = focusIdx !== null ? pieces[focusIdx][0] : null;
+        if (xm.categorical) {
+            const laneW = plotW / (domX.max - domX.min);
+            for (let ci = 0; ci < composers.length; ci++) {
+                const cx = toSX(ci);
+                if (state.selectedComposer === ci) {
+                    mapCtx.fillStyle = activeLaneTint;
+                    mapCtx.fillRect(cx - laneW / 2, padT, laneW, plotH);
+                } else if (ci % 2 === 1) {
+                    mapCtx.fillStyle = stripeTint;
+                    mapCtx.fillRect(cx - laneW / 2, padT, laneW, plotH);
+                }
+            }
+        }
+        if (ym.categorical) {
+            const laneH = plotH / (domY.max - domY.min);
+            for (let ci = 0; ci < composers.length; ci++) {
+                const cy = toSY(ci);
+                if (state.selectedComposer === ci) {
+                    mapCtx.fillStyle = activeLaneTint;
+                    mapCtx.fillRect(padL, cy - laneH / 2, plotW, laneH);
+                } else if (ci % 2 === 1) {
+                    mapCtx.fillStyle = stripeTint;
+                    mapCtx.fillRect(padL, cy - laneH / 2, plotW, laneH);
+                }
+            }
+        }
+
         // Grid & ticks
-        const xTicks = xm.id === 'birth' ? [1700, 1750, 1800, 1850, 1900] : Array.from({ length: 6 }, (_, t) => domX.min + (t / 5) * (domX.max - domX.min));
-        const yTicks = ym.id === 'birth' ? [1700, 1750, 1800, 1850, 1900] : Array.from({ length: 6 }, (_, t) => domY.min + (t / 5) * (domY.max - domY.min));
-        mapCtx.font = '11px ui-monospace, monospace';
+        const xTicks = xm.categorical
+            ? composers.map((_, ci) => ci)
+            : xm.id === 'birth'
+                ? [1700, 1750, 1800, 1850, 1900]
+                : Array.from({ length: 6 }, (_, t) => domX.min + (t / 5) * (domX.max - domX.min));
+        const yTicks = ym.categorical
+            ? composers.map((_, ci) => ci)
+            : ym.id === 'birth'
+                ? [1700, 1750, 1800, 1850, 1900]
+                : Array.from({ length: 6 }, (_, t) => domY.min + (t / 5) * (domY.max - domY.min));
         mapCtx.lineWidth = 1;
 
         for (const xv of xTicks) {
@@ -608,10 +664,26 @@
             mapCtx.moveTo(sx, padT);
             mapCtx.lineTo(sx, padT + plotH);
             mapCtx.stroke();
-            mapCtx.fillStyle = tok.muted;
-            mapCtx.textAlign = 'center';
-            mapCtx.textBaseline = 'top';
-            mapCtx.fillText(xm.tick(xv), sx, padT + plotH + 7);
+
+            if (xm.categorical) {
+                const ci = Math.round(xv);
+                const isEmph = state.selectedComposer === ci || focusComp === ci;
+                mapCtx.save();
+                mapCtx.translate(sx, padT + plotH + 8);
+                mapCtx.rotate(-Math.PI / 4.2);
+                mapCtx.font = (isEmph ? '600 ' : '') + '11px "Instrument Sans", system-ui, sans-serif';
+                mapCtx.fillStyle = state.selectedComposer === ci ? tok.gold : isEmph ? tok.ink : tok.muted;
+                mapCtx.textAlign = 'right';
+                mapCtx.textBaseline = 'middle';
+                mapCtx.fillText(xm.tick(xv), 0, 0);
+                mapCtx.restore();
+            } else {
+                mapCtx.font = '11px ui-monospace, monospace';
+                mapCtx.fillStyle = tok.muted;
+                mapCtx.textAlign = 'center';
+                mapCtx.textBaseline = 'top';
+                mapCtx.fillText(xm.tick(xv), sx, padT + plotH + 7);
+            }
         }
         for (const yv of yTicks) {
             const sy = toSY(yv);
@@ -620,35 +692,50 @@
             mapCtx.moveTo(padL, sy);
             mapCtx.lineTo(padL + plotW, sy);
             mapCtx.stroke();
-            mapCtx.fillStyle = tok.muted;
-            mapCtx.textAlign = 'right';
-            mapCtx.textBaseline = 'middle';
-            mapCtx.fillText(ym.tick(yv), padL - 8, sy);
+
+            if (ym.categorical) {
+                const ci = Math.round(yv);
+                const isEmph = state.selectedComposer === ci || focusComp === ci;
+                mapCtx.font = (isEmph ? '600 ' : '') + '11px "Instrument Sans", system-ui, sans-serif';
+                mapCtx.fillStyle = state.selectedComposer === ci ? tok.gold : isEmph ? tok.ink : tok.muted;
+                mapCtx.textAlign = 'right';
+                mapCtx.textBaseline = 'middle';
+                mapCtx.fillText(ym.tick(yv), padL - 8, sy);
+            } else {
+                mapCtx.font = '11px ui-monospace, monospace';
+                mapCtx.fillStyle = tok.muted;
+                mapCtx.textAlign = 'right';
+                mapCtx.textBaseline = 'middle';
+                mapCtx.fillText(ym.tick(yv), padL - 8, sy);
+            }
         }
 
         // Plot border
         mapCtx.strokeStyle = tok.rule;
         mapCtx.strokeRect(padL, padT, plotW, plotH);
 
-        // Axis labels
+        // Axis labels (omit redundant bottom/left axis title when categorical composer names already fill the margin)
         mapCtx.font = '11.5px "Instrument Sans", system-ui, sans-serif';
         mapCtx.fillStyle = tok.muted;
-        mapCtx.textAlign = 'center';
-        mapCtx.textBaseline = 'bottom';
-        mapCtx.fillText(xm.label, padL + plotW / 2, h - 3);
-
-        mapCtx.save();
-        mapCtx.translate(14, padT + plotH / 2);
-        mapCtx.rotate(-Math.PI / 2);
-        mapCtx.textAlign = 'center';
-        mapCtx.textBaseline = 'top';
-        mapCtx.fillText(ym.label, 0, 0);
-        mapCtx.restore();
+        if (!xm.categorical) {
+            mapCtx.textAlign = 'center';
+            mapCtx.textBaseline = 'bottom';
+            mapCtx.fillText(xm.label, padL + plotW / 2, h - 3);
+        }
+        if (!ym.categorical) {
+            mapCtx.save();
+            mapCtx.translate(14, padT + plotH / 2);
+            mapCtx.rotate(-Math.PI / 2);
+            mapCtx.textAlign = 'center';
+            mapCtx.textBaseline = 'top';
+            mapCtx.fillText(ym.label, 0, 0);
+            mapCtx.restore();
+        }
 
         const visibleSet = new Set(state.visibleIndices);
         const filtered = state.visibleIndices.length < TOTAL;
-        const jitterX = xm.discrete ? 3.2 : 0;
-        const jitterY = ym.discrete ? 3.2 : 0;
+        const jitterX = xm.categorical ? 0.28 : xm.discrete ? 3.2 : 0;
+        const jitterY = ym.categorical ? 0.28 : ym.discrete ? 3.2 : 0;
 
         // Draw faint backdrop dots for filtered-out pieces so context remains visible
         if (filtered) {
@@ -825,8 +912,9 @@
 
         inspBadgesEl.replaceChildren();
         const eraBadge = document.createElement('span');
-        eraBadge.className = 'insp-badge';
+        eraBadge.className = 'insp-badge era';
         eraBadge.textContent = comp.era;
+        eraBadge.title = comp.era;
         inspBadgesEl.append(eraBadge);
 
         if (p[10]) {
@@ -838,14 +926,18 @@
         if (state.hoveredPiece !== null && state.hoveredPiece !== state.lockedPiece) {
             const hoverBadge = document.createElement('span');
             hoverBadge.className = 'insp-badge';
-            hoverBadge.textContent = 'Hovering · click to lock';
+            hoverBadge.textContent = 'Hovering';
+            hoverBadge.title = 'Click the point to lock selection';
             inspBadgesEl.append(hoverBadge);
         }
 
         inspComposerEl.href = 'composer.html?c=' + comp.id;
         inspComposerEl.textContent = `${comp.name} (${comp.birth}–${comp.death})`;
+        inspComposerEl.title = `${comp.name} (${comp.birth}–${comp.death})`;
         inspTitleEl.textContent = p[1];
+        inspTitleEl.title = p[1];
         inspSubEl.textContent = p[2];
+        inspSubEl.title = p[2];
 
         inspMetricsEl.replaceChildren();
         const cards = [
