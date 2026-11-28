@@ -194,25 +194,29 @@ function createHarmonyLens(piece, onToggle) {
         for (const k of whiteKeys) {
             const x = k.xSlot * kw;
             const activeGroup = activeKeys.get(k.midi);
+            const used = usedPitches.has(k.midi);
             if (activeGroup !== undefined) {
                 ctx.fillStyle = palette[activeGroup % palette.length];
+            } else if (used) {
+                ctx.fillStyle = light ? '#faf9f3' : '#e4e2d8';
             } else {
-                ctx.fillStyle = light ? '#f8f7f1' : '#dcdad0';
+                ctx.fillStyle = light ? '#e8e9e4' : '#b8b8b0';
             }
             ctx.fillRect(x, 0, kw - 0.5, h);
-            if (usedPitches.has(k.midi) && activeGroup === undefined) {
-                ctx.fillStyle = light ? 'rgba(131,107,38,.28)' : 'rgba(233,206,128,.32)';
-                ctx.fillRect(x, h - 4, kw - 0.5, 4);
+            if (used && activeGroup === undefined) {
+                // High-contrast bronze/gold bar against light ivory key surface in both themes.
+                ctx.fillStyle = light ? '#9a781c' : '#a17c1b';
+                ctx.fillRect(x + 0.5, h - 5, kw - 1.5, 4.5);
             }
             ctx.strokeStyle = light ? '#b8c0bc' : '#263031';
             ctx.lineWidth = 0.75;
             ctx.strokeRect(x + 0.25, 0.25, kw - 0.75, h - 0.5);
             if (k.midi % 12 === 0 && kw >= 9) {
                 const oct = Math.floor(k.midi / 12) - 1;
-                ctx.fillStyle = activeGroup !== undefined ? (light ? '#fff' : '#111') : (light ? '#68706c' : '#555c58');
+                ctx.fillStyle = activeGroup !== undefined ? (light ? '#fff' : '#111') : (light ? '#5a635f' : '#4a524f');
                 ctx.font = '9px monospace';
                 ctx.textAlign = 'center';
-                ctx.fillText('C' + oct, x + kw / 2, h - 7);
+                ctx.fillText('C' + oct, x + kw / 2, h - 9);
             }
         }
 
@@ -230,8 +234,8 @@ function createHarmonyLens(piece, onToggle) {
                 ctx.fillStyle = light ? '#262b2a' : '#141a1c';
                 ctx.fillRect(x, 0, bw, bh);
                 if (usedPitches.has(k.midi)) {
-                    ctx.fillStyle = light ? 'rgba(233,206,128,.45)' : 'rgba(233,206,128,.35)';
-                    ctx.fillRect(x + 1, bh - 3, bw - 2, 2.5);
+                    ctx.fillStyle = '#e9ce80';
+                    ctx.fillRect(x + 1, bh - 4, bw - 2, 3.5);
                 }
             }
         }
