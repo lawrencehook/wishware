@@ -275,7 +275,7 @@ play.onclick = async () => {
     piece.onPlay?.();
     schedule();
 };
-seek.oninput=()=>change(()=>offset=Number(seek.value));speed.onchange=()=>change();
+seek.oninput=()=>{const target=Number(seek.value);change(()=>offset=target);};speed.onchange=()=>change();
 names.forEach((name,v)=>{const b=document.createElement('button'),dot=document.createElement('i');dot.style.background=`light-dark(${lightColors[v % lightColors.length]}, ${colors[v % colors.length]})`;b.append(dot,name);b.setAttribute('aria-pressed','true');b.title='Toggle '+name.toLowerCase()+' voice';b.onclick=()=>change(()=>{enabled[v]=!enabled[v];b.setAttribute('aria-pressed',enabled[v])});document.querySelector('.voices').append(b)});
 
 function clockText(seconds) {
@@ -318,8 +318,9 @@ function showMeasure(t) {
     }
 }
 
+const lens = typeof createHarmonyLens === 'function' ? createHarmonyLens(piece, () => render()) : null;
 function render(){
- const t=Math.max(0,position());if(running&&t>=totalBeats){stop();return;}if(document.activeElement!==seek||running)seek.value=t;showMeasure(t);
+ const t=Math.max(0,position());if(running&&t>=totalBeats){stop();return;}if(document.activeElement!==seek||running)seek.value=t;showMeasure(t);lens?.draw(t,enabled);
  const w=canvas.clientWidth,h=canvas.clientHeight,d=devicePixelRatio||1;if(!w||!h)return;if(canvas.width!==Math.round(w*d)||canvas.height!==Math.round(h*d)){canvas.width=Math.round(w*d);canvas.height=Math.round(h*d)}ctx.setTransform(d,0,0,d,0,0);ctx.clearRect(0,0,w,h);
  const light=document.documentElement.dataset.theme==='light';
  const palette=light?lightColors:colors;

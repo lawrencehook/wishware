@@ -25,7 +25,7 @@ function mathFiles(dir) {
 }
 function musicFiles() {
     const dir = path.join(root, 'music');
-    return ['index.html', 'composer.html', 'piece.html'].map(f => path.join(dir, f)).filter(f => fs.existsSync(f));
+    return ['index.html', 'composer.html', 'piece.html', 'atlas.html'].map(f => path.join(dir, f)).filter(f => fs.existsSync(f));
 }
 const files = wanted.length
     ? wanted.map(n => path.join(root, 'apps', n, 'index.html'))
@@ -107,7 +107,7 @@ if (!wanted.length) {
     const walk = dir => !fs.existsSync(dir) ? [] : fs.readdirSync(dir, { withFileTypes: true }).flatMap(e =>
         e.name === 'node_modules' ? [] : e.isDirectory() ? walk(path.join(dir, e.name)) : /\.m?js$/.test(e.name) ? [path.join(dir, e.name)] : []);
     const musicJs = [
-        ...['build.js', 'catalog.js', 'player.js', 'portrait.js'].map(f => path.join(root, 'music', f)).filter(f => fs.existsSync(f)),
+        ...['build.js', 'catalog.js', 'player.js', 'lens.js', 'portrait.js', 'atlas.js'].map(f => path.join(root, 'music', f)).filter(f => fs.existsSync(f)),
         ...walk(path.join(root, 'music', 'catalog')),
     ];
     for (const local of [...['apps', 'games', 'notes', 'tools'].flatMap(d => walk(path.join(root, d))), ...musicJs]) {

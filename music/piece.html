@@ -13,11 +13,24 @@ canvas{height:clamp(210px,32vh,340px)}
 .neighbours{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:22px;font-size:14px}.neighbours a{color:light-dark(#685930, #ddcd9f);text-underline-offset:4px}.neighbours a:only-child[rel=next]{margin-left:auto}
 #brief{max-width:70ch;margin:20px 0 6px;line-height:1.55}
 .header-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+#lens-toggle[aria-pressed=false]{opacity:1}
+#lens-toggle[aria-pressed=true]{border-color:light-dark(#836b26, #e9ce80);color:light-dark(#836b26, #e9ce80)}
+.lens{margin-top:16px;padding:14px 16px;background:light-dark(#e3e9e9, #12191a);border:1px solid light-dark(#b5bdb3, #313d3d);border-radius:8px}
+.lens-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:10px;font-size:13px;color:light-dark(#4b5450, #b5bfbb)}
+.lens-head strong{color:light-dark(#2d2c1e, #edece1);font-weight:600}
+.lens-body{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:16px;align-items:center}
+#keyboard{display:block;width:100%;height:88px;border-radius:4px}
+#harmony{display:block;width:210px;height:210px;margin:auto}
+@media(max-width:760px){.lens-body{grid-template-columns:1fr}#harmony{width:190px;height:190px}}
 .recording p{margin-bottom:10px;font-size:14px}.recording iframe{display:block;width:min(100%,720px);aspect-ratio:16/9;border:0;border-radius:5px}
 </style><main><header><div><span class="composer"></span><h1></h1><p></p></div><div class="header-actions" data-site-theme-slot><a class="back" href="index.html">← All works</a></div></header>
 <p id="brief"></p>
 <canvas aria-label="Colored paths show note onsets from left to right, with higher pitches higher on screen."></canvas>
-<div class="controls"><button class="play" id="play">Play</button><input id="seek" type="range" min="0" max="1" step=".01" value="0" aria-label="Position in piece"><span class="bar" id="bar"></span><select id="speed" aria-label="Playback speed"><option value=".5">½ speed</option><option value=".75">¾ speed</option><option value="1" selected>1× speed</option></select></div>
+<div class="controls"><button class="play" id="play">Play</button><input id="seek" type="range" min="0" max="1" step=".01" value="0" aria-label="Position in piece"><span class="bar" id="bar"></span><select id="speed" aria-label="Playback speed"><option value=".5">½ speed</option><option value=".75">¾ speed</option><option value="1" selected>1× speed</option></select><button id="lens-toggle" type="button" aria-pressed="false" title="Show live 88-key keyboard and circle of fifths">Keyboard &amp; harmony</button></div>
+<section class="lens" id="lens" aria-label="Live keyboard and harmony lens" hidden>
+<div class="lens-head"><strong id="lens-chord">No notes sounding</strong><span id="lens-key"></span></div>
+<div class="lens-body"><canvas id="keyboard" aria-label="Live 88-key piano keyboard"></canvas><canvas id="harmony" aria-label="Live circle of fifths pitch-class wheel"></canvas></div>
+</section>
 <section class="sheet" aria-labelledby="sheet-heading">
 <header><h2 id="sheet-heading">Sheet music</h2><a id="sheet-pdf">Full score (PDF)</a></header>
 <div class="paper" tabindex="0" aria-label="Printed score, scroll horizontally on narrow screens">
@@ -29,7 +42,7 @@ canvas{height:clamp(210px,32vh,340px)}
 <button id="watch">Play recording</button>
 </section>
 <footer><div class="voices" aria-label="Audible voices"></div><div class="credit"><a id="edition"></a> · <a id="samples" href="bach-data/piano-credits.txt">Salamander grand piano</a></div></footer><p role="status" id="status"></p><nav class="neighbours" aria-label="Neighbouring works"></nav></main>
-<script src="player.js"></script><script>
+<script src="lens.js"></script><script src="player.js"></script><script>
 // player.js, fed by a piece in pieces/<p>/: notes.js holds
 // {movements: [{name, notes: [[seconds, pitch, length, hand, velocity], ...]}]} and
 // measures.js adds notation = {bars: [[quarter, number, meter, key]], tempo: [[seconds, quarter, bpm]]}.
@@ -172,10 +185,11 @@ if (instruments.some(instrument => instrument !== 'piano')) {
     samples.href = concerto ? 'bach-data/concerto-credits.txt' : 'bach-data/ensemble-credits.txt';
     samples.textContent = concerto ? 'Concerto samples' : instruments.includes('organ') ? 'Pipe organ samples' : 'String samples';
 }
+const keyMap = (notation?.bars ?? []).filter(b => typeof b[3] === 'number').map(([beat, , , fifths]) => [beat, fifths]);
 let video;
 const player = startPlayer({
     title: work.heading, voices, groups, names, colors: voiceColors, lightColors: lightVoiceColors,
-    instruments, tempoMap, totalBeats, bars,
+    instruments, tempoMap, totalBeats, bars, keyMap,
     label: index => heard[index][1] === 0 ? 'Pickup' : 'm. ' + heard[index][1], lastLabel: lastNumber,
     sheet: sheetView, span,
     // Fast pieces show more beats at once, so their dots shrink to stay apart.

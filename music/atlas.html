@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Music Atlas · Wishware</title><script src="../site-theme.js"></script>
+<link rel="icon" href="../favicons/favicon.ico">
+<link rel="stylesheet" href="composer.css">
+<style>
+main.atlas{max-width:1240px}
+.crumb{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);margin-bottom:8px}
+.crumb:hover{color:var(--gold)}
+.atlas-head{margin:12px 0 28px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.atlas-head .title{margin:0 0 12px;padding:0;border:0;font-size:clamp(44px,6.8vw,82px)}
+.atlas-sub{max-width:74ch;margin:0;color:var(--muted);font-size:15px}
+.atlas-section{margin:34px 0 0}
+.atlas-section-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:12px 20px;margin-bottom:14px}
+.atlas-section-head h2{font-size:clamp(24px,3vw,32px);margin:0}
+.atlas-section-head .meta{font-size:13px;color:var(--muted)}
+
+.era-legend{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.era-chip{display:inline-flex;align-items:center;gap:7px;background:light-dark(#e3e9e9,#141c1b);border:1px solid var(--rule);color:var(--ink);font:12px/1 "Instrument Sans",system-ui,sans-serif;padding:6px 11px;cursor:pointer;transition:border-color .15s,background .15s}
+.era-chip:hover{border-color:var(--gold)}
+.era-chip[aria-pressed="true"]{border-color:var(--gold);background:light-dark(#d8dfdb,#1d2826);color:var(--gold)}
+.era-dot{width:9px;height:9px;border-radius:50%;flex:none}
+
+.panel{background:light-dark(#e3e9e9,#141c1b);border:1px solid light-dark(#b5bdb3,#36413d);padding:16px 18px}
+html[data-theme="light"] canvas.atlas-canvas{filter:none}
+canvas.atlas-canvas{display:block;width:100%;touch-action:none;cursor:crosshair}
+
+.timeline-readout{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px 16px;min-height:24px;margin-top:12px;padding-top:10px;border-top:1px solid var(--rule);font-size:13px;color:var(--muted)}
+.timeline-year{font:600 13px ui-monospace,monospace;color:var(--gold);margin-right:8px}
+.timeline-alive{color:var(--ink)}
+.timeline-hint{font-size:12px;color:var(--muted)}
+
+.presets{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.preset-btn{background:transparent;border:1px solid var(--rule);color:var(--muted);font:12.5px/1.2 "Instrument Sans",system-ui,sans-serif;padding:7px 12px;cursor:pointer}
+.preset-btn:hover{border-color:var(--gold);color:var(--ink)}
+.preset-btn[aria-pressed="true"]{border-color:var(--gold);color:var(--gold);background:light-dark(#e3e9e9,#141c1b)}
+
+.controls-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:12px 14px;background:light-dark(#e3e9e9,#141c1b);border:1px solid light-dark(#b5bdb3,#36413d);border-bottom:0}
+.ctrl{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted)}
+.ctrl select,.ctrl input[type="search"]{background:light-dark(#ecf0f2,#0b1012);color:var(--ink);border:1px solid var(--rule);font:12.5px "Instrument Sans",system-ui,sans-serif;padding:5px 8px}
+.ctrl select:focus,.ctrl input[type="search"]:focus{outline:2px solid var(--gold);outline-offset:1px}
+.ctrl input[type="search"]{width:180px}
+.ctrl-check{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink);cursor:pointer;user-select:none}
+.ctrl-check input{accent-color:var(--gold)}
+
+.filter-strip{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 14px;padding:8px 14px;background:light-dark(#dce3e3,#101716);border:1px solid light-dark(#b5bdb3,#36413d);border-bottom:0;font-size:12.5px;color:var(--muted)}
+.filter-tags{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.filter-pill{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border:1px solid var(--gold);color:var(--gold);font-size:12px;background:light-dark(#ecf0f2,#0b1012)}
+.filter-pill button{background:none;border:0;color:inherit;cursor:pointer;font:inherit;padding:0 0 0 2px}
+.filter-pill a{text-decoration:underline;text-underline-offset:2px}
+.reset-btn{background:none;border:1px solid var(--rule);color:var(--muted);font:12px "Instrument Sans",system-ui,sans-serif;padding:3px 9px;cursor:pointer}
+.reset-btn:hover{border-color:var(--gold);color:var(--ink)}
+
+.map-layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;border:1px solid light-dark(#b5bdb3,#36413d);background:light-dark(#e3e9e9,#141c1b)}
+.map-stage{padding:12px 14px 10px;border-right:1px solid var(--rule);min-width:0}
+#sound-map{height:470px}
+.map-footnote{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:8px;font-size:11.5px;color:var(--muted)}
+
+.inspector{padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.insp-badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.insp-badge{font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;padding:3px 7px;border:1px solid var(--rule);color:var(--muted)}
+.insp-badge.sheet{border-color:var(--gold);color:var(--gold)}
+.insp-composer{font-size:13px;color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+.insp-title{font:normal 24px/1.15 Georgia,serif;letter-spacing:-.03em;margin:0}
+.insp-sub{font-size:13px;color:var(--muted);margin:0}
+
+.insp-metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:10px;border-top:1px solid var(--rule)}
+.metric-box{background:light-dark(#ecf0f2,#0b1012);border:1px solid var(--rule);padding:8px 10px}
+.metric-label{display:block;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.metric-val{font:15px ui-monospace,monospace;color:var(--ink)}
+.metric-sub{display:block;font-size:11px;color:var(--muted);margin-top:2px}
+
+.insp-actions{display:flex;flex-direction:column;gap:8px;margin-top:auto;padding-top:10px;border-top:1px solid var(--rule)}
+.btn-primary,.btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:9px 12px;font:13.5px/1.2 "Instrument Sans",system-ui,sans-serif;cursor:pointer;text-align:center}
+.btn-primary{background:var(--gold);color:light-dark(#f8f7f1,#0b1012);border:1px solid var(--gold);font-weight:600}
+.btn-primary:hover{filter:brightness(1.06)}
+.btn-primary[aria-pressed="true"]{background:transparent;color:var(--gold)}
+.btn-secondary{background:transparent;color:var(--ink);border:1px solid var(--rule)}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold)}
+.insp-status{font-size:11.5px;color:var(--muted);min-height:16px}
+
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+@media(max-width:920px){
+  .map-layout{grid-template-columns:1fr}
+  .map-stage{border-right:0;border-bottom:1px solid var(--rule)}
+  #sound-map{height:380px}
+}
+@media(max-width:600px){
+  .ctrl input[type="search"]{width:100%}
+  #sound-map{height:320px}
+}
+</style>
+<main class="atlas">
+<nav aria-label="Site sections"><a href="../index.html">Apps</a><a href="../games/index.html">Games</a><a href="../notes/index.html">Notes</a><a href="index.html" aria-current="page">Music</a><a href="../sandbox/index.html">Sandbox</a></nav>
+
+<header class="atlas-head">
+  <a class="crumb" href="index.html">← All composers</a>
+  <h1 class="title">Music Atlas</h1>
+  <p class="atlas-sub">Three centuries of keyboard and chamber repertoire at a glance: scrub the timeline to see which composers were contemporaries, then explore every work across harmonic chromaticism, note density, register, and duration.</p>
+</header>
+
+<section class="atlas-section" aria-labelledby="timeline-heading">
+  <div class="atlas-section-head">
+    <div>
+      <h2 id="timeline-heading">Composer Lifespan Timeline</h2>
+      <span class="meta">1685–1953 · Hover to see contemporaries, click a composer to filter the map</span>
+    </div>
+    <div class="era-legend" id="era-legend" role="group" aria-label="Filter by era"></div>
+  </div>
+  <div class="panel">
+    <canvas id="timeline-canvas" class="atlas-canvas" aria-label="Composer lifespan timeline from 1685 to 1953"></canvas>
+    <div class="timeline-readout" id="timeline-readout" aria-live="polite">
+      <div><span class="timeline-year" id="readout-year">1820</span><span class="timeline-alive" id="readout-alive">Move across the timeline to inspect who was alive in any year.</span></div>
+      <span class="timeline-hint" id="readout-hint">Click any bar to isolate that composer</span>
+    </div>
+  </div>
+</section>
+
+<section class="atlas-section" aria-labelledby="map-heading">
+  <div class="atlas-section-head">
+    <div>
+      <h2 id="map-heading">Sound Map</h2>
+      <span class="meta" id="map-subtitle">Every work plotted by structural metrics computed directly from its score</span>
+    </div>
+  </div>
+
+  <div class="presets" id="presets" role="group" aria-label="Preset views"></div>
+
+  <div class="controls-bar">
+    <label class="ctrl">X axis
+      <select id="x-axis"></select>
+    </label>
+    <label class="ctrl">Y axis
+      <select id="y-axis"></select>
+    </label>
+    <label class="ctrl">Color by
+      <select id="color-by">
+        <option value="era">Era</option>
+        <option value="sheet">Sheet music</option>
+        <option value="composer">Composer</option>
+      </select>
+    </label>
+    <label class="ctrl">Search
+      <input id="search-input" type="search" placeholder="Nocturne, Fugue, Bach…" autocomplete="off">
+    </label>
+    <label class="ctrl-check">
+      <input id="sheet-only" type="checkbox">
+      Sheet music only
+    </label>
+  </div>
+
+  <div class="filter-strip">
+    <div class="filter-tags" id="filter-tags"></div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <span id="match-count"></span>
+      <button type="button" class="reset-btn" id="reset-filters" hidden>Reset filters</button>
+    </div>
+  </div>
+
+  <div class="map-layout">
+    <div class="map-stage">
+      <canvas id="sound-map" class="atlas-canvas" aria-label="Interactive scatter plot of musical works"></canvas>
+      <div class="map-footnote">
+        <span>Hover a point to inspect · Click to lock selection · Press Space to audition</span>
+        <span id="map-legend-note"></span>
+      </div>
+    </div>
+
+    <aside class="inspector" aria-label="Selected work details">
+      <div class="insp-badges" id="insp-badges"></div>
+      <a class="insp-composer" id="insp-composer" href="index.html"></a>
+      <h3 class="insp-title" id="insp-title"></h3>
+      <p class="insp-sub" id="insp-sub"></p>
+
+      <div class="insp-metrics" id="insp-metrics"></div>
+
+      <div class="insp-actions">
+        <button type="button" class="btn-primary" id="preview-btn" aria-pressed="false">▶ Preview (4s)</button>
+        <a class="btn-secondary" id="open-piece-link" href="index.html">Open piece →</a>
+        <button type="button" class="btn-secondary" id="random-btn">Surprise me (random work)</button>
+        <div class="insp-status" id="insp-status" aria-live="polite"></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<footer>
+  <a href="index.html">← All composers</a>
+  <span id="atlas-footer-stats"></span>
+</footer>
+</main>
+
+<script src="composers/atlas.js"></script>
+<script src="atlas.js"></script>
+</html>
