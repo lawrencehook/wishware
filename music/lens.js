@@ -8,12 +8,38 @@ function createHarmonyLens(piece, onToggle) {
     const wheelCanvas = document.querySelector('#harmony');
     const chordOut = document.querySelector('#lens-chord');
     const keyOut = document.querySelector('#lens-key');
+    const legendOut = document.querySelector('#lens-legend');
     if (!toggle || !panel || !kbCanvas || !wheelCanvas) {
         return { draw() {}, isOpen: () => false };
     }
 
-    const { voices, groups, colors, keyMap } = piece;
+    const { voices, groups, names, colors, keyMap } = piece;
     const lightColors = piece.lightColors ?? colors;
+
+    // Build legend showing voice colors + keyboard/ring markings.
+    const voiceLegendItems = [];
+    if (legendOut) {
+        legendOut.replaceChildren();
+        const addItem = (swatchClass, label, bg) => {
+            const item = document.createElement('span');
+            item.className = 'lens-legend-item';
+            const sw = document.createElement('span');
+            sw.className = 'lens-swatch ' + swatchClass;
+            if (bg) sw.style.background = bg;
+            item.append(sw, label);
+            legendOut.append(item);
+            return item;
+        };
+        (names ?? []).forEach((name, i) => {
+            const bg = `light-dark(${lightColors[i % lightColors.length]}, ${colors[i % colors.length]})`;
+            voiceLegendItems.push(addItem('dot', name, bg));
+        });
+        addItem('range', 'Keys used in piece');
+        if (keyMap && keyMap.length) {
+            addItem('arc', 'Shaded arc: 7 notes in key');
+            addItem('chrom', 'Red ring: chromatic (out of key)');
+        }
+    }
 
     // Precompute per-voice max note duration (for fast lookback) and piece pitch range.
     const voiceMaxLen = voices.map(part => {
@@ -317,6 +343,9 @@ function createHarmonyLens(piece, onToggle) {
 
         drawKeyboard(activeKeys, light, palette);
         drawWheel(trail, fifths, light, palette);
+        if (enabled && voiceLegendItems.length) {
+            voiceLegendItems.forEach((el, i) => el.classList.toggle('muted', !enabled[i]));
+        }
 
         const activeMidis = [...activeKeys.keys()].sort((a, b) => a - b);
         const chord = detectChord(activeMidis, flat);
