@@ -12,6 +12,7 @@ canvas{height:clamp(210px,32vh,340px)}
 [hidden]{display:none!important}
 .neighbours{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:22px;font-size:14px}.neighbours a{color:light-dark(#685930, #ddcd9f);text-underline-offset:4px}.neighbours a:only-child[rel=next]{margin-left:auto}
 #brief{max-width:70ch;margin:20px 0 6px;line-height:1.55}
+#brief a{color:light-dark(#685930, #ddcd9f);text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
 .header-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 #lens-toggle[aria-pressed=false]{opacity:1}
 #lens-toggle[aria-pressed=true]{border-color:light-dark(#836b26, #e9ce80);color:light-dark(#836b26, #e9ce80)}
@@ -104,8 +105,20 @@ document.title = work.heading + ' · ' + composer.name;
 document.querySelector('.composer').textContent = composer.name;
 document.querySelector('h1').textContent = work.heading;
 document.querySelector('header p').textContent = work.sub;
-document.querySelector('#brief').textContent = work.brief ?? '';
-document.querySelector('#brief').hidden = !work.brief;
+const briefEl = document.querySelector('#brief');
+briefEl.replaceChildren();
+if (work.brief) {
+    briefEl.append(work.brief);
+    if (work.wikipedia) {
+        const wiki = document.createElement('a');
+        wiki.href = work.wikipedia;
+        wiki.textContent = 'Wikipedia';
+        wiki.target = '_blank';
+        wiki.rel = 'noopener noreferrer';
+        briefEl.append(' ', wiki);
+    }
+}
+briefEl.hidden = !work.brief;
 const edition = document.querySelector('#edition');
 edition.textContent = work.score.text;
 edition.href = work.score.href;

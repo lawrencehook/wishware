@@ -106,10 +106,17 @@ function piecePortrait(notes, onsets) {
     return portrait(parts, hands.map((_, i) => i), 0, Math.round(span * 100) / 100);
 }
 
-// A few sentences about a piece, where catalog/briefs.js has them.
+// A few sentences about a piece (and optional Wikipedia article title), where catalog/briefs.js has them.
 const BRIEFS = require('./catalog/briefs.js');
 for (const folder of Object.keys(BRIEFS)) if (!fs.existsSync(path.join(PIECES, folder))) throw new Error('briefs.js: no piece ' + folder);
-const brief = (folder, index) => (typeof BRIEFS[folder] === 'string' ? BRIEFS[folder] : BRIEFS[folder]?.[index] ?? BRIEFS[folder]?.all);
+const wikiUrl = (title) => 'https://en.wikipedia.org/wiki/' + encodeURIComponent(title.replace(/ /g, '_')).replace(/%2F/g, '/').replace(/%2C/g, ',').replace(/%3A/g, ':').replace(/%28/g, '(').replace(/%29/g, ')').replace(/%27/g, "'");
+function brief(folder, index) {
+    const raw = BRIEFS[folder];
+    const entry = (typeof raw === 'string' || Array.isArray(raw)) ? raw : raw?.[index] ?? raw?.all;
+    if (!entry) return {};
+    if (Array.isArray(entry)) return { brief: entry[0], ...(entry[1] && { wikipedia: wikiUrl(entry[1]) }) };
+    return { brief: entry };
+}
 
 // Composition years, where catalog/years.js has them.
 const YEARS = require('./catalog/years.js');
@@ -140,7 +147,7 @@ for (const [id, entry] of Object.entries(require('./catalog.js'))) {
     // What a piece page needs to know about the piece a catalog entry leads to.
     const work = (folder, index, heading, sub, onsets) => {
         const notes = movement(folder, index);
-        return { notes, time: clock(notes), href: link(folder, index), heading, sub, brief: brief(folder, index), ...credits(entry.sources[folder], index), portrait: piecePortrait(notes, onsets) };
+        return { notes, time: clock(notes), href: link(folder, index), heading, sub, ...brief(folder, index), ...credits(entry.sources[folder], index), portrait: piecePortrait(notes, onsets) };
     };
     composers[id] = () => ({
         name: entry.name,
