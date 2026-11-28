@@ -63,6 +63,24 @@
             tick: (v) => (v < 10 ? v.toFixed(1) : Math.round(v)) + 'm',
         },
         {
+            id: 'year',
+            label: 'Year composed',
+            short: 'Year',
+            get: (p) => p[11] ?? null,
+            fmt: (v) => String(Math.round(v)),
+            tick: (v) => String(Math.round(v)),
+            nullable: true,
+        },
+        {
+            id: 'age',
+            label: 'Composer’s age when written',
+            short: 'Age',
+            get: (p) => (p[11] != null ? p[11] - composers[p[0]].birth : null),
+            fmt: (v) => Math.round(v) + ' yrs',
+            tick: (v) => Math.round(v) + 'y',
+            nullable: true,
+        },
+        {
             id: 'composer',
             label: 'Composer (chronological)',
             short: 'Composer',
@@ -86,9 +104,9 @@
     const PRESETS = [
         { id: 'texture', label: 'Density vs. Chromaticism', x: 'density', y: 'chromaticism', color: 'era' },
         { id: 'by-composer', label: 'Composer vs. Chromaticism', x: 'composer', y: 'chromaticism', color: 'era' },
-        { id: 'history', label: 'History of Chromaticism', x: 'birth', y: 'chromaticism', color: 'era' },
-        { id: 'scale', label: 'Duration vs. Pitch Span', x: 'durMin', y: 'span', color: 'era' },
-        { id: 'register', label: 'Density vs. Mean Pitch', x: 'density', y: 'meanPitch', color: 'era' },
+        { id: 'time-chrom', label: 'Chromaticism Over Time', x: 'year', y: 'chromaticism', color: 'era' },
+        { id: 'time-span', label: 'Keyboard Span Over Time', x: 'year', y: 'span', color: 'era' },
+        { id: 'age-dur', label: 'Age vs. Duration', x: 'age', y: 'durMin', color: 'era' },
     ];
 
     const NOTE_NAMES = ['C', 'C♯', 'D', 'E♭', 'E', 'F', 'F♯', 'G', 'A♭', 'A', 'B♭', 'B'];
@@ -143,6 +161,7 @@
         lockedPiece: findDefaultPiece(),
         hoveredPiece: null,
         visibleIndices: [],
+        omittedUndated: 0,
         screenPoints: [], // { idx, sx, sy, r, color }
     };
 
@@ -235,7 +254,7 @@
             ySelect.value = preset.y;
             colorSelect.value = preset.color;
             updatePresets();
-            drawMap();
+            refreshAll();
         });
         presetsEl.append(btn);
         presetButtons.set(preset.id, btn);
@@ -251,7 +270,10 @@
     // Filtering
     function computeVisible() {
         const q = state.search.trim().toLowerCase();
+        const xm = metricById[state.xMetric];
+        const ym = metricById[state.yMetric];
         const out = [];
+        let omittedUndated = 0;
         for (let i = 0; i < TOTAL; i++) {
             const p = pieces[i];
             const comp = composers[p[0]];
@@ -262,9 +284,14 @@
                 const hay = (p[1] + ' ' + p[2] + ' ' + comp.name).toLowerCase();
                 if (!hay.includes(q)) continue;
             }
+            if (xm.get(p) == null || ym.get(p) == null) {
+                omittedUndated++;
+                continue;
+            }
             out.push(i);
         }
         state.visibleIndices = out;
+        state.omittedUndated = omittedUndated;
     }
 
     function updateFilterUI() {
@@ -353,7 +380,9 @@
             filterTagsEl.append(label);
         }
 
-        matchCountEl.textContent = `Showing ${state.visibleIndices.length} of ${TOTAL} works`;
+        matchCountEl.textContent = state.omittedUndated
+            ? `Showing ${state.visibleIndices.length} of ${TOTAL} works · ${state.omittedUndated} undated omitted`
+            : `Showing ${state.visibleIndices.length} of ${TOTAL} works`;
         resetFiltersBtn.hidden = !anyFilter;
 
         if (state.colorBy === 'sheet') {
@@ -510,6 +539,22 @@
                 timelineCtx.fill();
             }
 
+            // Diamond marker showing when the currently inspected work was composed
+            const focusIdx = activePieceIndex();
+            if (focusIdx !== null && pieces[focusIdx][0] === i && pieces[focusIdx][11] != null) {
+                const cy = rowY + TL_ROW_H / 2;
+                const cx = yearToX(pieces[focusIdx][11], layout);
+                timelineCtx.save();
+                timelineCtx.translate(cx, cy);
+                timelineCtx.rotate(Math.PI / 4);
+                timelineCtx.fillStyle = tok.gold;
+                timelineCtx.strokeStyle = tok.bg;
+                timelineCtx.lineWidth = 1.4;
+                timelineCtx.fillRect(-4, -4, 8, 8);
+                timelineCtx.strokeRect(-4, -4, 8, 8);
+                timelineCtx.restore();
+            }
+
             // Work count at right end of bar (or right margin)
             if (layout.w >= 460) {
                 timelineCtx.font = '10.5px ui-monospace, monospace';
@@ -586,20 +631,22 @@
         const xm = metricById[state.xMetric];
         const ym = metricById[state.yMetric];
 
-        const padL = ym.categorical ? 92 : 56;
+        const padL = ym.categorical ? 92 : 66;
         const padR = xm.categorical ? 22 : 20;
         const padT = 16;
         const padB = xm.categorical ? 82 : 42;
         const plotW = Math.max(80, w - padL - padR);
         const plotH = Math.max(80, h - padT - padB);
 
-        // Compute domain over ALL pieces so filtering highlights a subset in consistent coordinates.
-        const allX = pieces.map((p) => xm.get(p));
-        const allY = pieces.map((p) => ym.get(p));
+        // Compute domain over ALL dated/valid pieces so filtering highlights a subset in consistent coordinates.
+        const allX = pieces.map((p) => xm.get(p)).filter((v) => v != null);
+        const allY = pieces.map((p) => ym.get(p)).filter((v) => v != null);
         const domX = niceDomain(allX, xm.discrete);
         const domY = niceDomain(allY, ym.discrete);
         if (xm.id === 'birth') { domX.min = 1675; domX.max = 1905; }
         if (ym.id === 'birth') { domY.min = 1675; domY.max = 1905; }
+        if (xm.id === 'year') { domX.min = 1700; domX.max = 1928; }
+        if (ym.id === 'year') { domY.min = 1700; domY.max = 1928; }
         if (xm.categorical) { domX.min = -0.6; domX.max = composers.length - 0.4; }
         if (ym.categorical) { domY.min = -0.6; domY.max = composers.length - 0.4; }
 
@@ -647,12 +694,12 @@
         // Grid & ticks
         const xTicks = xm.categorical
             ? composers.map((_, ci) => ci)
-            : xm.id === 'birth'
+            : xm.id === 'birth' || xm.id === 'year'
                 ? [1700, 1750, 1800, 1850, 1900]
                 : Array.from({ length: 6 }, (_, t) => domX.min + (t / 5) * (domX.max - domX.min));
         const yTicks = ym.categorical
             ? composers.map((_, ci) => ci)
-            : ym.id === 'birth'
+            : ym.id === 'birth' || ym.id === 'year'
                 ? [1700, 1750, 1800, 1850, 1900]
                 : Array.from({ length: 6 }, (_, t) => domY.min + (t / 5) * (domY.max - domY.min));
         mapCtx.lineWidth = 1;
@@ -724,7 +771,7 @@
         }
         if (!ym.categorical) {
             mapCtx.save();
-            mapCtx.translate(14, padT + plotH / 2);
+            mapCtx.translate(10, padT + plotH / 2);
             mapCtx.rotate(-Math.PI / 2);
             mapCtx.textAlign = 'center';
             mapCtx.textBaseline = 'top';
@@ -733,9 +780,9 @@
         }
 
         const visibleSet = new Set(state.visibleIndices);
-        const filtered = state.visibleIndices.length < TOTAL;
-        const jitterX = xm.categorical ? 0.28 : xm.discrete ? 3.2 : 0;
-        const jitterY = ym.categorical ? 0.28 : ym.discrete ? 3.2 : 0;
+        const filtered = state.visibleIndices.length + state.omittedUndated < TOTAL;
+        const jitterX = xm.categorical ? 0.28 : xm.id === 'year' ? 0.65 : xm.id === 'age' ? 0.35 : xm.discrete ? 3.2 : 0;
+        const jitterY = ym.categorical ? 0.28 : ym.id === 'year' ? 0.65 : ym.id === 'age' ? 0.35 : ym.discrete ? 3.2 : 0;
 
         // Draw faint backdrop dots for filtered-out pieces so context remains visible
         if (filtered) {
@@ -743,8 +790,10 @@
             for (let i = 0; i < TOTAL; i++) {
                 if (visibleSet.has(i)) continue;
                 const p = pieces[i];
-                const sx = toSX(xm.get(p) + (jitterX ? hashJitter(i) * jitterX : 0));
-                const sy = toSY(ym.get(p) + (jitterY ? hashJitter(i + 997) * jitterY : 0));
+                const xv = xm.get(p), yv = ym.get(p);
+                if (xv == null || yv == null) continue;
+                const sx = toSX(xv + (jitterX ? hashJitter(i) * jitterX : 0));
+                const sy = toSY(yv + (jitterY ? hashJitter(i + 997) * jitterY : 0));
                 mapCtx.beginPath();
                 mapCtx.arc(sx, sy, 2.2, 0, Math.PI * 2);
                 mapCtx.fill();
@@ -758,8 +807,10 @@
         for (const i of state.visibleIndices) {
             const p = pieces[i];
             const comp = composers[p[0]];
-            const sx = toSX(xm.get(p) + (jitterX ? hashJitter(i) * jitterX : 0));
-            const sy = toSY(ym.get(p) + (jitterY ? hashJitter(i + 997) * jitterY : 0));
+            const xv = xm.get(p), yv = ym.get(p);
+            if (xv == null || yv == null) continue;
+            const sx = toSX(xv + (jitterX ? hashJitter(i) * jitterX : 0));
+            const sy = toSY(yv + (jitterY ? hashJitter(i + 997) * jitterY : 0));
             let color;
             if (state.colorBy === 'sheet') {
                 color = p[10] ? tok.sheetYes : tok.sheetNo;
@@ -780,13 +831,57 @@
         mapCtx.globalAlpha = 1;
         state.screenPoints = pts;
 
+        // Subtle smoothed trendline when plotting a numeric metric over composition year
+        if (xm.id === 'year' && !ym.categorical && state.visibleIndices.length >= 25) {
+            const samples = [];
+            let minYr = Infinity, maxYr = -Infinity;
+            for (const i of state.visibleIndices) {
+                const p = pieces[i];
+                const xv = xm.get(p), yv = ym.get(p);
+                if (xv == null || yv == null) continue;
+                samples.push([xv, yv]);
+                if (xv < minYr) minYr = xv;
+                if (xv > maxYr) maxYr = xv;
+            }
+            if (maxYr - minYr >= 25) {
+                const sigma = 15;
+                const steps = 72;
+                mapCtx.save();
+                mapCtx.strokeStyle = tok.gold;
+                mapCtx.lineWidth = 2;
+                mapCtx.globalAlpha = 0.85;
+                mapCtx.setLineDash([5, 4]);
+                mapCtx.beginPath();
+                let drawing = false;
+                for (let s = 0; s <= steps; s++) {
+                    const yr = minYr + (s / steps) * (maxYr - minYr);
+                    let wSum = 0, ySum = 0;
+                    for (const [xVal, yVal] of samples) {
+                        const d = (yr - xVal) / sigma;
+                        const wgt = Math.exp(-0.5 * d * d);
+                        wSum += wgt;
+                        ySum += wgt * yVal;
+                    }
+                    if (wSum < 1.5) { drawing = false; continue; }
+                    const sx = toSX(yr);
+                    const sy = toSY(ySum / wSum);
+                    if (!drawing) { mapCtx.moveTo(sx, sy); drawing = true; }
+                    else mapCtx.lineTo(sx, sy);
+                }
+                mapCtx.stroke();
+                mapCtx.restore();
+            }
+        }
+
         // Highlight locked and hovered points on top
         const drawCallout = (idx, locked) => {
             if (idx === null) return;
             const p = pieces[idx];
             const comp = composers[p[0]];
-            const sx = toSX(xm.get(p) + (jitterX ? hashJitter(idx) * jitterX : 0));
-            const sy = toSY(ym.get(p) + (jitterY ? hashJitter(idx + 997) * jitterY : 0));
+            const xv = xm.get(p), yv = ym.get(p);
+            if (xv == null || yv == null) return;
+            const sx = toSX(xv + (jitterX ? hashJitter(idx) * jitterX : 0));
+            const sy = toSY(yv + (jitterY ? hashJitter(idx + 997) * jitterY : 0));
 
             // Crosshair guides
             mapCtx.strokeStyle = locked ? tok.gold : tok.rule;
@@ -874,6 +969,7 @@
         mapCanvas.style.cursor = hit !== null ? 'pointer' : 'crosshair';
         if (hit !== state.hoveredPiece) {
             state.hoveredPiece = hit;
+            drawTimeline();
             drawMap();
             updateInspector();
         }
@@ -882,6 +978,7 @@
     mapCanvas.addEventListener('pointerleave', () => {
         if (state.hoveredPiece !== null) {
             state.hoveredPiece = null;
+            drawTimeline();
             drawMap();
             updateInspector();
         }
@@ -892,6 +989,7 @@
         if (hit !== null) {
             if (state.lockedPiece !== hit) stopPreview();
             state.lockedPiece = hit;
+            drawTimeline();
             drawMap();
             updateInspector();
         }
@@ -932,8 +1030,9 @@
         }
 
         inspComposerEl.href = 'composer.html?c=' + comp.id;
-        inspComposerEl.textContent = `${comp.name} (${comp.birth}–${comp.death})`;
-        inspComposerEl.title = `${comp.name} (${comp.birth}–${comp.death})`;
+        const yearStr = p[11] != null ? ` · ${p[11]} (age ${p[11] - comp.birth})` : ` (${comp.birth}–${comp.death})`;
+        inspComposerEl.textContent = comp.name + yearStr;
+        inspComposerEl.title = comp.name + yearStr;
         inspTitleEl.textContent = p[1];
         inspTitleEl.title = p[1];
         inspSubEl.textContent = p[2];
@@ -1123,12 +1222,12 @@
     xSelect.addEventListener('change', () => {
         state.xMetric = xSelect.value;
         updatePresets();
-        drawMap();
+        refreshAll();
     });
     ySelect.addEventListener('change', () => {
         state.yMetric = ySelect.value;
         updatePresets();
-        drawMap();
+        refreshAll();
     });
     colorSelect.addEventListener('change', () => {
         state.colorBy = colorSelect.value;
@@ -1162,6 +1261,7 @@
         stopPreview();
         state.lockedPiece = pick;
         state.hoveredPiece = null;
+        drawTimeline();
         drawMap();
         updateInspector();
     });

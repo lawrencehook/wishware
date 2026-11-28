@@ -111,6 +111,16 @@ const BRIEFS = require('./catalog/briefs.js');
 for (const folder of Object.keys(BRIEFS)) if (!fs.existsSync(path.join(PIECES, folder))) throw new Error('briefs.js: no piece ' + folder);
 const brief = (folder, index) => (typeof BRIEFS[folder] === 'string' ? BRIEFS[folder] : BRIEFS[folder]?.[index] ?? BRIEFS[folder]?.all);
 
+// Composition years, where catalog/years.js has them.
+const YEARS = require('./catalog/years.js');
+for (const folder of Object.keys(YEARS)) if (!fs.existsSync(path.join(PIECES, folder))) throw new Error('years.js: no piece ' + folder);
+const composedYear = (folder, index) => {
+    const entry = YEARS[folder];
+    if (typeof entry === 'number') return entry;
+    if (entry && typeof entry === 'object') return entry[index] ?? entry.all ?? null;
+    return null;
+};
+
 const composers = {};
 for (const [id, entry] of Object.entries(require('./catalog.js'))) {
     // piece.html looks its own heading up by this link, so keep the parameter order.
@@ -221,6 +231,7 @@ const atlasComposers = directory.map((d) => {
 });
 const atlasPieces = [];
 const atlasPreviews = [];
+let datedCount = 0;
 atlasComposers.forEach((comp, ci) => {
     const data = builtComposers.get(comp.id);
     const items = data.sections.flatMap((s) => s.works ?? s.pairs.flatMap((p) => p.links));
@@ -231,8 +242,15 @@ atlasComposers.forEach((comp, ci) => {
         const notes = movement(folder, m);
         const st = pieceStats(notes);
         const hasSheet = fs.existsSync(path.join(NOTATION, folder, m + '.js')) ? 1 : 0;
-        // [composerIndex, heading, sub, folder, movementIndex, durSec, density, span, meanPitch, chromaticism, hasSheet]
-        atlasPieces.push([ci, item.heading, item.sub, folder, m, st.dur, st.density, st.span, st.meanPitch, st.chromaticism, hasSheet]);
+        const year = composedYear(folder, m);
+        if (year !== null) {
+            if (year < comp.birth || year > comp.death) {
+                throw new Error(`years.js: ${folder} #${m} year ${year} outside ${comp.name} (${comp.birth}-${comp.death})`);
+            }
+            datedCount++;
+        }
+        // [composerIndex, heading, sub, folder, movementIndex, durSec, density, span, meanPitch, chromaticism, hasSheet, year]
+        atlasPieces.push([ci, item.heading, item.sub, folder, m, st.dur, st.density, st.span, st.meanPitch, st.chromaticism, hasSheet, year]);
         // Short 4-second audio preview snippet (first <=48 notes from initial onset) for offline-safe auditioning.
         const t0 = notes.length ? notes.reduce((min, n) => (n[0] < min ? n[0] : min), notes[0][0]) : 0;
         const snippet = [];
@@ -262,5 +280,5 @@ fs.writeFileSync(
         JSON.stringify(atlasPreviews) +
         ';\n'
 );
-console.log(path.relative(process.cwd(), path.join(HERE, 'composers', 'atlas.js')), Math.round(fs.statSync(path.join(HERE, 'composers', 'atlas.js')).size / 1024) + ' KB', atlasPieces.length + ' pieces');
+console.log(path.relative(process.cwd(), path.join(HERE, 'composers', 'atlas.js')), Math.round(fs.statSync(path.join(HERE, 'composers', 'atlas.js')).size / 1024) + ' KB', atlasPieces.length + ' pieces (' + datedCount + ' dated)');
 console.log(path.relative(process.cwd(), path.join(HERE, 'composers', 'previews.js')), Math.round(fs.statSync(path.join(HERE, 'composers', 'previews.js')).size / 1024) + ' KB', atlasPreviews.length + ' previews');
